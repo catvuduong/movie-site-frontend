@@ -1,0 +1,160 @@
+.myListMovie {
+    margin-top: 40px;
+    .list_content {
+        width: 60%;
+        margin: auto;
+        .list_tittle {
+            margin: auto;
+            width: 25%;
+            justify-content: space-between;
+            display: flex;
+            a {
+                text-decoration: none;
+                color: $color-white-0;
+                transition: all 0.5s;
+            }
+            .filming {
+                background-color: transparent;
+                color: $color-white-0;
+                border: none;
+                transition: all 0.5s;
+                outline: none;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+            .goingto_film {
+                background-color: transparent;
+                color: $color-white-0;
+                border: none;
+                transition: all 0.5s;
+                outline: none;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+            .active {
+                color: $color-orange-0;
+                cursor: context-menu;
+                pointer-events: none;
+            }
+            @include respond-to("over-frame") {
+                width: 40%;
+            }
+            @include respond-to("large") {
+                width: 60%;
+            }
+            @include respond-to("medium") {
+                width: 50%;
+                .filming,
+                .goingto_film {
+                    font-size: $fs-0;
+                }
+            }
+            @include respond-to("small") {
+                width: 80%;
+            }
+            @include respond-to("extra-small") {
+                width: 100%;
+                .filming,
+                .goingto_film {
+                    font-size: $fs-1;
+                }
+            }
+        }
+        .list_movie {
+            margin-top: $mg-1;
+            padding-left: $pd-1 + 5;
+            padding-right: $pd-1 + 5;
+            text-align: justify;
+            .card_movie {
+                margin-top: $mg-2 - 5;
+                max-width: 100%;
+                padding: $pd-1;
+                .card {
+                    background-color: transparent;
+                    border: none;
+                    &:hover {
+                        .card-body {
+                            .movie_play,
+                            .movie_layout {
+                                opacity: 1;
+                            }
+                            .movie_name {
+                                opacity: 0;
+                            }
+                            .btn--movie {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .movie_image {
+                        height: 340px;
+                        border-radius: 10px;
+                    }
+                    .card-body {
+                        padding: 0;
+                        .movie_name {
+                            @include text($color-white-0, $fs-0, $fw-normal);
+                            padding-top: $pd-1 - 5;
+                            text-align: center;
+                        }
+                        width: 100%;
+                        height: 100%;
+                        transition: all 0.5s;
+                        .movie_layout {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 340px;
+                            position: absolute;
+                            background: linear-gradient(
+                                to bottom,
+                                rgba(255, 255, 255, 0),
+                                rgba(255, 255, 255, 0.2),
+                                rgba(0, 0, 0, 1)
+                            );
+                            opacity: 0;
+                            transition: all 0.5s;
+                        }
+                        .movie_play {
+                            position: absolute;
+                            top: 28%;
+                            left: 38%;
+                            color: $color-white-0;
+                            background-color: transparent;
+                            padding: 20px 20px;
+                            border: 2px solid $color-white-0;
+                            border-radius: 50%;
+                            outline: none;
+                            opacity: 0;
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .slick-slider {
+                .slick-next {
+                    right: -70px;
+                }
+                .slick-prev {
+                    left: -70px;
+                }
+                .slick-next:before {
+                    content: "next";
+                    font-family: "swiper-icons";
+                    font-size: 45px;
+                    color: gray;
+                }
+                .slick-prev:before {
+                    content: "prev";
+                    font-family: "swiper-icons";
+                    font-size: 45px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}

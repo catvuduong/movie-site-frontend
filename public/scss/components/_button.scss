@@ -1,0 +1,25 @@
+.btn--signIn {
+    @include button($color-gray-4, $color-gray-2, transparent, $fw-normal);
+    font-size: $fs-1;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+    border-radius: 0;
+}
+.btn--signUp {
+    @include button($color-gray-4, $color-gray-2, transparent, $fw-normal);
+    font-size: $fs-1;
+    border: none;
+}
+.btn--movie {
+    @include button($color-white-0, none, #ab1a03, $fw-normal);
+    position: absolute;
+    width: 100%;
+    top: 335px;
+    left: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    opacity: 0;
+    transition: all 0.5s;
+    border-radius: 5px;
+}

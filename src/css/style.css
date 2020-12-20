@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 20px;
+  background-color: black; }
+
+.myNavbar {
+  position: relative;
+  background-color: white; }
+  .myNavbar .navbar_login {
+    display: flex;
+    position: absolute;
+    right: 3%; }
+    .myNavbar .navbar_login .navbar_signIn .btn--signIn {
+      box-shadow: none; }
+    .myNavbar .navbar_login .navbar_signIn .btn--signIn,
+    .myNavbar .navbar_login .navbar_signIn .fa-user {
+      color: gray;
+      transition: all 0.5s; }
+    .myNavbar .navbar_login .navbar_signIn:hover .btn--signIn,
+    .myNavbar .navbar_login .navbar_signIn:hover .fa-user {
+      color: black; }
+    .myNavbar .navbar_login .narbar_signUp .btn--signUp {
+      box-shadow: none; }
+    .myNavbar .navbar_login .narbar_signUp .fa-map-marker-alt {
+      margin-left: 12px; }
+    .myNavbar .navbar_login .narbar_signUp .btn--signUp,
+    .myNavbar .navbar_login .narbar_signUp .fa-map-marker-alt {
+      color: gray;
+      transition: all 0.5s; }
+    .myNavbar .navbar_login .narbar_signUp:hover .btn--signUp,
+    .myNavbar .navbar_login .narbar_signUp:hover .fa-map-marker-alt {
+      color: black; }
+  @media screen and (max-width: 992px) {
+    .myNavbar .navbar_login {
+      right: 1%; } }
+  .myNavbar .navbar_contain {
+    width: 100%; }
+    .myNavbar .navbar_contain .navbar_content {
+      margin: auto;
+      width: 60%;
+      justify-content: space-around; }
+      .myNavbar .navbar_contain .navbar_content .navbar-nav .nav-item a {
+        color: #29303b;
+        font-size: 13px;
+        font-weight: bold;
+        transition: all 0.5s;
+        padding: 10px 15px; }
+        .myNavbar .navbar_contain .navbar_content .navbar-nav .nav-item a:hover {
+          color: #ec5252; }
+  @media screen and (max-width: 767px) {
+    .myNavbar .container {
+      max-width: 100%;
+      display: flex;
+      align-items: baseline; }
+      .myNavbar .container .navbar_contain {
+        text-align: left;
+        width: 20%; }
+        .myNavbar .container .navbar_contain .navbar_content {
+          margin: 0; }
+          .myNavbar .container .navbar_contain .navbar_content .navbar-nav {
+            text-align: left; }
+            .myNavbar .container .navbar_contain .navbar_content .navbar-nav .nav-item .nav-link {
+              padding: 10px 0;
+              padding-bottom: 5px; }
+      .myNavbar .container .navbar_login {
+        position: unset; } }
+  @media screen and (max-width: 576px) {
+    .myNavbar .container .navbar_contain {
+      width: 35%; } }
+  @media screen and (max-width: 368px) {
+    .myNavbar .container .navbar_contain {
+      width: 50%; } }
+
+.myCarousel .carousel_item {
+  position: relative;
+  cursor: pointer; }
+  .myCarousel .carousel_item:hover span {
+    display: block; }
+  .myCarousel .carousel_item img {
+    width: 100%; }
+  .myCarousel .carousel_item span {
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    color: #a1a7b3;
+    border: 3px solid #a1a7b3;
+    padding: 30px;
+    font-size: 24px;
+    border-radius: 50px;
+    display: none;
+    transition: all 0.5s;
+    cursor: pointer; }
+    .myCarousel .carousel_item span:hover {
+      color: #fff;
+      border: 3px solid #fff; }
+.myCarousel .swiper-container .swiper-button-next {
+  right: 15px;
+  color: gray; }
+.myCarousel .swiper-container .swiper-button-prev {
+  left: 15px;
+  color: gray; }
+.myCarousel .swiper-container .swiper-pagination {
+  bottom: 40px; }
+  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: red; }
+  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px; }
+
+.myListMovie {
+  margin-top: 40px; }
+  .myListMovie .list_content {
+    width: 60%;
+    margin: auto; }
+    .myListMovie .list_content .list_tittle {
+      margin: auto;
+      width: 25%;
+      justify-content: space-between;
+      display: flex; }
+      .myListMovie .list_content .list_tittle a {
+        text-decoration: none;
+        color: #fff;
+        transition: all 0.5s; }
+      .myListMovie .list_content .list_tittle .filming {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        transition: all 0.5s;
+        outline: none; }
+        .myListMovie .list_content .list_tittle .filming:hover {
+          transform: scale(1.3); }
+      .myListMovie .list_content .list_tittle .goingto_film {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        transition: all 0.5s;
+        outline: none; }
+        .myListMovie .list_content .list_tittle .goingto_film:hover {
+          transform: scale(1.3); }
+      .myListMovie .list_content .list_tittle .active {
+        color: #ff4500;
+        cursor: context-menu;
+        pointer-events: none; }
+      @media screen and (max-width: 1600px) {
+        .myListMovie .list_content .list_tittle {
+          width: 40%; } }
+      @media screen and (max-width: 992px) {
+        .myListMovie .list_content .list_tittle {
+          width: 60%; } }
+      @media screen and (max-width: 767px) {
+        .myListMovie .list_content .list_tittle {
+          width: 50%; }
+          .myListMovie .list_content .list_tittle .filming,
+          .myListMovie .list_content .list_tittle .goingto_film {
+            font-size: 15px; } }
+      @media screen and (max-width: 576px) {
+        .myListMovie .list_content .list_tittle {
+          width: 80%; } }
+      @media screen and (max-width: 368px) {
+        .myListMovie .list_content .list_tittle {
+          width: 100%; }
+          .myListMovie .list_content .list_tittle .filming,
+          .myListMovie .list_content .list_tittle .goingto_film {
+            font-size: 13px; } }
+    .myListMovie .list_content .list_movie {
+      margin-top: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: justify; }
+      .myListMovie .list_content .list_movie .card_movie {
+        margin-top: 20px;
+        max-width: 100%;
+        padding: 10px; }
+        .myListMovie .list_content .list_movie .card_movie .card {
+          background-color: transparent;
+          border: none; }
+          .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_play,
+          .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_layout {
+            opacity: 1; }
+          .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_name {
+            opacity: 0; }
+          .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .btn--movie {
+            opacity: 1; }
+          .myListMovie .list_content .list_movie .card_movie .card .movie_image {
+            height: 340px;
+            border-radius: 10px; }
+          .myListMovie .list_content .list_movie .card_movie .card .card-body {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s; }
+            .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_name {
+              color: #fff;
+              font-size: 15px;
+              font-weight: normal;
+              padding-top: 5px;
+              text-align: center; }
+            .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_layout {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 340px;
+              position: absolute;
+              background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), black);
+              opacity: 0;
+              transition: all 0.5s; }
+            .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_play {
+              position: absolute;
+              top: 28%;
+              left: 38%;
+              color: #fff;
+              background-color: transparent;
+              padding: 20px 20px;
+              border: 2px solid #fff;
+              border-radius: 50%;
+              outline: none;
+              opacity: 0;
+              transition: all 0.5s; }
+      .myListMovie .list_content .list_movie .slick-slider .slick-next {
+        right: -70px; }
+      .myListMovie .list_content .list_movie .slick-slider .slick-prev {
+        left: -70px; }
+      .myListMovie .list_content .list_movie .slick-slider .slick-next:before {
+        content: "next";
+        font-family: "swiper-icons";
+        font-size: 45px;
+        color: gray; }
+      .myListMovie .list_content .list_movie .slick-slider .slick-prev:before {
+        content: "prev";
+        font-family: "swiper-icons";
+        font-size: 45px;
+        color: gray; }
+
+.myMovieModal .modal-dialog {
+  max-width: 1000px;
+  margin: auto; }
+.myMovieModal .modal-content {
+  width: 100%;
+  height: 600px;
+  background-color: transparent;
+  display: inline;
+  border: none; }
+  .myMovieModal .modal-content button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    border: 3px solid;
+    border-color: white;
+    padding: 6px 10px;
+    border-radius: 50%;
+    opacity: 1;
+    outline: none; }
+    .myMovieModal .modal-content button span {
+      color: white; }
+  .myMovieModal .modal-content iframe {
+    width: 100%;
+    height: 100%; }
+
+.btn--signIn {
+  color: #686f7a;
+  background-color: transparent;
+  font-weight: normal;
+  border: 1px solid #a1a7b3;
+  font-size: 13px;
+  border-left: none;
+  border-bottom: none;
+  border-top: none;
+  border-radius: 0; }
+  .btn--signIn:hover {
+    color: #686f7a; }
+
+.btn--signUp {
+  color: #686f7a;
+  background-color: transparent;
+  font-weight: normal;
+  border: 1px solid #a1a7b3;
+  font-size: 13px;
+  border: none; }
+  .btn--signUp:hover {
+    color: #686f7a; }
+
+.btn--movie {
+  color: #fff;
+  background-color: #ab1a03;
+  font-weight: normal;
+  border: 1px solid none;
+  position: absolute;
+  width: 100%;
+  top: 335px;
+  left: 0;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  opacity: 0;
+  transition: all 0.5s;
+  border-radius: 5px; }
+  .btn--movie:hover {
+    color: #fff; }
+
+/*# sourceMappingURL=style.css.map */

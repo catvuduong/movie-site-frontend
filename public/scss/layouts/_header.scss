@@ -1,0 +1,109 @@
+.myNavbar {
+    position: relative;
+    background-color: white;
+    .navbar_login {
+        display: flex;
+        position: absolute;
+        right: 3%;
+        .navbar_signIn {
+            .btn--signIn {
+                box-shadow: none;
+            }
+            .btn--signIn,
+            .fa-user {
+                color: gray;
+                transition: all 0.5s;
+            }
+            &:hover {
+                .btn--signIn,
+                .fa-user {
+                    color: black;
+                }
+            }
+        }
+        .narbar_signUp {
+            .btn--signUp {
+                box-shadow: none;
+            }
+            .fa-map-marker-alt {
+                margin-left: 12px;
+            }
+            .btn--signUp,
+            .fa-map-marker-alt {
+                color: gray;
+                transition: all 0.5s;
+            }
+            &:hover {
+                .btn--signUp,
+                .fa-map-marker-alt {
+                    color: black;
+                }
+            }
+        }
+    }
+    @include respond-to("large") {
+        .navbar_login {
+            right: 1%;
+        }
+    }
+    .navbar_contain {
+        width: 100%;
+        .navbar_content {
+            margin: auto;
+            width: 60%;
+            justify-content: space-around;
+            .navbar-nav {
+                .nav-item {
+                    a {
+                        @include text($color-black-0, $fs-1, $fw-bold);
+                        transition: all 0.5s;
+                        padding: $pd-1 $pd-1 + 5;
+                        &:hover {
+                            color: $color-red-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("medium") {
+        .container {
+            max-width: 100%;
+            display: flex;
+            align-items: baseline;
+            .navbar_contain {
+                text-align: left;
+                width: 20%;
+                .navbar_content {
+                    margin: 0;
+                    .navbar-nav {
+                        text-align: left;
+                        .nav-item {
+                            .nav-link {
+                                padding: 10px 0;
+                                padding-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .navbar_login {
+                position: unset;
+            }
+        }
+    }
+    @include respond-to("small") {
+        .container {
+            .navbar_contain {
+                width: 35%;
+            }
+        }
+    }
+    @include respond-to("extra-small") {
+        .container {
+            .navbar_contain {
+                width: 50%;
+            }
+        }
+    }
+}
