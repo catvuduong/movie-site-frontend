@@ -1,0 +1,40 @@
+.myDashboard {
+    .dashboard_title {
+        text-align: center;
+        @include text($color-black-0 !important, $fs-3 !important, $fw-bold);
+    }
+    .dashboard_sidebar {
+        .dashboard_item {
+            button {
+                @include text($color-black-0 t, 15px, $fw-bold);
+                position: relative;
+                i {
+                    @include text($color-black-0 t, 15px, $fw-bold);
+                    z-index: 1;
+                    position: absolute;
+                    top: 25%;
+                    right: 20%;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            .dashboard_getlist {
+                @include text($color-black-0, $fs-1, $fw-bold);
+                padding-left: 50px;
+                padding-bottom: 20px;
+                padding-top: 20px;
+                transition: all 0.5s;
+                cursor: pointer;
+
+                &:hover {
+                    background: greenyellow;
+                    color: white;
+                }
+                button {
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}

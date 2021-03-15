@@ -1,8 +1,9 @@
 .myListMovie {
     margin-top: 40px;
+    margin-bottom: $mg-1;
+    width: 60%;
+    margin: auto;
     .list_content {
-        width: 60%;
-        margin: auto;
         .list_tittle {
             margin: auto;
             width: 25%;
@@ -156,5 +157,8 @@
                 }
             }
         }
+    }
+    .list_layout {
+        height: 50px;
     }
 }

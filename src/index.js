@@ -6,10 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'popper.js/dist/esm/popper.min.js';
 import 'jquery/dist/jquery.min.js';
+// import 'jquery/dist/jquery.slim.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'swiper/css/swiper.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import './css/dash-board.css';
+import "./css/simple-sidebar.css";
 
 import './css/style.css';
 

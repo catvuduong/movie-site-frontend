@@ -1,5 +1,6 @@
 import Home from './pages/home/home';
 import ListMovie from './components/home/list-movie';
+import DashBoard from './pages/admin/dash-board';
 // import DetailMovie from './pages/home/detail-movie';
 
 const routeHome = [
@@ -19,5 +20,12 @@ const routeHome = [
     //     component: DetailMovie,
     // }
 ];
+const routeAdmin = [
+    {
+        path: '/dash-board',
+        exact: false,
+        component: DashBoard,
+    }
+]
 
-export { routeHome };
+export { routeHome, routeAdmin };

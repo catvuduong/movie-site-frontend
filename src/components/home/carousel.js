@@ -19,7 +19,7 @@ class Carousel extends Component {
             loop: true,
         }
         return (
-            <div className="myCarousel">
+            <section className="myCarousel">
                 <Swiper {...params}>
                     <div className="carousel_item">
                         <img src="./images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
@@ -52,7 +52,7 @@ class Carousel extends Component {
                             data-toggle="modal" data-target="#exampleModalCenter"></span>
                     </div>
                 </Swiper>
-            </div >
+            </section >
         )
     }
 }
