@@ -1,7 +1,7 @@
 import * as ActionType from './../constants/action-type';
 import axios from 'axios';
 
-export const actGetListMovieAPI = data => {
+export const actGetListMoviesAPI = data => {
     // OBJECT - ACTION
     // return {
     //     type: ActionType.GET_LIST_MOVIE,
@@ -16,8 +16,8 @@ export const actGetListMovieAPI = data => {
         });
         // console.log(result);
         dispatch({
-            type: ActionType.GET_LIST_MOVIE,
-            listMovie: result.data
+            type: ActionType.GET_LIST_MOVIES,
+            listMovies: result.data
         })
     };
 };

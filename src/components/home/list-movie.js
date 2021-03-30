@@ -50,24 +50,24 @@ class ListMovie extends Component {
         }
     }
     async componentDidMount() {
-        await this.props.getListMovie();
+        await this.props.getListMovies();
         this.setState({
-            movies: this.props.listMovie
+            movies: this.props.listMovies
         });
     }
 
     handleFilming = () => {
         this.setState({
-            movies: this.props.listMovie,
+            movies: this.props.listMovies,
             filmingClicked: true,
             goingFilmClicked: false,
         });
     }
 
     handleGoingFilm = () => {
-        let litMovie = (this.props.listMovie).slice(4);
+        let listMovies = (this.props.listMovies).slice(4);
         this.setState({
-            movies: litMovie,
+            movies: listMovies,
             filmingClicked: false,
             goingFilmClicked: true,
         });
@@ -144,14 +144,14 @@ class ListMovie extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listMovie: state.movieReducer.listMovie,
+        listMovies: state.movieReducer.listMovies,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getListMovie: async () => {
-            await dispatch(action.actGetListMovieAPI());
+        getListMovies: async () => {
+            await dispatch(action.actGetListMoviesAPI());
         },
     };
 };

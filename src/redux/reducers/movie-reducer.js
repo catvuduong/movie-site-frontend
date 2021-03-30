@@ -1,22 +1,17 @@
 import * as Actiontype from './../constants/action-type';
 
 let initialState = {
-    listMovie: [],
+    listMovies: [],
     movie: {},
     linkMovie: "",
 }
 
 const movieReducer = (state = initialState, action) => {
     switch (action.type) {
-        case Actiontype.GET_LIST_MOVIE: {
-            state.listMovie = action.listMovie;
+        case Actiontype.GET_LIST_MOVIES: {
+            state.listMovies = action.listMovies;
             return { ...state };
         }
-        case Actiontype.GET_LIST_CAROUSELMOVIE: {
-
-            return { ...state };
-        }
-
         case Actiontype.GET_LINK_MOVIE: {
             state.linkMovie = action.linkMovie;
             return { ...state }
