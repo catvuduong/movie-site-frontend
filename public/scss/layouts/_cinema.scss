@@ -15,21 +15,46 @@
                 height: 50px;
             }
         }
-        .theater_image {
-            display: inline-block;
-        }
-        .theater_title {
-            display: inline-block;
-        }
     }
-    .theater_line {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid silver;
-        img {
-            width: 50px;
-            height: 50px;
+    .theater_logo {
+        .item_line {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid silver;
+            .theater_line {
+                margin-left: 0;
+                margin-right: 0;
+                .theater_image {
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                    padding: 0;
+                    line-height: 3;
+                }
+                .theater_name {
+                    height: 75px;
+                    line-height: 1;
+                    text-align: left;
+                    padding-left: 15px;
+                    span {
+                        @include text($color-white-0, $fs-0, $fw-normal);
+                    }
+                    span:first-child {
+                        color: #8bc541;
+                    }
+                    .theater_address {
+                        @include text($color-gray-4, $fs-1, $fw-normal);
+                        padding-top: 6px;
+                    }
+                    .theater_detail {
+                        @include text($color-red-0, $fs-1, $fw-normal);
+                    }
+                }
+            }
+            .movie_line {
+                text-align: left;
+            }
         }
     }
 }

@@ -44,34 +44,38 @@ class Cinema extends Component {
                             ))
                         }
                     </div>
-                    <div className="col-4 cinema_logo cinema_line">
+                    <div className="col-4 theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
-                                <div className="row" key={index}>
-                                    <div className="col-4 theater_line">
-                                        <img className="" src={"https://localhost:5001" + item.image} alt="" />
-                                    </div>
-                                    <div className="col-8">
-                                        <div><span>{item.branch.name}</span> - {item.name}</div>
-                                        <div>{item.address}</div>
-                                        <a href="#myMovie">[chi tiết]</a>
+                                <div className="item_line">
+                                    <div className="row theater_line" key={index}>
+                                        <div className="col-2 theater_image">
+                                            <img className="" src={"https://localhost:5001" + item.image} alt="" />
+                                        </div>
+                                        <div className="col-10 theater_name">
+                                            <div><span>{item.branch.name}</span> - <span>{item.name}</span></div>
+                                            <div className="theater_address">{item.address}</div>
+                                            <span className="theater_detail">[chi tiết]</span>
+                                        </div>
                                     </div>
                                 </div>
                             ))
                         }
                     </div>
-                    <div className="col-7 cinema_line">
+                    <div className="col-7 cinema_logo cinema_line">
                         {
                             this.state.movies.map((item, index) => (
-                                <div className="row" key={index}>
-                                    <div className="col-4 theater_line">
-                                        <img className="" src={item.thumbnail} alt="" />
-                                    </div>
-                                    <div className="col-8">
-                                        <div>{item.name}</div>
-                                        <div>100 phút</div>
-                                        <div>Rate: {item.rate}</div>
-                                        <a href="#myMovie">[chi tiết]</a>
+                                <div className="item_line">
+                                    <div className="row movie_line" key={index}>
+                                        <div className="col-2 movie_image">
+                                            <img className="" src={item.thumbnail} alt="" />
+                                        </div>
+                                        <div className="col-10">
+                                            <div>{item.name}</div>
+                                            <div>100 phút</div>
+                                            <div>Rate: {item.rate}</div>
+                                            <a href="#myMovie">[chi tiết]</a>
+                                        </div>
                                     </div>
                                 </div>
                             ))
