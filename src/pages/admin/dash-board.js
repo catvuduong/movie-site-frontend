@@ -3,6 +3,7 @@ import Collapse from 'react-bootstrap/Collapse'
 import MovieManagement from '../../components/admin/movie-management';
 import UserManagement from '../../components/admin/user-management';
 import BranchManagement from '../../components/admin/branch-management';
+import TheaterManagement from '../../components/admin/theater-management';
 
 
 
@@ -12,7 +13,7 @@ export default class DashBoard extends Component {
         super(props);
         this.state = {
             toggleClicked: false,
-            component: BranchManagement,
+            component: TheaterManagement,
             openTheaterCollapse: false,
             openMovieCollapse: false,
             openUserCollapse: false,
@@ -24,19 +25,23 @@ export default class DashBoard extends Component {
             toggleClicked: !this.state.toggleClicked
         })
     }
-    handleComponent = Component => {
+    handleComponent = component => {
         this.setState({
-            component: Component
+            component
         })
+    }
+    checkOpenCollapse = collapse => {
+        if (collapse) {
+            return "down"
+        }
+        return "right"
     }
 
     renderHTML = Component => (<Component></Component>)
 
     render() {
-        let toggleClass = this.state.toggleClicked ? "toggled" : "";
-        let toggleArrowTheater = this.state.openTheaterCollapse ? "down" : "right";
-        let toggleArrowMovie = this.state.openMovieCollapse ? "down" : "right";
-        let toggleArrorUser = this.state.openUserCollapse ? "down" : "right";
+        let { openBranchCollapse, openTheaterCollapse, openMovieCollapse, openUserCollapse, toggleClicked, component } = this.state;
+        let toggleClass = toggleClicked ? "toggled" : "";
         return (
             <div className="myDashboard text-left">
                 <div className={`d-flex ${toggleClass}`} id="wrapper">
@@ -46,13 +51,13 @@ export default class DashBoard extends Component {
                         </div>
                         <div className="list-group list-group-flush dashboard_sidebar">
                             <div className="dashboard_item">
-                                <button className="list-group-item list-group-item-action bg-light " aria-controls="theater-collapse"
-                                    aria-expanded={this.state.openTheaterCollapse}
-                                    onClick={() => this.setState({ openTheaterCollapse: !this.state.openTheaterCollapse })}>Branch
-                                         <i className={`fa fa-caret-${toggleArrowTheater} ml-5`}></i>
+                                <button className="list-group-item list-group-item-action bg-light " aria-controls="branch-collapse"
+                                    aria-expanded={openBranchCollapse}
+                                    onClick={() => this.setState({ openBranchCollapse: !openBranchCollapse })}>Branch
+                                         <i className={`fa fa-caret-${this.checkOpenCollapse(openBranchCollapse)} ml-5`}></i>
                                 </button>
-                                <Collapse in={this.state.openTheaterCollapse}>
-                                    <div id="theater-collapse" onClick={() => { this.handleComponent(BranchManagement) }}>
+                                <Collapse in={openBranchCollapse}>
+                                    <div id="branch-collapse" onClick={() => { this.handleComponent(BranchManagement) }}>
                                         <div className="dashboard_getlist">
                                             GET BRANCH LIST
                                         </div>
@@ -60,12 +65,26 @@ export default class DashBoard extends Component {
                                 </Collapse>
                             </div>
                             <div className="dashboard_item">
-                                <button className="list-group-item list-group-item-action bg-light " aria-controls="movie-collapse"
-                                    aria-expanded={this.state.openMovieCollapse}
-                                    onClick={() => this.setState({ openMovieCollapse: !this.state.openMovieCollapse })}>Movie
-                                         <i className={`fa fa-caret-${toggleArrowMovie} ml-5`}></i>
+                                <button className="list-group-item list-group-item-action bg-light " aria-controls="theater-collapse"
+                                    aria-expanded={openTheaterCollapse}
+                                    onClick={() => this.setState({ openTheaterCollapse: !openTheaterCollapse })}>Theater
+                                         <i className={`fa fa-caret-${this.checkOpenCollapse(openTheaterCollapse)} ml-5`}></i>
                                 </button>
-                                <Collapse in={this.state.openMovieCollapse}>
+                                <Collapse in={openTheaterCollapse}>
+                                    <div id="branch-theater" onClick={() => { this.handleComponent(TheaterManagement) }}>
+                                        <div className="dashboard_getlist">
+                                            GET THEATER LIST
+                                        </div>
+                                    </div>
+                                </Collapse>
+                            </div>
+                            <div className="dashboard_item">
+                                <button className="list-group-item list-group-item-action bg-light " aria-controls="movie-collapse"
+                                    aria-expanded={openMovieCollapse}
+                                    onClick={() => this.setState({ openMovieCollapse: !openMovieCollapse })}>Movie
+                                         <i className={`fa fa-caret-${this.checkOpenCollapse(openMovieCollapse)} ml-5`}></i>
+                                </button>
+                                <Collapse in={openMovieCollapse}>
                                     <div id="movie-collapse">
                                         <div className="dashboard_getlist" onClick={() => { this.handleComponent(MovieManagement) }}>GET LIST MOVIE</div>
                                     </div>
@@ -73,11 +92,11 @@ export default class DashBoard extends Component {
                             </div>
                             <div className="dashboard_item">
                                 <button className="list-group-item list-group-item-action bg-light dashboard_item" aria-controls="user-collapse"
-                                    aria-expanded={this.state.openUserCollapse}
-                                    onClick={() => this.setState({ openUserCollapse: !this.state.openUserCollapse })}>User
-                                   <i className={`fa fa-caret-${toggleArrorUser} ml-5`}></i>
+                                    aria-expanded={openUserCollapse}
+                                    onClick={() => this.setState({ openUserCollapse: !openUserCollapse })}>User
+                                   <i className={`fa fa-caret-${this.checkOpenCollapse(openUserCollapse)} ml-5`}></i>
                                 </button>
-                                <Collapse in={this.state.openUserCollapse}>
+                                <Collapse in={openUserCollapse}>
                                     <div id="user-collapse">
                                         <div className="dashboard_getlist" onClick={() => { this.handleComponent(UserManagement) }}>GET LIST USER</div>
                                     </div>
@@ -95,11 +114,11 @@ export default class DashBoard extends Component {
                             </div>
                         </nav>
                         <div className="container-fluid">
-                            {this.renderHTML(this.state.component)}
+                            {this.renderHTML(component)}
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

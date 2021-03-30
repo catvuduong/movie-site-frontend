@@ -1,13 +1,13 @@
 import * as Actiontype from './../constants/action-type';
 
 let initialState = {
-    litsBranches: [],
+    listBranches: [],
 }
 
 const branchReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actiontype.GET_LIST_BRANCHES: {
-            state.litsBranches = action.litsBranches;
+            state.listBranches = action.listBranches;
             return { ...state };
         }
         default:

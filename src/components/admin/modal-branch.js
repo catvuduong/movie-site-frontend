@@ -6,7 +6,7 @@ class ModalBranch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            branch: {
+            object: {
                 name: "",
                 image: ""
             },
@@ -14,18 +14,18 @@ class ModalBranch extends Component {
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
-        if (nextProps && nextProps.branchEdit) {
+        if (nextProps && nextProps.objectEdit) {
             this.setState({
-                branch: {
-                    id: nextProps.branchEdit.id,
-                    name: nextProps.branchEdit.name,
-                    image: nextProps.branchEdit.image,
+                object: {
+                    id: nextProps.objectEdit.id,
+                    name: nextProps.objectEdit.name,
+                    image: nextProps.objectEdit.image,
                 }
             });
         }
         else {
             this.setState({
-                branch: {
+                object: {
                     name: "",
                     image: "",
                 }
@@ -37,18 +37,18 @@ class ModalBranch extends Component {
     handleOnChange = event => {
         let { name, value } = event.target;
         this.setState({
-            branch: {
-                ...this.state.branch, [name]: value
+            object: {
+                ...this.state.object, [name]: value
             }
         });
     }
     handleSubmit = e => {
         e.preventDefault();
-        this.props.actionBranch(this.state.branch, this.props.type);
+        this.props.actionBranch(this.state.object, this.props.type);
     }
 
     handleDelete = () => {
-        this.props.actionBranch(this.state.branch, this.props.type)
+        this.props.actionBranch(this.state.object, this.props.type)
     }
     render() {
         return (
@@ -64,7 +64,7 @@ class ModalBranch extends Component {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content text-right">
                             <div className="modal-header">
-                                <h5 className="modal-title">{this.props.branchEdit ? "EDIT BRANCH" : "ADD BRANCH"}</h5>
+                                <h5 className="modal-title">{this.props.objectEdit ? "EDIT BRANCH" : "ADD BRANCH"}</h5>
                                 <button
                                     type="button"
                                     className="close"
@@ -79,15 +79,15 @@ class ModalBranch extends Component {
                                     <div className="text-left">
                                         <div className="form-group">
                                             <label>Name</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="name" value={this.state.branch.name} />
+                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="name" value={this.state.object.name} />
                                         </div>
                                         <div className="form-group">
                                             <label>Image</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="image" value={this.state.branch.image} />
+                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="image" value={this.state.object.image} />
                                         </div>
                                     </div>
                                     <button type="submit" className="btn btn-success">
-                                        {this.props.branchEdit ? "Update" : "Submit"}
+                                        {this.props.objectEdit ? "Update" : "Submit"}
                                     </button>
                                 </form>
                             </div>
@@ -113,7 +113,6 @@ class ModalBranch extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }
@@ -121,8 +120,8 @@ class ModalBranch extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        actionBranch: (branch, type) => {
-            dispatch(action.actBranchManagement(branch, type));
+        actionBranch: (ojbect, type) => {
+            dispatch(action.actBranchManagement(ojbect, type));
         }
     }
 }

@@ -8,7 +8,7 @@ class BranchManagement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            branchEdit: null,
+            objectEdit: null,
             type: "",
         }
     }
@@ -27,11 +27,11 @@ class BranchManagement extends Component {
                     <td>
                         <button className="btn btn-success btn--edit" data-toggle="modal"
                             data-target="#branchInfoModal" onClick={() => {
-                                this.setState({ branchEdit: item, type: "edit" })
+                                this.setState({ objectEdit: item, type: "edit" })
                             }}>Edit</button>
                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                             data-target="#submitDeleteModal" onClick={() => {
-                                this.setState({ branchEdit: item, type: "delete" })
+                                this.setState({ objectEdit: item, type: "delete" })
                             }}>Delete</button>
                     </td>
                 </tr >
@@ -39,12 +39,12 @@ class BranchManagement extends Component {
         })
     }
     render() {
-        let { litsBranches } = this.props
+        let { listBranches } = this.props
         return (
             <div className="myBranch text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#branchInfoModal" onClick={() => {
-                        this.setState({ branchEdit: null })
+                        this.setState({ objectEdit: null })
                     }} >Add Branch</button>
                 <h3 className="my-3">LIST OF BRANCH</h3>
                 <table className="table">
@@ -57,10 +57,10 @@ class BranchManagement extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.renderListBranches(litsBranches)}
+                        {this.renderListBranches(listBranches)}
                     </tbody>
                 </table>
-                <ModalBranch branchEdit={this.state.branchEdit} type={this.state.type}></ModalBranch>
+                <ModalBranch objectEdit={this.state.objectEdit} type={this.state.type}></ModalBranch>
             </div>
         )
     }
@@ -75,7 +75,7 @@ const mapDispatchToProps = dispatch => {
 }
 const mapStateToProps = state => {
     return {
-        litsBranches: state.branchReducer.litsBranches,
+        listBranches: state.branchReducer.listBranches,
     }
 }
 

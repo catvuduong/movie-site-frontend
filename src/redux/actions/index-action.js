@@ -21,6 +21,7 @@ export const actGetListMovieAPI = data => {
         })
     };
 };
+
 export const actGetListBranchesAPI = () => {
     return async dispatch => {
         let result = await axios({
@@ -29,8 +30,23 @@ export const actGetListBranchesAPI = () => {
         })
         dispatch({
             type: ActionType.GET_LIST_BRANCHES,
-            litsBranches: result.data
+            listBranches: result.data
         })
+    }
+}
+
+
+export const actGetListTheatersAPI = () => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: "https://localhost:5001/theaters/get-list"
+        })
+        dispatch({
+            type: ActionType.GET_LIST_THEATERS,
+            listTheaters: result.data
+        })
+        // console.log("theater");
     }
 }
 
@@ -59,7 +75,6 @@ export const actBranchManagement = (branch, type) => {
     return async () => {
         try {
             if (branch.id) {
-
                 switch (type) {
                     case "edit": {
                         await axios.put(`https://localhost:5001/branches/update/${branch.id}`, branch);
@@ -82,7 +97,38 @@ export const actBranchManagement = (branch, type) => {
             // Handle Error Here
             console.error(err);
         }
-        window.location.reload();
+        // window.location.reload();
+    }
+}
+
+export const actTheaterManagement = (theater, type) => {
+    console.log(theater, type);
+    return async () => {
+        try {
+            if (theater.id) {
+                switch (type) {
+                    case "edit": {
+                        await axios.put(`https://localhost:5001/theaters/update/${theater.id}`, theater);
+                        // alert("Update success");
+                        break;
+                    }
+                    case "delete": {
+                        await axios.delete(`https://localhost:5001/theaters/delete/${theater.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                await axios.post('https://localhost:5001/theaters/create', theater);
+                alert("Add success");
+            }
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+        // window.location.reload();
     }
 }
 

@@ -29,6 +29,14 @@ const showMenuAdmin = routes => {
 }
 
 function App() {
+
+  // useEffect(() => {
+  //   // TODO: check token from localStorage
+  //   // true -> do nothing
+  //   // false -> delete token localStorage + redirect page to admin / 404 / Unauthorized
+    
+  // }, [input])
+
   return (
     <BrowserRouter>
       <div className="App">

@@ -15,5 +15,21 @@
                 height: 50px;
             }
         }
+        .theater_image {
+            display: inline-block;
+        }
+        .theater_title {
+            display: inline-block;
+        }
+    }
+    .theater_line {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid silver;
+        img {
+            width: 50px;
+            height: 50px;
+        }
     }
 }

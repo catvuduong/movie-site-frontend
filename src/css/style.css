@@ -276,6 +276,18 @@ body {
     .myCinema .cinema_logo .item_line img {
       width: 50px;
       height: 50px; }
+  .myCinema .cinema_logo .theater_image {
+    display: inline-block; }
+  .myCinema .cinema_logo .theater_title {
+    display: inline-block; }
+  .myCinema .theater_line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver; }
+    .myCinema .theater_line img {
+      width: 50px;
+      height: 50px; }
 
 .myDashboard .dashboard_title {
   text-align: center;

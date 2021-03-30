@@ -8,19 +8,23 @@ const AdminLayout = props => {
         </Fragment>
     )
 }
-
 export default function AdminTemplate({ Component, ...props }) {
     return (
-        <Route {...props} render={propsComponent => {
-            if (localStorage.getItem('Admin')) {
-                return (
-                    <AdminLayout>
-                        <Component {...propsComponent} />
-                    </AdminLayout>
-                )
-            } else {
-                return <Redirect to="/admin"></Redirect>
-            }
-        }} />
+        <Route
+            {...props}
+            render={(propsComponent) => {
+                if (localStorage.getItem("Admin")) {
+                    return (
+                        <AdminLayout>
+                            <Component {...propsComponent}>
+                            </Component>
+                        </AdminLayout>
+                    )
+                } else {
+                    return <Redirect to="/admin"></Redirect>
+                }
+            }}
+        >
+        </Route>
     )
 }
