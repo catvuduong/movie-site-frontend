@@ -47,8 +47,8 @@ class Cinema extends Component {
                     <div className="col-4 theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
-                                <div className="item_line">
-                                    <div className="row theater_line" key={index}>
+                                <div className="item_line" key={index}>
+                                    <div className="row theater_line" >
                                         <div className="col-2 theater_image">
                                             <img className="" src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
@@ -65,13 +65,13 @@ class Cinema extends Component {
                     <div className="col-7 movie_logo cinema_line">
                         {
                             this.state.movies.map((item, index) => (
-                                <div className="item_line">
-                                    <div className="row movie_line" key={index}>
+                                <div className="item_line" key={index}>
+                                    <div className="row movie_line">
                                         <div className="col-1 movie_image">
                                             <img className="" src={item.thumbnail} alt="" />
                                         </div>
                                         <div className="col-11 movie_name">
-                                            <div>{item.name}</div>
+                                            <p>{item.name}</p>
                                             <span>100 phút</span> - <span>Điểm: {item.rate}</span>
                                         </div>
                                     </div>

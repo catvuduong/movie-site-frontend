@@ -14,7 +14,7 @@ export default class Home extends Component {
                 {/* <Carousel></Carousel> */}
                 {/* <MovieModal></MovieModal> */}
                 <ListMovie></ListMovie>
-                {/* <Cinema></Cinema> */}
+                <Cinema></Cinema>
                 <div className="" style={{ height: "120px" }}></div>
             </div>
         )

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import * as  action from './../../redux/actions/index-action';
 import { connect } from 'react-redux';
+import Showtimes from './../../components/details-movie/showtimes-movie';
 
 class DetailsMovie extends Component {
 
@@ -11,25 +12,29 @@ class DetailsMovie extends Component {
     render() {
         let { movie } = this.props
         return (
-            <div className="myDetailsMovie" style={{
-                backgroundImage: `url(${movie.thumbnail})`
-            }} >
-                <div className="backgroud_cover"></div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-3 movie_image">
-                            <img src={movie.thumbnail} />
-                        </div>
-                        <div className="col-3 movie_name">
-                            <p>{movie.name}</p>
-                            <button className="btn btn-danger">Mua vé</button>
-                        </div>
-                        <div className="col-6 movie_rate">
-                            <span>{movie.rate}</span>
+            <Fragment>
+                <div className="myDetailsMovie">
+                    <div className="backgroud_cover" style={{
+                        backgroundImage: `url(${movie.thumbnail})`
+                    }} ></div>
+                    <div className="cover_second"></div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-3 movie_image">
+                                <img src={movie.thumbnail} />
+                            </div>
+                            <div className="col-3 movie_name">
+                                <p>{movie.name}</p>
+                                <button className="btn btn-danger">Mua vé</button>
+                            </div>
+                            <div className="col-6 movie_rate">
+                                <span>{movie.rate}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <Showtimes></Showtimes>
+            </Fragment>
         )
     }
 }

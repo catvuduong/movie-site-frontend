@@ -63,6 +63,7 @@
             .movie_line {
                 margin-left: 0;
                 margin-right: 0;
+                padding-bottom: 15px;
                 .movie_image {
                     img {
                         width: 50px;
@@ -73,12 +74,11 @@
                 }
                 .movie_name {
                     padding-top: 12px;
-                    line-height: 1;
+                    line-height: 0;
                     color: $color-gray-4;
-                    div:nth-child(1) {
+                    p {
                         @include text($color-white-0, $fs-0, $fw-bold-0);
                     }
-                    div:nth-child(2),
                     span {
                         @include text($color-gray-4, $fs-1, $fw-normal);
                     }
