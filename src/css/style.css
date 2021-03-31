@@ -297,20 +297,46 @@ body {
         .myCinema .theater_logo .item_line .theater_line .theater_name span {
           color: #fff;
           font-size: 15px;
-          font-weight: normal; }
+          font-weight: 600; }
         .myCinema .theater_logo .item_line .theater_line .theater_name span:first-child {
           color: #8bc541; }
         .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
           color: #686f7a;
           font-size: 13px;
-          font-weight: normal;
+          font-weight: 600;
           padding-top: 6px; }
         .myCinema .theater_logo .item_line .theater_line .theater_name .theater_detail {
           color: #ec5252;
           font-size: 13px;
           font-weight: normal; }
-    .myCinema .theater_logo .item_line .movie_line {
-      text-align: left; }
+  .myCinema .movie_logo {
+    text-align: left; }
+    .myCinema .movie_logo .item_line {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid silver; }
+      .myCinema .movie_logo .item_line .movie_line {
+        margin-left: 0;
+        margin-right: 0; }
+        .myCinema .movie_logo .item_line .movie_line .movie_image {
+          padding: 0;
+          line-height: 3; }
+          .myCinema .movie_logo .item_line .movie_line .movie_image img {
+            width: 50px;
+            height: 50px; }
+        .myCinema .movie_logo .item_line .movie_line .movie_name {
+          padding-top: 12px;
+          line-height: 1;
+          color: #686f7a; }
+          .myCinema .movie_logo .item_line .movie_line .movie_name div:nth-child(1) {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600; }
+          .myCinema .movie_logo .item_line .movie_line .movie_name div:nth-child(2),
+          .myCinema .movie_logo .item_line .movie_line .movie_name span {
+            color: #686f7a;
+            font-size: 13px;
+            font-weight: normal; }
 
 .myDashboard .dashboard_title {
   text-align: center;

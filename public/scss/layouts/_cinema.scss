@@ -38,13 +38,13 @@
                     text-align: left;
                     padding-left: 15px;
                     span {
-                        @include text($color-white-0, $fs-0, $fw-normal);
+                        @include text($color-white-0, $fs-0, $fw-bold-0);
                     }
                     span:first-child {
                         color: #8bc541;
                     }
                     .theater_address {
-                        @include text($color-gray-4, $fs-1, $fw-normal);
+                        @include text($color-gray-4, $fs-1, $fw-bold-0);
                         padding-top: 6px;
                     }
                     .theater_detail {
@@ -52,8 +52,37 @@
                     }
                 }
             }
+        }
+    }
+    .movie_logo {
+        text-align: left;
+        .item_line {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid silver;
             .movie_line {
-                text-align: left;
+                margin-left: 0;
+                margin-right: 0;
+                .movie_image {
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                    padding: 0;
+                    line-height: 3;
+                }
+                .movie_name {
+                    padding-top: 12px;
+                    line-height: 1;
+                    color: $color-gray-4;
+                    div:nth-child(1) {
+                        @include text($color-white-0, $fs-0, $fw-bold-0);
+                    }
+                    div:nth-child(2),
+                    span {
+                        @include text($color-gray-4, $fs-1, $fw-normal);
+                    }
+                }
             }
         }
     }

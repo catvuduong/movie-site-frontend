@@ -9,10 +9,10 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
-                <Carousel></Carousel>
-                <MovieModal></MovieModal>
-                <ListMovie></ListMovie>
+                {/* <Header></Header> */}
+                {/* <Carousel></Carousel> */}
+                {/* <MovieModal></MovieModal> */}
+                {/* <ListMovie></ListMovie> */}
                 <Cinema></Cinema>
                 <div className="" style={{ height: "120px" }}></div>
             </div>

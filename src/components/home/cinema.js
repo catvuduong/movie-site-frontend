@@ -62,19 +62,17 @@ class Cinema extends Component {
                             ))
                         }
                     </div>
-                    <div className="col-7 cinema_logo cinema_line">
+                    <div className="col-7 movie_logo cinema_line">
                         {
                             this.state.movies.map((item, index) => (
                                 <div className="item_line">
                                     <div className="row movie_line" key={index}>
-                                        <div className="col-2 movie_image">
+                                        <div className="col-1 movie_image">
                                             <img className="" src={item.thumbnail} alt="" />
                                         </div>
-                                        <div className="col-10">
+                                        <div className="col-11 movie_name">
                                             <div>{item.name}</div>
-                                            <div>100 phút</div>
-                                            <div>Rate: {item.rate}</div>
-                                            <a href="#myMovie">[chi tiết]</a>
+                                            <span>100 phút</span> - <span>Điểm: {item.rate}</span>
                                         </div>
                                     </div>
                                 </div>
