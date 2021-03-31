@@ -206,6 +206,7 @@ body {
             width: 100%;
             height: 340px;
             position: absolute;
+            cursor: pointer;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), black);
             opacity: 0;
             transition: all 0.5s; }
@@ -380,6 +381,53 @@ body {
     font-size: fs-1;
     top: -65px;
     right: 5px; }
+
+.myDetailsMovie {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; }
+  .myDetailsMovie .backgroud_cover {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.5;
+    filter: blur(10px); }
+  .myDetailsMovie .container {
+    margin-top: 100px;
+    padding-top: 100px;
+    margin-bottom: 150px;
+    height: 500px;
+    z-index: 1; }
+    .myDetailsMovie .container .movie_name {
+      text-align: left;
+      margin: auto; }
+      .myDetailsMovie .container .movie_name p {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        width: 300px; }
+      .myDetailsMovie .container .movie_name button {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600; }
+    .myDetailsMovie .container .movie_rate {
+      text-align: center;
+      margin: auto; }
+      .myDetailsMovie .container .movie_rate span {
+        color: #fff;
+        font-size: 50px;
+        font-weight: normal;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border-radius: 50%;
+        border: 8px solid greenyellow; }
 
 .btn--signIn {
   color: #686f7a;

@@ -2,7 +2,7 @@ import * as Actiontype from './../constants/action-type';
 
 let initialState = {
     listMovies: [],
-    movie: {},
+    movie: [],
     linkMovie: "",
 }
 
@@ -14,6 +14,10 @@ const movieReducer = (state = initialState, action) => {
         }
         case Actiontype.GET_LINK_MOVIE: {
             state.linkMovie = action.linkMovie;
+            return { ...state }
+        }
+        case Actiontype.GET_DETAILS_MOVIE: {
+            state.movie = action.movie;
             return { ...state }
         }
         default:

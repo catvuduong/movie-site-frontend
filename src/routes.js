@@ -1,7 +1,7 @@
 import Home from './pages/home/home';
 import ListMovie from './components/home/list-movie';
 import DashBoard from './pages/admin/dash-board';
-// import DetailMovie from './pages/home/detail-movie';
+import DetailsMovie from './pages/home/details-movie';
 
 const routeHome = [
     {
@@ -14,11 +14,11 @@ const routeHome = [
         exact: false,
         component: ListMovie,
     },
-    // {
-    //     path: '/detail-movie',
-    //     exact: false,
-    //     component: DetailMovie,
-    // }
+    {
+        path: '/details-movie/:id',
+        exact: false,
+        component: DetailsMovie,
+    }
 ];
 const routeAdmin = [
     {
