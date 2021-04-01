@@ -22,6 +22,19 @@ export const actGetListMoviesAPI = data => {
     };
 };
 
+export const actGetDetailsMovie = id => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: `https://localhost:5001/movies/get/${id}`
+        })
+        dispatch({
+            type: ActionType.GET_DETAILS_MOVIE,
+            movie: result.data
+        })
+    }
+}
+
 export const actGetListBranchesAPI = () => {
     return async dispatch => {
         let result = await axios({
@@ -36,21 +49,21 @@ export const actGetListBranchesAPI = () => {
 }
 
 
-export const actGetDetailsMovie = id => {
+export const actGetListTheatersAPI = () => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: `https://localhost:5001/movies/get/${id}`
+            url: "https://localhost:5001/theaters/get-list"
         })
         dispatch({
-            type: ActionType.GET_DETAILS_MOVIE,
-            movie: result.data
+            type: ActionType.GET_LIST_THEATERS,
+            listTheaters: result.data
         })
+        // console.log("theater");
     }
 }
 
-
-export const actGetListTheatersAPI = () => {
+export const actGetListTheatersByBranchIdAPI = () => {
     return async dispatch => {
         let result = await axios({
             method: "GET",

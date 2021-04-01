@@ -4,6 +4,9 @@
     .cinema_line {
         border: 1px solid silver;
     }
+    .item_line {
+        cursor: pointer;
+    }
     .cinema_logo {
         .item_line {
             margin-top: 20px;
@@ -57,9 +60,12 @@
     .movie_logo {
         text-align: left;
         .item_line {
+            a {
+                text-decoration: none;
+            }
             margin-top: 20px;
             margin-bottom: 20px;
-            border-bottom: 1px solid silver;
+            border-bottom: 1px solid silver !important;
             .movie_line {
                 margin-left: 0;
                 margin-right: 0;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import * as action from "./../../redux/actions/index-action";
-
+import { Link } from 'react-router-dom';
 
 class Cinema extends Component {
     constructor(props) {
@@ -25,8 +25,21 @@ class Cinema extends Component {
         await this.props.getListMovies();
         this.setState({
             branches: this.props.listBranches,
-            theaters: this.props.listTheaters,
-            movies: this.props.listMovies,
+            theaters: this.props.listBranches[0].theaters,
+            movies: this.props.listBranches[0].theaters[0].showtimes.map(x => x.movie),
+        });
+    }
+
+    changeBranch(index = 0) {
+        this.setState({
+            theaters: this.props.listBranches[index].theaters,
+            movies: this.props.listBranches[index].theaters[0].showtimes.map(x => x.movie),
+        });
+    }
+
+    changeTheater(index = 0) {
+        this.setState({
+            movies: this.state.theaters[index].showtimes.map(x => x.movie),
         });
     }
 
@@ -38,7 +51,7 @@ class Cinema extends Component {
                         {
                             this.state.branches.map((item, index) => (
                                 // TODO: Add generic domain
-                                <div className="item_line" key={index}>
+                                <div className="item_line" key={index} onClick={() => this.changeBranch(index)}>
                                     <img className="" src={"https://localhost:5001" + item.image} alt="" />
                                 </div>
                             ))
@@ -47,7 +60,7 @@ class Cinema extends Component {
                     <div className="col-4 theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
-                                <div className="item_line" key={index}>
+                                <div className="item_line" key={index} onClick={() => this.changeTheater(index)}>
                                     <div className="row theater_line" >
                                         <div className="col-2 theater_image">
                                             <img className="" src={"https://localhost:5001" + item.image} alt="" />
@@ -66,15 +79,17 @@ class Cinema extends Component {
                         {
                             this.state.movies.map((item, index) => (
                                 <div className="item_line" key={index}>
-                                    <div className="row movie_line">
-                                        <div className="col-1 movie_image">
-                                            <img className="" src={item.thumbnail} alt="" />
+                                    <Link to={`details-movie/${item.id}`}>
+                                        <div className="row movie_line">
+                                            <div className="col-1 movie_image">
+                                                <img className="" src={item.thumbnail} alt="" />
+                                            </div>
+                                            <div className="col-11 movie_name">
+                                                <p>{item.name}</p>
+                                                <span>100 phút</span> - <span>Điểm: {item.rate}</span>
+                                            </div>
                                         </div>
-                                        <div className="col-11 movie_name">
-                                            <p>{item.name}</p>
-                                            <span>100 phút</span> - <span>Điểm: {item.rate}</span>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             ))
                         }
