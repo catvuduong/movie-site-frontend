@@ -346,7 +346,8 @@ body {
             color: #686f7a;
             font-size: 13px;
             font-weight: normal; }
-  .myCinema .item_active {
+  .myCinema .btnsBranch_active,
+  .myCinema .btnsTheater_active {
     opacity: 1; }
 
 .myDashboard .dashboard_title {

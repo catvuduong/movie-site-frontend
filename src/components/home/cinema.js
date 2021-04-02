@@ -31,8 +31,8 @@ class Cinema extends Component {
         //turn on active at first branch and  first theater
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
-        btnsBranch[0].className += " item_active";
-        btnsTheater[0].className += " item_active";
+        btnsBranch[0].className += " btnsBranch_active";
+        btnsTheater[0].className += " btnsTheater_active";
 
 
 
@@ -43,13 +43,13 @@ class Cinema extends Component {
             theaters: this.props.listBranches[index].theaters,
             movies: this.props.listBranches[index].theaters[0].showtimes.map(x => x.movie),
         });
-        let btns = document.getElementsByClassName('cinema_btn');
-        for (let i = 0; i < btns.length; i++) {
-            let current = document.getElementsByClassName('item_active');
+        let btnsBranch = document.getElementsByClassName('cinema_btn');
+        for (let i = 0; i < btnsBranch.length; i++) {
+            let current = document.getElementsByClassName('btnsBranch_active');
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(' item_active', '');
+                current[0].className = current[0].className.replace(' btnsBranch_active', '');
             }
-            btns[index].className += ' item_active';
+            btnsBranch[index].className += ' btnsBranch_active';
         }
     }
 
@@ -57,13 +57,13 @@ class Cinema extends Component {
         this.setState({
             movies: this.state.theaters[index].showtimes.map(x => x.movie),
         });
-        let btns = document.getElementsByClassName('theater_btn');
-        for (let i = 0; i < btns.length; i++) {
-            let current = document.getElementsByClassName('item_active');
+        let btnsTheater = document.getElementsByClassName('theater_btn');
+        for (let i = 0; i < btnsTheater.length; i++) {
+            let current = document.getElementsByClassName('btnsTheater_active');
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(' item_active', '');
+                current[0].className = current[0].className.replace(' btnsTheater_active', '');
             }
-            btns[index].className += ' item_active';
+            btnsTheater[index].className += ' btnsTheater_active';
         }
     }
 
