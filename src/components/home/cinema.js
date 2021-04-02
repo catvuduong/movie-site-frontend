@@ -15,19 +15,27 @@ class Cinema extends Component {
                 }
             ],
             theaters: [],
-            movies: []
+            movies: [],
         }
     }
 
     async componentDidMount() {
         await this.props.getListBranches();
         await this.props.getListTheaters();
-        await this.props.getListMovies();
         this.setState({
             branches: this.props.listBranches,
             theaters: this.props.listBranches[0].theaters,
             movies: this.props.listBranches[0].theaters[0].showtimes.map(x => x.movie),
         });
+
+        //turn on active at first branch and  first theater
+        let btnsBranch = document.getElementsByClassName('cinema_btn');
+        let btnsTheater = document.getElementsByClassName('theater_btn');
+        btnsBranch[0].className += " item_active";
+        btnsTheater[0].className += " item_active";
+
+
+
     }
 
     changeBranch(index = 0) {
@@ -35,15 +43,32 @@ class Cinema extends Component {
             theaters: this.props.listBranches[index].theaters,
             movies: this.props.listBranches[index].theaters[0].showtimes.map(x => x.movie),
         });
+        let btns = document.getElementsByClassName('cinema_btn');
+        for (let i = 0; i < btns.length; i++) {
+            let current = document.getElementsByClassName('item_active');
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(' item_active', '');
+            }
+            btns[index].className += ' item_active';
+        }
     }
 
     changeTheater(index = 0) {
         this.setState({
             movies: this.state.theaters[index].showtimes.map(x => x.movie),
         });
+        let btns = document.getElementsByClassName('theater_btn');
+        for (let i = 0; i < btns.length; i++) {
+            let current = document.getElementsByClassName('item_active');
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(' item_active', '');
+            }
+            btns[index].className += ' item_active';
+        }
     }
 
     render() {
+        // let isActive = this.state.active ? "item_active" : "";
         return (
             <section className="myCinema container">
                 <div className="row">
@@ -51,8 +76,8 @@ class Cinema extends Component {
                         {
                             this.state.branches.map((item, index) => (
                                 // TODO: Add generic domain
-                                <div className="item_line" key={index} onClick={() => this.changeBranch(index)}>
-                                    <img className="" src={"https://localhost:5001" + item.image} alt="" />
+                                <div className="item_line cinema_btn" key={index} onClick={() => this.changeBranch(index)}>
+                                    <img src={"https://localhost:5001" + item.image} alt="" />
                                 </div>
                             ))
                         }
@@ -60,10 +85,10 @@ class Cinema extends Component {
                     <div className="col-4 theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
-                                <div className="item_line" key={index} onClick={() => this.changeTheater(index)}>
+                                <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
                                     <div className="row theater_line" >
                                         <div className="col-2 theater_image">
-                                            <img className="" src={"https://localhost:5001" + item.image} alt="" />
+                                            <img src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
                                         <div className="col-10 theater_name">
                                             <div><span>{item.branch.name}</span> - <span>{item.name}</span></div>
@@ -115,9 +140,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         getListTheaters: async () => {
             await dispatch(action.actGetListTheatersAPI());
-        },
-        getListMovies: async () => {
-            await dispatch(action.actGetListMoviesAPI());
         },
     };
 };

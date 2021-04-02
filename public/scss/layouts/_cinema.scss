@@ -6,6 +6,10 @@
     }
     .item_line {
         cursor: pointer;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+        }
     }
     .cinema_logo {
         .item_line {
@@ -65,7 +69,8 @@
             }
             margin-top: 20px;
             margin-bottom: 20px;
-            border-bottom: 1px solid silver !important;
+            border-bottom: 1px solid silver;
+            opacity: 1;
             .movie_line {
                 margin-left: 0;
                 margin-right: 0;
@@ -91,5 +96,8 @@
                 }
             }
         }
+    }
+    .item_active {
+        opacity: 1;
     }
 }
