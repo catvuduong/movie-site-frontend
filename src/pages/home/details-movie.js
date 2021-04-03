@@ -1,16 +1,44 @@
 import React, { Component, Fragment } from 'react';
 import * as  action from './../../redux/actions/index-action';
 import { connect } from 'react-redux';
-import Showtimes from './../../components/details-movie/showtimes-movie';
+import Description from './../../components/details-movie/description';
+import ShowtimesDetail from './../../components/details-movie/showtimes-detailsmoive';
+
 
 class DetailsMovie extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            clickedShowtimes: true,
+            clickedDescription: false,
+            component: ShowtimesDetail,
+        }
+    }
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.getDetailsMovie(id);
     }
+
+    handleShowtimes = () => {
+        this.setState({
+            clickedShowtimes: true,
+            clickedDescription: false,
+            component: ShowtimesDetail,
+        })
+    }
+    handleDescription = () => {
+        this.setState({
+            clickedDescription: true,
+            clickedShowtimes: false,
+            component: Description
+        })
+    }
+    renderDisplay = Component => (<Component movie={this.props.movie}></Component>);
+
     render() {
         let { movie } = this.props
+        let showtimes = this.state.clickedShowtimes ? "active" : "";
+        let descript = this.state.clickedDescription ? "active" : "";
         return (
             <Fragment>
                 <div className="myDetailsMovie">
@@ -33,7 +61,13 @@ class DetailsMovie extends Component {
                         </div>
                     </div>
                 </div>
-                <Showtimes></Showtimes>
+                <div className="myShowtimes">
+                    <div className="showtimes_title">
+                        <button className={`showtime_btns ${showtimes}`} onClick={() => this.handleShowtimes()}>Lịch Chiếu</button>
+                        <button className={`showtime_btns ${descript}`} onClick={() => this.handleDescription()}>Thông Tin</button>
+                    </div>
+                    <div className="showtimes_content">{this.renderDisplay(this.state.component)}</div>
+                </div >
             </Fragment>
         )
     }

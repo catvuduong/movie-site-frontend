@@ -451,6 +451,108 @@ body {
 .myShowtimes {
   margin-top: 50px;
   padding-bottom: 50px; }
+  .myShowtimes .showtimes_title {
+    margin: auto;
+    width: 13%;
+    justify-content: space-between;
+    display: flex; }
+    .myShowtimes .showtimes_title .showtime_btns {
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      transition: all 0.5s;
+      outline: none; }
+      .myShowtimes .showtimes_title .showtime_btns:hover {
+        transform: scale(1.3); }
+    .myShowtimes .showtimes_title .active {
+      color: #ff4500;
+      cursor: context-menu;
+      pointer-events: none; }
+  .myShowtimes .showtimes_content {
+    margin-top: 10px;
+    padding-top: 30px; }
+    .myShowtimes .showtimes_content .container .descript_content {
+      text-align: left;
+      margin: 0 auto;
+      width: 60%; }
+      .myShowtimes .showtimes_content .container .descript_content .infomation p:first-child {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600; }
+      .myShowtimes .showtimes_content .container .descript_content .infomation p:last-child {
+        color: #fff;
+        font-size: 13px;
+        font-weight: normal;
+        text-align: justify; }
+      .myShowtimes .showtimes_content .container .descript_content .description p:first-child {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600; }
+      .myShowtimes .showtimes_content .container .descript_content .description p:last-child {
+        color: #fff;
+        font-size: 13px;
+        font-weight: normal;
+        text-align: justify; }
+    .myShowtimes .showtimes_content .showtimes_detail {
+      width: 75%;
+      margin: 0 auto; }
+      .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line {
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid silver;
+        cursor: pointer;
+        opacity: 0.5; }
+        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line:hover {
+          opacity: 1; }
+        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:first-child img {
+          width: 50px;
+          height: 50px; }
+        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:last-child {
+          padding-left: 10px;
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600; }
+      .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .btnsBranch_active {
+        opacity: 1; }
+      .myShowtimes .showtimes_content .showtimes_detail .cinema_line {
+        border: 1px solid silver; }
+      .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line {
+        cursor: pointer;
+        opacity: 0.5;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid silver; }
+        .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line:hover {
+          opacity: 1; }
+        .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line {
+          margin-left: 0;
+          margin-right: 0; }
+          .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image {
+            padding: 0;
+            line-height: 3; }
+            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image img {
+              width: 50px;
+              height: 50px; }
+          .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name {
+            height: 75px;
+            line-height: 1;
+            text-align: left;
+            padding-left: 15px; }
+            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span {
+              color: #fff;
+              font-size: 15px;
+              font-weight: 600; }
+            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span:first-child {
+              color: #8bc541; }
+            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name .theater_address {
+              color: #686f7a;
+              font-size: 13px;
+              font-weight: 600;
+              padding-top: 6px; }
+      .myShowtimes .showtimes_content .showtimes_detail .theater_logo .btnsTheater_active {
+        opacity: 1; }
 
 .btn--signIn {
   color: #686f7a;
