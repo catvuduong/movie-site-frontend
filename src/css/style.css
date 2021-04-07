@@ -349,6 +349,69 @@ body {
   .myCinema .btnsBranch_active,
   .myCinema .btnsTheater_active {
     opacity: 1; }
+  @media screen and (max-width: 1600px) {
+    .myCinema {
+      width: 100%; } }
+  @media screen and (max-width: 992px) {
+    .myCinema .theater_logo .item_line .theater_line {
+      padding-bottom: 10px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name .theater_detail {
+        display: none; }
+    .myCinema .movie_logo .item_line .movie_line .movie_name {
+      line-height: 1.5; }
+      .myCinema .movie_logo .item_line .movie_line .movie_name p {
+        padding-left: 30px; }
+      .myCinema .movie_logo .item_line .movie_line .movie_name span {
+        display: none; } }
+  @media screen and (max-width: 767px) {
+    .myCinema .theater_logo .item_line .theater_line .theater_name {
+      padding-top: 6px;
+      padding-left: 30px;
+      line-height: 0.5; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name span {
+        font-size: 12px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
+        padding-top: 10px;
+        font-size: 8px;
+        line-height: 1; }
+    .myCinema .movie_logo .item_line .movie_line .movie_name {
+      padding-top: 6px; }
+      .myCinema .movie_logo .item_line .movie_line .movie_name p {
+        font-size: 12px; } }
+  @media screen and (max-width: 576px) {
+    .myCinema .cinema_logo .item_line img {
+      width: 30px;
+      height: 30px; }
+    .myCinema .theater_logo .item_line {
+      margin-top: 10px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_image img {
+        width: 30px;
+        height: 30px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name span {
+        font-size: 10px; }
+    .myCinema .movie_logo .item_line {
+      margin-top: 10px; }
+      .myCinema .movie_logo .item_line .movie_line {
+        padding-bottom: 0; }
+        .myCinema .movie_logo .item_line .movie_line .movie_image img {
+          width: 30px;
+          height: 30px; }
+        .myCinema .movie_logo .item_line .movie_line .movie_name p {
+          font-size: 8px; } }
+  @media screen and (max-width: 576px) {
+    .myCinema .cinema_logo .item_line img {
+      width: 15px;
+      height: 15px; }
+    .myCinema .theater_logo .item_line .theater_line {
+      height: 65px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_image img {
+        display: none; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name {
+        padding-left: 5px; }
+        .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
+          display: none; }
+    .myCinema .movie_logo .item_line .movie_line .movie_name p {
+      padding-left: 13px; } }
 
 .myDashboard .dashboard_title {
   text-align: center;
@@ -449,7 +512,6 @@ body {
         border: 5px solid greenyellow; }
 
 .myShowtimes {
-  margin-top: 50px;
   padding-bottom: 50px; }
   .myShowtimes .showtimes_title {
     margin: auto;

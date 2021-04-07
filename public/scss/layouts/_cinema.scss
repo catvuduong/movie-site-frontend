@@ -101,4 +101,155 @@
     .btnsTheater_active {
         opacity: 1;
     }
+    @include respond-to("over-frame") {
+        width: 100%;
+    }
+    @include respond-to("large") {
+        .theater_logo {
+            .item_line {
+                .theater_line {
+                    padding-bottom: 10px;
+                    .theater_name {
+                        .theater_detail {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .movie_logo {
+            .item_line {
+                .movie_line {
+                    .movie_name {
+                        line-height: 1.5;
+                        p {
+                            padding-left: 30px;
+                        }
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("medium") {
+        .theater_logo {
+            .item_line {
+                .theater_line {
+                    .theater_name {
+                        padding-top: 6px;
+                        padding-left: 30px;
+                        line-height: 0.5;
+                        span {
+                            font-size: 12px;
+                        }
+                        .theater_address {
+                            padding-top: 10px;
+                            font-size: 8px;
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .movie_logo {
+            .item_line {
+                .movie_line {
+                    .movie_name {
+                        padding-top: 6px;
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("small") {
+        .cinema_logo {
+            .item_line {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .theater_logo {
+            .item_line {
+                margin-top: 10px;
+                .theater_line {
+                    .theater_image {
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    .theater_name {
+                        span {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .movie_logo {
+            .item_line {
+                margin-top: 10px;
+                .movie_line {
+                    padding-bottom: 0;
+                    .movie_image {
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    .movie_name {
+                        p {
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("small") {
+        .cinema_logo {
+            .item_line {
+                img {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+        .theater_logo {
+            .item_line {
+                .theater_line {
+                    height: 65px;
+                    .theater_image {
+                        img {
+                            display: none;
+                        }
+                    }
+                    .theater_name {
+                        padding-left: 5px;
+                        .theater_address {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .movie_logo {
+            .item_line {
+                .movie_line {
+                    .movie_name {
+                        p {
+                            padding-left: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

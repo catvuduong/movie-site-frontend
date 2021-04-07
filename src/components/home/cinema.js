@@ -71,7 +71,7 @@ class Cinema extends Component {
         return (
             <section className="myCinema container">
                 <div className="row">
-                    <div className="col-1 cinema_logo cinema_line">
+                    <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 cinema_logo cinema_line">
                         {
                             this.state.branches.map((item, index) => (
                                 // TODO: Add generic domain
@@ -81,7 +81,7 @@ class Cinema extends Component {
                             ))
                         }
                     </div>
-                    <div className="col-4 theater_logo cinema_line">
+                    <div className="col-xl-4 col-lg-4 col-md-5 col-sm-5 col-5 theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
                                 <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
@@ -90,7 +90,7 @@ class Cinema extends Component {
                                             <img src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
                                         <div className="col-10 theater_name">
-                                            <div><span>{item.branch.name}</span> - <span>{item.name}</span></div>
+                                            <div><span>{item.branch.name} - </span><span>{item.name}</span></div>
                                             <div className="theater_address">{item.address}</div>
                                             <span className="theater_detail">[chi tiết]</span>
                                         </div>
@@ -99,7 +99,7 @@ class Cinema extends Component {
                             ))
                         }
                     </div>
-                    <div className="col-7 movie_logo cinema_line">
+                    <div className="col-xl-7 col-lg-7 col-md-5 col-sm-5 col-5 movie_logo cinema_line">
                         {
                             this.state.movies.map((item, index) => (
                                 <div className="item_line" key={index}>
@@ -110,7 +110,7 @@ class Cinema extends Component {
                                             </div>
                                             <div className="col-11 movie_name">
                                                 <p>{item.name}</p>
-                                                <span>100 phút</span> - <span>Điểm: {item.rate}</span>
+                                                <span>100 phút - Điểm: {item.rate} </span>
                                             </div>
                                         </div>
                                     </Link>
