@@ -486,6 +486,22 @@ body {
     margin-bottom: 150px;
     height: 500px;
     z-index: 1; }
+    .myDetailsMovie .container .movie_image {
+      position: relative; }
+      .myDetailsMovie .container .movie_image:hover .movie_play {
+        opacity: 1; }
+      .myDetailsMovie .container .movie_image .movie_play {
+        position: absolute;
+        top: 40%;
+        left: 38%;
+        color: #fff;
+        background-color: transparent;
+        padding: 20px 20px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        outline: none;
+        opacity: 0;
+        transition: all 0.5s; }
     .myDetailsMovie .container .movie_name {
       text-align: left;
       margin: auto; }
@@ -510,6 +526,60 @@ body {
         padding: 20px;
         border-radius: 50%;
         border: 5px solid greenyellow; }
+  @media screen and (max-width: 992px) {
+    .myDetailsMovie .container .movie_name {
+      padding-left: 65px; }
+      .myDetailsMovie .container .movie_name p {
+        padding-right: 60px; } }
+  @media screen and (max-width: 767px) {
+    .myDetailsMovie .container .movie_rate {
+      display: none; } }
+  @media screen and (max-width: 576px) {
+    .myDetailsMovie .container .movie_name p,
+    .myDetailsMovie .container .movie_name button {
+      font-size: 15px; }
+    .myDetailsMovie .container .movie_name p {
+      width: 120%; } }
+  @media screen and (max-width: 400px) {
+    .myDetailsMovie .container .movie_name {
+      padding-left: 90px; }
+      .myDetailsMovie .container .movie_name p {
+        padding-right: 40px; } }
+  @media screen and (max-width: 368px) {
+    .myDetailsMovie .container .movie_image img {
+      width: 160%; }
+    .myDetailsMovie .container .movie_name {
+      padding-left: 75px; }
+      .myDetailsMovie .container .movie_name p,
+      .myDetailsMovie .container .movie_name button {
+        font-size: 12px; }
+      .myDetailsMovie .container .movie_name p {
+        padding-right: 25px; } }
+
+.myDetailsMovieModal .modal-dialog {
+  max-width: 1000px;
+  margin: auto; }
+.myDetailsMovieModal .modal-content {
+  width: 100%;
+  height: 600px;
+  background-color: transparent;
+  display: inline;
+  border: none; }
+  .myDetailsMovieModal .modal-content button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    border: 3px solid;
+    border-color: white;
+    padding: 6px 10px;
+    border-radius: 50%;
+    opacity: 1;
+    outline: none; }
+    .myDetailsMovieModal .modal-content button span {
+      color: white; }
+  .myDetailsMovieModal .modal-content iframe {
+    width: 100%;
+    height: 100%; }
 
 .myShowtimes {
   padding-bottom: 50px; }

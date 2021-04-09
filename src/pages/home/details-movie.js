@@ -3,6 +3,7 @@ import * as  action from './../../redux/actions/index-action';
 import { connect } from 'react-redux';
 import Description from './../../components/details-movie/description';
 import ShowtimesDetail from './../../components/details-movie/showtimes-detailsmoive';
+import DetailsMovieModal from './../../components/details-movie/details-movie-modal';
 
 
 class DetailsMovie extends Component {
@@ -48,19 +49,21 @@ class DetailsMovie extends Component {
                     <div className="cover_second"></div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-3 movie_image">
-                                <img src={movie.thumbnail} />
+                            <div className="col-lg-3 col-sm-3 col-5 movie_image">
+                                <img src={movie.thumbnail} alt="" />
+                                <button className="fa fa-play movie_play" onClick={() => { }} data-toggle="modal" data-target="#detailsMovieModal"></button>
                             </div>
-                            <div className="col-3 movie_name">
+                            <div className="col-lg-3 col-sm-6 col-7  movie_name">
                                 <p>{movie.name}</p>
                                 <button className="btn btn-danger">Mua vé</button>
                             </div>
-                            <div className="col-6 movie_rate">
+                            <div className="col-lg-6 col-sm-3 movie_rate">
                                 <span>{movie.rate}</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <DetailsMovieModal link={movie.trailer}></DetailsMovieModal>
                 <div className="myShowtimes">
                     <div className="showtimes_title">
                         <button className={`showtime_btns ${showtimes}`} onClick={() => this.handleShowtimes()}>Lịch Chiếu</button>

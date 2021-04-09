@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
 
-
-
-class MovieModal extends Component {
+export default class DetailsMovieModal extends Component {
     stopVideo = () => {
         var videos = document.querySelectorAll('iframe');
         Array.prototype.forEach.call(videos, function (video) {
@@ -16,9 +13,8 @@ class MovieModal extends Component {
         });
     }
     render() {
-        let { linkMovie } = this.props;
         return (
-            <div className="modal fade myMovieModal" id="exampleModalCenter" tabIndex={-1} role="dialog"
+            <div className="modal fade myDetailsMovieModal" id="detailsMovieModal" tabIndex={-1} role="dialog"
                 onClick={() => { this.stopVideo() }}
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
@@ -28,18 +24,10 @@ class MovieModal extends Component {
                         >
                             <span aria-hidden="true">×</span>
                         </button>
-                        <iframe title="myFrame" width={560} height={315} src={linkMovie} frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        <iframe title="myFrame" width={560} height={315} src="https://www.youtube.com/embed/NcHdvNU5tEQ" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                     </div>
                 </div>
             </div>
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        linkMovie: state.movieReducer.linkMovie
-    }
-}
-
-export default connect(mapStateToProps, null)(MovieModal);
