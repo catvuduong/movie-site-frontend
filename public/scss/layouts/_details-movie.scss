@@ -109,7 +109,7 @@
             }
         }
     }
-    @include respond-to("400px") {
+    @include respond-to("400") {
         .container {
             .movie_name {
                 padding-left: 90px;
@@ -192,6 +192,18 @@
             color: $color-orange-0;
             cursor: context-menu;
             pointer-events: none;
+        }
+        @include respond-to("over-frame") {
+            width: 20%;
+        }
+        @include respond-to("large") {
+            width: 35%;
+        }
+        @include respond-to("small") {
+            width: 60%;
+        }
+        @include respond-to("280") {
+            width: 70%;
         }
     }
     .showtimes_content {
@@ -298,6 +310,82 @@
                 }
                 .btnsTheater_active {
                     opacity: 1;
+                }
+            }
+        }
+        @include respond-to("large") {
+            .container {
+                padding-right: 0;
+                padding-left: 0;
+                max-width: none;
+                .row {
+                    width: 100%;
+                }
+            }
+        }
+        @include respond-to("small") {
+            .container {
+                .row {
+                    .cinema_logo {
+                        .item_line {
+                            span {
+                                img {
+                                    width: 30px;
+                                    height: 30px;
+                                }
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                    .theater_logo {
+                        .item_line {
+                            .theater_line {
+                                .theater_image {
+                                    img {
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                                .theater_name {
+                                    padding-right: 0;
+                                    div {
+                                        span {
+                                            font-size: 10px;
+                                        }
+                                    }
+                                    .theater_address {
+                                        font-size: 8px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include respond-to("280") {
+            .container {
+                .row {
+                    .theater_logo {
+                        .item_line {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            .theater_line {
+                                height: 65px;
+                                .theater_name {
+                                    line-height: 0.5;
+                                    padding-top: 15px;
+                                    div {
+                                        span {
+                                        }
+                                    }
+                                    .theater_address {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

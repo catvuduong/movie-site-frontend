@@ -58,7 +58,7 @@ class ShowtimesDetail extends Component {
         return (
             <div className="container">
                 <div className="row showtimes_detail">
-                    <div className="col-3 cinema_logo cinema_line">
+                    <div className="col-lg-3 col-md-4 col-5 cinema_logo cinema_line">
                         {
                             this.state.branches.map((item, index) => (
                                 // TODO: Add generic domain
@@ -68,7 +68,7 @@ class ShowtimesDetail extends Component {
                             ))
                         }
                     </div>
-                    <div className="col-9 theater_logo cinema_line">
+                    <div className="col-lg-9 col-md-8  col-7  theater_logo cinema_line">
                         {
                             this.state.theaters.map((item, index) => (
                                 <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
