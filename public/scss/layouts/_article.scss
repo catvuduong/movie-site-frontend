@@ -1,0 +1,28 @@
+.myArticle {
+    .article_title {
+        margin: auto;
+        width: 25%;
+        justify-content: space-between;
+        display: flex;
+        .article_film,
+        .article_review,
+        .article_promotion {
+            background-color: transparent;
+            color: $color-white-0;
+            border: none;
+            transition: all 0.5s;
+            outline: none;
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+        .active {
+            color: $color-orange-0;
+            cursor: context-menu;
+            pointer-events: none;
+        }
+    }
+    .article_content {
+        text-align: left;
+    }
+}

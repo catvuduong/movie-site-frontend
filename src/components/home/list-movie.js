@@ -122,7 +122,7 @@ class ListMovie extends Component {
         return (
             <section className="myListMovie">
                 <div className="list_content">
-                    <div className="container-fluid ">
+                    <div className="container-fluid">
                         <div className="list_tittle">
                             <button className={`filming ${filmingClass}`} onClick={() => this.handleFilming()}>Đang Chiếu</button>
                             <button className={`goingto_film ${goingFilmClass}`}
