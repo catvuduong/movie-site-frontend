@@ -753,7 +753,48 @@ body {
     cursor: context-menu;
     pointer-events: none; }
 .myArticle .article_content {
-  text-align: left; }
+  text-align: justify; }
+  .myArticle .article_content .first_list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    margin: 0 auto; }
+    .myArticle .article_content .first_list .article_item img {
+      width: 100%;
+      cursor: pointer; }
+    .myArticle .article_content .first_list .article_item h5 {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.5s;
+      cursor: pointer;
+      height: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px; }
+      .myArticle .article_content .first_list .article_item h5:hover {
+        color: #ff4500; }
+    .myArticle .article_content .first_list .article_item p {
+      color: #686f7a;
+      font-size: 13px;
+      font-weight: normal; }
+  .myArticle .article_content .second_list .article_item img {
+    width: 100%;
+    cursor: pointer; }
+  .myArticle .article_content .second_list .article_item h5 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px; }
+    .myArticle .article_content .second_list .article_item h5:hover {
+      color: #ff4500; }
+  .myArticle .article_content .second_list .article_item p {
+    color: #686f7a;
+    font-size: 13px;
+    font-weight: normal; }
 
 .btn--signIn {
   color: #686f7a;

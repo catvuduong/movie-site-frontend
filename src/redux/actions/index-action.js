@@ -63,6 +63,20 @@ export const actGetListTheatersAPI = () => {
     }
 }
 
+
+export const actGetListArticlesAPI = () => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: "https://localhost:5001/articles/get-list"
+        })
+        dispatch({
+            type: ActionType.GET_LIST_ARTICLES,
+            listArticles: result.data
+        })
+    }
+}
+
 export const actGetListTheatersByBranchIdAPI = () => {
     return async dispatch => {
         let result = await axios({

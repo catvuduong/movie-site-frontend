@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as action from './../../redux/actions/index-action';
 
-export default class Article extends Component {
+class Article extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -8,6 +10,10 @@ export default class Article extends Component {
             reviewOn: false,
             PromotionOn: false,
         }
+    }
+    async componentDidMount() {
+        await this.props.getListArticles();
+        await this.props.listArticles
     }
 
     handleFilm = () => {
@@ -38,6 +44,9 @@ export default class Article extends Component {
         let film = this.state.filmOn ? "active" : "";
         let review = this.state.reviewOn ? "active" : "";
         let promo = this.state.PromotionOn ? "active" : "";
+
+        let firstList = this.props.listArticles.slice(0, 2);
+        let secondList = this.props.listArticles.slice(2, 4);
         return (
             < div className="myArticle" >
                 <div className="article_title container-fluid">
@@ -51,14 +60,27 @@ export default class Article extends Component {
                 </div>
                 <div className="article_content">
                     <div className="container">
-                        <div className="row">
-                            <div className="col-6">“Lorem ipsum” dummy text is used by many web-developers to test how their HTML templates</div>
-                            <div className="col-6">“Lorem ipsum” dummy text is used by many web-developers to test how their HTML templates</div>
+                        <div className="row first_list">
+                            {
+                                firstList.map((item, index) => (
+                                    <div className="col-6 article_item" key={index}>
+                                        <img src={"https://localhost:5001" + item.thumbnail} alt="" />
+                                        <h5>{item.title}</h5>
+                                        <p>{item.content}</p>
+                                    </div>
+                                ))
+                            }
                         </div>
-                        <div className="row">
-                            <div className="col-4">“Lorem ipsum” dummy text is used by many web-developers to test how their HTML templates</div>
-                            <div className="col-4">“Lorem ipsum” dummy text is used by many web-developers to test how their HTML templates</div>
-                            <div className="col-4">“Lorem ipsum” dummy text is used by many web-developers to test how their HTML templates</div>
+                        <div className="row second_list">
+                            {
+                                secondList.map((item, index) => (
+                                    <div className="col-4 article_item" key={index}>
+                                        <img src={"https://localhost:5001" + item.thumbnail} alt="" />
+                                        <h5>{item.title}</h5>
+                                        <p>{item.content}</p>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
@@ -66,3 +88,21 @@ export default class Article extends Component {
         )
     }
 }
+
+
+const mapStateToProps = state => {
+    return {
+        listArticles: state.articleReducer.listArticles,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getListArticles: async () => {
+            await dispatch(action.actGetListArticlesAPI());
+        },
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article);
