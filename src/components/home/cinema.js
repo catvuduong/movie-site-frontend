@@ -60,7 +60,6 @@ class Cinema extends Component {
             }
         }
         return orderedMovies
-        //sfafsdfa
     }
 
     changeBranch(index = 0) {
@@ -166,7 +165,6 @@ const mapStateToProps = (state) => {
     return {
         listBranches: state.branchReducer.listBranches,
         listTheaters: state.theaterReducer.listTheaters,
-        listMovies: state.movieReducer.listMovies,
     };
 };
 
