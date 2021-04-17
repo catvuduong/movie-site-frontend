@@ -25,24 +25,7 @@ class Cinema extends Component {
         await this.props.getListTheaters();
 
         let firstTheater = this.props.listBranches[0].theaters[0];
-        let orderedMovies = [];
-        
-        if (firstTheater) { // Check if first theater is existed
-            let moviesObj = {};
-            for (const showtime of firstTheater.showtimes) {
-                moviesObj[showtime.movieId] = [];
-            }
-            for (const showtime of firstTheater.showtimes) {
-                moviesObj[showtime.movieId].push(showtime);
-            }
-            for (const movieId in moviesObj) {
-                orderedMovies.push({
-                    id: movieId,
-                    data: moviesObj[movieId]
-                })
-            }
-            console.log(orderedMovies);
-        }
+        let orderedMovies = this.orderedMovies(firstTheater);
 
         this.setState({
             branches: this.props.listBranches,
@@ -59,14 +42,32 @@ class Cinema extends Component {
         }
     }
 
-    changeBranch(index = 0) {
-        let movies = this.props.listBranches[index].theaters[0]
-            ? this.props.listBranches[index].theaters[0].showtimes.map(x => x.movie)
-            : [];
+    orderedMovies = array => {
+        let orderedMovies = [];
+        if (array) { // Check if first theater is existed
+            let moviesObj = {};
+            for (const showtime of array.showtimes) {
+                moviesObj[showtime.movieId] = [];
+            }
+            for (const showtime of array.showtimes) {
+                moviesObj[showtime.movieId].push(showtime);
+            }
+            for (const movieId in moviesObj) {
+                orderedMovies.push({
+                    id: movieId,
+                    data: moviesObj[movieId]
+                })
+            }
+        }
+        return orderedMovies
+    }
 
+    changeBranch(index = 0) {
+        let theater = this.props.listBranches[index].theaters[0];
+        let orderedMovies = this.orderedMovies(theater);
         this.setState({
             theaters: this.props.listBranches[index].theaters,
-            movies: movies,
+            movies: orderedMovies,
         });
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         for (let i = 0; i < btnsBranch.length; i++) {
@@ -79,8 +80,10 @@ class Cinema extends Component {
     }
 
     changeTheater(index = 0) {
+        let theater = this.props.listTheaters[index];
+        let orderedMovies = this.orderedMovies(theater);
         this.setState({
-            movies: this.state.theaters[index].showtimes.map(x => x.movie),
+            movies: orderedMovies,
         });
         let btnsTheater = document.getElementsByClassName('theater_btn');
         for (let i = 0; i < btnsTheater.length; i++) {
@@ -127,29 +130,29 @@ class Cinema extends Component {
                     <div className="col-xl-7 col-lg-7 col-md-5 col-sm-5 col-5 movie_logo cinema_line">
                         {
                             this.state.movies
-                            ? this.state.movies.map((item, index) => (
-                                <div className="item_line" key={index}>
-                                    <Link to={`details-movie/${item.id}`}>
-                                        <div className="row movie_line">
-                                            <div className="col-1 movie_image">
-                                                <img className="" src={item.data[0].movie.thumbnail} alt="" />
+                                ? this.state.movies.map((item, index) => (
+                                    <div className="item_line" key={index}>
+                                        <Link to={`details-movie/${item.id}`}>
+                                            <div className="row movie_line">
+                                                <div className="col-1 movie_image">
+                                                    <img className="" src={item.data[0].movie.thumbnail} alt="" />
+                                                </div>
+                                                <div className="col-11 movie_name">
+                                                    <p>{item.data[0].movie.name}</p>
+                                                    <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
+                                                </div>
                                             </div>
-                                            <div className="col-11 movie_name">
-                                                <p>{item.data[0].movie.name}</p>
-                                                <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
-                                            </div>
+                                        </Link>
+                                        <div>
+                                            {
+                                                item.data.map((showtime, index) => (
+                                                    <button key={index} type="button" className="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</button>
+                                                ))
+                                            }
                                         </div>
-                                    </Link>
-                                    <div>
-                                        {
-                                            item.data.map((showtime) => (
-                                                <button type="button" class="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</button>
-                                            ))
-                                        }
                                     </div>
-                                </div>
-                            ))
-                            : null
+                                ))
+                                : null
                         }
                     </div>
                 </div>
