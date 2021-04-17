@@ -20,7 +20,7 @@ class ShowtimesDetail extends Component {
         });
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
-        if (btnsBranch[0]) {
+        if (btnsBranch[0] && btnsTheater[0]) {
             btnsBranch[0].className += " btnsBranch_active";
             btnsTheater[0].className += " btnsTheater_active";
         }
