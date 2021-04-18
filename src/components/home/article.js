@@ -48,7 +48,7 @@ class Article extends Component {
         let firstList = this.props.listArticles.slice(0, 2);
         let secondList = this.props.listArticles.slice(2, 4);
         return (
-            < div className="myArticle" >
+            < section className="myArticle container">
                 <div className="article_title container-fluid">
                     <button className={`article_film ${film}`} onClick={() => this.handleFilm()}>Điện Ảnh 24h</button>
                     <button className={`article_review ${review}`}
@@ -84,7 +84,7 @@ class Article extends Component {
                         </div>
                     </div>
                 </div>
-            </div >
+            </section >
         )
     }
 }
