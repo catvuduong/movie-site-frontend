@@ -9,6 +9,8 @@ class Article extends Component {
             filmOn: true,
             reviewOn: false,
             PromotionOn: false,
+            LLNews: null,
+            news: []
         }
     }
     async componentDidMount() {
@@ -39,6 +41,15 @@ class Article extends Component {
         });
     }
 
+    lazyLoadNews = async () => {
+        const { default: News } = await import('./news-expansion');
+        this.setState({ LLNews: News });
+    }
+
+    expandNews = () => {
+        this.lazyLoadNews();
+    }
+
 
     render() {
         let film = this.state.filmOn ? "active" : "";
@@ -47,6 +58,9 @@ class Article extends Component {
 
         let firstList = this.props.listArticles.slice(0, 2);
         let secondList = this.props.listArticles.slice(2, 4);
+
+        let { LLNews } = this.state
+        const lazyLoadNews = LLNews ? <LLNews listArticles={this.props.listArticles} /> : null;
         return (
             < section className="myArticle container">
                 <div className="article_title container-fluid">
@@ -83,6 +97,10 @@ class Article extends Component {
                             }
                         </div>
                     </div>
+                </div>
+                {lazyLoadNews}
+                <div>
+                    <button onClick={() => this.expandNews()}>XEM THÊM</button>
                 </div>
             </section >
         )
