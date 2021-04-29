@@ -820,6 +820,44 @@ body {
         font-size: 13px;
         font-weight: normal; }
 
+.myApps {
+  margin-top: 30px;
+  height: 500px;
+  padding: 120px 0 80px 0;
+  background-size: 1190px 515px;
+  background-repeat: repeat-x;
+  text-align: left; }
+  .myApps .container {
+    max-width: 940px; }
+    .myApps .container .app_intro h3 {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.5; }
+    .myApps .container .app_intro p:nth-child(2) {
+      padding-top: 15px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: normal;
+      color: #f4f2ee; }
+    .myApps .container .app_intro button {
+      margin-top: 10px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 20px;
+      background-color: #bd1c03;
+      color: white;
+      border: none;
+      border-radius: 10px; }
+      .myApps .container .app_intro button:focus {
+        outline: none; }
+    .myApps .container .app_intro p:last-child {
+      padding-top: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: normal; }
+
 .btn--signIn {
   color: #686f7a;
   background-color: transparent;
