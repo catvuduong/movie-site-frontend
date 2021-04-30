@@ -829,34 +829,49 @@ body {
   text-align: left; }
   .myApps .container {
     max-width: 940px; }
-    .myApps .container .app_intro h3 {
-      color: #fff;
-      font-size: 30px;
-      font-weight: 600;
-      line-height: 1.5; }
-    .myApps .container .app_intro p:nth-child(2) {
-      padding-top: 15px;
-      color: #fff;
-      font-size: 17px;
-      font-weight: normal;
-      color: #f4f2ee; }
-    .myApps .container .app_intro button {
-      margin-top: 10px;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 10px 20px;
-      background-color: #bd1c03;
-      color: white;
-      border: none;
-      border-radius: 10px; }
-      .myApps .container .app_intro button:focus {
-        outline: none; }
-    .myApps .container .app_intro p:last-child {
-      padding-top: 10px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: normal; }
+    .myApps .container .app_intro {
+      padding-top: 60px; }
+      .myApps .container .app_intro h3 {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.5; }
+      .myApps .container .app_intro p:nth-child(2) {
+        padding-top: 15px;
+        color: #fff;
+        font-size: 17px;
+        font-weight: normal;
+        color: #f4f2ee; }
+      .myApps .container .app_intro button {
+        margin-top: 10px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 10px 20px;
+        background-color: #bd1c03;
+        color: white;
+        border: none;
+        border-radius: 10px; }
+        .myApps .container .app_intro button:focus {
+          outline: none; }
+      .myApps .container .app_intro p:last-child {
+        padding-top: 10px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: normal; }
+    .myApps .container .app_phone .phone_content {
+      margin: 0 auto;
+      height: 400px;
+      width: 45%; }
+      .myApps .container .app_phone .phone_content .swiper-container {
+        border-radius: 20px;
+        border-left: 5px solid #3e3200;
+        border-right: 5px solid #3e3200; }
+        .myApps .container .app_phone .phone_content .swiper-container .phone_item {
+          cursor: pointer; }
+          .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+            width: 100%;
+            height: 420px; }
 
 .btn--signIn {
   color: #686f7a;

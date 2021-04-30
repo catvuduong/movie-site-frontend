@@ -8,6 +8,7 @@
     .container {
         max-width: 940px;
         .app_intro {
+            padding-top: 60px;
             h3 {
                 @include text($color-white-0, 30px, $fw-bold-0);
                 line-height: 1.5;
@@ -32,6 +33,25 @@
             p:last-child {
                 padding-top: 10px;
                 @include text($color-white-0, $fs-1, $fw-normal);
+            }
+        }
+        .app_phone {
+            .phone_content {
+                margin: 0 auto;
+                height: 400px;
+                width: 45%;
+                .swiper-container {
+                    border-radius: 20px;
+                    border-left: 5px solid #3e3200;
+                    border-right: 5px solid #3e3200;
+                    .phone_item {
+                        cursor: pointer;
+                        img {
+                            width: 100%;
+                            height: 420px;
+                        }
+                    }
+                }
             }
         }
     }
