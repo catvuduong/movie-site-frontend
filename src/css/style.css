@@ -822,13 +822,14 @@ body {
 
 .myApps {
   margin-top: 30px;
-  height: 500px;
-  padding: 120px 0 80px 0;
-  background-size: 1190px 515px;
+  height: 585px;
+  padding: 80px 0 35px 0;
+  background-size: 1190px 550px;
   background-repeat: repeat-x;
   text-align: left; }
   .myApps .container {
-    max-width: 940px; }
+    max-width: 1140px;
+    width: 60%; }
     .myApps .container .app_intro {
       padding-top: 60px; }
       .myApps .container .app_intro h3 {
@@ -872,6 +873,14 @@ body {
           .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
             width: 100%;
             height: 420px; }
+
+.myBanner {
+  margin-top: 5px; }
+  .myBanner .container {
+    max-width: 1140px;
+    width: 60%; }
+    .myBanner .container .banner_partner {
+      text-align: left; }
 
 .btn--signIn {
   color: #686f7a;
