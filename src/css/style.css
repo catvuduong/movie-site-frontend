@@ -881,37 +881,6 @@ body {
     width: 60%; }
     .myBanner .container .banner_partner {
       text-align: left; }
-      .myBanner .container .banner_partner .row .security h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .security .row .col-6 h5 {
-        padding-top: 10px;
-        color: #686f7a;
-        font-size: 13px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .partner h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .partner .banner_icon .icon_line {
-        margin-bottom: 15px; }
-        .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span {
-          margin-right: 15px; }
-          .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span img {
-            border-radius: 50px;
-            width: 30px;
-            height: 30px; }
-      .myBanner .container .banner_partner .row .apps .row .col-6 h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .apps .row .col-6 span {
-        margin-right: 15px; }
-        .myBanner .container .banner_partner .row .apps .row .col-6 span img {
-          border-radius: 50px;
-          width: 30px;
-          height: 30px; }
 
 .btn--signIn {
   color: #686f7a;

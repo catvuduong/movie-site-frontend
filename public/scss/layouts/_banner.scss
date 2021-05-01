@@ -5,56 +5,6 @@
         width: 60%;
         .banner_partner {
             text-align: left;
-            .row {
-                .security {
-                    h5 {
-                        @include text($color-white-0, 12px, $fw-bold-0);
-                    }
-                    .row {
-                        .col-6 {
-                            h5 {
-                                padding-top: $pd-1;
-                                @include text($color-gray-4, $fs-1, $fw-bold-0);
-                            }
-                        }
-                    }
-                }
-                .partner {
-                    h5 {
-                        @include text($color-white-0, 12px, $fw-bold-0);
-                    }
-                    .banner_icon {
-                        .icon_line {
-                            margin-bottom: 15px;
-                            span {
-                                margin-right: 15px;
-                                img {
-                                    border-radius: 50px;
-                                    width: 30px;
-                                    height: 30px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .apps {
-                    .row {
-                        .col-6 {
-                            h5 {
-                                @include text($color-white-0, 12px, $fw-bold-0);
-                            }
-                            span {
-                                margin-right: 15px;
-                                img {
-                                    border-radius: 50px;
-                                    width: 30px;
-                                    height: 30px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
