@@ -88,7 +88,7 @@ export default class Banner extends Component {
                         </div>
                     </div>
                 </div>
-                {/* fskdlfjsasdsadsa sdfsdfssdfdsd*/}
+                {/* fskdlfjsassdfdsfsddsadsa sdfsdfssdfdsd*/}
 
             </section>
         )
