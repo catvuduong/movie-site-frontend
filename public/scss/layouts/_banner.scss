@@ -1,10 +1,10 @@
 .myBanner {
     margin-top: 5px;
+    text-align: left;
     .container {
         max-width: 1140px;
         width: 60%;
         .banner_partner {
-            text-align: left;
             .row {
                 .security {
                     h5 {
@@ -52,6 +52,42 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        hr {
+            border-color: white;
+        }
+        .banner_contact {
+            .row {
+                .col-1 {
+                    img {
+                        width: 80px;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+                }
+                .col-8 {
+                    padding-left: 35px;
+                    h5 {
+                        @include text($color-white-0, $fs-1, $fw-bold-0);
+                        margin-bottom: 2px;
+                    }
+                    p {
+                        @include text($color-gray-4, 12px, $fw-bold-0);
+                        margin-bottom: 0;
+                        span {
+                            color: #fb4f35;
+                        }
+                    }
+                }
+                .col-3 {
+                    text-align: right;
+                    img {
+                        width: 130px;
+                        height: auto;
+                        border-radius: 8px;
                     }
                 }
             }

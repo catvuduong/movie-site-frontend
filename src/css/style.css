@@ -875,43 +875,68 @@ body {
             height: 420px; }
 
 .myBanner {
-  margin-top: 5px; }
+  margin-top: 5px;
+  text-align: left; }
   .myBanner .container {
     max-width: 1140px;
     width: 60%; }
-    .myBanner .container .banner_partner {
-      text-align: left; }
-      .myBanner .container .banner_partner .row .security h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .security .row .col-6 h5 {
-        padding-top: 10px;
-        color: #686f7a;
-        font-size: 13px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .partner h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .partner .banner_icon .icon_line {
-        margin-bottom: 15px; }
-        .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span {
-          margin-right: 15px; }
-          .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span img {
-            border-radius: 50px;
-            width: 30px;
-            height: 30px; }
-      .myBanner .container .banner_partner .row .apps .row .col-6 h5 {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600; }
-      .myBanner .container .banner_partner .row .apps .row .col-6 span {
+    .myBanner .container .banner_partner .row .security h5 {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600; }
+    .myBanner .container .banner_partner .row .security .row .col-6 h5 {
+      padding-top: 10px;
+      color: #686f7a;
+      font-size: 13px;
+      font-weight: 600; }
+    .myBanner .container .banner_partner .row .partner h5 {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600; }
+    .myBanner .container .banner_partner .row .partner .banner_icon .icon_line {
+      margin-bottom: 15px; }
+      .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span {
         margin-right: 15px; }
-        .myBanner .container .banner_partner .row .apps .row .col-6 span img {
+        .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span img {
           border-radius: 50px;
           width: 30px;
           height: 30px; }
+    .myBanner .container .banner_partner .row .apps .row .col-6 h5 {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600; }
+    .myBanner .container .banner_partner .row .apps .row .col-6 span {
+      margin-right: 15px; }
+      .myBanner .container .banner_partner .row .apps .row .col-6 span img {
+        border-radius: 50px;
+        width: 30px;
+        height: 30px; }
+    .myBanner .container hr {
+      border-color: white; }
+    .myBanner .container .banner_contact .row .col-1 img {
+      width: 80px;
+      height: auto;
+      border-radius: 8px; }
+    .myBanner .container .banner_contact .row .col-8 {
+      padding-left: 35px; }
+      .myBanner .container .banner_contact .row .col-8 h5 {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 2px; }
+      .myBanner .container .banner_contact .row .col-8 p {
+        color: #686f7a;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 0; }
+        .myBanner .container .banner_contact .row .col-8 p span {
+          color: #fb4f35; }
+    .myBanner .container .banner_contact .row .col-3 {
+      text-align: right; }
+      .myBanner .container .banner_contact .row .col-3 img {
+        width: 130px;
+        height: auto;
+        border-radius: 8px; }
 
 .btn--signIn {
   color: #686f7a;
