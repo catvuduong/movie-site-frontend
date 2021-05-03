@@ -899,7 +899,7 @@ body {
           height: 350px; } }
 @media screen and (max-width: 576px) {
   .myApps {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     height: 850px;
     text-align: center;
@@ -912,8 +912,10 @@ body {
       padding-right: 0; }
     .myApps .container .app_phone {
       padding-left: 0; }
-      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-        height: 440px; } }
+      .myApps .container .app_phone .phone_content {
+        width: 45%; }
+        .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+          height: 440px; } }
 @media screen and (max-width: 400px) {
   .myApps {
     height: 880px; }
@@ -948,42 +950,82 @@ body {
           border-radius: 50px;
           width: 30px;
           height: 30px; }
-    .myBanner .container .banner_partner .row .apps .row .col-6 h5 {
+    .myBanner .container .banner_partner .row .apps .row .col-sm-6 h5 {
       color: #fff;
       font-size: 12px;
       font-weight: 600; }
-    .myBanner .container .banner_partner .row .apps .row .col-6 span {
+    .myBanner .container .banner_partner .row .apps .row .col-sm-6 span {
       margin-right: 15px; }
-      .myBanner .container .banner_partner .row .apps .row .col-6 span img {
+      .myBanner .container .banner_partner .row .apps .row .col-sm-6 span img {
         border-radius: 50px;
         width: 30px;
         height: 30px; }
     .myBanner .container hr {
       border-color: white; }
-    .myBanner .container .banner_contact .row .col-1 img {
+    .myBanner .container .banner_contact .row .col-sm-1 img {
       width: 80px;
       height: auto;
       border-radius: 8px; }
-    .myBanner .container .banner_contact .row .col-8 {
+    .myBanner .container .banner_contact .row .col-sm-8 {
       padding-left: 35px; }
-      .myBanner .container .banner_contact .row .col-8 h5 {
+      .myBanner .container .banner_contact .row .col-sm-8 h5 {
         color: #fff;
         font-size: 13px;
         font-weight: 600;
         margin-bottom: 2px; }
-      .myBanner .container .banner_contact .row .col-8 p {
+      .myBanner .container .banner_contact .row .col-sm-8 p {
         color: #686f7a;
         font-size: 12px;
         font-weight: 600;
         margin-bottom: 0; }
-        .myBanner .container .banner_contact .row .col-8 p span {
+        .myBanner .container .banner_contact .row .col-sm-8 p span {
           color: #fb4f35; }
-    .myBanner .container .banner_contact .row .col-3 {
+    .myBanner .container .banner_contact .row .col-sm-3 {
       text-align: right; }
-      .myBanner .container .banner_contact .row .col-3 img {
+      .myBanner .container .banner_contact .row .col-sm-3 img {
         width: 130px;
         height: auto;
         border-radius: 8px; }
+  @media screen and (max-width: 1600px) {
+    .myBanner .container {
+      width: 100%; }
+      .myBanner .container .banner_partner .security {
+        padding-left: 0; }
+      .myBanner .container .banner_partner .apps {
+        padding-right: 0; } }
+  @media screen and (max-width: 1190px) {
+    .myBanner .container {
+      max-width: 960px; } }
+  @media screen and (max-width: 992px) {
+    .myBanner .container {
+      max-width: 720px; }
+      .myBanner .container .banner_contact .row .col-sm-8 {
+        padding-left: 75px; } }
+  @media screen and (max-width: 767px) {
+    .myBanner .container {
+      max-width: 540px; }
+      .myBanner .container .banner_partner .partner {
+        display: none; }
+      .myBanner .container .banner_contact .row .col-sm-1 {
+        padding-left: 0; } }
+  @media screen and (max-width: 576px) {
+    .myBanner .container .banner_partner .security,
+    .myBanner .container .banner_partner .partner {
+      display: none; }
+    .myBanner .container .banner_partner .apps .row {
+      display: flex;
+      flex-wrap: nowrap; }
+      .myBanner .container .banner_partner .apps .row .col-sm-6 {
+        text-align: center; }
+    .myBanner .container .banner_contact {
+      text-align: center; }
+      .myBanner .container .banner_contact .row .col-sm-1 {
+        padding-left: 0; }
+      .myBanner .container .banner_contact .row .col-sm-8 {
+        padding-left: 15px;
+        padding-top: 10px; }
+      .myBanner .container .banner_contact .row .col-sm-3 {
+        text-align: center; } }
 
 .btn--signIn {
   color: #686f7a;

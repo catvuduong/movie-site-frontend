@@ -102,7 +102,7 @@
 }
 @include respond-to("small") {
     .myApps {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         height: 850px;
         text-align: center;
@@ -118,6 +118,7 @@
             .app_phone {
                 padding-left: 0;
                 .phone_content {
+                    width: 45%;
                     .swiper-container {
                         .phone_item {
                             img {

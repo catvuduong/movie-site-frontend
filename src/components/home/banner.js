@@ -7,7 +7,7 @@ export default class Banner extends Component {
                 <div className="container">
                     <div className="banner_partner">
                         <div className="row">
-                            <div className="col-4 security">
+                            <div className="col-md-5 col-sm-7 security">
                                 <h5>TIX</h5>
                                 <div className="row">
                                     <div className="col-6">
@@ -20,7 +20,7 @@ export default class Banner extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-4 partner">
+                            <div className="col-md-5 partner">
                                 <h5>ĐỐI TÁC</h5>
                                 <div className="banner_icon">
                                     <div className="icon_line">
@@ -53,14 +53,14 @@ export default class Banner extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-4 apps">
+                            <div className="col-md-2 col-sm-5 apps">
                                 <div className="row">
-                                    <div className="col-6">
+                                    <div className="col-sm-6">
                                         <h5>MOBLE APP</h5>
                                         <span><img src="./images/apple-logo.png" alt="" /></span>
                                         <span><img src="./images/android-logo.png" alt="" /></span>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-sm-6">
                                         <h5>SOCIAL</h5>
                                         <span><img src="./images/facebook-logo.png" alt="" /></span>
                                         <span><img src="./images/zalo-logo.png" alt="" /></span>
@@ -72,17 +72,17 @@ export default class Banner extends Component {
                     <hr></hr>
                     <div className="banner_contact">
                         <div className="row">
-                            <div className="col-1">
+                            <div className="col-sm-1">
                                 <img src="/images/zion-logo.jpg" alt="" />
                             </div>
-                            <div className="col-8">
+                            <div className="col-sm-8">
                                 <h5>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h5>
                                 <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</p>
                                 <p> Giấy chứng nhận đăng ký kinh doanh số: 0101659783, đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.</p>
                                 <p>Số Điện Thoại (Hotline): 1900 545 436</p>
                                 <p>Email: <span>support@tix.vn</span></p>
                             </div>
-                            <div className="col-3">
+                            <div className="col-sm-3">
                                 <img src="/images/d1e6bd560daa9e20131ea8a0f62e87f8.png" alt="" />
                             </div>
                         </div>

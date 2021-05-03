@@ -39,7 +39,7 @@
                 }
                 .apps {
                     .row {
-                        .col-6 {
+                        .col-sm-6 {
                             h5 {
                                 @include text($color-white-0, 12px, $fw-bold-0);
                             }
@@ -61,14 +61,14 @@
         }
         .banner_contact {
             .row {
-                .col-1 {
+                .col-sm-1 {
                     img {
                         width: 80px;
                         height: auto;
                         border-radius: 8px;
                     }
                 }
-                .col-8 {
+                .col-sm-8 {
                     padding-left: 35px;
                     h5 {
                         @include text($color-white-0, $fs-1, $fw-bold-0);
@@ -82,12 +82,93 @@
                         }
                     }
                 }
-                .col-3 {
+                .col-sm-3 {
                     text-align: right;
                     img {
                         width: 130px;
                         height: auto;
                         border-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("over-frame") {
+        .container {
+            width: 100%;
+            .banner_partner {
+                .security {
+                    padding-left: 0;
+                }
+                .apps {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    @include respond-to("extra-large") {
+        .container {
+            max-width: 960px;
+        }
+    }
+    @include respond-to("large") {
+        .container {
+            max-width: 720px;
+            .banner_contact {
+                .row {
+                    .col-sm-8 {
+                        padding-left: 75px;
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("medium") {
+        .container {
+            max-width: 540px;
+            .banner_partner {
+                .partner {
+                    display: none;
+                }
+            }
+            .banner_contact {
+                .row {
+                    .col-sm-1 {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("small") {
+        .container {
+            .banner_partner {
+                .security,
+                .partner {
+                    display: none;
+                }
+                .apps {
+                    .row {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        .col-sm-6 {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            .banner_contact {
+                text-align: center;
+                .row {
+                    .col-sm-1 {
+                        padding-left: 0;
+                    }
+                    .col-sm-8 {
+                        padding-left: 15px;
+                        padding-top: 10px;
+                    }
+                    .col-sm-3 {
+                        text-align: center;
                     }
                 }
             }
