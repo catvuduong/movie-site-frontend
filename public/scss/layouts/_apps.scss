@@ -10,6 +10,7 @@
         width: 60%;
         .app_intro {
             padding-top: 60px;
+            padding-left: 0;
             h3 {
                 @include text($color-white-0, 30px, $fw-bold-0);
                 line-height: 1.5;
@@ -37,6 +38,7 @@
             }
         }
         .app_phone {
+            padding-right: 0;
             .phone_content {
                 margin: 0 auto;
                 height: 400px;
@@ -50,6 +52,96 @@
                         img {
                             width: 100%;
                             height: 420px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to("over-frame") {
+        .container {
+            width: 100%;
+            .app_intro {
+            }
+            .app_phone {
+            }
+        }
+    }
+}
+@include respond-to("extra-large") {
+    .myApps {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+@include respond-to("large") {
+    .myApps {
+        max-width: 720px;
+    }
+}
+@include respond-to("medium") {
+    .myApps {
+        max-width: 540px;
+        .container {
+            .app_phone {
+                padding-top: 30px;
+                .phone_content {
+                    height: 400px;
+                    width: 60%;
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 350px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond-to("small") {
+    .myApps {
+        width: 80%;
+        margin: 0 auto;
+        height: 850px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-top: 0;
+        background-size: contain;
+        background-repeat: repeat-y;
+        .container {
+            .app_intro {
+                padding-right: 0;
+            }
+            .app_phone {
+                padding-left: 0;
+                .phone_content {
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 440px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond-to("400") {
+    .myApps {
+        height: 880px;
+        .container {
+            .app_phone {
+                .phone_content {
+                    width: 70%;
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 340px;
+                            }
                         }
                     }
                 }

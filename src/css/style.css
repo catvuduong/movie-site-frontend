@@ -831,7 +831,8 @@ body {
     max-width: 1140px;
     width: 60%; }
     .myApps .container .app_intro {
-      padding-top: 60px; }
+      padding-top: 60px;
+      padding-left: 0; }
       .myApps .container .app_intro h3 {
         color: #fff;
         font-size: 30px;
@@ -860,20 +861,66 @@ body {
         color: #fff;
         font-size: 13px;
         font-weight: normal; }
-    .myApps .container .app_phone .phone_content {
-      margin: 0 auto;
-      height: 400px;
-      width: 45%; }
-      .myApps .container .app_phone .phone_content .swiper-container {
-        border-radius: 20px;
-        border-left: 5px solid #3e3200;
-        border-right: 5px solid #3e3200; }
-        .myApps .container .app_phone .phone_content .swiper-container .phone_item {
-          cursor: pointer; }
-          .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-            width: 100%;
-            height: 420px; }
+    .myApps .container .app_phone {
+      padding-right: 0; }
+      .myApps .container .app_phone .phone_content {
+        margin: 0 auto;
+        height: 400px;
+        width: 45%; }
+        .myApps .container .app_phone .phone_content .swiper-container {
+          border-radius: 20px;
+          border-left: 5px solid #3e3200;
+          border-right: 5px solid #3e3200; }
+          .myApps .container .app_phone .phone_content .swiper-container .phone_item {
+            cursor: pointer; }
+            .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+              width: 100%;
+              height: 420px; }
+  @media screen and (max-width: 1600px) {
+    .myApps .container {
+      width: 100%; } }
 
+@media screen and (max-width: 1190px) {
+  .myApps {
+    max-width: 960px;
+    margin: 0 auto; } }
+@media screen and (max-width: 992px) {
+  .myApps {
+    max-width: 720px; } }
+@media screen and (max-width: 767px) {
+  .myApps {
+    max-width: 540px; }
+    .myApps .container .app_phone {
+      padding-top: 30px; }
+      .myApps .container .app_phone .phone_content {
+        height: 400px;
+        width: 60%; }
+        .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+          height: 350px; } }
+@media screen and (max-width: 576px) {
+  .myApps {
+    width: 80%;
+    margin: 0 auto;
+    height: 850px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 0;
+    background-size: contain;
+    background-repeat: repeat-y; }
+    .myApps .container .app_intro {
+      padding-right: 0; }
+    .myApps .container .app_phone {
+      padding-left: 0; }
+      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+        height: 440px; } }
+@media screen and (max-width: 400px) {
+  .myApps {
+    height: 880px; }
+    .myApps .container .app_phone .phone_content {
+      width: 70%; }
+      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+        height: 340px; } }
 .myBanner {
   margin-top: 5px;
   text-align: left; }
