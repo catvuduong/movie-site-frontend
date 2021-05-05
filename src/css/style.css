@@ -1031,6 +1031,29 @@ body {
       .myBanner .container .banner_contact .row .col-sm-3 {
         text-align: center; } }
 
+.mySeat {
+  margin-top: 20px;
+  padding-top: 30px; }
+  .mySeat .seat .theater {
+    display: flex; }
+    .mySeat .seat .theater img {
+      height: 50px;
+      width: 50px; }
+    .mySeat .seat .theater .theater_info {
+      padding-top: 5px;
+      padding-left: 20px;
+      text-align: left; }
+      .mySeat .seat .theater .theater_info span {
+        display: block; }
+      .mySeat .seat .theater .theater_info span:first-child {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600; }
+      .mySeat .seat .theater .theater_info span:last-child {
+        color: #686f7a;
+        font-size: 15px;
+        font-weight: normal; }
+
 .btn--signIn {
   color: #686f7a;
   background-color: transparent;

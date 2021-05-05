@@ -15,7 +15,7 @@ export default function HomeTemplate({ Component, ...props }) {
         <Route {...props} render={propsComponent => (
             <HomeLayout>
                 <Component {...propsComponent} />
-                <Banner></Banner>
+                {/* <Banner></Banner> */}
             </HomeLayout>
         )} />
     )

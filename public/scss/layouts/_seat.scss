@@ -1,0 +1,27 @@
+.mySeat {
+    margin-top: 20px;
+    padding-top: 30px;
+    .seat {
+        .theater {
+            display: flex;
+            img {
+                height: 50px;
+                width: 50px;
+            }
+            .theater_info {
+                padding-top: 5px;
+                padding-left: 20px;
+                text-align: left;
+                span {
+                    display: block;
+                }
+                span:first-child {
+                    @include text($color-white-0, $fs-0, $fw-bold-0);
+                }
+                span:last-child {
+                    @include text($color-gray-4, $fs-0, $fw-normal);
+                }
+            }
+        }
+    }
+}
