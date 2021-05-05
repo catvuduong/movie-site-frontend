@@ -1013,6 +1013,8 @@ body {
     .myBanner .container .banner_partner .partner {
       display: none; }
     .myBanner .container .banner_partner .apps .row {
+      width: 80%;
+      margin: 0 auto;
       display: flex;
       flex-wrap: nowrap; }
       .myBanner .container .banner_partner .apps .row .col-sm-6 {
