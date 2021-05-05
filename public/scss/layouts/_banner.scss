@@ -114,6 +114,11 @@
     @include respond-to("large") {
         .container {
             max-width: 720px;
+            .banner_partner{
+                .partner{
+                    display: none;
+                }
+            }
             .banner_contact {
                 .row {
                     .col-sm-8 {

@@ -20,7 +20,7 @@ export default class Home extends Component {
                 <Cinema></Cinema>
                 {/* <Article></Article> */}
                 <Apps></Apps>
-                <Banner></Banner>
+                {/* <Banner></Banner> */}
                 <div className="" style={{ height: "120px" }}></div>
             </div>
         )

@@ -999,6 +999,8 @@ body {
   @media screen and (max-width: 992px) {
     .myBanner .container {
       max-width: 720px; }
+      .myBanner .container .banner_partner .partner {
+        display: none; }
       .myBanner .container .banner_contact .row .col-sm-8 {
         padding-left: 75px; } }
   @media screen and (max-width: 767px) {

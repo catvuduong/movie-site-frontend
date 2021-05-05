@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
+import Banner from './../components/home/banner';
 
 const HomeLayout = props => {
     return (
@@ -14,6 +15,7 @@ export default function HomeTemplate({ Component, ...props }) {
         <Route {...props} render={propsComponent => (
             <HomeLayout>
                 <Component {...propsComponent} />
+                <Banner></Banner>
             </HomeLayout>
         )} />
     )

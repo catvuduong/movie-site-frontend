@@ -7,7 +7,7 @@ export default class Banner extends Component {
                 <div className="container">
                     <div className="banner_partner">
                         <div className="row">
-                            <div className="col-md-5 col-sm-7 security">
+                            <div className="col-lg-5 col-md-6 security">
                                 <h5>TIX</h5>
                                 <div className="row">
                                     <div className="col-6">
@@ -20,50 +20,50 @@ export default class Banner extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-5 partner">
+                            <div className="col-lg-4 partner">
                                 <h5>ĐỐI TÁC</h5>
                                 <div className="banner_icon">
                                     <div className="icon_line">
-                                        <span><img src="./images/cgv.png" alt="" /></span>
-                                        <span><img src="./images/bhd.png" alt="" /></span>
-                                        <span><img src="./images/galaxycine.png" alt="" /></span>
-                                        <span><img src="./images/cinestar.png" alt="" /></span>
-                                        <span><img src="./images/lotte.png" alt="" /></span>
+                                        <span><img src="/images/cgv.png" alt="" /></span>
+                                        <span><img src="/images/bhd.png" alt="" /></span>
+                                        <span><img src="/images/galaxycine.png" alt="" /></span>
+                                        <span><img src="/images/cinestar.png" alt="" /></span>
+                                        <span><img src="/images/lotte.png" alt="" /></span>
                                     </div>
                                     <div className="icon_line">
-                                        <span><img src="./images/megags.png" alt="" /></span>
-                                        <span><img src="./images/bt.jpg" alt="" /></span>
-                                        <span><img src="./images/dongdacinema.png" alt="" /></span>
-                                        <span><img src="./images/TOUCH.png" alt="" /></span>
-                                        <span><img src="./images/cnx.jpg" alt="" /></span>
+                                        <span><img src="/images/megags.png" alt="" /></span>
+                                        <span><img src="/images/bt.jpg" alt="" /></span>
+                                        <span><img src="/images/dongdacinema.png" alt="" /></span>
+                                        <span><img src="/images/TOUCH.png" alt="" /></span>
+                                        <span><img src="/images/cnx.jpg" alt="" /></span>
                                     </div>
                                     <div className="icon_line">
-                                        <span><img src="./images/STARLIGHT.png" alt="" /></span>
-                                        <span><img src="./images/dcine.png" alt="" /></span>
-                                        <span><img src="./images/zalopay_icon.png" alt="" /></span>
-                                        <span><img src="./images/payoo.jpg" alt="" /></span>
-                                        <span><img src="./images/VIETTINBANK.png" alt="" /></span>
+                                        <span><img src="/images/STARLIGHT.png" alt="" /></span>
+                                        <span><img src="/images/dcine.png" alt="" /></span>
+                                        <span><img src="/images/zalopay_icon.png" alt="" /></span>
+                                        <span><img src="/images/payoo.jpg" alt="" /></span>
+                                        <span><img src="/images/VIETTINBANK.png" alt="" /></span>
                                     </div>
                                     <div className="icon_line">
-                                        <span><img src="./images/AGRIBANK.png" alt="" /></span>
-                                        <span><img src="./images/VIETTINBANK.png" alt="" /></span>
-                                        <span><img src="./images/IVB.png" alt="" /></span>
-                                        <span><img src="./images/123go.png" alt="" /></span>
-                                        <span><img src="./images/laban.png" alt="" /></span>
+                                        <span><img src="/images/AGRIBANK.png" alt="" /></span>
+                                        <span><img src="/images/VIETTINBANK.png" alt="" /></span>
+                                        <span><img src="/images/IVB.png" alt="" /></span>
+                                        <span><img src="/images/123go.png" alt="" /></span>
+                                        <span><img src="/images/laban.png" alt="" /></span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-2 col-sm-5 apps">
+                            <div className="col-lg-3 col-md-6 apps">
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <h5>MOBLE APP</h5>
-                                        <span><img src="./images/apple-logo.png" alt="" /></span>
-                                        <span><img src="./images/android-logo.png" alt="" /></span>
+                                        <span><img src="/images/apple-logo.png" alt="" /></span>
+                                        <span><img src="/images/android-logo.png" alt="" /></span>
                                     </div>
                                     <div className="col-sm-6">
                                         <h5>SOCIAL</h5>
-                                        <span><img src="./images/facebook-logo.png" alt="" /></span>
-                                        <span><img src="./images/zalo-logo.png" alt="" /></span>
+                                        <span><img src="/images/facebook-logo.png" alt="" /></span>
+                                        <span><img src="/images/zalo-logo.png" alt="" /></span>
                                     </div>
                                 </div>
                             </div>
