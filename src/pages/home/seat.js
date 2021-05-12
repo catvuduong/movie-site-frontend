@@ -16,10 +16,19 @@ export default class Seat extends Component {
                                             <span>show times</span>
                                         </div>
                                     </div>
-                                    <div className="col-6">Time remaining</div>
+                                    <div className="col-6 time">
+                                        <div className="time_remaining">
+                                            <span>Thời gian chờ</span>
+                                            <span>4:00</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <hr></hr>
-                                <div className="text-center">Minitor</div>
+                                <hr>
+                                </hr>
+                                <div id="trapezium"></div>
+
+
+                                <div className="text-center">Màn hình</div>
                                 <div>Seats</div>
                                 <div>Status of seats</div>
                             </div>

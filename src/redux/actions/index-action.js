@@ -66,6 +66,7 @@ export const actGetListTheatersAPI = () => {
 
 export const actGetListArticlesAPI = () => {
     return async dispatch => {
+
         let result = await axios({
             method: "GET",
             url: "https://localhost:5001/articles/get-list"

@@ -7,7 +7,7 @@ let initialState = {
 const articleReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actiontype.GET_LIST_ARTICLES: {
-            state.listArticles = action.listArticles;
+            state.listArticles.push(action.listArticles);
             return { ...state };
         }
         default:

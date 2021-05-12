@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class NewsExpansion extends Component {
 
     render() {
-
         let firstList = this.props.listArticles.slice(0, 2);
         let secondList = this.props.listArticles.slice(2, 4);
         return (

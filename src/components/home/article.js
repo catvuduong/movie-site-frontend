@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
+import News from './news-expansion';
 
 class Article extends Component {
     constructor(props) {
@@ -9,13 +10,12 @@ class Article extends Component {
             filmOn: true,
             reviewOn: false,
             PromotionOn: false,
-            LLNews: null,
-            news: []
+            listArticles: []
         }
     }
     async componentDidMount() {
         await this.props.getListArticles();
-        await this.props.listArticles
+        this.setState({ listArticles: this.props.listArticles });
     }
 
     handleFilm = () => {
@@ -41,13 +41,9 @@ class Article extends Component {
         });
     }
 
-    lazyLoadNews = async () => {
-        const { default: News } = await import('./news-expansion');
-        this.setState({ LLNews: News });
-    }
-
-    expandNews = () => {
-        this.lazyLoadNews();
+    expandNews = async () => {
+        await this.props.getListArticles();
+        this.setState({ listArticles: this.props.listArticles });
     }
 
 
@@ -55,12 +51,6 @@ class Article extends Component {
         let film = this.state.filmOn ? "active" : "";
         let review = this.state.reviewOn ? "active" : "";
         let promo = this.state.PromotionOn ? "active" : "";
-
-        let firstList = this.props.listArticles.slice(0, 2);
-        let secondList = this.props.listArticles.slice(2, 4);
-
-        let { LLNews } = this.state
-        const lazyLoadNews = LLNews ? <LLNews listArticles={this.props.listArticles} /> : null;
         return (
             < section className="myArticle container">
                 <div className="article_title container-fluid">
@@ -72,33 +62,9 @@ class Article extends Component {
                         onClick={() => this.handlePromotion()}
                     >Khuyến Mãi</button>
                 </div>
-                <div className="article_content">
-                    <div className="container">
-                        <div className="row first_list">
-                            {
-                                firstList.map((item, index) => (
-                                    <div className="col-6 article_item" key={index}>
-                                        <img src={"https://localhost:5001" + item.thumbnail} alt="" />
-                                        <h5>{item.title}</h5>
-                                        <p>{item.content}</p>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        <div className="row second_list">
-                            {
-                                secondList.map((item, index) => (
-                                    <div className="col-4 article_item" key={index}>
-                                        <img src={"https://localhost:5001" + item.thumbnail} alt="" />
-                                        <h5>{item.title}</h5>
-                                        <p>{item.content}</p>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-                {lazyLoadNews}
+                {this.state.listArticles.map((aticles, index) => (
+                    <News key={index} listArticles={aticles} />
+                ))}
                 <div>
                     <button onClick={() => this.expandNews()}>XEM THÊM</button>
                 </div>

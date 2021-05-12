@@ -23,5 +23,28 @@
                 }
             }
         }
+        .time {
+            .time_remaining {
+                padding-top: 12px;
+                span {
+                    display: block;
+                }
+                span:first-child {
+                    @include text($color-gray-4, $fs-0, $fw-normal);
+                }
+            }
+        }
+        hr {
+            width: 100%;
+            border: 10px solid white;
+            margin-bottom: 0;
+        }
+        #trapezium {
+            height: 0;
+            width: 101%;
+            border-bottom: 120px solid #ec3504;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+        }
     }
 }
