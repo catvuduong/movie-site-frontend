@@ -103,4 +103,20 @@
             }
         }
     }
+    .article_expansion {
+        padding-top: 30px;
+        button {
+            padding: 7px 25px;
+            @include text($color-gray-4, $fs-1, $fw-normal);
+            outline: none;
+            border: 1px solid $color-gray-4;
+            border-radius: 5px;
+            transition: all .2s;
+            &:hover {
+                border-color: rgb(180, 27, 3);
+                color: white;
+                background-color: rgb(180, 27, 3);
+            }
+        }
+    }
 }

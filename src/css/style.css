@@ -819,6 +819,21 @@ body {
         color: #686f7a;
         font-size: 13px;
         font-weight: normal; }
+  .myArticle .article_expansion {
+    padding-top: 30px; }
+    .myArticle .article_expansion button {
+      padding: 7px 25px;
+      color: #686f7a;
+      font-size: 13px;
+      font-weight: normal;
+      outline: none;
+      border: 1px solid #686f7a;
+      border-radius: 5px;
+      transition: all .2s; }
+      .myArticle .article_expansion button:hover {
+        border-color: #b41b03;
+        color: white;
+        background-color: #b41b03; }
 
 .myApps {
   margin-top: 30px;

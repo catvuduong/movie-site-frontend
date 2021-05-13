@@ -65,8 +65,10 @@ class Article extends Component {
                 {this.state.listArticles.map((aticles, index) => (
                     <News key={index} listArticles={aticles} />
                 ))}
-                <div>
-                    <button onClick={() => this.expandNews()}>XEM THÊM</button>
+                <div className="article_expansion">
+                    <button
+                        onClick={() => this.expandNews()}
+                    >XEM THÊM</button>
                 </div>
             </section >
         )
