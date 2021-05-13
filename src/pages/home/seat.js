@@ -23,14 +23,18 @@ export default class Seat extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
-                                </hr>
-                                <div id="trapezium"></div>
-
-
-                                <div className="text-center">Màn hình</div>
+                                <div className="screen">
+                                    <img src="images/screen.png" alt="" />
+                                </div>
                                 <div>Seats</div>
-                                <div>Status of seats</div>
+                                <div className="seat_status">
+                                    <div className="row">
+                                        <div className="col-3 seating"><i class="fa fa-minus-square"></i> Ghế đang chọn</div>
+                                        <div className="col-3 seated"><i class="fa fa-minus-square"></i> Ghế đã chọn</div>
+                                        <div className="col-3 havent_seat"><i class="fa fa-minus-square"></i> Ghế chưa chọn</div>
+                                        <div className="col-3 vip_seat"><i class="fa fa-minus-square"></i> Ghế vip</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-3 seat_info">Seat info</div>

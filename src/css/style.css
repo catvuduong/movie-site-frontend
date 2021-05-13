@@ -1048,7 +1048,8 @@ body {
 
 .mySeat {
   margin-top: 20px;
-  padding-top: 30px; }
+  padding-top: 30px;
+  background-color: white; }
   .mySeat .seat .theater {
     display: flex; }
     .mySeat .seat .theater img {
@@ -1076,16 +1077,17 @@ body {
       color: #686f7a;
       font-size: 15px;
       font-weight: normal; }
-  .mySeat .seat hr {
+  .mySeat .seat .screen img {
     width: 100%;
-    border: 10px solid white;
-    margin-bottom: 0; }
-  .mySeat .seat #trapezium {
-    height: 0;
-    width: 101%;
-    border-bottom: 120px solid #ec3504;
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent; }
+    height: 100px; }
+  .mySeat .seat .seat_status .row .seating i {
+    color: lightskyblue; }
+  .mySeat .seat .seat_status .row .seated i {
+    color: #ec5252; }
+  .mySeat .seat .seat_status .row .havent_seat i {
+    color: greenyellow; }
+  .mySeat .seat .seat_status .row .vip_seat i {
+    color: yellow; }
 
 .btn--signIn {
   color: #686f7a;
