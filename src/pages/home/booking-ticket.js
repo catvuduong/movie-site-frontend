@@ -1,7 +1,31 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import * as action from "./../../redux/actions/index-action";
 
-export default class Seat extends Component {
+class BookingTicket extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataTicket: {},
+            listArticles: []
+        }
+    }
+
+    async componentDidMount() {
+        const id = this.props.match.params.id;
+        await this.props.getShowtimeById(id);
+    }
+
+    renderSeat = () => {
+        let theater = this.props.showtime.theater;
+        let row = theater.horizontalSize;
+        let column = theater.verticalSize;
+    }
+
     render() {
+        let theater = this.props.showtime.theater;
+        console.log(theater);
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -24,15 +48,15 @@ export default class Seat extends Component {
                                     </div>
                                 </div>
                                 <div className="screen">
-                                    <img src="images/screen.png" alt="" />
+                                    <img src="/images/screen.png" alt="" />
                                 </div>
                                 <div>Seats</div>
                                 <div className="seat_status">
                                     <div className="row">
-                                        <div className="col-3 seating"><i class="fa fa-minus-square"></i> Ghế đang chọn</div>
-                                        <div className="col-3 seated"><i class="fa fa-minus-square"></i> Ghế đã chọn</div>
-                                        <div className="col-3 havent_seat"><i class="fa fa-minus-square"></i> Ghế chưa chọn</div>
-                                        <div className="col-3 vip_seat"><i class="fa fa-minus-square"></i> Ghế vip</div>
+                                        <div className="col-3 seating"><i className="fa fa-minus-square"></i> Ghế đang chọn</div>
+                                        <div className="col-3 seated"><i className="fa fa-minus-square"></i> Ghế đã chọn</div>
+                                        <div className="col-3 havent_seat"><i className="fa fa-minus-square"></i> Ghế chưa chọn</div>
+                                        <div className="col-3 vip_seat"><i className="fa fa-minus-square"></i> Ghế vip</div>
                                     </div>
                                 </div>
                             </div>
@@ -44,3 +68,21 @@ export default class Seat extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        showtime: state.bookingTicketReducer.showtime,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getShowtimeById: async id => {
+            await dispatch(action.actGetShowtimeByID(id));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookingTicket);
+
+

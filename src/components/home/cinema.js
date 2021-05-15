@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as action from "./../../redux/actions/index-action";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import * as ActionType from './../../redux/constants/action-type';
 
 class Cinema extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Cinema extends Component {
             ],
             theaters: [],
             movies: [],
+            dataTicket: {},
         }
     }
 
@@ -94,6 +96,14 @@ class Cinema extends Component {
             btnsTheater[index].className += ' btnsTheater_active';
         }
     }
+    // sendDataTicket = async data => {
+    //     // await this.setState({
+    //     //     dataTicket: data
+    //     // });
+    //     // console.log(data);
+    //     // console.log(this.state.dataTicket);
+    //     // await this.props.dispatchDataTicket(data);
+    // }
 
     render() {
         return (
@@ -146,7 +156,10 @@ class Cinema extends Component {
                                         <div>
                                             {
                                                 item.data.map((showtime, index) => (
-                                                    <button key={index} type="button" className="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</button>
+                                                    <Link
+                                                        // onClick={() => this.sendDataTicket(showtime)}
+                                                        to={`booking-ticket/${showtime.id}`}
+                                                        key={index} type="button" className="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</Link>
                                                 ))
                                             }
                                         </div>
@@ -165,6 +178,8 @@ const mapStateToProps = (state) => {
     return {
         listBranches: state.branchReducer.listBranches,
         listTheaters: state.theaterReducer.listTheaters,
+        listArticles: state.articleReducer.listArticles,
+        dataTicket: state.bookingTicketReducer.dataTicket
     };
 };
 
@@ -176,6 +191,12 @@ const mapDispatchToProps = (dispatch) => {
         getListTheaters: async () => {
             await dispatch(action.actGetListTheatersAPI());
         },
+        dispatchDataTicket: async dataTicket => {
+            await dispatch({
+                type: ActionType.GET_DATA_TICKET,
+                dataTicket
+            });
+        }
     };
 };
 

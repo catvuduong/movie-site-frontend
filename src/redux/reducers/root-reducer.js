@@ -3,12 +3,14 @@ import movieReducer from './movie-reducer';
 import branchReducer from './branch-reducer';
 import theaterReducer from './theater-reducer';
 import articleReducer from './article-reducer';
+import bookingTicketReducer from './booking-ticket-reducer';
 
 const rootReducer = combineReducers({
     movieReducer,
     branchReducer,
     theaterReducer,
-    articleReducer
+    articleReducer,
+    bookingTicketReducer
 })
 
 export default rootReducer;

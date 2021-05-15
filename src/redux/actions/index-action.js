@@ -29,8 +29,21 @@ export const actGetDetailsMovie = id => {
             url: `https://localhost:5001/movies/get/${id}`
         })
         dispatch({
-            type: ActionType.GET_DETAILS_MOVIE,
+            type: ActionType.GET_SHOWTIME_BYID,
             movie: result.data
+        })
+    }
+}
+
+export const actGetShowtimeByID = id => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: `https://localhost:5001/showtimes/get/${id}`
+        })
+        dispatch({
+            type: ActionType.GET_SHOWTIME_BYID,
+            showtime: result.data
         })
     }
 }
@@ -59,7 +72,6 @@ export const actGetListTheatersAPI = () => {
             type: ActionType.GET_LIST_THEATERS,
             listTheaters: result.data
         })
-        // console.log("theater");
     }
 }
 

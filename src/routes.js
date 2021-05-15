@@ -2,7 +2,7 @@ import Home from './pages/home/home';
 import ListMovie from './components/home/list-movie';
 import DashBoard from './pages/admin/dash-board';
 import DetailsMovie from './pages/home/details-movie';
-import Seat from './pages/home/seat';
+import BookingTicket from './pages/home/booking-ticket';
 
 const routeHome = [
     {
@@ -21,9 +21,9 @@ const routeHome = [
         component: DetailsMovie,
     },
     {
-        path: '/seat',
+        path: '/booking-ticket/:id',
         exact: false,
-        component: Seat,
+        component: BookingTicket,
     }
 
 ];

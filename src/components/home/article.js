@@ -10,7 +10,7 @@ class Article extends Component {
             filmOn: true,
             reviewOn: false,
             PromotionOn: false,
-            listArticles: []
+            listArticles: [],
         }
     }
     async componentDidMount() {
@@ -79,6 +79,7 @@ class Article extends Component {
 const mapStateToProps = state => {
     return {
         listArticles: state.articleReducer.listArticles,
+        dataTicket: state.bookingTicketReducer.dataTicket
     };
 };
 
