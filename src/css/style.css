@@ -205,7 +205,7 @@ body {
             height: 340px;
             position: absolute;
             cursor: pointer;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), black);
+            background: linear-gradient(to bottom, rgba(29, 11, 11, 0), rgba(255, 255, 255, 0.2), black);
             opacity: 0;
             transition: all 0.5s; }
           .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_play {

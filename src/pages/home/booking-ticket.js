@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as action from "./../../redux/actions/index-action";
 
@@ -8,24 +9,50 @@ class BookingTicket extends Component {
         super(props);
         this.state = {
             dataTicket: {},
-            listArticles: []
+            listArticles: [],
+            theater: {}
         }
     }
 
     async componentDidMount() {
         const id = this.props.match.params.id;
         await this.props.getShowtimeById(id);
+        this.setState({ theater: this.props.showtime.theater })
+    }
+
+    sendSeatData = (data, index) => {
+        let seat = {};
+        data.index = index;
+        seat = { ...data }
+        // console.log(seat);
     }
 
     renderSeat = () => {
-        let theater = this.props.showtime.theater;
-        let row = theater.horizontalSize;
-        let column = theater.verticalSize;
+        let a = 1; let arr = []; let l = 160;
+        for (let i = 0; i < l; i++) {
+            let seat = {
+                name: `${a}`,
+                index: null,
+                status: false,
+                vip: false,
+            }
+            arr.push(seat);
+            a++;
+        }
+        return arr.map((item, index) => {
+            if ((index + 1) % 16 === 0) {
+                return (
+                    <Fragment key={index}>
+                        <i className="fa fa-minus-square" onClick={() => this.sendSeatData(item, index)}></i>
+                        <br />
+                    </Fragment >
+                )
+            }
+            return <i key={index} className="fa fa-minus-square" onClick={() => this.sendSeatData(item, index)}></i>;
+        })
     }
 
     render() {
-        let theater = this.props.showtime.theater;
-        console.log(theater);
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -50,7 +77,7 @@ class BookingTicket extends Component {
                                 <div className="screen">
                                     <img src="/images/screen.png" alt="" />
                                 </div>
-                                <div>Seats</div>
+                                <div>{this.renderSeat()}</div>
                                 <div className="seat_status">
                                     <div className="row">
                                         <div className="col-3 seating"><i className="fa fa-minus-square"></i> Ghế đang chọn</div>
