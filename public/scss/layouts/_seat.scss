@@ -41,7 +41,19 @@
                 height: 100px;
             }
         }
+        .seat_customer {
+            padding-top: 35px;
+            i {
+                font-size: 35px;
+                padding: 5px 5px;
+                cursor: pointer;
+            }
+            .vip {
+                color: yellow;
+            }
+        }
         .seat_status {
+            padding-top: 50px;
             .row {
                 .seating {
                     i {
@@ -50,7 +62,7 @@
                 }
                 .seated {
                     i {
-                        color: $color-red-0;
+                        color: $color-orange-0;
                     }
                 }
                 .havent_seat {
