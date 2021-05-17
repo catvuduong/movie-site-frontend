@@ -78,4 +78,47 @@
             }
         }
     }
+    .display_board {
+        .price {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                @include text(greenyellow, 35px, $fw-normal);
+            }
+        }
+        hr {
+            background-color: white;
+        }
+        .theater_info {
+            height: 100px;
+            text-align: left;
+            span:first-child {
+                padding: 5px 15px;
+                @include text($color-white-0, $fs-1, $fw-normal);
+                background: $color-red-0;
+                border: 1px solid white;
+                border-radius: 5px;
+            }
+            span:nth-child(2) {
+                margin-left: 15px;
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            p:nth-child(3) {
+                margin-top: 10px;
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            p:last-child {
+                @include text($color-gray-2, $fs-1, $fw-bold-0);
+            }
+        }
+        .seated {
+            height: 100px;
+            text-align: left;
+            h5 {
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+        }
+    }
 }

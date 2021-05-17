@@ -98,7 +98,21 @@ class BookingTicket extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-3 seat_info">Seat info</div>
+                        <div className="col-3 display_board">
+                            <div className="price"><span>0 đ</span></div>
+                            <hr />
+                            <div className="theater_info">
+                                <span>theater name</span><span>movie name</span>
+                                <p>showtime</p>
+                                <p>theate dress</p>
+                            </div>
+                            <hr />
+                            <div className="seated">
+                                <h5>Ghế được chọn:</h5>
+                                <div className=""></div>
+                            </div>
+                            <hr />
+                        </div>
                     </div>
                 </div>
             </section>

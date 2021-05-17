@@ -1098,6 +1098,49 @@ body {
       color: greenyellow; }
     .mySeat .seat .seat_status .row .vip_seat i {
       color: yellow; }
+  .mySeat .display_board .price {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .mySeat .display_board .price span {
+      color: greenyellow;
+      font-size: 35px;
+      font-weight: normal; }
+  .mySeat .display_board hr {
+    background-color: white; }
+  .mySeat .display_board .theater_info {
+    height: 100px;
+    text-align: left; }
+    .mySeat .display_board .theater_info span:first-child {
+      padding: 5px 15px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: normal;
+      background: #ec5252;
+      border: 1px solid white;
+      border-radius: 5px; }
+    .mySeat .display_board .theater_info span:nth-child(2) {
+      margin-left: 15px;
+      color: #a1a7b3;
+      font-size: 13px;
+      font-weight: normal; }
+    .mySeat .display_board .theater_info p:nth-child(3) {
+      margin-top: 10px;
+      color: #a1a7b3;
+      font-size: 13px;
+      font-weight: normal; }
+    .mySeat .display_board .theater_info p:last-child {
+      color: #a1a7b3;
+      font-size: 13px;
+      font-weight: 600; }
+  .mySeat .display_board .seated {
+    height: 100px;
+    text-align: left; }
+    .mySeat .display_board .seated h5 {
+      color: #a1a7b3;
+      font-size: 13px;
+      font-weight: normal; }
 
 .btn--signIn {
   color: #686f7a;
