@@ -1062,7 +1062,7 @@ body {
       .mySeat .seat .theater .theater_info span {
         display: block; }
       .mySeat .seat .theater .theater_info span:first-child {
-        color: #fff;
+        color: #29303b;
         font-size: 15px;
         font-weight: 600; }
       .mySeat .seat .theater .theater_info span:last-child {
@@ -1085,9 +1085,10 @@ body {
     .mySeat .seat .seat_customer i {
       font-size: 35px;
       padding: 5px 5px;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #a1a7b3; }
     .mySeat .seat .seat_customer .vip {
-      color: yellow; }
+      color: #f4c150; }
   .mySeat .seat .seat_status {
     padding-top: 50px; }
     .mySeat .seat .seat_status .row .seating i {
@@ -1095,11 +1096,11 @@ body {
     .mySeat .seat .seat_status .row .seated i {
       color: #ff4500; }
     .mySeat .seat .seat_status .row .havent_seat i {
-      color: greenyellow; }
+      color: #a1a7b3; }
     .mySeat .seat .seat_status .row .vip_seat i {
-      color: yellow; }
+      color: #f4c150; }
   .mySeat .display_board .price {
-    height: 100px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -1110,7 +1111,7 @@ body {
   .mySeat .display_board hr {
     background-color: white; }
   .mySeat .display_board .theater_info {
-    height: 100px;
+    height: 120px;
     text-align: left; }
     .mySeat .display_board .theater_info span:first-child {
       padding: 5px 15px;
@@ -1135,12 +1136,49 @@ body {
       font-size: 13px;
       font-weight: 600; }
   .mySeat .display_board .seated {
-    height: 100px;
+    height: 120px;
     text-align: left; }
     .mySeat .display_board .seated h5 {
       color: #a1a7b3;
       font-size: 13px;
       font-weight: normal; }
+    .mySeat .display_board .seated span {
+      color: greenyellow; }
+  .mySeat .display_board .payments {
+    height: 120px;
+    text-align: left; }
+    .mySeat .display_board .payments h5 {
+      color: #29303b;
+      font-size: 20px;
+      font-weight: normal; }
+    .mySeat .display_board .payments p:nth-child(2) {
+      color: #ff4500;
+      font-size: 13px;
+      font-weight: normal; }
+    .mySeat .display_board .payments p:nth-child(3) {
+      color: #a1a7b3;
+      font-size: 13px;
+      font-weight: normal; }
+      .mySeat .display_board .payments p:nth-child(3) i {
+        padding: 5px 10px;
+        border: 1px solid red;
+        border-radius: 50px;
+        background-color: red; }
+      .mySeat .display_board .payments p:nth-child(3) span {
+        color: #f4c150; }
+  .mySeat .display_board .accept_button {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .mySeat .display_board .accept_button button {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-radius: 10px;
+      border-color: greenyellow;
+      background: linear-gradient(to right, #00b500, lime);
+      outline: none; }
 
 .btn--signIn {
   color: #686f7a;

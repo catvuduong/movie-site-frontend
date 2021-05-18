@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as action from "./../../redux/actions/index-action";
+import moment from 'moment';
 
 class BookingTicket extends Component {
 
@@ -10,26 +11,38 @@ class BookingTicket extends Component {
         this.state = {
             dataTicket: {},
             listArticles: [],
-            theater: {}
+            showtime: {},
+            seatedArray: [],
+            totalPrice: 0
         }
     }
 
     async componentDidMount() {
         const id = this.props.match.params.id;
         await this.props.getShowtimeById(id);
-        this.setState({ theater: this.props.showtime.theater })
+        this.setState({ showtime: this.props.showtime })
     }
 
-    sendSeatData = (data, index) => {
+    sendSeatData = async (data, index) => {
         let seat = {};
         data.index = index;
         seat = { ...data };
-        console.log(seat);
+        let a = [...this.state.seatedArray];
+        let findingId = this.state.seatedArray.findIndex(seat => seat.index === index);
+        if (findingId === -1) {
+            //push to seat array
+            a.push(seat);
+            await this.setState({ seatedArray: a });
+        } else {
+            //remove seat out array
+            a.splice(findingId, 1)
+            await this.setState({ seatedArray: a });
+        }
+        this.calculateTotalPrice();
     }
 
     renderSeat = () => {
         let a = 1; let arr = []; let l = 160;
-
         for (let i = 0; i < l; i++) {
             let seat = {
                 name: `${a}`,
@@ -61,8 +74,39 @@ class BookingTicket extends Component {
             return <i key={index} className={`fa fa-minus-square ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
         })
     }
+    calculateTotalPrice = () => {
+        let { seatedArray } = this.state;
+        let price = 0;
+        seatedArray.map(item => {
+            if (item.vip) {
+                return price += 120;
+            }
+            return price += 100;
+
+        });
+        this.setState({ totalPrice: price })
+    }
+    componentDidUpdate() {
+
+    }
+    calculateTotalPrice = () => {
+        let { seatedArray } = this.state;
+        let price = 0;
+        seatedArray.map(item => {
+            if (item.vip) {
+                return price += 120;
+            }
+            return price += 100;
+
+        });
+        this.setState({ totalPrice: price })
+    }
 
     render() {
+        let theater = { ...this.state.showtime.theater }
+        let movie = { ...this.state.showtime.movie }
+        // console.log(this.state.seatedArray);
+        // this.calculateTotalPrice();
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -71,10 +115,10 @@ class BookingTicket extends Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="col-6 theater">
-                                        <img src="/images/bhd.png" alt="" />
+                                        <img src={"https://localhost:5001" + theater.image} alt="" />
                                         <div className="theater_info">
-                                            <span>theater name</span>
-                                            <span>show times</span>
+                                            <span>Rạp: {theater.name}</span>
+                                            <span>{moment(this.state.showtime.time).format("HH:mm")}</span>
                                         </div>
                                     </div>
                                     <div className="col-6 time">
@@ -99,17 +143,27 @@ class BookingTicket extends Component {
                             </div>
                         </div>
                         <div className="col-3 display_board">
-                            <div className="price"><span>0 đ</span></div>
+                            <div className="price"><span>{this.state.totalPrice}.000 đ</span></div>
                             <hr />
                             <div className="theater_info">
-                                <span>theater name</span><span>movie name</span>
-                                <p>showtime</p>
-                                <p>theate dress</p>
+                                <span>{theater.name}</span><span>{movie.name}</span>
+                                <p>Thời gian chiếu: {moment(this.state.showtime.time).format("HH:mm")}</p>
+                                <p>Địa chỉ rạp: {theater.address}</p>
                             </div>
                             <hr />
                             <div className="seated">
-                                <h5>Ghế được chọn:</h5>
-                                <div className=""></div>
+                                <h5>Ghế đã chọn:</h5>
+                                {this.state.seatedArray.map((item, index) => <span key={index}>Ghế số: {item.name}, </span>)}
+                            </div>
+                            <hr />
+                            <div className="payments">
+                                <h5>Hình thức thanh toán</h5>
+                                <p>Vui lòng chọn ghế để hiển thị hình thức thanh toán.</p>
+                                <p><i className="fa fa-info"></i> Vé đã mua không thể đổi hoặc hoàn tiền Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã nhập.</p>
+                            </div>
+                            <hr />
+                            <div className="accept_button">
+                                <button>Thanh toán</button>
                             </div>
                             <hr />
                         </div>

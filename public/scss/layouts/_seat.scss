@@ -17,7 +17,7 @@
                     display: block;
                 }
                 span:first-child {
-                    @include text($color-white-0, $fs-0, $fw-bold-0);
+                    @include text($color-black-0, $fs-0, $fw-bold-0);
                 }
                 span:last-child {
                     @include text($color-gray-4, $fs-0, $fw-normal);
@@ -47,9 +47,10 @@
                 font-size: 35px;
                 padding: 5px 5px;
                 cursor: pointer;
+                color: $color-gray-2;
             }
             .vip {
-                color: yellow;
+                color: $color-yellow;
             }
         }
         .seat_status {
@@ -67,12 +68,12 @@
                 }
                 .havent_seat {
                     i {
-                        color: greenyellow;
+                        color: $color-gray-2;
                     }
                 }
                 .vip_seat {
                     i {
-                        color: yellow;
+                        color: $color-yellow;
                     }
                 }
             }
@@ -80,7 +81,7 @@
     }
     .display_board {
         .price {
-            height: 100px;
+            height: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,7 +93,7 @@
             background-color: white;
         }
         .theater_info {
-            height: 100px;
+            height: 120px;
             text-align: left;
             span:first-child {
                 padding: 5px 15px;
@@ -114,10 +115,50 @@
             }
         }
         .seated {
-            height: 100px;
+            height: 120px;
             text-align: left;
             h5 {
                 @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            span {
+                color: greenyellow;
+            }
+        }
+        .payments {
+            height: 120px;
+            text-align: left;
+            h5 {
+                @include text($color-black-0, $fs-2, $fw-normal);
+            }
+            p:nth-child(2) {
+                @include text($color-orange-0, $fs-1, $fw-normal);
+            }
+            p:nth-child(3) {
+                @include text($color-gray-2, $fs-1, $fw-normal);
+                i {
+                    padding: 5px 10px;
+                    border: 1px solid red;
+                    border-radius: 50px;
+                    background-color: red;
+                }
+                span {
+                    color: $color-yellow;
+                }
+            }
+        }
+        .accept_button {
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-radius: 10px;
+                border-color: greenyellow;
+                background: linear-gradient(to right, rgba(0, 181, 0, 1), rgba(0, 255, 0, 1));
+                outline: none;
             }
         }
     }

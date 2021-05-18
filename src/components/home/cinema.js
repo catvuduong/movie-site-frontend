@@ -96,14 +96,6 @@ class Cinema extends Component {
             btnsTheater[index].className += ' btnsTheater_active';
         }
     }
-    // sendDataTicket = async data => {
-    //     // await this.setState({
-    //     //     dataTicket: data
-    //     // });
-    //     // console.log(data);
-    //     // console.log(this.state.dataTicket);
-    //     // await this.props.dispatchDataTicket(data);
-    // }
 
     render() {
         return (
@@ -157,7 +149,6 @@ class Cinema extends Component {
                                             {
                                                 item.data.map((showtime, index) => (
                                                     <Link
-                                                        // onClick={() => this.sendDataTicket(showtime)}
                                                         to={`booking-ticket/${showtime.id}`}
                                                         key={index} type="button" className="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</Link>
                                                 ))
