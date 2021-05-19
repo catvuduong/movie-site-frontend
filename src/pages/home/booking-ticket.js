@@ -9,10 +9,9 @@ class BookingTicket extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataTicket: {},
-            listArticles: [],
             showtime: {},
-            seatedArray: [],
+            seatArr: [],
+            seatedArr: [],
             totalPrice: 0
         }
     }
@@ -21,27 +20,33 @@ class BookingTicket extends Component {
         const id = this.props.match.params.id;
         await this.props.getShowtimeById(id);
         this.setState({ showtime: this.props.showtime })
+        let seatArr = this.createSeatArr();
+        this.setState({ seatArr })
     }
 
     sendSeatData = async (data, index) => {
         let seat = {};
+        // set index element of seat in seatArr
         data.index = index;
         seat = { ...data };
-        let a = [...this.state.seatedArray];
-        let findingId = this.state.seatedArray.findIndex(seat => seat.index === index);
+        let a = [...this.state.seatedArr];
+        let findingId = this.state.seatedArr.findIndex(seat => seat.index === index);
         if (findingId === -1) {
-            //push to seat array
+            //push into seat array.
             a.push(seat);
-            await this.setState({ seatedArray: a });
+            //set status of seat in seatArr again.
+            data.status = true;
         } else {
-            //remove seat out array
-            a.splice(findingId, 1)
-            await this.setState({ seatedArray: a });
+            //set status of seat in seatArr again.
+            data.status = false;
+            //remove seat out array.
+            a.splice(findingId, 1);
         }
+        await this.setState({ seatedArr: a });
         this.calculateTotalPrice();
     }
 
-    renderSeat = () => {
+    createSeatArr = () => {
         let a = 1; let arr = []; let l = 160;
         for (let i = 0; i < l; i++) {
             let seat = {
@@ -53,7 +58,7 @@ class BookingTicket extends Component {
             arr.push(seat);
             a++;
         }
-        return arr.map((item, index) => {
+        for (let index = 0; index < arr.length; index++) {
             let condi = (
                 index === 34 || index === 35 || index === 36 || index === 37 || index === 38 || index === 39 || index === 40 || index === 41 || index === 42 || index === 43 || index === 44 || index === 45 ||
                 index === 50 || index === 51 || index === 52 || index === 53 || index === 54 || index === 55 || index === 56 || index === 57 || index === 58 || index === 59 || index === 60 || index === 61 ||
@@ -62,37 +67,28 @@ class BookingTicket extends Component {
                 index === 98 || index === 99 || index === 100 || index === 101 || index === 102 || index === 103 || index === 104 || index === 105 || index === 106 || index === 107 || index === 108 || index === 109 ||
                 index === 114 || index === 115 || index === 116 || index === 117 || index === 118 || index === 119 || index === 120 || index === 121 || index === 122 || index === 123 || index === 124 || index === 125
             );
-            if (condi) { item.vip = true; }
+            if (condi) { arr[index].vip = true; }
+        }
+        return arr
+    }
+
+    renderSeat = () => {
+        return this.state.seatArr.map((item, index) => {
             if ((index + 1) % 16 === 0) {
                 return (
                     <Fragment key={index}>
-                        <i className={`fa fa-minus-square`} onClick={() => this.sendSeatData(item, index)}></i>
+                        <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
                         <br />
                     </Fragment >
                 )
             }
-            return <i key={index} className={`fa fa-minus-square ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
+            return <i key={index} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
         })
     }
     calculateTotalPrice = () => {
-        let { seatedArray } = this.state;
+        let { seatedArr } = this.state;
         let price = 0;
-        seatedArray.map(item => {
-            if (item.vip) {
-                return price += 120;
-            }
-            return price += 100;
-
-        });
-        this.setState({ totalPrice: price })
-    }
-    componentDidUpdate() {
-
-    }
-    calculateTotalPrice = () => {
-        let { seatedArray } = this.state;
-        let price = 0;
-        seatedArray.map(item => {
+        seatedArr.map(item => {
             if (item.vip) {
                 return price += 120;
             }
@@ -105,7 +101,7 @@ class BookingTicket extends Component {
     render() {
         let theater = { ...this.state.showtime.theater }
         let movie = { ...this.state.showtime.movie }
-        // console.log(this.state.seatedArray);
+        // console.log(this.state.seatedArr);
         // this.calculateTotalPrice();
         return (
             <section className="mySeat">
@@ -153,7 +149,7 @@ class BookingTicket extends Component {
                             <hr />
                             <div className="seated">
                                 <h5>Ghế đã chọn:</h5>
-                                {this.state.seatedArray.map((item, index) => <span key={index}>Ghế số: {item.name}, </span>)}
+                                {this.state.seatedArr.map((item, index) => <span key={index}>Ghế số: {item.name}, </span>)}
                             </div>
                             <hr />
                             <div className="payments">
