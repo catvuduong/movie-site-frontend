@@ -30,8 +30,8 @@ class BookingTicket extends Component {
         data.index = index;
         seat = { ...data };
         let a = [...this.state.seatedArr];
-        let findingId = this.state.seatedArr.findIndex(seat => seat.index === index);
-        if (findingId === -1) {
+        let findingIndex = this.state.seatedArr.findIndex(seat => seat.index === index);
+        if (findingIndex === -1) {
             //push into seat array.
             a.push(seat);
             //set status of seat in seatArr again.
@@ -40,7 +40,7 @@ class BookingTicket extends Component {
             //set status of seat in seatArr again.
             data.status = false;
             //remove seat out array.
-            a.splice(findingId, 1);
+            a.splice(findingIndex, 1);
         }
         await this.setState({ seatedArr: a });
         this.calculateTotalPrice();
@@ -93,16 +93,32 @@ class BookingTicket extends Component {
                 return price += 120;
             }
             return price += 100;
-
         });
         this.setState({ totalPrice: price })
+    }
+
+    countdownTimer = (duration) => {
+        let display = document.getElementById("time");
+        let timer = duration, minutes, seconds;
+        let x = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.innerHTML = minutes + ":" + seconds;
+            if (--timer < 0) {
+                display.innerHTML = "Hết thời gian đặt vé."
+                clearInterval(x);
+            }
+        }, 1000);
+        if (display === null) {
+            clearInterval(x);
+        }
     }
 
     render() {
         let theater = { ...this.state.showtime.theater }
         let movie = { ...this.state.showtime.movie }
-        // console.log(this.state.seatedArr);
-        // this.calculateTotalPrice();
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -120,7 +136,7 @@ class BookingTicket extends Component {
                                     <div className="col-6 time">
                                         <div className="time_remaining">
                                             <span>Thời gian chờ</span>
-                                            <span>4:00</span>
+                                            <span id="time">{this.countdownTimer(300)}</span>
                                         </div>
                                     </div>
                                 </div>

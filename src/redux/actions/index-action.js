@@ -29,7 +29,7 @@ export const actGetDetailsMovie = id => {
             url: `https://localhost:5001/movies/get/${id}`
         })
         dispatch({
-            type: ActionType.GET_SHOWTIME_BYID,
+            type: ActionType.GET_DETAILS_MOVIE,
             movie: result.data
         })
     }
