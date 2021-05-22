@@ -120,7 +120,7 @@ class ListMovie extends Component {
         let filmingClass = this.state.filmingClicked ? "active" : "";
         let goingFilmClass = this.state.goingFilmClicked ? "active" : "";
         return (
-            <section className="myListMovie">
+            <section className="myListMovie" id="listMovie">
                 <div className="list_content">
                     <div className="container-fluid">
                         <div className="list_tittle">

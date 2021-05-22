@@ -52,7 +52,7 @@ class Article extends Component {
         let review = this.state.reviewOn ? "active" : "";
         let promo = this.state.PromotionOn ? "active" : "";
         return (
-            < section className="myArticle container">
+            < section className="myArticle container" id="article">
                 <div className="article_title container-fluid">
                     <button className={`article_film ${film}`} onClick={() => this.handleFilm()}>Điện Ảnh 24h</button>
                     <button className={`article_review ${review}`}

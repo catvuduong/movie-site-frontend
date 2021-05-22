@@ -1,6 +1,7 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  scroll-behavior: smooth; }
 
 body {
   font-family: "Public Sans", sans-serif;
@@ -940,7 +941,8 @@ body {
         height: 340px; } }
 .myBanner {
   margin-top: 5px;
-  text-align: left; }
+  text-align: left;
+  padding-bottom: 50px; }
   .myBanner .container {
     max-width: 1140px;
     width: 60%; }

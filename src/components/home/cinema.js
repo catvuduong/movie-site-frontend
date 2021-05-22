@@ -99,7 +99,7 @@ class Cinema extends Component {
 
     render() {
         return (
-            <section className="myCinema container">
+            <section className="myCinema container" id="cinema">
                 <div className="row">
                     <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 cinema_logo cinema_line">
                         {

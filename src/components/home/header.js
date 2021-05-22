@@ -16,22 +16,22 @@ export default class Header extends Component {
                         <div className="collapse navbar-collapse navbar_content" id="myMenu">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="myMenu">
+                                    <a className="nav-link" href="#listMovie">
                                         Lịch Chiếu
                                   </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="myMenu">
+                                    <a className="nav-link" href="#cinema">
                                         Cụm Rạp
                                  </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="myMenu">
+                                    <a className="nav-link" href="#article">
                                         Tin Tức
                                   </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="myMenu">
+                                    <a className="nav-link" href="#apps">
                                         Ứng Dụng
                                 </a>
                                 </li>
