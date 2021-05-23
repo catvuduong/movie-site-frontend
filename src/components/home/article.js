@@ -53,6 +53,7 @@ class Article extends Component {
         let promo = this.state.PromotionOn ? "active" : "";
         return (
             < section className="myArticle container" id="article">
+                <div className="wig"></div>
                 <div className="article_title container-fluid">
                     <button className={`article_film ${film}`} onClick={() => this.handleFilm()}>Điện Ảnh 24h</button>
                     <button className={`article_review ${review}`}

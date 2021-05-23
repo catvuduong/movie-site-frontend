@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import * as action from "./../../redux/actions/index-action";
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import * as ActionType from './../../redux/constants/action-type';
 
@@ -135,23 +136,27 @@ class Cinema extends Component {
                             this.state.movies
                                 ? this.state.movies.map((item, index) => (
                                     <div className="item_line" key={index}>
-                                        <Link to={`details-movie/${item.id}`}>
-                                            <div className="row movie_line">
-                                                <div className="col-1 movie_image">
+                                        {/* <Link to={`details-movie/${item.id}`}> */}
+                                        <div className="row movie_line">
+                                            <div className="col-1 movie_image">
+                                                <Link to={`details-movie/${item.id}`}>
                                                     <img className="" src={item.data[0].movie.thumbnail} alt="" />
-                                                </div>
-                                                <div className="col-11 movie_name">
-                                                    <p>{item.data[0].movie.name}</p>
-                                                    <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
-                                                </div>
+                                                </Link>
                                             </div>
-                                        </Link>
-                                        <div>
+                                            <div className="col-11 movie_name">
+                                                <Link to={`details-movie/${item.id}`}>
+                                                    <p>{item.data[0].movie.name}</p></Link>
+                                                <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
+                                            </div>
+                                        </div>
+                                        {/* </Link> */}
+                                        <div className="movie_showtimes">
                                             {
                                                 item.data.map((showtime, index) => (
                                                     <Link
                                                         to={`booking-ticket/${showtime.id}`}
-                                                        key={index} type="button" className="btn btn-outline-secondary">{moment(showtime.time).format("HH:mm")}</Link>
+                                                        key={index} type="button" className="btn btn-outline-secondary">
+                                                        {moment(showtime.time).format("HH:mm")}</Link>
                                                 ))
                                             }
                                         </div>

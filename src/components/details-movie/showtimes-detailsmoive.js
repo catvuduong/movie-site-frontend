@@ -13,11 +13,13 @@ class ShowtimesDetail extends Component {
     async componentDidMount() {
         await this.props.getListBranches();
         await this.props.getListTheaters();
-        this.setState({
-            branches: this.props.listBranches,
-            theaters: this.props.listBranches[0].theaters,
+        if (this.state.branches && this.state.theaters) {
+            this.setState({
+                branches: this.props.listBranches,
+                theaters: this.props.listBranches[0].theaters,
 
-        });
+            });
+        }
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
         if (btnsBranch[0] && btnsTheater[0]) {

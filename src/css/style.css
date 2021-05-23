@@ -118,9 +118,10 @@ body {
 
 .myListMovie {
   margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  width: 60%; }
+  width: 60%;
+  margin-top: 10px;
+  padding-top: 60px;
+  margin-bottom: 10px; }
   .myListMovie .list_content .list_tittle {
     margin: auto;
     width: 25%;
@@ -323,6 +324,7 @@ body {
   .myCinema .row .movie_logo {
     text-align: left; }
     .myCinema .row .movie_logo .item_line {
+      cursor: context-menu;
       margin-top: 20px;
       margin-bottom: 20px;
       border-bottom: 1px solid silver;
@@ -331,8 +333,7 @@ body {
         text-decoration: none; }
       .myCinema .row .movie_logo .item_line .movie_line {
         margin-left: 0;
-        margin-right: 0;
-        padding-bottom: 15px; }
+        margin-right: 0; }
         .myCinema .row .movie_logo .item_line .movie_line .movie_image {
           padding: 0;
           line-height: 3; }
@@ -346,11 +347,25 @@ body {
           .myCinema .row .movie_logo .item_line .movie_line .movie_name p {
             color: #29303b;
             font-size: 15px;
-            font-weight: 600; }
+            font-weight: 600;
+            cursor: pointer; }
           .myCinema .row .movie_logo .item_line .movie_line .movie_name span {
             color: #686f7a;
             font-size: 13px;
             font-weight: normal; }
+      .myCinema .row .movie_logo .item_line .movie_showtimes {
+        margin-bottom: 10px; }
+        .myCinema .row .movie_logo .item_line .movie_showtimes a {
+          margin-right: 10px;
+          text-align: left;
+          border: none;
+          color: lightgreen;
+          font-size: 15px;
+          font-weight: normal;
+          padding-left: 0; }
+          .myCinema .row .movie_logo .item_line .movie_showtimes a:hover {
+            color: #ff4500;
+            background-color: transparent; }
   .myCinema .row .btnsBranch_active,
   .myCinema .row .btnsTheater_active {
     opacity: 1; }
@@ -739,11 +754,16 @@ body {
 .myArticle {
   width: 60%;
   padding-right: 0;
-  padding-left: 0;
-  padding-top: 50px; }
+  padding-left: 0; }
+  .myArticle .wig {
+    height: 100px;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(197, 197, 197, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+    background-repeat: no-repeat; }
   .myArticle .article_title {
     margin: auto;
     width: 40%;
+    padding-top: 20px;
     justify-content: space-between;
     display: flex; }
     .myArticle .article_title .article_film,

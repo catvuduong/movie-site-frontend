@@ -79,6 +79,7 @@
         .movie_logo {
             text-align: left;
             .item_line {
+                cursor: context-menu;
                 a {
                     text-decoration: none;
                 }
@@ -89,7 +90,7 @@
                 .movie_line {
                     margin-left: 0;
                     margin-right: 0;
-                    padding-bottom: 15px;
+                    // padding-bottom: 15px;
                     .movie_image {
                         img {
                             width: 50px;
@@ -104,9 +105,24 @@
                         color: $color-gray-4;
                         p {
                             @include text($color-black-0, $fs-0, $fw-bold-0);
+                            cursor: pointer;
                         }
                         span {
                             @include text($color-gray-4, $fs-1, $fw-normal);
+                        }
+                    }
+                }
+                .movie_showtimes {
+                    margin-bottom: 10px;
+                    a {
+                        margin-right: 10px;
+                        text-align: left;
+                        border: none;
+                        @include text(lightgreen, $fs-0, $fw-normal);
+                        padding-left: 0;
+                        &:hover {
+                            color: $color-orange-0;
+                            background-color: transparent;
                         }
                     }
                 }
