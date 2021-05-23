@@ -15,13 +15,16 @@
     @include button($color-white-0, none, #ab1a03, $fw-normal);
     position: absolute;
     width: 100%;
-    top: 335px;
+    top: 340px;
     left: 0;
     padding-top: 10px;
     padding-bottom: 15px;
     opacity: 0;
     transition: all 0.5s;
-    border-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .btn--edit {
     padding-left: 30px;

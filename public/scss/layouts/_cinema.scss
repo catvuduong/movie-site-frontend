@@ -1,106 +1,123 @@
 .myCinema {
     width: 60%;
-    margin: auto;
-    .cinema_line {
-        border: 1px solid silver;
+    margin: 0 auto;
+    padding-top: 30px;
+    .wig {
+        height: 100px;
+        width: 100%;
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            rgba(197, 197, 197, 0.5) 50%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        background-repeat: no-repeat;
     }
-    .item_line {
-        cursor: pointer;
-        opacity: 0.5;
-        &:hover {
+    .row {
+        .cinema_line {
+            border: 1px solid silver;
+        }
+        .item_line {
+            cursor: pointer;
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .cinema_logo {
+            border-right: none;
+            .item_line {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid silver;
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+        .theater_logo {
+            border-right: none;
+            .item_line {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid silver;
+                .theater_line {
+                    margin-left: 0;
+                    margin-right: 0;
+                    .theater_image {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                        padding: 0;
+                        line-height: 3;
+                    }
+                    .theater_name {
+                        height: 75px;
+                        line-height: 1;
+                        text-align: left;
+                        padding-left: 15px;
+                        span {
+                            @include text($color-white-0, $fs-0, $fw-bold-0);
+                        }
+                        span:first-child {
+                            color: #8bc541;
+                        }
+                        .theater_address {
+                            @include text($color-gray-4, $fs-1, $fw-bold-0);
+                            padding-top: 6px;
+                        }
+                        .theater_detail {
+                            @include text($color-red-0, $fs-1, $fw-normal);
+                        }
+                    }
+                }
+            }
+        }
+        .movie_logo {
+            text-align: left;
+            .item_line {
+                a {
+                    text-decoration: none;
+                }
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid silver;
+                opacity: 1;
+                .movie_line {
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-bottom: 15px;
+                    .movie_image {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                        padding: 0;
+                        line-height: 3;
+                    }
+                    .movie_name {
+                        padding-top: 12px;
+                        line-height: 0;
+                        color: $color-gray-4;
+                        p {
+                            @include text($color-black-0, $fs-0, $fw-bold-0);
+                        }
+                        span {
+                            @include text($color-gray-4, $fs-1, $fw-normal);
+                        }
+                    }
+                }
+            }
+        }
+        .btnsBranch_active,
+        .btnsTheater_active {
             opacity: 1;
         }
     }
-    .cinema_logo {
-        .item_line {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid silver;
-            img {
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
-    .theater_logo {
-        .item_line {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid silver;
-            .theater_line {
-                margin-left: 0;
-                margin-right: 0;
-                .theater_image {
-                    img {
-                        width: 50px;
-                        height: 50px;
-                    }
-                    padding: 0;
-                    line-height: 3;
-                }
-                .theater_name {
-                    height: 75px;
-                    line-height: 1;
-                    text-align: left;
-                    padding-left: 15px;
-                    span {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
-                    }
-                    span:first-child {
-                        color: #8bc541;
-                    }
-                    .theater_address {
-                        @include text($color-gray-4, $fs-1, $fw-bold-0);
-                        padding-top: 6px;
-                    }
-                    .theater_detail {
-                        @include text($color-red-0, $fs-1, $fw-normal);
-                    }
-                }
-            }
-        }
-    }
-    .movie_logo {
-        text-align: left;
-        .item_line {
-            a {
-                text-decoration: none;
-            }
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid silver;
-            opacity: 1;
-            .movie_line {
-                margin-left: 0;
-                margin-right: 0;
-                padding-bottom: 15px;
-                .movie_image {
-                    img {
-                        width: 50px;
-                        height: 50px;
-                    }
-                    padding: 0;
-                    line-height: 3;
-                }
-                .movie_name {
-                    padding-top: 12px;
-                    line-height: 0;
-                    color: $color-gray-4;
-                    p {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
-                    }
-                    span {
-                        @include text($color-gray-4, $fs-1, $fw-normal);
-                    }
-                }
-            }
-        }
-    }
-    .btnsBranch_active,
-    .btnsTheater_active {
-        opacity: 1;
-    }
+
     @include respond-to("over-frame") {
         width: 100%;
     }

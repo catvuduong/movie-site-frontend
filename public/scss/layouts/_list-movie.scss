@@ -1,22 +1,17 @@
 .myListMovie {
-    margin-top: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
     margin-bottom: $mg-1;
     width: 60%;
-    margin: auto;
     .list_content {
         .list_tittle {
             margin: auto;
             width: 25%;
             justify-content: space-between;
             display: flex;
-            a {
-                text-decoration: none;
-                color: $color-white-0;
-                transition: all 0.5s;
-            }
             .filming {
                 background-color: transparent;
-                color: $color-white-0;
+                color: $color-black-0;
                 border: none;
                 transition: all 0.5s;
                 outline: none;
@@ -26,7 +21,7 @@
             }
             .goingto_film {
                 background-color: transparent;
-                color: $color-white-0;
+                color: $color-black-0;
                 border: none;
                 transition: all 0.5s;
                 outline: none;
@@ -65,8 +60,6 @@
         }
         .list_movie {
             margin-top: $mg-1;
-            // padding-left: $pd-1 + 5;
-            // padding-right: $pd-1 + 5;
             text-align: justify;
             .card_movie {
                 margin-top: $mg-2 - 5;
@@ -82,7 +75,7 @@
                                 opacity: 1;
                             }
                             .movie_name {
-                                opacity: 0;
+                                // opacity: 0;
                             }
                             .btn--movie {
                                 opacity: 1;
@@ -96,8 +89,8 @@
                     .card-body {
                         padding: 0;
                         .movie_name {
-                            @include text($color-white-0, $fs-0, $fw-normal);
-                            padding-top: $pd-1 - 5;
+                            @include text($color-black-0, $fs-0, $fw-bold);
+                            padding-top: $pd-1;
                             text-align: center;
                         }
                         width: 100%;
@@ -158,8 +151,5 @@
                 }
             }
         }
-    }
-    .list_layout {
-        height: 50px;
     }
 }

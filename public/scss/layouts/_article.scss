@@ -12,7 +12,7 @@
         .article_review,
         .article_promotion {
             background-color: transparent;
-            color: $color-white-0;
+            color: $color-black-0;
             border: none;
             transition: all 0.5s;
             outline: none;
@@ -48,7 +48,7 @@
                         cursor: pointer;
                     }
                     h5 {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
+                        @include text($color-black-0, $fs-0, $fw-bold-0);
                         transition: all 0.5s;
                         cursor: pointer;
                         height: 50px;
@@ -79,7 +79,7 @@
                         cursor: pointer;
                     }
                     h5 {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
+                        @include text($color-black-0, $fs-0, $fw-bold-0);
                         transition: all 0.5s;
                         cursor: pointer;
                         height: 50px;
@@ -111,7 +111,7 @@
             outline: none;
             border: 1px solid $color-gray-4;
             border-radius: 5px;
-            transition: all .2s;
+            transition: all 0.2s;
             &:hover {
                 border-color: rgb(180, 27, 3);
                 color: white;

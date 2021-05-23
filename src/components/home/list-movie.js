@@ -136,7 +136,6 @@ class ListMovie extends Component {
                         </Slider>
                     </div>
                 </div>
-                <div className="list_layout"></div>
             </section>
         )
     }

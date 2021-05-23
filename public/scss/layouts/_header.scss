@@ -1,6 +1,12 @@
-.myNavbar {
-    position: relative;
+.myHeader {
+    // position: relative;
     background-color: white;
+    position: fixed;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
     .navbar_login {
         display: flex;
         position: absolute;

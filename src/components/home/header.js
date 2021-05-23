@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Header extends Component {
     render() {
         return (
-            <header className="navbar navbar-expand-md navbar-light myNavbar">
+            <header className="navbar navbar-expand-md navbar-light myHeader">
                 <div className="container">
                     <div className="navbar_contain">
                         <button

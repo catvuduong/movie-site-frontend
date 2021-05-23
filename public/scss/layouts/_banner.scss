@@ -1,7 +1,8 @@
 .myBanner {
-    margin-top: 5px;
+    padding-top: 20px;
     text-align: left;
     padding-bottom: 50px;
+    background-color: black;
     .container {
         max-width: 1140px;
         width: 60%;
@@ -115,8 +116,8 @@
     @include respond-to("large") {
         .container {
             max-width: 720px;
-            .banner_partner{
-                .partner{
+            .banner_partner {
+                .partner {
                     display: none;
                 }
             }

@@ -23,6 +23,10 @@ class Carousel extends Component {
             slidesPerView: 1,
             spaceBetween: 0,
             loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: true
+            }
         }
         return (
             <section className="myCarousel">
