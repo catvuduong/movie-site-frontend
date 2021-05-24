@@ -7,3 +7,5 @@ export const GET_LIST_USERS = "GET_LIST_USERS";
 export const GET_LIST_ARTICLES = "GET_LIST_ARTICLES";
 export const GET_DATA_TICKET = "GET_DATA_TICKET";
 export const GET_SHOWTIME_BYID = "GET_SHOWTIME_BYID";
+export const SIGN_EXPAND = "SIGN_EXPAND";
+export const DELETE_SIGN = "DELETE_SIGN";

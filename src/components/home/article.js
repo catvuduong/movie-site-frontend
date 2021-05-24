@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
 import News from './news-expansion';
+import * as Actiontype from './../../redux/constants/action-type';
 
 class Article extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class Article extends Component {
             reviewOn: false,
             PromotionOn: false,
             listArticles: [],
+            expandComponent: []
         }
     }
     async componentDidMount() {
@@ -42,8 +44,15 @@ class Article extends Component {
     }
 
     expandNews = async () => {
-        await this.props.getListArticles();
-        this.setState({ listArticles: this.props.listArticles });
+        let list = await this.props.listArticles;
+        await this.props.sendSignExpand(list);
+        console.log(this.props.expandList);
+        this.setState({ expandComponent: await this.props.expandList });
+        console.log(this.state.expandComponent);
+    }
+
+    componentWillUnmount() {
+        this.props.removeSign();
     }
 
 
@@ -63,7 +72,8 @@ class Article extends Component {
                         onClick={() => this.handlePromotion()}
                     >Khuyến Mãi</button>
                 </div>
-                {this.state.listArticles.map((aticles, index) => (
+                <News listArticles={this.state.listArticles} />
+                {this.state.expandComponent.map((aticles, index) => (
                     <News key={index} listArticles={aticles} />
                 ))}
                 <div className="article_expansion">
@@ -80,7 +90,8 @@ class Article extends Component {
 const mapStateToProps = state => {
     return {
         listArticles: state.articleReducer.listArticles,
-        dataTicket: state.bookingTicketReducer.dataTicket
+        dataTicket: state.bookingTicketReducer.dataTicket,
+        expandList: state.articleReducer.expandList,
     };
 };
 
@@ -89,6 +100,12 @@ const mapDispatchToProps = dispatch => {
         getListArticles: async () => {
             await dispatch(action.actGetListArticlesAPI());
         },
+        sendSignExpand: async list => {
+            await dispatch({ type: Actiontype.SIGN_EXPAND, list });
+        },
+        removeSign: async () => {
+            await dispatch({ type: Actiontype.DELETE_SIGN })
+        }
     };
 };
 

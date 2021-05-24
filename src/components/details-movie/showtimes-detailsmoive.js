@@ -13,7 +13,7 @@ class ShowtimesDetail extends Component {
     async componentDidMount() {
         await this.props.getListBranches();
         await this.props.getListTheaters();
-        if (this.state.branches && this.state.theaters) {
+        if (this.props.listBranches) {
             this.setState({
                 branches: this.props.listBranches,
                 theaters: this.props.listBranches[0].theaters,

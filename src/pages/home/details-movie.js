@@ -16,6 +16,7 @@ class DetailsMovie extends Component {
         }
     }
     componentDidMount() {
+        window.scrollTo(0, 0);
         const id = this.props.match.params.id;
         this.props.getDetailsMovie(id);
     }

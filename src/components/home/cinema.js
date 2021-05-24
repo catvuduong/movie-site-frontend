@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import * as action from "./../../redux/actions/index-action";
 import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import * as ActionType from './../../redux/constants/action-type';
 
@@ -29,13 +28,13 @@ class Cinema extends Component {
 
         let firstTheater = this.props.listBranches[0].theaters[0];
         let orderedMovies = this.orderedMovies(firstTheater);
-
-        this.setState({
-            branches: this.props.listBranches,
-            theaters: this.props.listBranches[0].theaters,
-            movies: orderedMovies,
-        });
-
+        if (this.props.listTheaters && this.props.listBranches) {
+            this.setState({
+                branches: this.props.listBranches,
+                theaters: this.props.listBranches[0].theaters,
+                movies: orderedMovies,
+            });
+        }
         //turn on active at first branch and  first theater
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
@@ -136,7 +135,6 @@ class Cinema extends Component {
                             this.state.movies
                                 ? this.state.movies.map((item, index) => (
                                     <div className="item_line" key={index}>
-                                        {/* <Link to={`details-movie/${item.id}`}> */}
                                         <div className="row movie_line">
                                             <div className="col-1 movie_image">
                                                 <Link to={`details-movie/${item.id}`}>
@@ -149,7 +147,6 @@ class Cinema extends Component {
                                                 <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
                                             </div>
                                         </div>
-                                        {/* </Link> */}
                                         <div className="movie_showtimes">
                                             {
                                                 item.data.map((showtime, index) => (
