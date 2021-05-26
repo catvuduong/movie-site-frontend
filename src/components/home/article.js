@@ -46,9 +46,7 @@ class Article extends Component {
     expandNews = async () => {
         let list = await this.props.listArticles;
         await this.props.sendSignExpand(list);
-        console.log(this.props.expandList);
         this.setState({ expandComponent: await this.props.expandList });
-        console.log(this.state.expandComponent);
     }
 
     componentWillUnmount() {
@@ -85,7 +83,6 @@ class Article extends Component {
         )
     }
 }
-
 
 const mapStateToProps = state => {
     return {

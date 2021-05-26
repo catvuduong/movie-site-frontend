@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import * as action from "./../../redux/actions/index-action";
 
 class ShowtimesDetail extends Component {
     constructor(props) {
@@ -11,13 +10,11 @@ class ShowtimesDetail extends Component {
         }
     }
     async componentDidMount() {
-        await this.props.getListBranches();
-        await this.props.getListTheaters();
         if (this.props.listBranches) {
             this.setState({
+                completeLoadingSign: true,
                 branches: this.props.listBranches,
                 theaters: this.props.listBranches[0].theaters,
-
             });
         }
         let btnsBranch = document.getElementsByClassName('cinema_btn');
@@ -95,24 +92,4 @@ class ShowtimesDetail extends Component {
     }
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-        listBranches: state.branchReducer.listBranches,
-        listTheaters: state.theaterReducer.listTheaters,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getListBranches: async () => {
-            await dispatch(action.actGetListBranchesAPI());
-        },
-        getListTheaters: async () => {
-            await dispatch(action.actGetListTheatersAPI());
-        },
-    };
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShowtimesDetail);
+export default connect(null, null)(ShowtimesDetail);

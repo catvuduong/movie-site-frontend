@@ -17,6 +17,7 @@ class BookingTicket extends Component {
     }
 
     async componentDidMount() {
+        window.scrollTo(0, 0);
         const id = this.props.match.params.id;
         await this.props.getShowtimeById(id);
         this.setState({ showtime: this.props.showtime })

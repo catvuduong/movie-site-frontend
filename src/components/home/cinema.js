@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import * as action from "./../../redux/actions/index-action";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as ActionType from './../../redux/constants/action-type';
@@ -9,13 +8,7 @@ class Cinema extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            branches: [
-                {
-                    name: "",
-                    image: "",
-                    id: ""
-                }
-            ],
+            branches: [],
             theaters: [],
             movies: [],
             dataTicket: {},
@@ -23,12 +16,9 @@ class Cinema extends Component {
     }
 
     async componentDidMount() {
-        await this.props.getListBranches();
-        await this.props.getListTheaters();
-
         let firstTheater = this.props.listBranches[0].theaters[0];
         let orderedMovies = this.orderedMovies(firstTheater);
-        if (this.props.listTheaters && this.props.listBranches) {
+        if (this.props.listBranches) {
             this.setState({
                 branches: this.props.listBranches,
                 theaters: this.props.listBranches[0].theaters,
@@ -168,23 +158,8 @@ class Cinema extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        listBranches: state.branchReducer.listBranches,
-        listTheaters: state.theaterReducer.listTheaters,
-        listArticles: state.articleReducer.listArticles,
-        dataTicket: state.bookingTicketReducer.dataTicket
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        getListBranches: async () => {
-            await dispatch(action.actGetListBranchesAPI());
-        },
-        getListTheaters: async () => {
-            await dispatch(action.actGetListTheatersAPI());
-        },
         dispatchDataTicket: async dataTicket => {
             await dispatch({
                 type: ActionType.GET_DATA_TICKET,
@@ -195,4 +170,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cinema);
+export default connect(null, mapDispatchToProps)(Cinema);
