@@ -27,6 +27,7 @@ class Home extends Component {
         if (this.state.signLoading === true) {
             return (
                 <div>
+                    {/* <div className="" style={{ height: "120px" }}></div> */}
                     <Carousel></Carousel>
                     <ListMovie></ListMovie>
                     <Cinema listBranches={this.props.listBranches}></Cinema>
@@ -34,6 +35,7 @@ class Home extends Component {
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
+                    {/* <div className="" style={{ height: "120px" }}></div> */}
                 </div>
             )
         }
