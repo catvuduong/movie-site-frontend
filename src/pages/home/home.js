@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => {
     return {
         getListBranches: async () => {
             await dispatch(action.actGetListBranchesAPI());
-        }
+        },
     };
 };
 

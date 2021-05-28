@@ -4,7 +4,7 @@ let initialState = {
     listTheaters: [],
 }
 
-const branchReducer = (state = initialState, action) => {
+const theaterReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actiontype.GET_LIST_THEATERS: {
             state.listTheaters = action.listTheaters;
@@ -15,4 +15,4 @@ const branchReducer = (state = initialState, action) => {
     }
 }
 
-export default branchReducer;
+export default theaterReducer;

@@ -8,9 +8,9 @@ class Cinema extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            branches: [],
-            theaters: [],
-            movies: [],
+            listBranches: [],
+            listTheaters: [],
+            listMovies: [],
             dataTicket: {},
         }
     }
@@ -19,17 +19,17 @@ class Cinema extends Component {
         let firstTheater = this.props.listBranches[0].theaters[0];
         let orderedMovies = this.orderedMovies(firstTheater);
         if (this.props.listBranches) {
-            this.setState({
-                branches: this.props.listBranches,
-                theaters: this.props.listBranches[0].theaters,
-                movies: orderedMovies,
+            await this.setState({
+                listBranches: this.props.listBranches,
+                listTheaters: this.props.listBranches[0].theaters,
+                listMovies: orderedMovies,
             });
         }
         //turn on active at first branch and  first theater
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
         if (btnsBranch[0] && btnsTheater[0]) {
-            btnsBranch[0].className += " btnsBranch_active";
+            btnsBranch[0].className += ' btnsBranch_active';
             btnsTheater[0].className += " btnsTheater_active";
         }
     }
@@ -55,33 +55,43 @@ class Cinema extends Component {
     }
 
     changeBranch(index = 0) {
-        let theater = this.props.listBranches[index].theaters[0];
+        let theater = this.state.listBranches[index].theaters[0];
         let orderedMovies = this.orderedMovies(theater);
         this.setState({
-            theaters: this.props.listBranches[index].theaters,
-            movies: orderedMovies,
+            listTheaters: this.state.listBranches[index].theaters,
+            listMovies: orderedMovies,
         });
+        //active choosen branch
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         for (let i = 0; i < btnsBranch.length; i++) {
             let current = document.getElementsByClassName('btnsBranch_active');
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(' btnsBranch_active', '');
+                current[0].className = current[0].className.replace('btnsBranch_active', '');
             }
             btnsBranch[index].className += ' btnsBranch_active';
+        }
+        // active first theater of list branches
+        let btnsTheater = document.getElementsByClassName('theater_btn');
+        for (let i = 0; i < btnsTheater.length; i++) {
+            let current = document.getElementsByClassName('btnsTheater_active');
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace('btnsTheater_active', '');
+            }
+            btnsTheater[0].className += ' btnsTheater_active';
         }
     }
 
     changeTheater(index = 0) {
-        let theater = this.props.listTheaters[index];
+        let theater = this.state.listTheaters[index];
         let orderedMovies = this.orderedMovies(theater);
         this.setState({
-            movies: orderedMovies,
+            listMovies: orderedMovies,
         });
         let btnsTheater = document.getElementsByClassName('theater_btn');
         for (let i = 0; i < btnsTheater.length; i++) {
             let current = document.getElementsByClassName('btnsTheater_active');
             if (current.length > 0) {
-                current[0].className = current[0].className.replace(' btnsTheater_active', '');
+                current[0].className = current[0].className.replace('btnsTheater_active', '');
             }
             btnsTheater[index].className += ' btnsTheater_active';
         }
@@ -94,7 +104,7 @@ class Cinema extends Component {
                 <div className="row">
                     <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 cinema_logo cinema_line">
                         {
-                            this.state.branches.map((item, index) => (
+                            this.state.listBranches.map((item, index) => (
                                 // TODO: Add generic domain
                                 <div className="item_line cinema_btn" key={index} onClick={() => this.changeBranch(index)}>
                                     <img src={"https://localhost:5001" + item.image} alt="" />
@@ -104,7 +114,7 @@ class Cinema extends Component {
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-5 col-sm-5 col-5 theater_logo cinema_line">
                         {
-                            this.state.theaters.map((item, index) => (
+                            this.state.listTheaters.map((item, index) => (
                                 <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
                                     <div className="row theater_line" >
                                         <div className="col-2 theater_image">
@@ -122,8 +132,8 @@ class Cinema extends Component {
                     </div>
                     <div className="col-xl-7 col-lg-7 col-md-5 col-sm-5 col-5 movie_logo cinema_line">
                         {
-                            this.state.movies
-                                ? this.state.movies.map((item, index) => (
+                            this.state.listMovies
+                                ? this.state.listMovies.map((item, index) => (
                                     <div className="item_line" key={index}>
                                         <div className="row movie_line">
                                             <div className="col-1 movie_image">
