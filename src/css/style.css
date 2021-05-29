@@ -442,31 +442,22 @@ body {
   color: #29303b t;
   font-size: 15px;
   font-weight: bold;
-  position: relative; }
+  transition: all 0.5s; }
   .myDashboard .dashboard_sidebar .dashboard_item button i {
+    margin-right: 20px;
+    width: 30px;
     color: #29303b t;
     font-size: 15px;
     font-weight: bold;
-    z-index: 1;
-    position: absolute;
-    top: 25%;
-    right: 20%; }
+    z-index: 1; }
   .myDashboard .dashboard_sidebar .dashboard_item button:focus {
     outline: none; }
-.myDashboard .dashboard_sidebar .dashboard_item .dashboard_getlist {
-  color: #29303b;
-  font-size: 13px;
-  font-weight: bold;
-  padding-left: 50px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  transition: all 0.5s;
-  cursor: pointer; }
-  .myDashboard .dashboard_sidebar .dashboard_item .dashboard_getlist:hover {
-    background: greenyellow;
+  .myDashboard .dashboard_sidebar .dashboard_item button:hover {
+    background-color: greenyellow;
     color: white; }
-  .myDashboard .dashboard_sidebar .dashboard_item .dashboard_getlist button {
-    margin-left: 50px; }
+.myDashboard .dashboard_sidebar .dashboard_item .active_button {
+  background-color: greenyellow;
+  color: white; }
 
 .myBranch {
   position: relative; }
