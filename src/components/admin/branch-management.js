@@ -41,7 +41,7 @@ class BranchManagement extends Component {
     render() {
         let { listBranches } = this.props
         return (
-            <div className="myBranch text-center">
+            <div className="myBranchManament text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#branchInfoModal" onClick={() => {
                         this.setState({ objectEdit: null })

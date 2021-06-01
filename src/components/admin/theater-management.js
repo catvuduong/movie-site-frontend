@@ -49,7 +49,7 @@ class TheaterManagement extends Component {
     render() {
         let { listTheaters } = this.props
         return (
-            <div className="myBranch text-center">
+            <div className="myBranchManament text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#theaterInfoModal" onClick={() => {
                         this.setState({ objectEdit: null, type: null });

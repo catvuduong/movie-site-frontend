@@ -1,11 +1,80 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as action from './../../redux/actions/index-action';
 
-export default class MovieManagement extends Component {
+class MovieManagement extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listMovies: []
+        }
+    }
+
+    async componentDidMount() {
+        await this.props.getListMovie();
+        this.setState({
+            listMovies: this.props.listMovies
+        })
+    }
     render() {
+        let orderNumber = 1;
         return (
-            <div>
-                Movie Managerment
+            <div className="myMovieManament text-center">
+                <button className="btn btn-primary add_branch" data-toggle="modal"
+                    data-target="" onClick={() => {
+                        this.setState({ objectEdit: null, type: null });
+                    }} >Add Theater</button>
+                <h3 className="my-3">LIST OF THEATER</h3>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Thumbnail</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.listMovies.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <th scope="row">{orderNumber++}</th>
+                                    <td>{item.name}</td>
+                                    <td>{item.thumbnail}</td>
+                                    <td>
+                                        <button className="btn btn-success btn--edit" data-toggle="modal"
+                                            data-target="#theaterInfoModal" onClick={() => {
+                                                this.setState({ objectEdit: item, type: "edit" })
+                                            }}>Edit</button>
+                                        <button className="btn btn-danger btn--delete" data-toggle="modal"
+                                            data-target="#submitDeleteTheaterModal" onClick={() => {
+                                                this.setState({ objectEdit: item, type: "delete" })
+                                            }}>Delete</button>
+                                    </td>
+                                </tr >
+                            );
+                        })}
+                    </tbody>
+                </table>
+                {/* <ModalTheater objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ModalTheater> */}
             </div>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getListMovie: async () => {
+            await dispatch(action.actGetListMoviesAPI())
+        },
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        listMovies: state.movieReducer.listMovies,
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieManagement);

@@ -459,9 +459,9 @@ body {
   background-color: greenyellow;
   color: white; }
 
-.myBranch {
+.myBranchManament {
   position: relative; }
-  .myBranch .add_branch {
+  .myBranchManament .add_branch {
     position: absolute;
     font-size: fs-1;
     top: -65px;
@@ -1341,6 +1341,22 @@ body {
     -webkit-transform: translate(2px, 2px) rotate(0deg); }
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-1deg); } }
+.myMovieManament {
+  position: relative; }
+  .myMovieManament .add_branch {
+    position: absolute;
+    font-size: fs-1;
+    top: -65px;
+    right: 5px; }
+  .myMovieManament .table .btn--edit,
+  .myMovieManament .table .btn--delete {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .myMovieManament .table .btn--delete {
+    margin-left: 0;
+    padding-left: 21px;
+    padding-right: 21px; }
+
 .btn--signIn {
   color: #686f7a;
   background-color: transparent;
