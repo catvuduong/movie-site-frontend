@@ -10,14 +10,12 @@ export default class Description extends Component {
                         <p>Tên phim</p>
                         <p>{movie.name}</p>
                     </div>
-
                     <div className="col-6 description">
                         <p>Nội dung</p>
                         <p>{movie.description}</p>
                     </div>
                 </div>
             </div>
-
         )
     }
 }

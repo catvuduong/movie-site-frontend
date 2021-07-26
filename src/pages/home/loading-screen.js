@@ -10,7 +10,7 @@ export default class LoadingScreen extends Component {
                         <span className="box"></span>
                         <span className="box"></span>
                         <div className="code">
-                            <img src="/images/web-logo.png" width="120px" />
+                            <img src="/images/web-logo.png" width="120px" alt="" />
                         </div>
                         <span className="txt">LOADING</span>
                     </div>
