@@ -25,23 +25,28 @@ class BookingTicket extends Component {
         this.setState({ seatArr })
     }
 
-    sendSeatData = async (data, index) => {
+    sendSeatData = async (data, iOutside, iInside) => {
+        console.log(data, iOutside, iInside);
         let seat = {};
         // set index element of seat in seatArr
-        data.index = index;
-        seat = { ...data };
+        seat = { ...data, iInside, iOutside };
         let a = [...this.state.seatedArr];
-        let findingIndex = this.state.seatedArr.findIndex(seat => seat.index === index);
-        if (findingIndex === -1) {
+        let findingIndexI = this.state.seatedArr.findIndex(seat => seat.iInside === iInside);
+        let findingIndexO = this.state.seatedArr.findIndex(seat => seat.iOutside === iOutside);
+        if (findingIndexO === -1 || findingIndexI === -1) {
             //push into seat array.
             a.push(seat);
             //set status of seat in seatArr again.
             data.status = true;
         } else {
-            //set status of seat in seatArr again.
-            data.status = false;
-            //remove seat out array.
-            a.splice(findingIndex, 1);
+            this.state.seatedArr.map((seat => {
+                if (seat.iOutside === iOutside) {
+                    //set status of seat in seatArr again.
+                    data.status = false;
+                    //remove seat out array.
+                    a.splice(findingIndexI, 1);
+                }
+            }));
         }
         await this.setState({ seatedArr: a });
         this.calculateTotalPrice();
@@ -85,6 +90,16 @@ class BookingTicket extends Component {
         //     );
         //     if (condi) { arr[index].vip = true; }
         // }
+        for (let i = 0; i < arr.length; i++) {
+            let arrOut = arr[i];
+            for (let j = 0; j < arrOut.length; j++) {
+                let codiOutside = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7); 
+                let codiInside = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
+                if (codiOutside && codiInside) {
+                    arrOut[j].vip = true;
+                }
+            }
+        }
         return arr
     }
 
@@ -100,14 +115,18 @@ class BookingTicket extends Component {
         //     }
         //     return <i key={index} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
         // })
-        return this.state.seatArr.map((item, index) => {
+        return this.state.seatArr.map((item, iOutside) => {
             return (
-                <Fragment key={index}>
-                    {item.map((item, index) => {
-                        return (<Fragment key={index}>
-                            <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
-                        </Fragment >
-                        )
+                <Fragment key={iOutside}>
+                    {item.map((item, iInside) => {
+                        // return (
+                        //     <Fragment key={index}>
+                        //         <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
+                        //     </Fragment >
+
+                        // )
+                        return <i key={iInside} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`}
+                            onClick={() => this.sendSeatData(item, iOutside, iInside)}></i>;
                     })}
                     {/* <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i> */}
                     <br />
