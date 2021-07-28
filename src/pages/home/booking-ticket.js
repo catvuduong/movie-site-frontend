@@ -25,13 +25,13 @@ class BookingTicket extends Component {
         this.setState({ seatArr })
     }
 
-    sendSeatData = async (data, iOutside, iInside) => {
-        console.log(data, iOutside, iInside);
+    sendSeatData = async (data, indexC, indexR) => {
+        // console.log(data, indexC, indexR);
         let seat = {};
         // set index element of seat in seatArr
-        seat = { ...data, iInside, iOutside };
+        seat = { ...data, indexR, indexC };
         let a = [...this.state.seatedArr];
-        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.iInside === iInside && seat.iOutside === iOutside));
+        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.indexR === indexR && seat.indexC === indexC));
         if (findingIndex === -1) {
             //push into seat array.
             a.push(seat);
@@ -88,9 +88,9 @@ class BookingTicket extends Component {
         for (let i = 0; i < arr.length; i++) {
             let arrOut = arr[i];
             for (let j = 0; j < arrOut.length; j++) {
-                let codiOutside = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7);
-                let codiInside = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
-                if (codiOutside && codiInside) {
+                let codiC = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7);
+                let codeR = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
+                if (codiC && codeR) {
                     arrOut[j].vip = true;
                 }
             }
