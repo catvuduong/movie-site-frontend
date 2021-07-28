@@ -31,22 +31,17 @@ class BookingTicket extends Component {
         // set index element of seat in seatArr
         seat = { ...data, iInside, iOutside };
         let a = [...this.state.seatedArr];
-        let findingIndexI = this.state.seatedArr.findIndex(seat => seat.iInside === iInside);
-        let findingIndexO = this.state.seatedArr.findIndex(seat => seat.iOutside === iOutside);
-        if (findingIndexO === -1 || findingIndexI === -1) {
+        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.iInside === iInside && seat.iOutside === iOutside));
+        if (findingIndex === -1) {
             //push into seat array.
             a.push(seat);
             //set status of seat in seatArr again.
             data.status = true;
         } else {
-            this.state.seatedArr.map((seat => {
-                if (seat.iOutside === iOutside) {
-                    //set status of seat in seatArr again.
-                    data.status = false;
-                    //remove seat out array.
-                    a.splice(findingIndexI, 1);
-                }
-            }));
+            //set status of seat in seatArr again.
+            data.status = false;
+            //remove seat out array.
+            a.splice(findingIndex, 1);
         }
         await this.setState({ seatedArr: a });
         this.calculateTotalPrice();
@@ -93,7 +88,7 @@ class BookingTicket extends Component {
         for (let i = 0; i < arr.length; i++) {
             let arrOut = arr[i];
             for (let j = 0; j < arrOut.length; j++) {
-                let codiOutside = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7); 
+                let codiOutside = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7);
                 let codiInside = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
                 if (codiOutside && codiInside) {
                     arrOut[j].vip = true;
