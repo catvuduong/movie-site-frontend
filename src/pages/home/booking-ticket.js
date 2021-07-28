@@ -25,13 +25,13 @@ class BookingTicket extends Component {
         this.setState({ seatArr })
     }
 
-    sendSeatData = async (data, index) => {
+    sendSeatData = async (data, indexC, indexR) => {
+        // console.log(data, indexC, indexR);
         let seat = {};
         // set index element of seat in seatArr
-        data.index = index;
-        seat = { ...data };
+        seat = { ...data, indexR, indexC };
         let a = [...this.state.seatedArr];
-        let findingIndex = this.state.seatedArr.findIndex(seat => seat.index === index);
+        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.indexR === indexR && seat.indexC === indexC));
         if (findingIndex === -1) {
             //push into seat array.
             a.push(seat);
@@ -85,6 +85,16 @@ class BookingTicket extends Component {
         //     );
         //     if (condi) { arr[index].vip = true; }
         // }
+        for (let i = 0; i < arr.length; i++) {
+            let arrOut = arr[i];
+            for (let j = 0; j < arrOut.length; j++) {
+                let codiC = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7);
+                let codeR = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
+                if (codiC && codeR) {
+                    arrOut[j].vip = true;
+                }
+            }
+        }
         return arr
     }
 
@@ -100,14 +110,18 @@ class BookingTicket extends Component {
         //     }
         //     return <i key={index} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
         // })
-        return this.state.seatArr.map((item, index) => {
+        return this.state.seatArr.map((item, iOutside) => {
             return (
-                <Fragment key={index}>
-                    {item.map((item, index) => {
-                        return (<Fragment key={index}>
-                            <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
-                        </Fragment >
-                        )
+                <Fragment key={iOutside}>
+                    {item.map((item, iInside) => {
+                        // return (
+                        //     <Fragment key={index}>
+                        //         <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
+                        //     </Fragment >
+
+                        // )
+                        return <i key={iInside} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`}
+                            onClick={() => this.sendSeatData(item, iOutside, iInside)}></i>;
                     })}
                     {/* <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i> */}
                     <br />
