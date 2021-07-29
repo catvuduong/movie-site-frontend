@@ -5,7 +5,6 @@ import * as action from "./../../redux/actions/index-action";
 import moment from 'moment';
 
 class BookingTicket extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -18,6 +17,7 @@ class BookingTicket extends Component {
 
     async componentDidMount() {
         window.scrollTo(0, 0);
+        this.countdownTimer(300);
         const id = this.props.match.params.id;
         await this.props.getShowtimeById(id);
         this.setState({ showtime: this.props.showtime })
@@ -26,7 +26,6 @@ class BookingTicket extends Component {
     }
 
     sendSeatData = async (data, indexC, indexR) => {
-        // console.log(data, indexC, indexR);
         let seat = {};
         // set index element of seat in seatArr
         seat = { ...data, indexR, indexC };
@@ -48,17 +47,6 @@ class BookingTicket extends Component {
     }
 
     createSeatArr = () => {
-        // let a = 1; let arr = []; let l = 160;
-        // for (let i = 0; i < l; i++) {
-        //     let seat = {
-        //         name: `${a}`,
-        //         index: null,
-        //         status: false,
-        //         vip: false,
-        //     }
-        //     arr.push(seat);
-        //     a++;
-        // }
         let r = 1; let c = 1; let arr = []; let row = 10; let col = 16;
         for (let i = 0; i < row; i++) {
             arr[i] = [];
@@ -74,17 +62,6 @@ class BookingTicket extends Component {
             }
             r++;
         }
-        // for (let index = 0; index < arr.length; index++) {
-        //     let condi = (
-        //         index === 34 || index === 35 || index === 36 || index === 37 || index === 38 || index === 39 || index === 40 || index === 41 || index === 42 || index === 43 || index === 44 || index === 45 ||
-        //         index === 50 || index === 51 || index === 52 || index === 53 || index === 54 || index === 55 || index === 56 || index === 57 || index === 58 || index === 59 || index === 60 || index === 61 ||
-        //         index === 66 || index === 67 || index === 68 || index === 69 || index === 70 || index === 71 || index === 72 || index === 73 || index === 74 || index === 75 || index === 76 || index === 77 ||
-        //         index === 82 || index === 83 || index === 84 || index === 85 || index === 86 || index === 87 || index === 88 || index === 89 || index === 90 || index === 91 || index === 92 || index === 93 ||
-        //         index === 98 || index === 99 || index === 100 || index === 101 || index === 102 || index === 103 || index === 104 || index === 105 || index === 106 || index === 107 || index === 108 || index === 109 ||
-        //         index === 114 || index === 115 || index === 116 || index === 117 || index === 118 || index === 119 || index === 120 || index === 121 || index === 122 || index === 123 || index === 124 || index === 125
-        //     );
-        //     if (condi) { arr[index].vip = true; }
-        // }
         for (let i = 0; i < arr.length; i++) {
             let arrOut = arr[i];
             for (let j = 0; j < arrOut.length; j++) {
@@ -99,46 +76,18 @@ class BookingTicket extends Component {
     }
 
     renderSeat = () => {
-        // return this.state.seatArr.map((item, index) => {
-        //     if ((index + 1) % 16 === 0) {
-        //         return (
-        //             <Fragment key={index}>
-        //                 <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
-        //                 <br />
-        //             </Fragment >
-        //         )
-        //     }
-        //     return <i key={index} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
-        // })
-        return this.state.seatArr.map((item, iOutside) => {
+        return this.state.seatArr.map((item, indexC) => {
             return (
-                <Fragment key={iOutside}>
-                    {item.map((item, iInside) => {
-                        // return (
-                        //     <Fragment key={index}>
-                        //         <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
-                        //     </Fragment >
-
-                        // )
-                        return <i key={iInside} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`}
-                            onClick={() => this.sendSeatData(item, iOutside, iInside)}></i>;
+                <Fragment key={indexC}>
+                    {item.map((item, indexR) => {
+                        return <i key={indexR} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`}
+                            onClick={() => this.sendSeatData(item, indexC, indexR)}></i>;
                     })}
-                    {/* <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i> */}
                     <br />
-                    {/* {this.state.item.map((item, index) => {
-                        return (
-                            // <Fragment key={index}>
-                            //     <i className={`fa fa-minus-square ${item.status ? "seated" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>
-                            // </Fragment >
-                            <div>{item.}</div>
-                        )
-                    })} */}
                 </Fragment >
             )
-            // return <i key={index} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`} onClick={() => this.sendSeatData(item, index)}></i>;
         })
     }
-
 
     calculateTotalPrice = () => {
         let { seatedArr } = this.state;
@@ -170,9 +119,11 @@ class BookingTicket extends Component {
             clearInterval(x);
         }
     }
+    payTicket = () => {
+        console.log(this.state.seatedArr, this.state.totalPrice);
+    }
 
     render() {
-        console.log(this.state.seatArr);
         let theater = { ...this.state.showtime.theater }
         let movie = { ...this.state.showtime.movie }
         return (
@@ -192,7 +143,7 @@ class BookingTicket extends Component {
                                     <div className="col-6 time">
                                         <div className="time_remaining">
                                             <span>Thời gian chờ</span>
-                                            <span id="time">{this.countdownTimer(300)}</span>
+                                            <span id="time"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +182,7 @@ class BookingTicket extends Component {
                             </div>
                             <hr />
                             <div className="accept_button">
-                                <button>Thanh toán</button>
+                                <button onClick={() => this.payTicket()} > Thanh toán</button>
                             </div>
                             <hr />
                         </div>
