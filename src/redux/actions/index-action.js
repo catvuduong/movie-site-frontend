@@ -12,7 +12,7 @@ export const actGetListMoviesAPI = data => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: "https://localhost:5001/movies/get-list",
+            url: "/movies/get-list",
         });
         // console.log(result);
         dispatch({
@@ -26,7 +26,7 @@ export const actGetDetailsMovie = id => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: `https://localhost:5001/movies/get/${id}`
+            url: `/movies/get/${id}`
         })
         dispatch({
             type: ActionType.GET_DETAILS_MOVIE,
@@ -39,7 +39,7 @@ export const actGetShowtimeByID = id => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: `https://localhost:5001/showtimes/get/${id}`
+            url: `/showtimes/get/${id}`
         })
         dispatch({
             type: ActionType.GET_SHOWTIME_BYID,
@@ -52,7 +52,7 @@ export const actGetListBranchesAPI = () => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: "https://localhost:5001/branches/get-list"
+            url: "/branches/get-list"
         })
         dispatch({
             type: ActionType.GET_LIST_BRANCHES,
@@ -66,7 +66,7 @@ export const actGetListTheatersAPI = () => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: "https://localhost:5001/theaters/get-list"
+            url: "/theaters/get-list"
         })
         dispatch({
             type: ActionType.GET_LIST_THEATERS,
@@ -81,7 +81,7 @@ export const actGetListArticlesAPI = () => {
 
         let result = await axios({
             method: "GET",
-            url: "https://localhost:5001/articles/get-list"
+            url: "/articles/get-list"
         })
         dispatch({
             type: ActionType.GET_LIST_ARTICLES,
@@ -94,7 +94,7 @@ export const actGetListTheatersByBranchIdAPI = () => {
     return async dispatch => {
         let result = await axios({
             method: "GET",
-            url: "https://localhost:5001/theaters/get-list"
+            url: "/theaters/get-list"
         })
         dispatch({
             type: ActionType.GET_LIST_THEATERS,
@@ -107,7 +107,7 @@ export const actGetListTheatersByBranchIdAPI = () => {
 export const actLogin = (user, history) => {
     return async () => {
         try {
-            const resp = await axios.post('https://localhost:5001/users/login', user);
+            const resp = await axios.post('/users/login', user);
             // console.log(resp.data);
             if (resp.data.role === 0) {
                 localStorage.setItem('Admin', JSON.stringify(resp.data));
@@ -116,7 +116,31 @@ export const actLogin = (user, history) => {
             } else {
                 alert("Login failure, you are not admin");
             }
-
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    }
+}
+export const actBookTicket = (tickets, showtimeId) => {
+    console.log(tickets, showtimeId);
+    // let test = {
+    //     tickets:
+    //         [
+    //             {
+    //                 verticalPos: 2,
+    //                 horizontalPos: 1,
+    //                 cost: 10000
+    //             }
+    //         ],
+    //     showtimeId
+    // }
+    return async () => {
+        try {
+            const resp = await axios.post('/tickets/book-ticket', { tickets, showtimeId });
+            console.log(resp.data);
+            console.log("success");
+            // alert("success");
         } catch (err) {
             // Handle Error Here
             console.error(err);
@@ -131,12 +155,12 @@ export const actBranchManagement = (branch, type) => {
             if (branch.id) {
                 switch (type) {
                     case "edit": {
-                        await axios.put(`https://localhost:5001/branches/update/${branch.id}`, branch);
+                        await axios.put(`/branches/update/${branch.id}`, branch);
                         alert("Update success");
                         break;
                     }
                     case "delete": {
-                        await axios.delete(`https://localhost:5001/branches/delete/${branch.id}`);
+                        await axios.delete(`/branches/delete/${branch.id}`);
                         alert("Delete success");
                         break;
                     }
@@ -144,7 +168,7 @@ export const actBranchManagement = (branch, type) => {
                         break;
                 }
             } else {
-                await axios.post('https://localhost:5001/branches/create', branch);
+                await axios.post('/branches/create', branch);
                 alert("Add success");
             }
         } catch (err) {
@@ -162,12 +186,12 @@ export const actTheaterManagement = (theater, type) => {
             if (theater.id) {
                 switch (type) {
                     case "edit": {
-                        await axios.put(`https://localhost:5001/theaters/update/${theater.id}`, theater);
+                        await axios.put(`/theaters/update/${theater.id}`, theater);
                         // alert("Update success");
                         break;
                     }
                     case "delete": {
-                        await axios.delete(`https://localhost:5001/theaters/delete/${theater.id}`);
+                        await axios.delete(`/theaters/delete/${theater.id}`);
                         alert("Delete success");
                         break;
                     }
@@ -175,7 +199,7 @@ export const actTheaterManagement = (theater, type) => {
                         break;
                 }
             } else {
-                await axios.post('https://localhost:5001/theaters/create', theater);
+                await axios.post('/theaters/create', theater);
                 alert("Add success");
             }
         } catch (err) {

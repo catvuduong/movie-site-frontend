@@ -12,7 +12,7 @@ export default class NewsExpansion extends Component {
                         {
                             firstList.map((item, index) => (
                                 <div className="col-6 article_item" key={index}>
-                                    <img src={"https://localhost:5001" + item.thumbnail} alt="" />
+                                    <img src={"" + item.thumbnail} alt="" />
                                     <h5>{item.title}</h5>
                                     <p>{item.content}</p>
                                 </div>
@@ -23,7 +23,7 @@ export default class NewsExpansion extends Component {
                         {
                             secondList.map((item, index) => (
                                 <div className="col-4 article_item" key={index}>
-                                    <img src={"https://localhost:5001" + item.thumbnail} alt="" />
+                                    <img src={"" + item.thumbnail} alt="" />
                                     <h5>{item.title}</h5>
                                     <p>{item.content}</p>
                                 </div>

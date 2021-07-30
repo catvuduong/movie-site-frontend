@@ -14,6 +14,8 @@ import "slick-carousel/slick/slick-theme.css";
 // import './css/dash-board.css';
 import "./css/simple-sidebar.css";
 
+import './config/interceptors';
+
 import './css/style.css';
 
 import { createStore, applyMiddleware, compose } from 'redux';

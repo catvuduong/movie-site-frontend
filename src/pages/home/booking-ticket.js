@@ -26,13 +26,11 @@ class BookingTicket extends Component {
     }
 
     sendSeatData = async (data, indexC, indexR) => {
-        let seat = {};
-        // set index element of seat in seatArr
-        seat = { ...data, indexR, indexC };
         let a = [...this.state.seatedArr];
-        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.indexR === indexR && seat.indexC === indexC));
+        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.verticalPos === indexC && seat.horizontalPos === indexR));
         if (findingIndex === -1) {
             //push into seat array.
+            let seat = { ...data, verticalPos: indexC, horizontalPos: indexR };
             a.push(seat);
             //set status of seat in seatArr again.
             data.status = true;
@@ -53,7 +51,8 @@ class BookingTicket extends Component {
             for (let j = 0; j < col; j++) {
                 let seat = {
                     name: `${r}:${c}`,
-                    index: null,
+                    verticalPos: null,
+                    horizontalPos: null,
                     status: false,
                     vip: false,
                 }
@@ -66,8 +65,8 @@ class BookingTicket extends Component {
             let arrOut = arr[i];
             for (let j = 0; j < arrOut.length; j++) {
                 let codiC = (i === 2 || i === 3 || i === 4 || i === 5 || i === 6 || i === 7);
-                let codeR = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
-                if (codiC && codeR) {
+                let codiR = (j === 3 || j === 4 || j === 5 || j === 6 || j === 7 || j === 8 || j === 9 || j === 10 || j === 11 || j === 12);
+                if (codiC && codiR) {
                     arrOut[j].vip = true;
                 }
             }
@@ -120,7 +119,9 @@ class BookingTicket extends Component {
         }
     }
     payTicket = () => {
-        console.log(this.state.seatedArr, this.state.totalPrice);
+        // console.log(this.state.seatedArr, this.state.totalPrice);
+        const id = this.props.match.params.id;
+        this.props.bookTicket(this.state.seatedArr, id);
     }
 
     render() {
@@ -134,7 +135,7 @@ class BookingTicket extends Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="col-6 theater">
-                                        <img src={"https://localhost:5001" + theater.image} alt="" />
+                                        <img src={"" + theater.image} alt="" />
                                         <div className="theater_info">
                                             <span>Rạp: {theater.name}</span>
                                             <span>{moment(this.state.showtime.time).format("HH:mm")}</span>
@@ -204,6 +205,9 @@ const mapDispatchToProps = dispatch => {
         getShowtimeById: async id => {
             await dispatch(action.actGetShowtimeByID(id));
         },
+        bookTicket: async (seatedArr, showtimeId) => {
+            await dispatch(action.actBookTicket(seatedArr, showtimeId));
+        }
     };
 };
 
