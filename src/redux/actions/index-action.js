@@ -130,6 +130,14 @@ export const actBookTicket = (tickets, showtimeId) => {
             alert("Đặt vé thành công");
         } catch (err) {
             // Handle Error Here
+            // switch (err) {
+            //     case value:
+
+            //         break;
+
+            //     default:
+            //         break;
+            // }
             console.error(err);
         }
     }

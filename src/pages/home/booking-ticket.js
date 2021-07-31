@@ -11,7 +11,8 @@ class BookingTicket extends Component {
             showtime: {},
             seatArr: [],
             seatedArr: [],
-            totalPrice: 0
+            totalPrice: 0,
+            acceptButton: false
         }
     }
 
@@ -24,6 +25,15 @@ class BookingTicket extends Component {
         let seatArr = this.createSeatArr();
         this.setState({ seatArr })
     }
+
+    // componentDidUpdate() {
+    //     console.log(123);
+    //     if (!Array.isArray(this.state.seatedArr) || !this.state.seatedArr.length) {
+    //         // array does not exist, is not an array, or is empty
+    //         // ⇒ do not attempt to process array
+    //         this.state.acceptButton = false;
+    //     }
+    // }
 
     sendSeatData = async (data, indexC, indexR) => {
         if (!data.bookedStatus) {
@@ -42,7 +52,18 @@ class BookingTicket extends Component {
                 a.splice(findingIndex, 1);
             }
             await this.setState({ seatedArr: a });
+            await this.checkSeatedArr();
             this.calculateTotalPrice();
+        }
+    }
+
+    checkSeatedArr = () => {
+        if (!Array.isArray(this.state.seatedArr) || !this.state.seatedArr.length) {
+            // array does not exist, is not an array, or is empty
+            // ⇒ do not attempt to process array
+            this.setState({ acceptButton: false })
+        } else {
+            this.setState({ acceptButton: true })
         }
     }
 
@@ -139,9 +160,11 @@ class BookingTicket extends Component {
     }
 
     render() {
+
         let theater = { ...this.state.showtime.theater };
         let movie = { ...this.state.showtime.movie };
         // console.log(this.state.seatArr);
+
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -198,7 +221,7 @@ class BookingTicket extends Component {
                             </div>
                             <hr />
                             <div className="accept_button">
-                                <button onClick={() => this.payTicket()} > Thanh toán</button>
+                                <button disabled={!this.state.acceptButton} onClick={() => this.payTicket()} > Thanh toán</button>
                             </div>
                             <hr />
                         </div>
