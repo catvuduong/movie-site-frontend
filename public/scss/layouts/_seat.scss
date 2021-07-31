@@ -55,8 +55,12 @@
             .vip {
                 color: $color-yellow;
             }
-            .seated {
+            .seating {
                 color: lightskyblue;
+            }
+            .seated {
+                color: $color-orange-0;
+                cursor: no-drop;
             }
         }
         .seat_status {

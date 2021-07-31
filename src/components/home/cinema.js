@@ -107,7 +107,7 @@ class Cinema extends Component {
                             this.state.listBranches.map((item, index) => (
                                 // TODO: Add generic domain
                                 <div className="item_line cinema_btn" key={index} onClick={() => this.changeBranch(index)}>
-                                    <img src={"" + item.image} alt="" />
+                                    <img src={"https://localhost:5001" + item.image} alt="" />
                                 </div>
                             ))
                         }
@@ -118,7 +118,7 @@ class Cinema extends Component {
                                 <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
                                     <div className="row theater_line" >
                                         <div className="col-2 theater_image">
-                                            <img src={"" + item.image} alt="" />
+                                            <img src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
                                         <div className="col-10 theater_name">
                                             <div><span>{item.branch.name} - </span><span>{item.name}</span></div>

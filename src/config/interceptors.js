@@ -6,7 +6,7 @@ axios.interceptors.request.use(
         const user = JSON.parse(localStorage.getItem("Admin"));
         const token = user.accessToken;
         // console.log("[Request] " + config.url);
-        console.log(token);
+        // console.log(token);
         config.headers["Authorization"] = "Bearer " + token;
         return config;
     },

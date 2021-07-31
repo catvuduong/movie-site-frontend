@@ -64,7 +64,7 @@ class ShowtimesDetail extends Component {
                             this.state.branches.map((item, index) => (
                                 // TODO: Add generic domain
                                 <div className="item_line cinema_btn" key={index} onClick={() => this.changeBranch(index)}>
-                                    <span> <img src={"" + item.image} alt="" /></span><span>{item.name}</span>
+                                    <span> <img src={"https://localhost:5001" + item.image} alt="" /></span><span>{item.name}</span>
                                 </div>
                             ))
                         }

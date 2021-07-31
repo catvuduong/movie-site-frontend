@@ -1112,8 +1112,11 @@ body {
       color: #a1a7b3; }
     .mySeat .seat .seat_customer .vip {
       color: #f4c150; }
-    .mySeat .seat .seat_customer .seated {
+    .mySeat .seat .seat_customer .seating {
       color: lightskyblue; }
+    .mySeat .seat .seat_customer .seated {
+      color: #ff4500;
+      cursor: no-drop; }
   .mySeat .seat .seat_status {
     padding-top: 50px; }
     .mySeat .seat .seat_status .row .seating i {

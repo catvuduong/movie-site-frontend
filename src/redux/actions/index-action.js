@@ -122,25 +122,12 @@ export const actLogin = (user, history) => {
         }
     }
 }
+
 export const actBookTicket = (tickets, showtimeId) => {
-    console.log(tickets, showtimeId);
-    // let test = {
-    //     tickets:
-    //         [
-    //             {
-    //                 verticalPos: 2,
-    //                 horizontalPos: 1,
-    //                 cost: 10000
-    //             }
-    //         ],
-    //     showtimeId
-    // }
     return async () => {
         try {
-            const resp = await axios.post('/tickets/book-ticket', { tickets, showtimeId });
-            console.log(resp.data);
-            console.log("success");
-            // alert("success");
+            await axios.post('/tickets/book-ticket', { tickets, showtimeId });
+            alert("Đặt vé thành công");
         } catch (err) {
             // Handle Error Here
             console.error(err);

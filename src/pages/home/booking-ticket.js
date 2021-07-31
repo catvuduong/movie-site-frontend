@@ -26,22 +26,24 @@ class BookingTicket extends Component {
     }
 
     sendSeatData = async (data, indexC, indexR) => {
-        let a = [...this.state.seatedArr];
-        let findingIndex = this.state.seatedArr.findIndex(seat => (seat.verticalPos === indexC && seat.horizontalPos === indexR));
-        if (findingIndex === -1) {
-            //push into seat array.
-            let seat = { ...data, verticalPos: indexC, horizontalPos: indexR };
-            a.push(seat);
-            //set status of seat in seatArr again.
-            data.status = true;
-        } else {
-            //set status of seat in seatArr again.
-            data.status = false;
-            //remove seat out array.
-            a.splice(findingIndex, 1);
+        if (!data.bookedStatus) {
+            let a = [...this.state.seatedArr];
+            let findingIndex = this.state.seatedArr.findIndex(seat => (seat.verticalPos === indexC && seat.horizontalPos === indexR));
+            if (findingIndex === -1) {
+                //push into seat array.
+                let seat = { ...data, verticalPos: indexC, horizontalPos: indexR };
+                a.push(seat);
+                //set status of seat in seatArr again.
+                data.status = true;
+            } else {
+                //set status of seat in seatArr again.
+                data.status = false;
+                //remove seat out array.
+                a.splice(findingIndex, 1);
+            }
+            await this.setState({ seatedArr: a });
+            this.calculateTotalPrice();
         }
-        await this.setState({ seatedArr: a });
-        this.calculateTotalPrice();
     }
 
     createSeatArr = () => {
@@ -51,10 +53,9 @@ class BookingTicket extends Component {
             for (let j = 0; j < col; j++) {
                 let seat = {
                     name: `${r}:${c}`,
-                    verticalPos: null,
-                    horizontalPos: null,
-                    status: false,
                     vip: false,
+                    status: false,
+                    bookedStatus: false,
                 }
                 c++; if (c === 17) { c = 1 }
                 arr[i].push(seat);
@@ -79,7 +80,10 @@ class BookingTicket extends Component {
             return (
                 <Fragment key={indexC}>
                     {item.map((item, indexR) => {
-                        return <i key={indexR} className={`fa fa-minus-square ${item.status ? "seated" : ""} ${item.vip ? "vip" : ""}`}
+                        if (this.checkBookedSeats(indexC, indexR)) {
+                            item.bookedStatus = true;
+                        }
+                        return <i key={indexR} className={`fa fa-minus-square ${item.bookedStatus ? "seated" : ""} ${item.status ? "seating" : ""} ${item.vip ? "vip" : ""}`}
                             onClick={() => this.sendSeatData(item, indexC, indexR)}></i>;
                     })}
                     <br />
@@ -118,15 +122,26 @@ class BookingTicket extends Component {
             clearInterval(x);
         }
     }
+
     payTicket = () => {
         // console.log(this.state.seatedArr, this.state.totalPrice);
         const id = this.props.match.params.id;
         this.props.bookTicket(this.state.seatedArr, id);
     }
 
+    checkBookedSeats = (indexC, indexR) => {
+        let bookedSeats = [...this.state.showtime.bookedSeats];
+        let findIndex = bookedSeats.findIndex(seats => (seats.verticalPos === indexC && seats.horizontalPos === indexR));
+        if (findIndex !== -1) {
+            return true;
+        }
+        return false;
+    }
+
     render() {
-        let theater = { ...this.state.showtime.theater }
-        let movie = { ...this.state.showtime.movie }
+        let theater = { ...this.state.showtime.theater };
+        let movie = { ...this.state.showtime.movie };
+        // console.log(this.state.seatArr);
         return (
             <section className="mySeat">
                 <div className="container-fluid">
@@ -135,7 +150,7 @@ class BookingTicket extends Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="col-6 theater">
-                                        <img src={"" + theater.image} alt="" />
+                                        <img src={"https://localhost:5001" + theater.image} alt="" />
                                         <div className="theater_info">
                                             <span>Rạp: {theater.name}</span>
                                             <span>{moment(this.state.showtime.time).format("HH:mm")}</span>
