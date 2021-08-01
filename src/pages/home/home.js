@@ -9,6 +9,7 @@ import Article from './../../components/home/article';
 import Apps from './../../components/home/apps';
 import Banner from './../../components/home/banner';
 import LoadingScreen from './../home/loading-screen';
+import LoginModal from './modals/login-modal';
 
 
 class Home extends Component {
@@ -34,6 +35,7 @@ class Home extends Component {
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
+                    <LoginModal></LoginModal>
                 </div>
             )
         }

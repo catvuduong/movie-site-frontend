@@ -108,8 +108,12 @@ export const actLogin = (user, history) => {
     return async () => {
         try {
             const resp = await axios.post('/users/login', user);
-            // console.log(resp.data);
-            if (resp.data.role === 0) {
+            // console.log(history);
+            if (history === "loginHomePage") {
+                localStorage.setItem('Admin', JSON.stringify(resp.data));
+                alert("Login success u r user");
+            }
+            else if (history !== "loginHomePage" && resp.data.role === 0) {
                 localStorage.setItem('Admin', JSON.stringify(resp.data));
                 alert("Login success");
                 history.push('/dash-board');

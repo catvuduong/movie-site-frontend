@@ -4,10 +4,12 @@ axios.defaults.baseURL = 'https://localhost:5001';
 axios.interceptors.request.use(
     async function (config) {
         const user = JSON.parse(localStorage.getItem("Admin"));
-        const token = user.accessToken;
+        if (user && user.accessToken) {
+            const token = user.accessToken;
+            config.headers["Authorization"] = "Bearer " + token;
+        }
         // console.log("[Request] " + config.url);
         // console.log(token);
-        config.headers["Authorization"] = "Bearer " + token;
         return config;
     },
     function (error) {

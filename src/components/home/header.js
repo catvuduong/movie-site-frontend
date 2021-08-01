@@ -18,22 +18,22 @@ export default class Header extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link" href="#listMovie">
                                         Lịch Chiếu
-                                  </a>
+                                    </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#cinema">
                                         Cụm Rạp
-                                 </a>
+                                    </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#article">
                                         Tin Tức
-                                  </a>
+                                    </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#apps">
                                         Ứng Dụng
-                                </a>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -41,7 +41,7 @@ export default class Header extends Component {
                     <div className="navbar_login">
                         <div className="navbar_signIn">
                             <i className="fa fa-user" />
-                            <button className="btn btn--signIn">Đăng Nhập</button>
+                            <button data-toggle="modal" data-target="#loginModal" className="btn btn--signIn">Đăng Nhập</button>
                         </div>
                         <div className="narbar_signUp">
                             <i className="fa fa-map-marker-alt" />
