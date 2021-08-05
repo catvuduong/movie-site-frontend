@@ -22,11 +22,27 @@ class LoginModal extends Component {
         });
 
     }
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault();
-        this.props.login(this.state.object, "loginHomePage")
+        await this.props.login(this.state.object, "loginHomePage")
         $('#loginModal').modal('hide');
+        if (this.props.showtimeId) {
+            const user = localStorage.getItem('User');
+            const admin = localStorage.getItem('Admin');
+            if (user || admin) {
+                setTimeout(() => {
+                    this.props.history.push(`booking-ticket/${this.props.showtimeId}`);
+                }, 2000);
+            }
+        }
+        this.setState({
+            object: {
+                username: "",
+                password: ""
+            }
+        })
     }
+
     render() {
         return (
             <Fragment>
@@ -60,7 +76,7 @@ class LoginModal extends Component {
                                         <div className="form-group">
                                             <label>Tên đăng nhập</label>
                                             <input type="text" className="form-control"
-                                                onChange={this.handleOnChange} name="username" value={this.state.object.user}
+                                                onChange={this.handleOnChange} name="username" value={this.state.object.username}
                                             />
                                         </div>
                                         <div className="form-group">
@@ -86,8 +102,8 @@ class LoginModal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (ojbect, history) => {
-            dispatch(action.actLogin(ojbect, history));
+        login: async (ojbect, history) => {
+            await dispatch(action.actLogin(ojbect, history));
         }
     }
 }

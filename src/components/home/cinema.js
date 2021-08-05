@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as ActionType from './../../redux/constants/action-type';
+import LoginModal from '../../pages/home/modals/login-modal'
+import $ from 'jquery';
 
 class Cinema extends Component {
     constructor(props) {
@@ -12,6 +14,7 @@ class Cinema extends Component {
             listTheaters: [],
             listMovies: [],
             dataTicket: {},
+            showtimeId: null
         }
     }
 
@@ -97,6 +100,17 @@ class Cinema extends Component {
         }
     }
 
+    checkLogin = id => {
+        const user = localStorage.getItem('User');
+        const admin = localStorage.getItem('Admin');
+        if (user || admin) {
+            this.props.history.push(`booking-ticket/${id}`);
+        } else {
+            $('#loginModal').modal('show');
+            this.setState({ showtimeId: id });
+        }
+    }
+
     render() {
         return (
             <section className="myCinema container" id="cinema">
@@ -150,10 +164,11 @@ class Cinema extends Component {
                                         <div className="movie_showtimes">
                                             {
                                                 item.data.map((showtime, index) => (
-                                                    <Link
-                                                        to={`booking-ticket/${showtime.id}`}
+                                                    <button
+                                                        onClick={() => { this.checkLogin(showtime.id) }}
                                                         key={index} type="button" className="btn btn-outline-secondary">
-                                                        {moment(showtime.time).format("HH:mm")}</Link>
+                                                        {moment(showtime.time).format("HH:mm")}
+                                                    </button>
                                                 ))
                                             }
                                         </div>
@@ -163,7 +178,8 @@ class Cinema extends Component {
                         }
                     </div>
                 </div>
-            </section>
+                <LoginModal showtimeId={this.state.showtimeId} {...this.props}></LoginModal>
+            </section >
         )
     }
 }

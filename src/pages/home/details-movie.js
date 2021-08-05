@@ -23,6 +23,7 @@ class DetailsMovie extends Component {
     async componentDidMount() {
         window.scrollTo(0, 0);
         const id = this.props.match.params.id;
+        console.log(id);
         await this.props.getDetailsMovie(id);
         await this.props.getListBranches();
         this.setState({ movie: this.props.movie, checkingLoading: true });

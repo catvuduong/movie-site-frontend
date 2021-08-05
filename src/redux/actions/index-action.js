@@ -104,19 +104,24 @@ export const actGetListTheatersByBranchIdAPI = () => {
     }
 }
 
-export const actLogin = (user, history) => {
+export const actLogin = (user, condi) => {
     return async () => {
         try {
             const resp = await axios.post('/users/login', user);
-            // console.log(history);
-            if (history === "loginHomePage") {
-                localStorage.setItem('Admin', JSON.stringify(resp.data));
-                alert("Login success u r user");
+            // console.log(condi);
+            if (condi === "loginHomePage") {
+                if (resp.data.role === 0) {
+                    localStorage.setItem('Admin', JSON.stringify(resp.data));
+                    alert("Login success u r admin");
+                } else {
+                    localStorage.setItem('User', JSON.stringify(resp.data));
+                    alert("Login success u r user");
+                }
             }
-            else if (history !== "loginHomePage" && resp.data.role === 0) {
+            else if (condi !== "loginHomePage" && resp.data.role === 0) {
                 localStorage.setItem('Admin', JSON.stringify(resp.data));
                 alert("Login success");
-                history.push('/dash-board');
+                condi.push('/dash-board');
             } else {
                 alert("Login failure, you are not admin");
             }

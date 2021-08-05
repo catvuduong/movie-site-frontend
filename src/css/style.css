@@ -355,7 +355,7 @@ body {
             font-weight: normal; }
       .myCinema .row .movie_logo .item_line .movie_showtimes {
         margin-bottom: 10px; }
-        .myCinema .row .movie_logo .item_line .movie_showtimes a {
+        .myCinema .row .movie_logo .item_line .movie_showtimes button {
           margin-right: 10px;
           text-align: left;
           border: none;
@@ -363,7 +363,7 @@ body {
           font-size: 15px;
           font-weight: normal;
           padding-left: 0; }
-          .myCinema .row .movie_logo .item_line .movie_showtimes a:hover {
+          .myCinema .row .movie_logo .item_line .movie_showtimes button:hover {
             color: #ff4500;
             background-color: transparent; }
   .myCinema .row .btnsBranch_active,

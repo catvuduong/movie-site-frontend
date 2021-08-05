@@ -9,7 +9,6 @@ import Article from './../../components/home/article';
 import Apps from './../../components/home/apps';
 import Banner from './../../components/home/banner';
 import LoadingScreen from './../home/loading-screen';
-import LoginModal from './modals/login-modal';
 
 
 class Home extends Component {
@@ -18,6 +17,7 @@ class Home extends Component {
         this.state = {
             signLoading: false
         }
+        // console.log('From home:', this.props);
     }
     async componentDidMount() {
         await this.props.getListBranches();
@@ -30,12 +30,13 @@ class Home extends Component {
                 <div>
                     <Carousel></Carousel>
                     <ListMovie></ListMovie>
-                    <Cinema listBranches={this.props.listBranches}></Cinema>
+                    <Cinema listBranches={this.props.listBranches}
+                        {...this.props}
+                    ></Cinema>
                     <Article></Article>
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
-                    <LoginModal></LoginModal>
                 </div>
             )
         }
