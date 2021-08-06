@@ -26,21 +26,40 @@ class LoginModal extends Component {
         e.preventDefault();
         await this.props.login(this.state.object, "loginHomePage")
         $('#loginModal').modal('hide');
-        if (this.props.showtimeId) {
-            const user = localStorage.getItem('User');
-            const admin = localStorage.getItem('Admin');
-            if (user || admin) {
-                setTimeout(() => {
-                    this.props.history.push(`booking-ticket/${this.props.showtimeId}`);
-                }, 2000);
-            }
-        }
         this.setState({
             object: {
                 username: "",
                 password: ""
             }
         })
+        // if (this.props.showtimeId) {
+        //     const user = localStorage.getItem('User');
+        //     const admin = localStorage.getItem('Admin');
+        //     if (user || admin) {
+        //         //setTimeout for the leak data error
+        //         setTimeout(() => {
+        //             this.props.history.push(`booking-ticket/${this.props.showtimeId}`);
+        //         }, 1);
+        //         // this.test(this.props.showtimeId)
+        //     }
+        // }
+        this.test(this.props.showtimeId);
+
+    }
+    test = id => {
+        if (id) {
+            const user = localStorage.getItem('User');
+            const admin = localStorage.getItem('Admin');
+            if (user || admin) {
+                //setTimeout for the leak data error.
+                setTimeout(() => {
+                    this.props.history.push(`booking-ticket/${id}`);
+                }, 0);
+                // this.test(this.props.showtimeId)
+            }
+        } else {
+            window.location.reload();
+        }
     }
 
     render() {

@@ -20,10 +20,21 @@
                 color: gray;
                 transition: all 0.5s;
             }
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+                border: 3px solid gray;
+                transition: all 0.5s;
+                display: none;
+            }
             &:hover {
                 .btn--signIn,
                 .fa-user {
                     color: black;
+                }
+                img {
+                    border: 3px solid black;
                 }
             }
         }

@@ -14,7 +14,7 @@ class Cinema extends Component {
             listTheaters: [],
             listMovies: [],
             dataTicket: {},
-            showtimeId: null
+            showtimeId: ""
         }
     }
 
@@ -35,6 +35,23 @@ class Cinema extends Component {
             btnsBranch[0].className += ' btnsBranch_active';
             btnsTheater[0].className += " btnsTheater_active";
         }
+    }
+
+    // async componentWillUnmount() {
+    //     this.test();
+    //     await this.setState({
+    //         listBranches: [],
+    //         listTheaters: [],
+    //         listMovies: [],
+    //         dataTicket: {},
+    //         showtimeId: ""
+    //     },
+    //         () => {
+    //             this.test();
+    //         });
+    // }
+    test = () => {
+        console.log(this.state);
     }
 
     orderedMovies = array => {

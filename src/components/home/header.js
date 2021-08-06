@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
 
 export default class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLogin: false,
+            icon: "",
+            img: ""
+        }
+    }
+    componentDidMount() {
+        if (localStorage.getItem("Admin") || localStorage.getItem("User")) {
+            this.setState({
+                icon: "none",
+                img: "inline-block"
+            })
+        } else {
+            this.setState({
+                icon: "inline-block",
+                img: "none"
+            })
+        }
+    }
     render() {
         return (
             <header className="navbar navbar-expand-md navbar-light myHeader">
@@ -40,7 +61,8 @@ export default class Header extends Component {
                     </div>
                     <div className="navbar_login">
                         <div className="navbar_signIn">
-                            <i className="fa fa-user" />
+                            <i style={{ display: this.state.icon }} className="fa fa-user" />
+                            <img style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
                             <button data-toggle="modal" data-target="#loginModal" className="btn btn--signIn">Đăng Nhập</button>
                         </div>
                         <div className="narbar_signUp">

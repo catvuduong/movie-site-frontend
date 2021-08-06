@@ -25,9 +25,18 @@ body {
     .myHeader .navbar_login .navbar_signIn .fa-user {
       color: gray;
       transition: all 0.5s; }
+    .myHeader .navbar_login .navbar_signIn img {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      border: 3px solid gray;
+      transition: all 0.5s;
+      display: none; }
     .myHeader .navbar_login .navbar_signIn:hover .btn--signIn,
     .myHeader .navbar_login .navbar_signIn:hover .fa-user {
       color: black; }
+    .myHeader .navbar_login .navbar_signIn:hover img {
+      border: 3px solid black; }
     .myHeader .navbar_login .narbar_signUp .btn--signUp {
       box-shadow: none; }
     .myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
