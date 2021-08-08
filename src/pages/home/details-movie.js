@@ -6,6 +6,7 @@ import ShowtimesDetail from './../../components/details-movie/showtimes-detailsm
 import DetailsMovieModal from './../../components/details-movie/details-movie-modal';
 import LoadingScreen from './loading-screen';
 import Banner from './../../components/home/banner';
+import LoginModal from '../../pages/home/modals/login-modal';
 
 
 class DetailsMovie extends Component {
@@ -81,6 +82,7 @@ class DetailsMovie extends Component {
                         <div className="showtimes_content">{this.renderDisplay(this.state.component)}</div>
                     </div >
                     <Banner></Banner>
+                    <LoginModal></LoginModal>
                 </Fragment>
             )
         }

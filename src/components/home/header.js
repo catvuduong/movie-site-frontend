@@ -8,14 +8,20 @@ export default class Header extends Component {
             isLogin: false,
             icon: "",
             img: "",
-            backHomePage: false
+            backHomePage: false,
+            signIn: "Đăng nhập",
+            disButton: false
         }
     }
     componentDidMount() {
-        if (localStorage.getItem("Admin") || localStorage.getItem("User")) {
+        const admin = JSON.parse(localStorage.getItem("Admin"));
+        const user = JSON.parse(localStorage.getItem("User"));
+        if (admin || user) {
             this.setState({
                 icon: "none",
-                img: "inline-block"
+                img: "inline-block",
+                signIn: admin.username || user.username,
+                disButton: true
             })
         } else {
             this.setState({
@@ -96,7 +102,7 @@ export default class Header extends Component {
                         <div className="navbar_signIn">
                             <i style={{ display: this.state.icon }} className="fa fa-user" />
                             <img style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
-                            <button data-toggle="modal" data-target="#loginModal" className="btn btn--signIn">Đăng Nhập</button>
+                            <button disabled={this.state.disButton} data-toggle="modal" data-target="#loginModal" className="btn btn--signIn">{this.state.signIn}</button>
                         </div>
                         <div className="narbar_signUp">
                             <i className="fa fa-map-marker-alt" />
