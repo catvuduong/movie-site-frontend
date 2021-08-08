@@ -15,8 +15,8 @@ export default function HomeTemplate({ Component, ...props }) {
         <Route  {...props} render={propsComponent => {
             // console.log('From template:', propsComponent);
             return (
-                <HomeLayout>
-                    <Header></Header>
+                <HomeLayout >
+                    <Header {...propsComponent}  ></Header>
                     <Component {...propsComponent} />
                 </HomeLayout>
             )

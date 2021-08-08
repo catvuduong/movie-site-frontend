@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import $ from 'jquery';
 
 export default class Header extends Component {
     constructor(props) {
@@ -6,7 +7,8 @@ export default class Header extends Component {
         this.state = {
             isLogin: false,
             icon: "",
-            img: ""
+            img: "",
+            backHomePage: false
         }
     }
     componentDidMount() {
@@ -22,6 +24,37 @@ export default class Header extends Component {
             })
         }
     }
+
+    backToHomePage = id => {
+        switch (id) {
+            case "#listMovie":
+                this.checkLocation(id);
+                break;
+            case "#cinema":
+                this.checkLocation(id);
+                break;
+            case "#article":
+                this.checkLocation(id);
+                break;
+            case "#apps":
+                this.checkLocation(id);
+                break;
+            default:
+                break;
+        }
+    }
+
+    checkLocation = async id => {
+        if (await this.props.location.pathname !== '/') {
+            await this.props.history.push('/');
+            await setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: $(id).offset().top
+                }, "fast");
+            }, 3500);
+        }
+    }
+
     render() {
         return (
             <header className="navbar navbar-expand-md navbar-light myHeader">
@@ -37,22 +70,22 @@ export default class Header extends Component {
                         <div className="collapse navbar-collapse navbar_content" id="myMenu">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#listMovie">
+                                    <a onClick={() => { this.backToHomePage("#listMovie") }} className="nav-link" href="#listMovie">
                                         Lịch Chiếu
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#cinema">
+                                    <a onClick={() => { this.backToHomePage("#cinema") }} className="nav-link" href="#cinema">
                                         Cụm Rạp
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#article">
+                                    <a onClick={() => { this.backToHomePage("#article") }} className="nav-link" href="#article">
                                         Tin Tức
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#apps">
+                                    <a onClick={() => { this.backToHomePage("#apps") }} className="nav-link" href="#apps">
                                         Ứng Dụng
                                     </a>
                                 </li>

@@ -10,17 +10,18 @@ class ShowtimesDetail extends Component {
         }
     }
     async componentDidMount() {
-        if (this.props.listBranches) {
+        if (await this.props.listBranches) {
             this.setState({
                 completeLoadingSign: true,
                 branches: this.props.listBranches,
                 theaters: this.props.listBranches[0].theaters,
             });
         }
+        //turn on active at first branch and  first theater
         let btnsBranch = document.getElementsByClassName('cinema_btn');
         let btnsTheater = document.getElementsByClassName('theater_btn');
         if (btnsBranch[0] && btnsTheater[0]) {
-            btnsBranch[0].className += " btnsBranch_active";
+            btnsBranch[0].className += ' btnsBranch_active';
             btnsTheater[0].className += " btnsTheater_active";
         }
     }
@@ -37,6 +38,15 @@ class ShowtimesDetail extends Component {
                 current[0].className = current[0].className.replace(' btnsBranch_active', '');
             }
             btnsBranch[index].className += ' btnsBranch_active';
+        }
+        // active first theater of list branches
+        let btnsTheater = document.getElementsByClassName('theater_btn');
+        for (let i = 0; i < btnsTheater.length; i++) {
+            let current = document.getElementsByClassName('btnsTheater_active');
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace('btnsTheater_active', '');
+            }
+            btnsTheater[0].className += ' btnsTheater_active';
         }
     }
 
@@ -75,7 +85,7 @@ class ShowtimesDetail extends Component {
                                 <div className="item_line theater_btn" key={index} onClick={() => this.changeTheater(index)}>
                                     <div className="row theater_line" >
                                         <div className="col-2 theater_image">
-                                            <img src={"" + item.image} alt="" />
+                                            <img src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
                                         <div className="col-10 theater_name">
                                             <div><span>{item.branch.name}</span> - <span>{item.name}</span></div>
