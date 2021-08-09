@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
+import MovieModal from './admin-modals/movie-modals'
 
 class MovieManagement extends Component {
     constructor(props) {
@@ -12,19 +13,26 @@ class MovieManagement extends Component {
 
     async componentDidMount() {
         await this.props.getListMovie();
-        this.setState({
-            listMovies: this.props.listMovies
-        })
     }
+
+    handleRefesh = () => {
+        setTimeout(() => {
+            this.props.getListMovie();
+        }, 500);
+    }
+
     render() {
         let orderNumber = 1;
+        let { listMovies } = this.props
         return (
             <div className="myMovieManament text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
-                    data-target="" onClick={() => {
+                    data-target="#movieInfoModal"
+                    onClick={() => {
                         this.setState({ objectEdit: null, type: null });
-                    }} >Add Theater</button>
-                <h3 className="my-3">LIST OF THEATER</h3>
+                    }}
+                >Add Theater</button>
+                <h3 className="my-3">LIST OF MOVIES</h3>
                 <table className="table">
                     <thead>
                         <tr>
@@ -35,7 +43,7 @@ class MovieManagement extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.listMovies.map((item, index) => {
+                        {listMovies.map((item, index) => {
                             return (
                                 <tr key={index}>
                                     <th scope="row">{orderNumber++}</th>
@@ -43,11 +51,11 @@ class MovieManagement extends Component {
                                     <td>{item.thumbnail}</td>
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
-                                            data-target="#theaterInfoModal" onClick={() => {
+                                            data-target="#movieInfoModal" onClick={() => {
                                                 this.setState({ objectEdit: item, type: "edit" })
                                             }}>Edit</button>
                                         <button className="btn btn-danger btn--delete" data-toggle="modal"
-                                            data-target="#submitDeleteTheaterModal" onClick={() => {
+                                            data-target="#submitDeleteMovieModal" onClick={() => {
                                                 this.setState({ objectEdit: item, type: "delete" })
                                             }}>Delete</button>
                                     </td>
@@ -56,7 +64,7 @@ class MovieManagement extends Component {
                         })}
                     </tbody>
                 </table>
-                {/* <ModalTheater objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ModalTheater> */}
+                <MovieModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></MovieModal>
             </div>
         )
     }

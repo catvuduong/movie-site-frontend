@@ -54,7 +54,7 @@ class TheaterManagement extends Component {
                     data-target="#theaterInfoModal" onClick={() => {
                         this.setState({ objectEdit: null, type: null });
                     }} >Add Theater</button>
-                <h3 className="my-3">LIST OF THEATER</h3>
+                <h3 className="my-3">LIST OF THEATERS</h3>
                 <table className="table">
                     <thead>
                         <tr>

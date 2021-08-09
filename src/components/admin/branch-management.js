@@ -46,7 +46,7 @@ class BranchManagement extends Component {
                     data-target="#branchInfoModal" onClick={() => {
                         this.setState({ objectEdit: null })
                     }} >Add Branch</button>
-                <h3 className="my-3">LIST OF BRANCH</h3>
+                <h3 className="my-3">LIST OF BRANCHES</h3>
                 <table className="table">
                     <thead>
                         <tr>

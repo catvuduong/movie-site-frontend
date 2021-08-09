@@ -214,4 +214,35 @@ export const actTheaterManagement = (theater, type) => {
     }
 }
 
+export const actMovieManagement = (movie, type) => {
+    console.log(movie, type);
+    return async () => {
+        try {
+            if (movie.id) {
+                switch (type) {
+                    case "edit": {
+                        await axios.put(`/movies/update/${movie.id}`, movie);
+                        // alert("Update success");
+                        break;
+                    }
+                    case "delete": {
+                        await axios.delete(`/movies/delete/${movie.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                await axios.post('/movies/create', movie);
+                alert("Add success");
+            }
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+        // window.location.reload();
+    }
+}
+
 
