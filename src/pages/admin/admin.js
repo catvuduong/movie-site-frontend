@@ -10,6 +10,12 @@ class Admin extends Component {
             password: "",
         }
     }
+    componentDidMount() {
+        const admin = localStorage.getItem("Admin");
+        if (admin) {
+            this.props.history.push('dash-board');
+        }
+    }
 
     handleOnchange = e => {
         let { name, value } = e.target;

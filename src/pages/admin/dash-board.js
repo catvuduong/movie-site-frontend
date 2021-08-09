@@ -15,6 +15,13 @@ export default class DashBoard extends Component {
         }
     }
 
+    componentDidMount() {
+        const admin = localStorage.getItem("Admin");
+        if (!admin) {
+            this.props.history.push('admin');
+        }
+    }
+
     handleToggle = () => {
         this.setState({
             toggleClicked: !this.state.toggleClicked
