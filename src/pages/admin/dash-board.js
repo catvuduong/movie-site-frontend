@@ -3,6 +3,8 @@ import MovieManagement from '../../components/admin/movie-management';
 import UserManagement from '../../components/admin/user-management';
 import BranchManagement from '../../components/admin/branch-management';
 import TheaterManagement from '../../components/admin/theater-management';
+import ShowtimeManagement from '../../components/admin/showtime-manament';
+
 
 export default class DashBoard extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false,
-            component: MovieManagement,
+            component: ShowtimeManagement,
         }
     }
 
@@ -116,7 +118,7 @@ export default class DashBoard extends Component {
                             </div>
                             <div className="dashboard_item">
                                 <button className={`list-group-item list-group-item-action ${activeShowtime}`}
-                                    onClick={() => { this.handleComponent(MovieManagement); this.setActiveClass("showtime") }}>
+                                    onClick={() => { this.handleComponent(ShowtimeManagement); this.setActiveClass("showtime") }}>
                                     <i className="fa fa-clock"></i><span>Showtime</span>
                                 </button>
                             </div>

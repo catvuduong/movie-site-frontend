@@ -16,7 +16,7 @@ class MovieModal extends Component {
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps && nextProps.objectEdit) {
-            console.log(nextProps.objectEdit);
+            // console.log(nextProps.objectEdit);
             this.setState({
                 object: {
                     id: nextProps.objectEdit.id,
@@ -125,8 +125,8 @@ class MovieModal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        actionMovie: (ojbect, type) => {
-            dispatch(action.actMovieManagement(ojbect, type));
+        actionMovie: async (ojbect, type) => {
+            await dispatch(action.actMovieManagement(ojbect, type));
         }
     }
 }

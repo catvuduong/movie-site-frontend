@@ -78,7 +78,6 @@ export const actGetListTheatersAPI = () => {
 
 export const actGetListArticlesAPI = () => {
     return async dispatch => {
-
         let result = await axios({
             method: "GET",
             url: "/articles/get-list"
@@ -86,6 +85,20 @@ export const actGetListArticlesAPI = () => {
         dispatch({
             type: ActionType.GET_LIST_ARTICLES,
             listArticles: result.data
+        })
+    }
+}
+
+
+export const actGetListShowtimesAPI = () => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: "/showtimes/get-list"
+        })
+        dispatch({
+            type: ActionType.GET_LIST_SHOWTIMES,
+            listShowtimes: result.data
         })
     }
 }
@@ -235,6 +248,38 @@ export const actMovieManagement = (movie, type) => {
                 }
             } else {
                 await axios.post('/movies/create', movie);
+                alert("Add success");
+            }
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+        // window.location.reload();
+    }
+}
+
+
+export const actShowtimeManagement = (showtime, type) => {
+    console.log(showtime, type);
+    return async () => {
+        try {
+            if (showtime.id) {
+                switch (type) {
+                    case "edit": {
+                        await axios.put(`/showtimes/update/${showtime.id}`, showtime);
+                        alert("Update success");
+                        break;
+                    }
+                    case "delete": {
+                        await axios.delete(`/showtimes/delete/${showtime.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                await axios.post('/showtimes/create', showtime);
                 alert("Add success");
             }
         } catch (err) {
