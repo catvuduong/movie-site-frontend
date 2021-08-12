@@ -75,6 +75,18 @@ export const actGetListTheatersAPI = () => {
     }
 }
 
+export const actGetListUsersAPI = () => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: "/users/get-list"
+        })
+        dispatch({
+            type: ActionType.GET_LIST_USERS,
+            listUsers: result.data
+        })
+    }
+}
 
 export const actGetListArticlesAPI = () => {
     return async dispatch => {
@@ -287,7 +299,6 @@ export const actShowtimeManagement = (showtime, type) => {
     }
 }
 
-
 export const actArticleManagement = (article, type) => {
     // console.log(article, type);
     return async () => {
@@ -316,5 +327,36 @@ export const actArticleManagement = (article, type) => {
         }
     }
 }
+
+
+export const actUserManagement = (user, type) => {
+    // console.log(user, type);
+    return async () => {
+        try {
+            if (user.id) {
+                switch (type) {
+                    case "edit": {
+                        await axios.put(`/users/update/${user.id}`, user);
+                        alert("Update success");
+                        break;
+                    }
+                    case "delete": {
+                        await axios.delete(`/users/delete/${user.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                await axios.post('/users/register', user);
+                alert("Add success");
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+}
+
 
 

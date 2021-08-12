@@ -6,7 +6,6 @@ import TheaterManagement from '../../components/admin/theater-management';
 import ShowtimeManagement from '../../components/admin/showtime-manament';
 import ArticleManament from '../../components/admin/article-manament';
 
-
 export default class DashBoard extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +13,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false,
-            component: ArticleManament,
+            component: UserManagement,
         }
     }
 
