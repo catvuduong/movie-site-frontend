@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../redux/actions/index-action';
+import $ from 'jquery';
 
 class ModalBranch extends Component {
     constructor(props) {
@@ -33,7 +34,6 @@ class ModalBranch extends Component {
         }
     }
 
-
     handleOnChange = event => {
         let { name, value } = event.target;
         this.setState({
@@ -41,14 +41,19 @@ class ModalBranch extends Component {
                 ...this.state.object, [name]: value
             }
         });
+
     }
     handleSubmit = e => {
         e.preventDefault();
         this.props.actionBranch(this.state.object, this.props.type);
+        this.props.refesh();
+        $('#branchInfoModal').modal('hide');
     }
 
     handleDelete = () => {
         this.props.actionBranch(this.state.object, this.props.type)
+        this.props.refesh();
+        $('#submitDeleteModal').modal('hide');
     }
     render() {
         return (

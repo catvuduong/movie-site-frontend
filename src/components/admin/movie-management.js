@@ -13,7 +13,6 @@ class MovieManagement extends Component {
 
     async componentDidMount() {
         await this.props.getListMovie();
-        console.log(this.state);
     }
 
     handleRefesh = () => {

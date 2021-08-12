@@ -16,6 +16,12 @@ class BranchManagement extends Component {
         await this.props.getListBranches();
     }
 
+    handleRefesh = () => {
+        setTimeout(() => {
+            this.props.getListBranches();
+        }, 500);
+    }
+
     renderListBranches = list => {
         let orderNumber = 1;
         return list.map((item, index) => {
@@ -60,7 +66,7 @@ class BranchManagement extends Component {
                         {this.renderListBranches(listBranches)}
                     </tbody>
                 </table>
-                <ModalBranch objectEdit={this.state.objectEdit} type={this.state.type}></ModalBranch>
+                <ModalBranch objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ModalBranch>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import BranchManagement from '../../components/admin/branch-management';
 import TheaterManagement from '../../components/admin/theater-management';
 import ShowtimeManagement from '../../components/admin/showtime-manament';
 import ArticleManament from '../../components/admin/article-manament';
+import WellComeAdmin from '../../components/admin/wellcome-admin';
 
 export default class DashBoard extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false,
-            component: UserManagement,
+            component: WellComeAdmin,
         }
     }
 
