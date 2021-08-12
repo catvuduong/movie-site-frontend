@@ -846,6 +846,20 @@ body {
         color: #686f7a;
         font-size: 13px;
         font-weight: normal; }
+      .myArticle .article_content .container .second_list .thirdList .thirdList_item {
+        display: flex;
+        margin-bottom: 5px; }
+        .myArticle .article_content .container .second_list .thirdList .thirdList_item img {
+          width: 55px;
+          height: 50px; }
+        .myArticle .article_content .container .second_list .thirdList .thirdList_item h5 {
+          margin-top: 3px;
+          margin-left: 10px;
+          font-size: 14px;
+          line-height: 14px;
+          opacity: 0.7;
+          -webkit-line-clamp: unset;
+          height: 40px; }
   .myArticle .article_expansion {
     padding-top: 30px; }
     .myArticle .article_expansion button {
