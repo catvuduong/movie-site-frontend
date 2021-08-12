@@ -4,6 +4,7 @@ import UserManagement from '../../components/admin/user-management';
 import BranchManagement from '../../components/admin/branch-management';
 import TheaterManagement from '../../components/admin/theater-management';
 import ShowtimeManagement from '../../components/admin/showtime-manament';
+import ArticleManament from '../../components/admin/article-manament';
 
 
 export default class DashBoard extends Component {
@@ -13,7 +14,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false,
-            component: ShowtimeManagement,
+            component: ArticleManament,
         }
     }
 
@@ -124,7 +125,7 @@ export default class DashBoard extends Component {
                             </div>
                             <div className="dashboard_item">
                                 <button className={`list-group-item list-group-item-action ${activeArticle}`}
-                                    onClick={() => { this.handleComponent(MovieManagement); this.setActiveClass("article") }}>
+                                    onClick={() => { this.handleComponent(ArticleManament); this.setActiveClass("article") }}>
                                     <i className="fa fa-newspaper"></i><span>Article</span>
                                 </button>
                             </div>

@@ -258,7 +258,6 @@ export const actMovieManagement = (movie, type) => {
     }
 }
 
-
 export const actShowtimeManagement = (showtime, type) => {
     console.log(showtime, type);
     return async () => {
@@ -283,10 +282,38 @@ export const actShowtimeManagement = (showtime, type) => {
                 alert("Add success");
             }
         } catch (err) {
-            // Handle Error Here
             console.error(err);
         }
-        // window.location.reload();
+    }
+}
+
+
+export const actArticleManagement = (article, type) => {
+    // console.log(article, type);
+    return async () => {
+        try {
+            if (article.id) {
+                switch (type) {
+                    case "edit": {
+                        await axios.put(`/articles/update/${article.id}`, article);
+                        alert("Update success");
+                        break;
+                    }
+                    case "delete": {
+                        await axios.delete(`/articles/delete/${article.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                await axios.post('/articles/create', article);
+                alert("Add success");
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }
 }
 
