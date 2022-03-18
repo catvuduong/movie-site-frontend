@@ -36,24 +36,7 @@ class Cinema extends Component {
             btnsTheater[0].className += " btnsTheater_active";
         }
     }
-
-    // async componentWillUnmount() {
-    //     this.test();
-    //     await this.setState({
-    //         listBranches: [],
-    //         listTheaters: [],
-    //         listMovies: [],
-    //         dataTicket: {},
-    //         showtimeId: ""
-    //     },
-    //         () => {
-    //             this.test();
-    //         });
-    // }
-    test = () => {
-        console.log(this.state);
-    }
-
+    
     orderedMovies = array => {
         let orderedMovies = [];
         if (array) { // Check if first theater is existed
@@ -121,6 +104,7 @@ class Cinema extends Component {
         const user = localStorage.getItem('User');
         const admin = localStorage.getItem('Admin');
         if (user || admin) {
+            // console.log(this.props.history);
             this.props.history.push(`booking-ticket/${id}`);
         } else {
             $('#loginModal').modal('show');
@@ -168,12 +152,12 @@ class Cinema extends Component {
                                     <div className="item_line" key={index}>
                                         <div className="row movie_line">
                                             <div className="col-1 movie_image">
-                                                <Link to={`details-movie/${item.id}`}>
+                                                <Link to={`detail-movie/${item.id}`}>
                                                     <img className="" src={item.data[0].movie.thumbnail} alt="" />
                                                 </Link>
                                             </div>
                                             <div className="col-11 movie_name">
-                                                <Link to={`details-movie/${item.id}`}>
+                                                <Link to={`detail-movie/${item.id}`}>
                                                     <p>{item.data[0].movie.name}</p></Link>
                                                 <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
                                             </div>

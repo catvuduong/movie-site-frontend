@@ -45,6 +45,7 @@ class UserModal extends Component {
             }
         });
     }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.actionUser(this.state.object, this.props.type);
@@ -133,8 +134,8 @@ class UserModal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        actionUser: async (ojbect, type) => {
-            await dispatch(action.actUserManagement(ojbect, type));
+        actionUser: async (object, type) => {
+            await dispatch(action.actUserManagement(object, type));
         }
     }
 }

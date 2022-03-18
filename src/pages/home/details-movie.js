@@ -18,7 +18,8 @@ class DetailsMovie extends Component {
             clickedDescription: false,
             component: ShowtimesDetail,
             checkingLoading: false,
-            movie: {}
+            movie: {},
+            id: ''
         }
     }
     async componentDidMount() {
@@ -26,7 +27,7 @@ class DetailsMovie extends Component {
         const id = this.props.match.params.id;
         await this.props.getDetailsMovie(id);
         await this.props.getListBranches();
-        this.setState({ movie: this.props.movie, checkingLoading: true });
+        this.setState({ movie: this.props.movie, checkingLoading: true, id });
     }
 
     handleShowtimes = () => {
@@ -43,7 +44,7 @@ class DetailsMovie extends Component {
             component: Description
         })
     }
-    renderDisplay = Component => (<Component movie={this.props.movie} listBranches={this.props.listBranches}></ Component>);
+    renderDisplay = Component => (<Component id={this.state.id} movie={this.props.movie} listBranches={this.props.listBranches} {...this.props}></ Component>);
 
     render() {
         if (this.state.checkingLoading === true) {
@@ -63,7 +64,7 @@ class DetailsMovie extends Component {
                                     <img src={movie.thumbnail} alt="" />
                                     <button className="fa fa-play movie_play" onClick={() => { }} data-toggle="modal" data-target="#detailsMovieModal"></button>
                                 </div>
-                                <div className="col-lg-3 col-sm-6 col-7  movie_name">
+                                <div className="col-lg-3 col-sm-6 col-7 movie_name">
                                     <p>{movie.name}</p>
                                     <button className="btn btn-danger">Mua vé</button>
                                 </div>

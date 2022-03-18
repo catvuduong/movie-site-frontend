@@ -2,7 +2,7 @@ import * as Actiontype from './../constants/action-type';
 
 let initialState = {
     listMovies: [],
-    movie: [],
+    movie: {},
     linkMovie: "",
 }
 

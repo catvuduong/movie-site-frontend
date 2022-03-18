@@ -5,6 +5,7 @@ import BranchManagement from '../../components/admin/branch-management';
 import TheaterManagement from '../../components/admin/theater-management';
 import ShowtimeManagement from '../../components/admin/showtime-manament';
 import ArticleManament from '../../components/admin/article-manament';
+import TicketManagement from '../../components/admin/ticket-management';
 import WellComeAdmin from '../../components/admin/wellcome-admin';
 
 export default class DashBoard extends Component {
@@ -13,7 +14,7 @@ export default class DashBoard extends Component {
         this.state = {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
-            activeShowtime: false, activeArticle: false,
+            activeShowtime: false, activeArticle: false, activeTicket: false,
             component: WellComeAdmin,
         }
     }
@@ -40,37 +41,43 @@ export default class DashBoard extends Component {
         switch (sign) {
             case "branch": {
                 this.setState({
-                    activeBranch: true, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: false
+                    activeBranch: true, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: false, activeTicket: false
                 })
                 break;
             }
             case "theater": {
                 this.setState({
-                    activeBranch: false, activeTheaeter: true, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: false
+                    activeBranch: false, activeTheaeter: true, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: false, activeTicket: false
                 })
                 break;
             }
             case "movie": {
                 this.setState({
-                    activeBranch: false, activeTheaeter: false, activeMovie: true, activeUser: false, activeShowtime: false, activeArticle: false
+                    activeBranch: false, activeTheaeter: false, activeMovie: true, activeUser: false, activeShowtime: false, activeArticle: false, activeTicket: false
                 })
                 break;
             }
             case "showtime": {
                 this.setState({
-                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: true, activeArticle: false
+                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: true, activeArticle: false, activeTicket: false
                 })
                 break;
             }
             case "article": {
                 this.setState({
-                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: true
+                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: true, activeTicket: false
                 })
                 break;
             }
             case "user": {
                 this.setState({
-                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: true, activeShowtime: false, activeArticle: false
+                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: true, activeShowtime: false, activeArticle: false, activeTicket: false
+                })
+                break;
+            }
+            case "ticket": {
+                this.setState({
+                    activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false, activeShowtime: false, activeArticle: false, activeTicket: true
                 })
                 break;
             }
@@ -90,6 +97,7 @@ export default class DashBoard extends Component {
         let activeUser = this.state.activeUser ? "active_button" : "";
         let activeShowtime = this.state.activeShowtime ? "active_button" : "";
         let activeArticle = this.state.activeArticle ? "active_button" : "";
+        let activeTicket = this.state.activeTicket ? "active_button" : "";
         return (
             <div className="myDashboard text-left">
                 <div className={`d-flex ${toggleClass}`} id="wrapper">
@@ -133,6 +141,12 @@ export default class DashBoard extends Component {
                                 <button className={`list-group-item list-group-item-action ${activeUser}`}
                                     onClick={() => { this.handleComponent(UserManagement); this.setActiveClass("user") }}>
                                     <i className="fa fa-user"></i><span>User</span>
+                                </button>
+                            </div>
+                            <div className="dashboard_item">
+                                <button className={`list-group-item list-group-item-action ${activeTicket}`}
+                                    onClick={() => { this.handleComponent(TicketManagement); this.setActiveClass("ticket") }}>
+                                    <i className="fa fa-ticket-alt"></i><span>Ticket</span>
                                 </button>
                             </div>
                         </div>

@@ -44,8 +44,8 @@ class LoginModal extends Component {
         //     }
         // }
         this.test(this.props.showtimeId);
-
     }
+
     test = id => {
         if (id) {
             const user = localStorage.getItem('User');
@@ -53,7 +53,8 @@ class LoginModal extends Component {
             if (user || admin) {
                 //setTimeout for the leak data error.
                 setTimeout(() => {
-                    this.props.history.push(`booking-ticket/${id}`);
+                    // console.log(this.props.history)
+                    this.props.history.push(`/booking-ticket/${id}`);
                 }, 0);
                 // this.test(this.props.showtimeId)
             }

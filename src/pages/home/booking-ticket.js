@@ -144,10 +144,11 @@ class BookingTicket extends Component {
         }
     }
 
-    payTicket = () => {
+    payTicket = async () => {
         // console.log(this.state.seatedArr, this.state.totalPrice);
         const id = this.props.match.params.id;
-        this.props.bookTicket(this.state.seatedArr, id);
+        await this.props.bookTicket(this.state.seatedArr, id);
+        await window.location.reload()
     }
 
     checkBookedSeats = (indexC, indexR) => {

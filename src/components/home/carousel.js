@@ -29,7 +29,7 @@ class Carousel extends Component {
             }
         }
         return (
-            <section className="myCarousel">
+            <section id="myCarousel" className="myCarousel">
                 <Swiper {...params}>
                     <div className="carousel_item">
                         <img src="./images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />

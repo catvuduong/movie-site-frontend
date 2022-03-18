@@ -6,6 +6,7 @@ import articleReducer from './article-reducer';
 import bookingTicketReducer from './booking-ticket-reducer';
 import showtimeReducer from './showtime-reducer';
 import userReducer from './user-reducer';
+import ticketReducer from './ticket-reducer';
 
 const rootReducer = combineReducers({
     movieReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     articleReducer,
     bookingTicketReducer,
     showtimeReducer,
-    userReducer
+    userReducer,
+    ticketReducer
 })
 
 export default rootReducer;

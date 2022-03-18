@@ -3,6 +3,7 @@ import ListMovie from './components/home/list-movie';
 import DashBoard from './pages/admin/dash-board';
 import DetailsMovie from './pages/home/details-movie';
 import BookingTicket from './pages/home/booking-ticket';
+import Register from './components/home/register';
 
 const routeHome = [
     {
@@ -16,7 +17,7 @@ const routeHome = [
         component: ListMovie,
     },
     {
-        path: '/details-movie/:id',
+        path: '/detail-movie/:id',
         exact: false,
         component: DetailsMovie,
     },
@@ -24,6 +25,11 @@ const routeHome = [
         path: '/booking-ticket/:id',
         exact: false,
         component: BookingTicket,
+    },
+    {
+        path: '/register',
+        exact: false,
+        component: Register,
     }
 
 ];

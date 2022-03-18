@@ -22,6 +22,8 @@ export const actGetListMoviesAPI = data => {
     };
 };
 
+//Get detail by id
+
 export const actGetDetailsMovie = id => {
     return async dispatch => {
         let result = await axios({
@@ -34,6 +36,20 @@ export const actGetDetailsMovie = id => {
         })
     }
 }
+
+export const actGetDetailsTheater = id => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: `/theaters/get/${id}`
+        })
+        dispatch({
+            type: ActionType.GET_DETAIL_THEATER,
+            theater: result.data
+        })
+    }
+}
+
 
 export const actGetShowtimeByID = id => {
     return async dispatch => {
@@ -152,30 +168,23 @@ export const actLogin = (user, condi) => {
             }
         } catch (err) {
             // Handle Error Here
-            console.error(err);
+            alert(err.response.data.message);
         }
     }
 }
 
-export const actBookTicket = (tickets, showtimeId) => {
+export const actRegister = (user) => {
     return async () => {
         try {
-            await axios.post('/tickets/book-ticket', { tickets, showtimeId });
-            alert("Đặt vé thành công");
-        } catch (err) {
-            // Handle Error Here
-            // switch (err) {
-            //     case value:
-
-            //         break;
-
-            //     default:
-            //         break;
-            // }
-            console.error(err);
+            await axios.post('/users/register', user);
+            alert("Register successfull !!!")
+        }
+        catch (err) {
+            alert(err.response.data.message);
         }
     }
 }
+
 
 export const actBranchManagement = (branch, type) => {
     // console.log(branch, type);
@@ -357,6 +366,61 @@ export const actUserManagement = (user, type) => {
         }
     }
 }
+
+export const actBookTicket = (tickets, showtimeId) => {
+    return async () => {
+        try {
+            await axios.post('/tickets/book-ticket', { tickets, showtimeId });
+            alert("Đặt vé thành công");
+        } catch (err) {
+            alert(err.response.data);
+        }
+    }
+}
+
+export const actGetListTicketsAPI = () => {
+    return async dispatch => {
+        let result = await axios({
+            method: "GET",
+            url: "/tickets/get-list"
+        })
+        dispatch({
+            type: ActionType.GET_LIST_TICKETS,
+            listTickets: result.data
+        })
+    }
+}
+
+
+export const actTicketManagement = (ticket, type) => {
+    // console.log(user, type);
+    return async () => {
+        try {
+            if (ticket.id) {
+                switch (type) {
+                    // case "edit": {
+                    //     await axios.put(`/users/update/${ticket.id}`, ticket);
+                    //     alert("Update success");
+                    //     break;
+                    // } 
+                    case "delete": {
+                        await axios.delete(`/tickets/delete/${ticket.id}`);
+                        alert("Delete success");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            } else {
+                // await axios.post('/users/register', user);
+                // alert("Add success");
+            }
+        } catch (err) {
+            console.error(err.response.data.message);
+        }
+    }
+}
+
 
 
 

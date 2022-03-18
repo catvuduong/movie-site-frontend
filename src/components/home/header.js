@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { NavLink } from 'react-router-dom';
 
 export default class Header extends Component {
     constructor(props) {
@@ -31,8 +32,12 @@ export default class Header extends Component {
         }
     }
 
-    backToHomePage = id => {
+    backToHomePage = (id) => {
+        // e.preventDefault();
         switch (id) {
+            case "#myCarousel":
+                this.checkLocation(id);
+                break;
             case "#listMovie":
                 this.checkLocation(id);
                 break;
@@ -50,14 +55,23 @@ export default class Header extends Component {
         }
     }
 
+
     checkLocation = async id => {
+        if (id === "#myCarousel") {
+            await this.props.history.push('/');
+            await setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: $(id).offset().top
+                }, "fast");
+            }, 500)
+        }
         if (await this.props.location.pathname !== '/') {
             await this.props.history.push('/');
             await setTimeout(() => {
                 $('html, body').animate({
                     scrollTop: $(id).offset().top
                 }, "fast");
-            }, 3500);
+            }, 100)
         }
     }
 
@@ -74,6 +88,11 @@ export default class Header extends Component {
                             <span className="navbar-toggler-icon" />
                         </button>
                         <div className="collapse navbar-collapse navbar_content" id="myMenu">
+
+                            <img src="/images/cinema-ver1.png" alt=""
+                                onClick={() => { this.checkLocation("#myCarousel") }}
+                            />
+
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a onClick={() => { this.backToHomePage("#listMovie") }} className="nav-link" href="#listMovie">
@@ -91,7 +110,7 @@ export default class Header extends Component {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={() => { this.backToHomePage("#apps") }} className="nav-link" href="#apps">
+                                    <a onClick={() => { this.backToHomePage("#apps",) }} className="nav-link" href="#apps">
                                         Ứng Dụng
                                     </a>
                                 </li>
@@ -106,7 +125,7 @@ export default class Header extends Component {
                         </div>
                         <div className="narbar_signUp">
                             <i className="fa fa-map-marker-alt" />
-                            <button className="btn btn--signUp">Đăng Ký</button>
+                            <NavLink className="btn btn--signUp" to={'register'} >Đăng Ký</NavLink>
                         </div>
                     </div>
                 </div>

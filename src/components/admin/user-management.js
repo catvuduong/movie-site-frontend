@@ -24,7 +24,7 @@ class UserManament extends Component {
 
     render() {
         let orderNumber = 1;
-        let { listUsers } = this.props
+        let { listUsers } = this.props;
         return (
             <div className="myBranchManament text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
