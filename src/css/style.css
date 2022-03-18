@@ -1,12 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Public Sans", sans-serif;
   font-size: 20px;
-  background-color: white; }
+  background-color: white;
+}
 
 .myHeader {
   background-color: white;
@@ -14,867 +16,1132 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99; }
+  z-index: 99;
+}
+.myHeader .navbar_login {
+  display: flex;
+  position: absolute;
+  right: 3%;
+}
+.myHeader .navbar_login .navbar_signIn .btn--signIn {
+  box-shadow: none;
+}
+.myHeader .navbar_login .navbar_signIn .btn--signIn,
+.myHeader .navbar_login .navbar_signIn .fa-user {
+  color: gray;
+  transition: all 0.5s;
+}
+.myHeader .navbar_login .navbar_signIn img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 3px solid gray;
+  transition: all 0.5s;
+  display: none;
+}
+.myHeader .navbar_login .navbar_signIn:hover .btn--signIn,
+.myHeader .navbar_login .navbar_signIn:hover .fa-user {
+  color: black;
+}
+.myHeader .navbar_login .navbar_signIn:hover img {
+  border: 3px solid black;
+}
+.myHeader .navbar_login .navbar_signIn .user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.myHeader .navbar_login .navbar_signIn .user-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.myHeader .navbar_login .narbar_signUp .btn--signUp {
+  box-shadow: none;
+}
+.myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
+  margin-left: 12px;
+}
+.myHeader .navbar_login .narbar_signUp .btn--signUp,
+.myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
+  color: gray;
+  transition: all 0.5s;
+}
+.myHeader .navbar_login .narbar_signUp:hover .btn--signUp,
+.myHeader .navbar_login .narbar_signUp:hover .fa-map-marker-alt {
+  color: black;
+}
+@media screen and (max-width: 992px) {
   .myHeader .navbar_login {
+    right: 1%;
+  }
+}
+.myHeader .navbar_contain {
+  width: 100%;
+}
+.myHeader .navbar_contain .navbar_content {
+  margin: auto;
+  width: 60%;
+  justify-content: space-around;
+}
+.myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a {
+  color: #29303b;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all 0.5s;
+  padding: 10px 15px;
+}
+.myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a:hover {
+  color: #ec5252;
+}
+@media screen and (max-width: 767px) {
+  .myHeader .container {
+    max-width: 100%;
     display: flex;
-    position: absolute;
-    right: 3%; }
-    .myHeader .navbar_login .navbar_signIn .btn--signIn {
-      box-shadow: none; }
-    .myHeader .navbar_login .navbar_signIn .btn--signIn,
-    .myHeader .navbar_login .navbar_signIn .fa-user {
-      color: gray;
-      transition: all 0.5s; }
-    .myHeader .navbar_login .navbar_signIn img {
-      width: 30px;
-      height: 30px;
-      border-radius: 15px;
-      border: 3px solid gray;
-      transition: all 0.5s;
-      display: none; }
-    .myHeader .navbar_login .navbar_signIn:hover .btn--signIn,
-    .myHeader .navbar_login .navbar_signIn:hover .fa-user {
-      color: black; }
-    .myHeader .navbar_login .navbar_signIn:hover img {
-      border: 3px solid black; }
-    .myHeader .navbar_login .narbar_signUp .btn--signUp {
-      box-shadow: none; }
-    .myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
-      margin-left: 12px; }
-    .myHeader .navbar_login .narbar_signUp .btn--signUp,
-    .myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
-      color: gray;
-      transition: all 0.5s; }
-    .myHeader .navbar_login .narbar_signUp:hover .btn--signUp,
-    .myHeader .navbar_login .narbar_signUp:hover .fa-map-marker-alt {
-      color: black; }
-  @media screen and (max-width: 992px) {
-    .myHeader .navbar_login {
-      right: 1%; } }
-  .myHeader .navbar_contain {
-    width: 100%; }
-    .myHeader .navbar_contain .navbar_content {
-      margin: auto;
-      width: 60%;
-      justify-content: space-around; }
-      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a {
-        color: #29303b;
-        font-size: 13px;
-        font-weight: bold;
-        transition: all 0.5s;
-        padding: 10px 15px; }
-        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a:hover {
-          color: #ec5252; }
-  @media screen and (max-width: 767px) {
-    .myHeader .container {
-      max-width: 100%;
-      display: flex;
-      align-items: baseline; }
-      .myHeader .container .navbar_contain {
-        text-align: left;
-        width: 20%; }
-        .myHeader .container .navbar_contain .navbar_content {
-          margin: 0; }
-          .myHeader .container .navbar_contain .navbar_content .navbar-nav {
-            text-align: left; }
-            .myHeader .container .navbar_contain .navbar_content .navbar-nav .nav-item .nav-link {
-              padding: 10px 0;
-              padding-bottom: 5px; }
-      .myHeader .container .navbar_login {
-        position: unset; } }
-  @media screen and (max-width: 576px) {
-    .myHeader .container .navbar_contain {
-      width: 35%; } }
-  @media screen and (max-width: 368px) {
-    .myHeader .container .navbar_contain {
-      width: 50%; } }
+    align-items: baseline;
+  }
+  .myHeader .container .navbar_contain {
+    text-align: left;
+    width: 20%;
+  }
+  .myHeader .container .navbar_contain .navbar_content {
+    margin: 0;
+  }
+  .myHeader .container .navbar_contain .navbar_content .navbar-nav {
+    text-align: left;
+  }
+  .myHeader .container .navbar_contain .navbar_content .navbar-nav .nav-item .nav-link {
+    padding: 10px 0;
+    padding-bottom: 5px;
+  }
+  .myHeader .container .navbar_login {
+    position: unset;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myHeader .container .navbar_contain {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 368px) {
+  .myHeader .container .navbar_contain {
+    width: 50%;
+  }
+}
 
 .myCarousel .carousel_item {
   position: relative;
-  cursor: pointer; }
-  .myCarousel .carousel_item:hover span {
-    display: block; }
-  .myCarousel .carousel_item img {
-    width: 100%; }
-  .myCarousel .carousel_item span {
-    position: absolute;
-    top: 50%;
-    left: 48%;
-    color: #a1a7b3;
-    border: 3px solid #a1a7b3;
-    padding: 30px;
-    font-size: 24px;
-    border-radius: 50px;
-    display: none;
-    transition: all 0.5s;
-    cursor: pointer; }
-    .myCarousel .carousel_item span:hover {
-      color: #fff;
-      border: 3px solid #fff; }
+  cursor: pointer;
+}
+.myCarousel .carousel_item:hover span {
+  display: block;
+}
+.myCarousel .carousel_item img {
+  width: 100%;
+}
+.myCarousel .carousel_item span {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  color: #a1a7b3;
+  border: 3px solid #a1a7b3;
+  padding: 30px;
+  font-size: 24px;
+  border-radius: 50px;
+  display: none;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.myCarousel .carousel_item span:hover {
+  color: #fff;
+  border: 3px solid #fff;
+}
 .myCarousel .swiper-container .swiper-button-next {
   right: 15px;
-  color: gray; }
+  color: gray;
+}
 .myCarousel .swiper-container .swiper-button-prev {
   left: 15px;
-  color: gray; }
+  color: gray;
+}
 .myCarousel .swiper-container .swiper-pagination {
-  bottom: 40px; }
-  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: red; }
-  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet {
-    height: 13px;
-    width: 13px; }
+  bottom: 40px;
+}
+.myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: red;
+}
+.myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  height: 13px;
+  width: 13px;
+}
 
 .myListMovie {
   margin: 0 auto;
   width: 60%;
   margin-top: 10px;
   padding-top: 60px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
+.myListMovie .list_content .list_tittle {
+  margin: auto;
+  width: 25%;
+  justify-content: space-between;
+  display: flex;
+}
+.myListMovie .list_content .list_tittle .filming {
+  background-color: transparent;
+  color: #29303b;
+  border: none;
+  transition: all 0.5s;
+  outline: none;
+}
+.myListMovie .list_content .list_tittle .filming:hover {
+  transform: scale(1.3);
+}
+.myListMovie .list_content .list_tittle .goingto_film {
+  background-color: transparent;
+  color: #29303b;
+  border: none;
+  transition: all 0.5s;
+  outline: none;
+}
+.myListMovie .list_content .list_tittle .goingto_film:hover {
+  transform: scale(1.3);
+}
+.myListMovie .list_content .list_tittle .active {
+  color: #ff4500;
+  cursor: context-menu;
+  pointer-events: none;
+}
+@media screen and (max-width: 1600px) {
   .myListMovie .list_content .list_tittle {
-    margin: auto;
-    width: 25%;
-    justify-content: space-between;
-    display: flex; }
-    .myListMovie .list_content .list_tittle .filming {
-      background-color: transparent;
-      color: #29303b;
-      border: none;
-      transition: all 0.5s;
-      outline: none; }
-      .myListMovie .list_content .list_tittle .filming:hover {
-        transform: scale(1.3); }
-    .myListMovie .list_content .list_tittle .goingto_film {
-      background-color: transparent;
-      color: #29303b;
-      border: none;
-      transition: all 0.5s;
-      outline: none; }
-      .myListMovie .list_content .list_tittle .goingto_film:hover {
-        transform: scale(1.3); }
-    .myListMovie .list_content .list_tittle .active {
-      color: #ff4500;
-      cursor: context-menu;
-      pointer-events: none; }
-    @media screen and (max-width: 1600px) {
-      .myListMovie .list_content .list_tittle {
-        width: 40%; } }
-    @media screen and (max-width: 992px) {
-      .myListMovie .list_content .list_tittle {
-        width: 60%; } }
-    @media screen and (max-width: 767px) {
-      .myListMovie .list_content .list_tittle {
-        width: 50%; }
-        .myListMovie .list_content .list_tittle .filming,
-        .myListMovie .list_content .list_tittle .goingto_film {
-          font-size: 15px; } }
-    @media screen and (max-width: 576px) {
-      .myListMovie .list_content .list_tittle {
-        width: 80%; } }
-    @media screen and (max-width: 368px) {
-      .myListMovie .list_content .list_tittle {
-        width: 100%; }
-        .myListMovie .list_content .list_tittle .filming,
-        .myListMovie .list_content .list_tittle .goingto_film {
-          font-size: 13px; } }
-  .myListMovie .list_content .list_movie {
-    margin-top: 10px;
-    text-align: justify; }
-    .myListMovie .list_content .list_movie .card_movie {
-      margin-top: 20px;
-      max-width: 100%;
-      padding: 10px; }
-      .myListMovie .list_content .list_movie .card_movie .card {
-        background-color: transparent;
-        border: none; }
-        .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_play,
-        .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_layout {
-          opacity: 1; }
-        .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .btn--movie {
-          opacity: 1; }
-        .myListMovie .list_content .list_movie .card_movie .card .movie_image {
-          height: 340px;
-          border-radius: 10px; }
-        .myListMovie .list_content .list_movie .card_movie .card .card-body {
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          transition: all 0.5s; }
-          .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_name {
-            color: #29303b;
-            font-size: 15px;
-            font-weight: bold;
-            padding-top: 10px;
-            text-align: center; }
-          .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_layout {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 340px;
-            position: absolute;
-            cursor: pointer;
-            background: linear-gradient(to bottom, rgba(29, 11, 11, 0), rgba(255, 255, 255, 0.2), black);
-            opacity: 0;
-            transition: all 0.5s; }
-          .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_play {
-            position: absolute;
-            top: 28%;
-            left: 38%;
-            color: #fff;
-            background-color: transparent;
-            padding: 20px 20px;
-            border: 2px solid #fff;
-            border-radius: 50%;
-            outline: none;
-            opacity: 0;
-            transition: all 0.5s; }
-    .myListMovie .list_content .list_movie .slick-slider .slick-next {
-      right: -70px; }
-    .myListMovie .list_content .list_movie .slick-slider .slick-prev {
-      left: -70px; }
-    .myListMovie .list_content .list_movie .slick-slider .slick-next:before {
-      content: "next";
-      font-family: "swiper-icons";
-      font-size: 45px;
-      color: gray; }
-    .myListMovie .list_content .list_movie .slick-slider .slick-prev:before {
-      content: "prev";
-      font-family: "swiper-icons";
-      font-size: 45px;
-      color: gray; }
+    width: 40%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .myListMovie .list_content .list_tittle {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .myListMovie .list_content .list_tittle {
+    width: 50%;
+  }
+  .myListMovie .list_content .list_tittle .filming,
+.myListMovie .list_content .list_tittle .goingto_film {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myListMovie .list_content .list_tittle {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 368px) {
+  .myListMovie .list_content .list_tittle {
+    width: 100%;
+  }
+  .myListMovie .list_content .list_tittle .filming,
+.myListMovie .list_content .list_tittle .goingto_film {
+    font-size: 13px;
+  }
+}
+.myListMovie .list_content .list_movie {
+  margin-top: 10px;
+  text-align: justify;
+}
+.myListMovie .list_content .list_movie .card_movie {
+  margin-top: 20px;
+  max-width: 100%;
+  padding: 10px;
+}
+.myListMovie .list_content .list_movie .card_movie .card {
+  background-color: transparent;
+  border: none;
+}
+.myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_play,
+.myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_layout {
+  opacity: 1;
+}
+.myListMovie .list_content .list_movie .card_movie .card:hover .card-body .btn--movie {
+  opacity: 1;
+}
+.myListMovie .list_content .list_movie .card_movie .card .movie_image {
+  height: 340px;
+  border-radius: 10px;
+}
+.myListMovie .list_content .list_movie .card_movie .card .card-body {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.myListMovie .list_content .list_movie .card_movie .card .card-body .movie_name {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: center;
+}
+.myListMovie .list_content .list_movie .card_movie .card .card-body .movie_layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 340px;
+  position: absolute;
+  cursor: pointer;
+  background: linear-gradient(to bottom, rgba(29, 11, 11, 0), rgba(255, 255, 255, 0.2), black);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.myListMovie .list_content .list_movie .card_movie .card .card-body .movie_play {
+  position: absolute;
+  top: 28%;
+  left: 38%;
+  color: #fff;
+  background-color: transparent;
+  padding: 20px 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  outline: none;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.myListMovie .list_content .list_movie .slick-slider .slick-next {
+  right: -70px;
+}
+.myListMovie .list_content .list_movie .slick-slider .slick-prev {
+  left: -70px;
+}
+.myListMovie .list_content .list_movie .slick-slider .slick-next:before {
+  content: "next";
+  font-family: "swiper-icons";
+  font-size: 45px;
+  color: gray;
+}
+.myListMovie .list_content .list_movie .slick-slider .slick-prev:before {
+  content: "prev";
+  font-family: "swiper-icons";
+  font-size: 45px;
+  color: gray;
+}
 
 .myMovieModal .modal-dialog {
   max-width: 1000px;
-  margin: auto; }
+  margin: auto;
+}
 .myMovieModal .modal-content {
   width: 100%;
   height: 600px;
   background-color: transparent;
   display: inline;
-  border: none; }
-  .myMovieModal .modal-content button {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    border: 3px solid;
-    border-color: white;
-    padding: 6px 10px;
-    border-radius: 50%;
-    opacity: 1;
-    outline: none; }
-    .myMovieModal .modal-content button span {
-      color: white; }
-  .myMovieModal .modal-content iframe {
-    width: 100%;
-    height: 100%; }
+  border: none;
+}
+.myMovieModal .modal-content button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: 3px solid;
+  border-color: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  opacity: 1;
+  outline: none;
+}
+.myMovieModal .modal-content button span {
+  color: white;
+}
+.myMovieModal .modal-content iframe {
+  width: 100%;
+  height: 100%;
+}
 
 .myCinema {
   width: 60%;
   margin: 0 auto;
-  padding-top: 30px; }
-  .myCinema .wig {
-    height: 100px;
+  padding-top: 30px;
+}
+.myCinema .wig {
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(197, 197, 197, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: no-repeat;
+}
+.myCinema .row .cinema_line {
+  border: 1px solid silver;
+}
+.myCinema .row .item_line {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.myCinema .row .item_line:hover {
+  opacity: 1;
+}
+.myCinema .row .cinema_logo {
+  border-right: none;
+}
+.myCinema .row .cinema_logo .item_line {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid silver;
+}
+.myCinema .row .cinema_logo .item_line img {
+  width: 50px;
+  height: 50px;
+}
+.myCinema .row .theater_logo {
+  border-right: none;
+}
+.myCinema .row .theater_logo .item_line {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid silver;
+}
+.myCinema .row .theater_logo .item_line .theater_line {
+  margin-left: 0;
+  margin-right: 0;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_image {
+  padding: 0;
+  line-height: 3;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_image img {
+  width: 50px;
+  height: 50px;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_name {
+  height: 75px;
+  line-height: 1;
+  text-align: left;
+  padding-left: 15px;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_name span {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_name span:first-child {
+  color: #8bc541;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_address {
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: 600;
+  padding-top: 6px;
+}
+.myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_detail {
+  color: #ec5252;
+  font-size: 13px;
+  font-weight: normal;
+}
+.myCinema .row .movie_logo {
+  text-align: left;
+}
+.myCinema .row .movie_logo .item_line {
+  cursor: context-menu;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid silver;
+  opacity: 1;
+}
+.myCinema .row .movie_logo .item_line a {
+  text-decoration: none;
+}
+.myCinema .row .movie_logo .item_line .movie_line {
+  margin-left: 0;
+  margin-right: 0;
+}
+.myCinema .row .movie_logo .item_line .movie_line .movie_image {
+  padding: 0;
+  line-height: 3;
+}
+.myCinema .row .movie_logo .item_line .movie_line .movie_image img {
+  width: 50px;
+  height: 50px;
+}
+.myCinema .row .movie_logo .item_line .movie_line .movie_name {
+  padding-top: 12px;
+  line-height: 0;
+  color: #686f7a;
+}
+.myCinema .row .movie_logo .item_line .movie_line .movie_name p {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.myCinema .row .movie_logo .item_line .movie_line .movie_name span {
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: normal;
+}
+.myCinema .row .movie_logo .item_line .movie_showtimes {
+  margin-bottom: 10px;
+}
+.myCinema .row .movie_logo .item_line .movie_showtimes button {
+  margin-right: 10px;
+  text-align: left;
+  border: none;
+  color: lightgreen;
+  font-size: 15px;
+  font-weight: normal;
+  padding-left: 0;
+}
+.myCinema .row .movie_logo .item_line .movie_showtimes button:hover {
+  color: #ff4500;
+  background-color: transparent;
+}
+.myCinema .row .btnsBranch_active,
+.myCinema .row .btnsTheater_active {
+  opacity: 1;
+}
+@media screen and (max-width: 1600px) {
+  .myCinema {
     width: 100%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(197, 197, 197, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
-    background-repeat: no-repeat; }
-  .myCinema .row .cinema_line {
-    border: 1px solid silver; }
-  .myCinema .row .item_line {
-    cursor: pointer;
-    opacity: 0.5; }
-    .myCinema .row .item_line:hover {
-      opacity: 1; }
-  .myCinema .row .cinema_logo {
-    border-right: none; }
-    .myCinema .row .cinema_logo .item_line {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid silver; }
-      .myCinema .row .cinema_logo .item_line img {
-        width: 50px;
-        height: 50px; }
-  .myCinema .row .theater_logo {
-    border-right: none; }
-    .myCinema .row .theater_logo .item_line {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid silver; }
-      .myCinema .row .theater_logo .item_line .theater_line {
-        margin-left: 0;
-        margin-right: 0; }
-        .myCinema .row .theater_logo .item_line .theater_line .theater_image {
-          padding: 0;
-          line-height: 3; }
-          .myCinema .row .theater_logo .item_line .theater_line .theater_image img {
-            width: 50px;
-            height: 50px; }
-        .myCinema .row .theater_logo .item_line .theater_line .theater_name {
-          height: 75px;
-          line-height: 1;
-          text-align: left;
-          padding-left: 15px; }
-          .myCinema .row .theater_logo .item_line .theater_line .theater_name span {
-            color: #fff;
-            font-size: 15px;
-            font-weight: 600; }
-          .myCinema .row .theater_logo .item_line .theater_line .theater_name span:first-child {
-            color: #8bc541; }
-          .myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_address {
-            color: #686f7a;
-            font-size: 13px;
-            font-weight: 600;
-            padding-top: 6px; }
-          .myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_detail {
-            color: #ec5252;
-            font-size: 13px;
-            font-weight: normal; }
-  .myCinema .row .movie_logo {
-    text-align: left; }
-    .myCinema .row .movie_logo .item_line {
-      cursor: context-menu;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid silver;
-      opacity: 1; }
-      .myCinema .row .movie_logo .item_line a {
-        text-decoration: none; }
-      .myCinema .row .movie_logo .item_line .movie_line {
-        margin-left: 0;
-        margin-right: 0; }
-        .myCinema .row .movie_logo .item_line .movie_line .movie_image {
-          padding: 0;
-          line-height: 3; }
-          .myCinema .row .movie_logo .item_line .movie_line .movie_image img {
-            width: 50px;
-            height: 50px; }
-        .myCinema .row .movie_logo .item_line .movie_line .movie_name {
-          padding-top: 12px;
-          line-height: 0;
-          color: #686f7a; }
-          .myCinema .row .movie_logo .item_line .movie_line .movie_name p {
-            color: #29303b;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer; }
-          .myCinema .row .movie_logo .item_line .movie_line .movie_name span {
-            color: #686f7a;
-            font-size: 13px;
-            font-weight: normal; }
-      .myCinema .row .movie_logo .item_line .movie_showtimes {
-        margin-bottom: 10px; }
-        .myCinema .row .movie_logo .item_line .movie_showtimes button {
-          margin-right: 10px;
-          text-align: left;
-          border: none;
-          color: lightgreen;
-          font-size: 15px;
-          font-weight: normal;
-          padding-left: 0; }
-          .myCinema .row .movie_logo .item_line .movie_showtimes button:hover {
-            color: #ff4500;
-            background-color: transparent; }
-  .myCinema .row .btnsBranch_active,
-  .myCinema .row .btnsTheater_active {
-    opacity: 1; }
-  @media screen and (max-width: 1600px) {
-    .myCinema {
-      width: 100%; } }
-  @media screen and (max-width: 992px) {
-    .myCinema .theater_logo .item_line .theater_line {
-      padding-bottom: 10px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name .theater_detail {
-        display: none; }
-    .myCinema .movie_logo .item_line .movie_line .movie_name {
-      line-height: 1.5; }
-      .myCinema .movie_logo .item_line .movie_line .movie_name p {
-        padding-left: 30px; }
-      .myCinema .movie_logo .item_line .movie_line .movie_name span {
-        display: none; } }
-  @media screen and (max-width: 767px) {
-    .myCinema .theater_logo .item_line .theater_line .theater_name {
-      padding-top: 6px;
-      padding-left: 30px;
-      line-height: 0.5; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name span {
-        font-size: 12px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
-        padding-top: 10px;
-        font-size: 8px;
-        line-height: 1; }
-    .myCinema .movie_logo .item_line .movie_line .movie_name {
-      padding-top: 6px; }
-      .myCinema .movie_logo .item_line .movie_line .movie_name p {
-        font-size: 12px; } }
-  @media screen and (max-width: 576px) {
-    .myCinema .cinema_logo .item_line img {
-      width: 30px;
-      height: 30px; }
-    .myCinema .theater_logo .item_line {
-      margin-top: 10px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_image img {
-        width: 30px;
-        height: 30px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name span {
-        font-size: 10px; }
-    .myCinema .movie_logo .item_line {
-      margin-top: 10px; }
-      .myCinema .movie_logo .item_line .movie_line {
-        padding-bottom: 0; }
-        .myCinema .movie_logo .item_line .movie_line .movie_image img {
-          width: 30px;
-          height: 30px; }
-        .myCinema .movie_logo .item_line .movie_line .movie_name p {
-          font-size: 8px; } }
-  @media screen and (max-width: 576px) {
-    .myCinema .cinema_logo .item_line img {
-      width: 15px;
-      height: 15px; }
-    .myCinema .theater_logo .item_line .theater_line {
-      height: 65px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_image img {
-        display: none; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name {
-        padding-left: 5px; }
-        .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
-          display: none; }
-    .myCinema .movie_logo .item_line .movie_line .movie_name p {
-      padding-left: 13px; } }
+  }
+}
+@media screen and (max-width: 992px) {
+  .myCinema .theater_logo .item_line .theater_line {
+    padding-bottom: 10px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name .theater_detail {
+    display: none;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name {
+    line-height: 1.5;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name p {
+    padding-left: 30px;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name span {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .myCinema .theater_logo .item_line .theater_line .theater_name {
+    padding-top: 6px;
+    padding-left: 30px;
+    line-height: 0.5;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name span {
+    font-size: 12px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
+    padding-top: 10px;
+    font-size: 8px;
+    line-height: 1;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name {
+    padding-top: 6px;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myCinema .cinema_logo .item_line img {
+    width: 30px;
+    height: 30px;
+  }
+  .myCinema .theater_logo .item_line {
+    margin-top: 10px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_image img {
+    width: 30px;
+    height: 30px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name span {
+    font-size: 10px;
+  }
+  .myCinema .movie_logo .item_line {
+    margin-top: 10px;
+  }
+  .myCinema .movie_logo .item_line .movie_line {
+    padding-bottom: 0;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_image img {
+    width: 30px;
+    height: 30px;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name p {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myCinema .cinema_logo .item_line img {
+    width: 15px;
+    height: 15px;
+  }
+  .myCinema .theater_logo .item_line .theater_line {
+    height: 65px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_image img {
+    display: none;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name {
+    padding-left: 5px;
+  }
+  .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
+    display: none;
+  }
+  .myCinema .movie_logo .item_line .movie_line .movie_name p {
+    padding-left: 13px;
+  }
+}
 
 .myDashboard .dashboard_title {
   text-align: center;
   color: #29303b !important;
   font-size: 24px !important;
-  font-weight: bold; }
+  font-weight: bold;
+}
 .myDashboard .dashboard_sidebar .dashboard_item button {
   color: #29303b t;
   font-size: 15px;
   font-weight: bold;
-  transition: all 0.5s; }
-  .myDashboard .dashboard_sidebar .dashboard_item button i {
-    margin-right: 20px;
-    width: 30px;
-    color: #29303b t;
-    font-size: 15px;
-    font-weight: bold;
-    z-index: 1; }
-  .myDashboard .dashboard_sidebar .dashboard_item button:focus {
-    outline: none; }
-  .myDashboard .dashboard_sidebar .dashboard_item button:hover {
-    background-color: greenyellow;
-    color: white; }
+  transition: all 0.5s;
+}
+.myDashboard .dashboard_sidebar .dashboard_item button i {
+  margin-right: 20px;
+  width: 30px;
+  color: #29303b t;
+  font-size: 15px;
+  font-weight: bold;
+  z-index: 1;
+}
+.myDashboard .dashboard_sidebar .dashboard_item button:focus {
+  outline: none;
+}
+.myDashboard .dashboard_sidebar .dashboard_item button:hover {
+  background-color: greenyellow;
+  color: white;
+}
 .myDashboard .dashboard_sidebar .dashboard_item .active_button {
   background-color: greenyellow;
-  color: white; }
+  color: white;
+}
 
 .myBranchManament {
-  position: relative; }
-  .myBranchManament .add_branch {
-    position: absolute;
-    font-size: fs-1;
-    top: -65px;
-    right: 5px; }
+  position: relative;
+}
+.myBranchManament .add_branch {
+  position: absolute;
+  font-size: fs-1;
+  top: -65px;
+  right: 5px;
+}
 
 .myDetailsMovie {
   width: 100%;
   height: 550px;
   position: relative;
-  margin-bottom: 10px; }
-  .myDetailsMovie .backgroud_cover {
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: -2%;
-    left: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: blur(10px); }
-  .myDetailsMovie .cover_second {
-    z-index: 0;
-    width: 100%;
-    height: 102%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, transparent, black); }
-  .myDetailsMovie .container {
-    margin-top: 100px;
-    padding-top: 100px;
-    margin-bottom: 150px;
-    height: 500px;
-    z-index: 1; }
-    .myDetailsMovie .container .movie_image {
-      position: relative; }
-      .myDetailsMovie .container .movie_image:hover .movie_play {
-        opacity: 1; }
-      .myDetailsMovie .container .movie_image .movie_play {
-        position: absolute;
-        top: 40%;
-        left: 38%;
-        color: #fff;
-        background-color: transparent;
-        padding: 20px 20px;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        outline: none;
-        opacity: 0;
-        transition: all 0.5s; }
-    .myDetailsMovie .container .movie_name {
-      text-align: left;
-      margin: auto; }
-      .myDetailsMovie .container .movie_name p {
-        color: #fff;
-        font-size: 20px;
-        font-weight: 600;
-        width: 300px; }
-      .myDetailsMovie .container .movie_name button {
-        color: #fff;
-        font-size: 20px;
-        font-weight: 600; }
-    .myDetailsMovie .container .movie_rate {
-      text-align: center;
-      margin: auto; }
-      .myDetailsMovie .container .movie_rate span {
-        color: #fff;
-        font-size: 50px;
-        font-weight: normal;
-        width: 100px;
-        height: 100px;
-        padding: 20px;
-        border-radius: 50%;
-        border: 5px solid greenyellow; }
-  @media screen and (max-width: 992px) {
-    .myDetailsMovie .container .movie_name {
-      padding-left: 65px; }
-      .myDetailsMovie .container .movie_name p {
-        padding-right: 60px; } }
-  @media screen and (max-width: 767px) {
-    .myDetailsMovie .container .movie_rate {
-      display: none; } }
-  @media screen and (max-width: 576px) {
-    .myDetailsMovie .container .movie_name p,
-    .myDetailsMovie .container .movie_name button {
-      font-size: 15px; }
-    .myDetailsMovie .container .movie_name p {
-      width: 120%; } }
-  @media screen and (max-width: 400px) {
-    .myDetailsMovie .container .movie_name {
-      padding-left: 90px; }
-      .myDetailsMovie .container .movie_name p {
-        padding-right: 40px; } }
-  @media screen and (max-width: 368px) {
-    .myDetailsMovie .container .movie_image img {
-      width: 160%; }
-    .myDetailsMovie .container .movie_name {
-      padding-left: 75px; }
-      .myDetailsMovie .container .movie_name p,
-      .myDetailsMovie .container .movie_name button {
-        font-size: 12px; }
-      .myDetailsMovie .container .movie_name p {
-        padding-right: 25px; } }
+  margin-bottom: 10px;
+}
+.myDetailsMovie .backgroud_cover {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -2%;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(10px);
+}
+.myDetailsMovie .cover_second {
+  z-index: 0;
+  width: 100%;
+  height: 102%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, transparent, black);
+}
+.myDetailsMovie .container {
+  margin-top: 100px;
+  padding-top: 100px;
+  margin-bottom: 150px;
+  height: 500px;
+  z-index: 1;
+}
+.myDetailsMovie .container .movie_image {
+  position: relative;
+}
+.myDetailsMovie .container .movie_image:hover .movie_play {
+  opacity: 1;
+}
+.myDetailsMovie .container .movie_image .movie_play {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  color: #fff;
+  background-color: transparent;
+  padding: 20px 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  outline: none;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.myDetailsMovie .container .movie_name {
+  text-align: left;
+  margin: auto;
+}
+.myDetailsMovie .container .movie_name p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  width: 300px;
+}
+.myDetailsMovie .container .movie_name button {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+.myDetailsMovie .container .movie_rate {
+  text-align: center;
+  margin: auto;
+}
+.myDetailsMovie .container .movie_rate span {
+  color: #fff;
+  font-size: 50px;
+  font-weight: normal;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 50%;
+  border: 5px solid greenyellow;
+}
+@media screen and (max-width: 992px) {
+  .myDetailsMovie .container .movie_name {
+    padding-left: 65px;
+  }
+  .myDetailsMovie .container .movie_name p {
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .myDetailsMovie .container .movie_rate {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myDetailsMovie .container .movie_name p,
+.myDetailsMovie .container .movie_name button {
+    font-size: 15px;
+  }
+  .myDetailsMovie .container .movie_name p {
+    width: 120%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .myDetailsMovie .container .movie_name {
+    padding-left: 90px;
+  }
+  .myDetailsMovie .container .movie_name p {
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 368px) {
+  .myDetailsMovie .container .movie_image img {
+    width: 160%;
+  }
+  .myDetailsMovie .container .movie_name {
+    padding-left: 75px;
+  }
+  .myDetailsMovie .container .movie_name p,
+.myDetailsMovie .container .movie_name button {
+    font-size: 12px;
+  }
+  .myDetailsMovie .container .movie_name p {
+    padding-right: 25px;
+  }
+}
 
 .myDetailsMovieModal .modal-dialog {
   max-width: 1000px;
-  margin: auto; }
+  margin: auto;
+}
 .myDetailsMovieModal .modal-content {
   width: 100%;
   height: 600px;
   background-color: transparent;
   display: inline;
-  border: none; }
-  .myDetailsMovieModal .modal-content button {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    border: 3px solid;
-    border-color: white;
-    padding: 6px 10px;
-    border-radius: 50%;
-    opacity: 1;
-    outline: none; }
-    .myDetailsMovieModal .modal-content button span {
-      color: white; }
-  .myDetailsMovieModal .modal-content iframe {
-    width: 100%;
-    height: 100%; }
+  border: none;
+}
+.myDetailsMovieModal .modal-content button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: 3px solid;
+  border-color: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  opacity: 1;
+  outline: none;
+}
+.myDetailsMovieModal .modal-content button span {
+  color: white;
+}
+.myDetailsMovieModal .modal-content iframe {
+  width: 100%;
+  height: 100%;
+}
 
 .myShowtimes {
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+}
+.myShowtimes .showtimes_title {
+  margin: auto;
+  width: 13%;
+  justify-content: space-between;
+  display: flex;
+}
+.myShowtimes .showtimes_title .showtime_btns {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  transition: all 0.5s;
+  outline: none;
+}
+.myShowtimes .showtimes_title .showtime_btns:hover {
+  transform: scale(1.3);
+}
+.myShowtimes .showtimes_title .active {
+  color: #ff4500;
+  cursor: context-menu;
+  pointer-events: none;
+}
+@media screen and (max-width: 1600px) {
   .myShowtimes .showtimes_title {
-    margin: auto;
-    width: 13%;
-    justify-content: space-between;
-    display: flex; }
-    .myShowtimes .showtimes_title .showtime_btns {
-      background-color: transparent;
-      color: #fff;
-      border: none;
-      transition: all 0.5s;
-      outline: none; }
-      .myShowtimes .showtimes_title .showtime_btns:hover {
-        transform: scale(1.3); }
-    .myShowtimes .showtimes_title .active {
-      color: #ff4500;
-      cursor: context-menu;
-      pointer-events: none; }
-    @media screen and (max-width: 1600px) {
-      .myShowtimes .showtimes_title {
-        width: 20%; } }
-    @media screen and (max-width: 992px) {
-      .myShowtimes .showtimes_title {
-        width: 35%; } }
-    @media screen and (max-width: 576px) {
-      .myShowtimes .showtimes_title {
-        width: 60%; } }
-    @media screen and (max-width: 280px) {
-      .myShowtimes .showtimes_title {
-        width: 70%; } }
-  .myShowtimes .showtimes_content {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .myShowtimes .showtimes_title {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myShowtimes .showtimes_title {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 280px) {
+  .myShowtimes .showtimes_title {
+    width: 70%;
+  }
+}
+.myShowtimes .showtimes_content {
+  margin-top: 10px;
+  padding-top: 30px;
+}
+.myShowtimes .showtimes_content .container .descript_content {
+  text-align: left;
+  margin: 0 auto;
+  width: 60%;
+}
+.myShowtimes .showtimes_content .container .descript_content .infomation p:first-child {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.myShowtimes .showtimes_content .container .descript_content .infomation p:last-child {
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  text-align: justify;
+}
+.myShowtimes .showtimes_content .container .descript_content .description p:first-child {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.myShowtimes .showtimes_content .container .descript_content .description p:last-child {
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  text-align: justify;
+}
+.myShowtimes .showtimes_content .showtimes_detail {
+  width: 75%;
+  margin: 0 auto;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid silver;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line:hover {
+  opacity: 1;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:first-child img {
+  width: 50px;
+  height: 50px;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:last-child {
+  padding-left: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_logo .btnsBranch_active {
+  opacity: 1;
+}
+.myShowtimes .showtimes_content .showtimes_detail .cinema_line {
+  border: 1px solid silver;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line {
+  cursor: pointer;
+  opacity: 0.5;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid silver;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line:hover {
+  opacity: 1;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line {
+  margin-left: 0;
+  margin-right: 0;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image {
+  padding: 0;
+  line-height: 3;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image img {
+  width: 50px;
+  height: 50px;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name {
+  height: 75px;
+  line-height: 1;
+  text-align: left;
+  padding-left: 15px;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span:first-child {
+  color: #8bc541;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name .theater_address {
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: 600;
+  padding-top: 6px;
+}
+.myShowtimes .showtimes_content .showtimes_detail .theater_logo .btnsTheater_active {
+  opacity: 1;
+}
+@media screen and (max-width: 992px) {
+  .myShowtimes .showtimes_content .container {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: none;
+  }
+  .myShowtimes .showtimes_content .container .row {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span {
+    font-size: 10px;
+  }
+  .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span img {
+    width: 30px;
+    height: 30px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_image img {
+    width: 30px;
+    height: 30px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
+    padding-right: 0;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name div span {
+    font-size: 10px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 280px) {
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line {
     margin-top: 10px;
-    padding-top: 30px; }
-    .myShowtimes .showtimes_content .container .descript_content {
-      text-align: left;
-      margin: 0 auto;
-      width: 60%; }
-      .myShowtimes .showtimes_content .container .descript_content .infomation p:first-child {
-        color: #fff;
-        font-size: 15px;
-        font-weight: 600; }
-      .myShowtimes .showtimes_content .container .descript_content .infomation p:last-child {
-        color: #fff;
-        font-size: 13px;
-        font-weight: normal;
-        text-align: justify; }
-      .myShowtimes .showtimes_content .container .descript_content .description p:first-child {
-        color: #fff;
-        font-size: 15px;
-        font-weight: 600; }
-      .myShowtimes .showtimes_content .container .descript_content .description p:last-child {
-        color: #fff;
-        font-size: 13px;
-        font-weight: normal;
-        text-align: justify; }
-    .myShowtimes .showtimes_content .showtimes_detail {
-      width: 75%;
-      margin: 0 auto; }
-      .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line {
-        text-align: left;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid silver;
-        cursor: pointer;
-        opacity: 0.5; }
-        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line:hover {
-          opacity: 1; }
-        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:first-child img {
-          width: 50px;
-          height: 50px; }
-        .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .item_line span:last-child {
-          padding-left: 10px;
-          color: #fff;
-          font-size: 15px;
-          font-weight: 600; }
-      .myShowtimes .showtimes_content .showtimes_detail .cinema_logo .btnsBranch_active {
-        opacity: 1; }
-      .myShowtimes .showtimes_content .showtimes_detail .cinema_line {
-        border: 1px solid silver; }
-      .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line {
-        cursor: pointer;
-        opacity: 0.5;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid silver; }
-        .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line:hover {
-          opacity: 1; }
-        .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line {
-          margin-left: 0;
-          margin-right: 0; }
-          .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image {
-            padding: 0;
-            line-height: 3; }
-            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_image img {
-              width: 50px;
-              height: 50px; }
-          .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name {
-            height: 75px;
-            line-height: 1;
-            text-align: left;
-            padding-left: 15px; }
-            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span {
-              color: #fff;
-              font-size: 15px;
-              font-weight: 600; }
-            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name span:first-child {
-              color: #8bc541; }
-            .myShowtimes .showtimes_content .showtimes_detail .theater_logo .item_line .theater_line .theater_name .theater_address {
-              color: #686f7a;
-              font-size: 13px;
-              font-weight: 600;
-              padding-top: 6px; }
-      .myShowtimes .showtimes_content .showtimes_detail .theater_logo .btnsTheater_active {
-        opacity: 1; }
-    @media screen and (max-width: 992px) {
-      .myShowtimes .showtimes_content .container {
-        padding-right: 0;
-        padding-left: 0;
-        max-width: none; }
-        .myShowtimes .showtimes_content .container .row {
-          width: 100%; } }
-    @media screen and (max-width: 576px) {
-      .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span {
-        font-size: 10px; }
-        .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span img {
-          width: 30px;
-          height: 30px; }
-      .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_image img {
-        width: 30px;
-        height: 30px; }
-      .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
-        padding-right: 0; }
-        .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name div span {
-          font-size: 10px; }
-        .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
-          font-size: 8px; } }
-    @media screen and (max-width: 280px) {
-      .myShowtimes .showtimes_content .container .row .theater_logo .item_line {
-        margin-top: 10px;
-        margin-bottom: 10px; }
-        .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line {
-          height: 65px; }
-          .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
-            line-height: 0.5;
-            padding-top: 15px; }
-            .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
-              display: none; } }
+    margin-bottom: 10px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line {
+    height: 65px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
+    line-height: 0.5;
+    padding-top: 15px;
+  }
+  .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
+    display: none;
+  }
+}
 
 .myArticle {
   width: 60%;
   padding-right: 0;
-  padding-left: 0; }
-  .myArticle .wig {
-    height: 100px;
-    width: 100%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(197, 197, 197, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
-    background-repeat: no-repeat; }
-  .myArticle .article_title {
-    margin: auto;
-    width: 40%;
-    padding-top: 20px;
-    justify-content: space-between;
-    display: flex; }
-    .myArticle .article_title .article_film,
-    .myArticle .article_title .article_review,
-    .myArticle .article_title .article_promotion {
-      background-color: transparent;
-      color: #29303b;
-      border: none;
-      transition: all 0.5s;
-      outline: none; }
-      .myArticle .article_title .article_film:hover,
-      .myArticle .article_title .article_review:hover,
-      .myArticle .article_title .article_promotion:hover {
-        transform: scale(1.3); }
-    .myArticle .article_title .active {
-      color: #ff4500;
-      cursor: context-menu;
-      pointer-events: none; }
-  .myArticle .article_content {
-    text-align: justify; }
-    .myArticle .article_content .container {
-      padding-right: 0;
-      padding-left: 0; }
-      .myArticle .article_content .container .first_list {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-top: 20px;
-        margin: 0 auto; }
-        .myArticle .article_content .container .first_list .article_item:first-child {
-          padding-left: 0; }
-        .myArticle .article_content .container .first_list .article_item:last-child {
-          padding-right: 0; }
-        .myArticle .article_content .container .first_list .article_item img {
-          width: 100%;
-          cursor: pointer; }
-        .myArticle .article_content .container .first_list .article_item h5 {
-          color: #29303b;
-          font-size: 15px;
-          font-weight: 600;
-          transition: all 0.5s;
-          cursor: pointer;
-          height: 50px;
-          margin-top: 10px;
-          margin-bottom: 10px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          line-height: 20px;
-          -webkit-line-clamp: 2;
-          height: 38px;
-          display: -webkit-box;
-          -webkit-box-orient: vertical; }
-          .myArticle .article_content .container .first_list .article_item h5:hover {
-            color: #ff4500; }
-        .myArticle .article_content .container .first_list .article_item p {
-          color: #686f7a;
-          font-size: 13px;
-          font-weight: normal; }
-      .myArticle .article_content .container .second_list .article_item img {
-        width: 100%;
-        cursor: pointer; }
-      .myArticle .article_content .container .second_list .article_item h5 {
-        color: #29303b;
-        font-size: 15px;
-        font-weight: 600;
-        transition: all 0.5s;
-        cursor: pointer;
-        height: 50px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 20px;
-        -webkit-line-clamp: 2;
-        height: 38px;
-        display: -webkit-box;
-        -webkit-box-orient: vertical; }
-        .myArticle .article_content .container .second_list .article_item h5:hover {
-          color: #ff4500; }
-      .myArticle .article_content .container .second_list .article_item p {
-        color: #686f7a;
-        font-size: 13px;
-        font-weight: normal; }
-      .myArticle .article_content .container .second_list .thirdList .thirdList_item {
-        display: flex;
-        margin-bottom: 5px; }
-        .myArticle .article_content .container .second_list .thirdList .thirdList_item img {
-          width: 55px;
-          height: 50px; }
-        .myArticle .article_content .container .second_list .thirdList .thirdList_item h5 {
-          margin-top: 3px;
-          margin-left: 10px;
-          font-size: 14px;
-          line-height: 14px;
-          opacity: 0.7;
-          -webkit-line-clamp: unset;
-          height: 40px; }
-  .myArticle .article_expansion {
-    padding-top: 30px; }
-    .myArticle .article_expansion button {
-      padding: 7px 25px;
-      color: #686f7a;
-      font-size: 13px;
-      font-weight: normal;
-      outline: none;
-      border: 1px solid #686f7a;
-      border-radius: 5px;
-      transition: all 0.2s; }
-      .myArticle .article_expansion button:hover {
-        border-color: #b41b03;
-        color: white;
-        background-color: #b41b03; }
+  padding-left: 0;
+}
+.myArticle .wig {
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(197, 197, 197, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: no-repeat;
+}
+.myArticle .article_title {
+  margin: auto;
+  width: 40%;
+  padding-top: 20px;
+  justify-content: space-between;
+  display: flex;
+}
+.myArticle .article_title .article_film,
+.myArticle .article_title .article_review,
+.myArticle .article_title .article_promotion {
+  background-color: transparent;
+  color: #29303b;
+  border: none;
+  transition: all 0.5s;
+  outline: none;
+}
+.myArticle .article_title .article_film:hover,
+.myArticle .article_title .article_review:hover,
+.myArticle .article_title .article_promotion:hover {
+  transform: scale(1.3);
+}
+.myArticle .article_title .active {
+  color: #ff4500;
+  cursor: context-menu;
+  pointer-events: none;
+}
+.myArticle .article_content {
+  text-align: justify;
+}
+.myArticle .article_content .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.myArticle .article_content .container .first_list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+.myArticle .article_content .container .first_list .article_item:first-child {
+  padding-left: 0;
+}
+.myArticle .article_content .container .first_list .article_item:last-child {
+  padding-right: 0;
+}
+.myArticle .article_content .container .first_list .article_item img {
+  width: 100%;
+  cursor: pointer;
+}
+.myArticle .article_content .container .first_list .article_item h5 {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.5s;
+  cursor: pointer;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  -webkit-line-clamp: 2;
+  height: 38px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.myArticle .article_content .container .first_list .article_item h5:hover {
+  color: #ff4500;
+}
+.myArticle .article_content .container .first_list .article_item p {
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: normal;
+}
+.myArticle .article_content .container .second_list .article_item img {
+  width: 100%;
+  cursor: pointer;
+}
+.myArticle .article_content .container .second_list .article_item h5 {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.5s;
+  cursor: pointer;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  -webkit-line-clamp: 2;
+  height: 38px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.myArticle .article_content .container .second_list .article_item h5:hover {
+  color: #ff4500;
+}
+.myArticle .article_content .container .second_list .article_item p {
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: normal;
+}
+.myArticle .article_content .container .second_list .thirdList .thirdList_item {
+  display: flex;
+  margin-bottom: 5px;
+}
+.myArticle .article_content .container .second_list .thirdList .thirdList_item img {
+  width: 55px;
+  height: 50px;
+}
+.myArticle .article_content .container .second_list .thirdList .thirdList_item h5 {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  opacity: 0.7;
+  -webkit-line-clamp: unset;
+  height: 40px;
+}
+.myArticle .article_expansion {
+  padding-top: 30px;
+}
+.myArticle .article_expansion button {
+  padding: 7px 25px;
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: normal;
+  outline: none;
+  border: 1px solid #686f7a;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.myArticle .article_expansion button:hover {
+  border-color: #b41b03;
+  color: white;
+  background-color: #b41b03;
+}
 
 .myApps {
   margin-top: 30px;
@@ -883,77 +1150,101 @@ body {
   background-size: 1190px 550px;
   background-repeat: repeat-x;
   text-align: left;
-  background-color: black; }
+  background-color: black;
+}
+.myApps .container {
+  max-width: 1140px;
+  width: 60%;
+}
+.myApps .container .app_intro {
+  padding-top: 60px;
+  padding-left: 0;
+}
+.myApps .container .app_intro h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.myApps .container .app_intro p:nth-child(2) {
+  padding-top: 15px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  color: #f4f2ee;
+}
+.myApps .container .app_intro button {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 20px;
+  background-color: #bd1c03;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.myApps .container .app_intro button:focus {
+  outline: none;
+}
+.myApps .container .app_intro p:last-child {
+  padding-top: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+}
+.myApps .container .app_phone {
+  padding-right: 0;
+}
+.myApps .container .app_phone .phone_content {
+  margin: 0 auto;
+  height: 400px;
+  width: 45%;
+}
+.myApps .container .app_phone .phone_content .swiper-container {
+  border-radius: 20px;
+  border-left: 5px solid #3e3200;
+  border-right: 5px solid #3e3200;
+}
+.myApps .container .app_phone .phone_content .swiper-container .phone_item {
+  cursor: pointer;
+}
+.myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+  width: 100%;
+  height: 420px;
+}
+@media screen and (max-width: 1600px) {
   .myApps .container {
-    max-width: 1140px;
-    width: 60%; }
-    .myApps .container .app_intro {
-      padding-top: 60px;
-      padding-left: 0; }
-      .myApps .container .app_intro h3 {
-        color: #fff;
-        font-size: 30px;
-        font-weight: 600;
-        line-height: 1.5; }
-      .myApps .container .app_intro p:nth-child(2) {
-        padding-top: 15px;
-        color: #fff;
-        font-size: 17px;
-        font-weight: normal;
-        color: #f4f2ee; }
-      .myApps .container .app_intro button {
-        margin-top: 10px;
-        color: #fff;
-        font-size: 15px;
-        font-weight: 600;
-        padding: 10px 20px;
-        background-color: #bd1c03;
-        color: white;
-        border: none;
-        border-radius: 10px; }
-        .myApps .container .app_intro button:focus {
-          outline: none; }
-      .myApps .container .app_intro p:last-child {
-        padding-top: 10px;
-        color: #fff;
-        font-size: 13px;
-        font-weight: normal; }
-    .myApps .container .app_phone {
-      padding-right: 0; }
-      .myApps .container .app_phone .phone_content {
-        margin: 0 auto;
-        height: 400px;
-        width: 45%; }
-        .myApps .container .app_phone .phone_content .swiper-container {
-          border-radius: 20px;
-          border-left: 5px solid #3e3200;
-          border-right: 5px solid #3e3200; }
-          .myApps .container .app_phone .phone_content .swiper-container .phone_item {
-            cursor: pointer; }
-            .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-              width: 100%;
-              height: 420px; }
-  @media screen and (max-width: 1600px) {
-    .myApps .container {
-      width: 100%; } }
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 1190px) {
   .myApps {
     max-width: 960px;
-    margin: 0 auto; } }
+    margin: 0 auto;
+  }
+}
 @media screen and (max-width: 992px) {
   .myApps {
-    max-width: 720px; } }
+    max-width: 720px;
+  }
+}
 @media screen and (max-width: 767px) {
   .myApps {
-    max-width: 540px; }
-    .myApps .container .app_phone {
-      padding-top: 30px; }
-      .myApps .container .app_phone .phone_content {
-        height: 400px;
-        width: 60%; }
-        .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-          height: 350px; } }
+    max-width: 540px;
+  }
+  .myApps .container .app_phone {
+    padding-top: 30px;
+  }
+  .myApps .container .app_phone .phone_content {
+    height: 400px;
+    width: 60%;
+  }
+  .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+    height: 350px;
+  }
+}
 @media screen and (max-width: 576px) {
   .myApps {
     width: 100%;
@@ -964,272 +1255,364 @@ body {
     margin-bottom: 20px;
     padding-top: 0;
     background-size: contain;
-    background-repeat: repeat-y; }
-    .myApps .container .app_intro {
-      padding-right: 0; }
-    .myApps .container .app_phone {
-      padding-left: 0; }
-      .myApps .container .app_phone .phone_content {
-        width: 45%; }
-        .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-          height: 440px; } }
+    background-repeat: repeat-y;
+  }
+  .myApps .container .app_intro {
+    padding-right: 0;
+  }
+  .myApps .container .app_phone {
+    padding-left: 0;
+  }
+  .myApps .container .app_phone .phone_content {
+    width: 45%;
+  }
+  .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+    height: 440px;
+  }
+}
 @media screen and (max-width: 400px) {
   .myApps {
-    height: 880px; }
-    .myApps .container .app_phone .phone_content {
-      width: 70%; }
-      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-        height: 340px; } }
+    height: 880px;
+  }
+  .myApps .container .app_phone .phone_content {
+    width: 70%;
+  }
+  .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+    height: 340px;
+  }
+}
 .myBanner {
   padding-top: 20px;
   text-align: left;
   padding-bottom: 50px;
-  background-color: black; }
+  background-color: black;
+}
+.myBanner .container {
+  max-width: 1140px;
+  width: 60%;
+}
+.myBanner .container .banner_partner .row .security h5 {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.myBanner .container .banner_partner .row .security .row .col-6 h5 {
+  padding-top: 10px;
+  color: #686f7a;
+  font-size: 13px;
+  font-weight: 600;
+}
+.myBanner .container .banner_partner .row .partner h5 {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.myBanner .container .banner_partner .row .partner .banner_icon .icon_line {
+  margin-bottom: 15px;
+}
+.myBanner .container .banner_partner .row .partner .banner_icon .icon_line span {
+  margin-right: 15px;
+}
+.myBanner .container .banner_partner .row .partner .banner_icon .icon_line span img {
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+}
+.myBanner .container .banner_partner .row .apps .row .col-sm-6 h5 {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.myBanner .container .banner_partner .row .apps .row .col-sm-6 span {
+  margin-right: 15px;
+}
+.myBanner .container .banner_partner .row .apps .row .col-sm-6 span img {
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+}
+.myBanner .container hr {
+  border-color: white;
+}
+.myBanner .container .banner_contact .row .col-sm-1 img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+.myBanner .container .banner_contact .row .col-sm-8 {
+  padding-left: 35px;
+}
+.myBanner .container .banner_contact .row .col-sm-8 h5 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.myBanner .container .banner_contact .row .col-sm-8 p {
+  color: #686f7a;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.myBanner .container .banner_contact .row .col-sm-8 p span {
+  color: #fb4f35;
+}
+.myBanner .container .banner_contact .row .col-sm-3 {
+  text-align: right;
+}
+.myBanner .container .banner_contact .row .col-sm-3 img {
+  width: 130px;
+  height: auto;
+  border-radius: 8px;
+}
+@media screen and (max-width: 1600px) {
   .myBanner .container {
-    max-width: 1140px;
-    width: 60%; }
-    .myBanner .container .banner_partner .row .security h5 {
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600; }
-    .myBanner .container .banner_partner .row .security .row .col-6 h5 {
-      padding-top: 10px;
-      color: #686f7a;
-      font-size: 13px;
-      font-weight: 600; }
-    .myBanner .container .banner_partner .row .partner h5 {
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600; }
-    .myBanner .container .banner_partner .row .partner .banner_icon .icon_line {
-      margin-bottom: 15px; }
-      .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span {
-        margin-right: 15px; }
-        .myBanner .container .banner_partner .row .partner .banner_icon .icon_line span img {
-          border-radius: 50px;
-          width: 30px;
-          height: 30px; }
-    .myBanner .container .banner_partner .row .apps .row .col-sm-6 h5 {
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600; }
-    .myBanner .container .banner_partner .row .apps .row .col-sm-6 span {
-      margin-right: 15px; }
-      .myBanner .container .banner_partner .row .apps .row .col-sm-6 span img {
-        border-radius: 50px;
-        width: 30px;
-        height: 30px; }
-    .myBanner .container hr {
-      border-color: white; }
-    .myBanner .container .banner_contact .row .col-sm-1 img {
-      width: 80px;
-      height: auto;
-      border-radius: 8px; }
-    .myBanner .container .banner_contact .row .col-sm-8 {
-      padding-left: 35px; }
-      .myBanner .container .banner_contact .row .col-sm-8 h5 {
-        color: #fff;
-        font-size: 13px;
-        font-weight: 600;
-        margin-bottom: 2px; }
-      .myBanner .container .banner_contact .row .col-sm-8 p {
-        color: #686f7a;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 0; }
-        .myBanner .container .banner_contact .row .col-sm-8 p span {
-          color: #fb4f35; }
-    .myBanner .container .banner_contact .row .col-sm-3 {
-      text-align: right; }
-      .myBanner .container .banner_contact .row .col-sm-3 img {
-        width: 130px;
-        height: auto;
-        border-radius: 8px; }
-  @media screen and (max-width: 1600px) {
-    .myBanner .container {
-      width: 100%; }
-      .myBanner .container .banner_partner .security {
-        padding-left: 0; }
-      .myBanner .container .banner_partner .apps {
-        padding-right: 0; } }
-  @media screen and (max-width: 1190px) {
-    .myBanner .container {
-      max-width: 960px; } }
-  @media screen and (max-width: 992px) {
-    .myBanner .container {
-      max-width: 720px; }
-      .myBanner .container .banner_partner .partner {
-        display: none; }
-      .myBanner .container .banner_contact .row .col-sm-8 {
-        padding-left: 75px; } }
-  @media screen and (max-width: 767px) {
-    .myBanner .container {
-      max-width: 540px; }
-      .myBanner .container .banner_partner .partner {
-        display: none; }
-      .myBanner .container .banner_contact .row .col-sm-1 {
-        padding-left: 0; } }
-  @media screen and (max-width: 576px) {
-    .myBanner .container .banner_partner .security,
-    .myBanner .container .banner_partner .partner {
-      display: none; }
-    .myBanner .container .banner_partner .apps .row {
-      width: 80%;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: nowrap; }
-      .myBanner .container .banner_partner .apps .row .col-sm-6 {
-        text-align: center; }
-    .myBanner .container .banner_contact {
-      text-align: center; }
-      .myBanner .container .banner_contact .row .col-sm-1 {
-        padding-left: 0; }
-      .myBanner .container .banner_contact .row .col-sm-8 {
-        padding-left: 15px;
-        padding-top: 10px; }
-      .myBanner .container .banner_contact .row .col-sm-3 {
-        text-align: center; } }
+    width: 100%;
+  }
+  .myBanner .container .banner_partner .security {
+    padding-left: 0;
+  }
+  .myBanner .container .banner_partner .apps {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 1190px) {
+  .myBanner .container {
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .myBanner .container {
+    max-width: 720px;
+  }
+  .myBanner .container .banner_partner .partner {
+    display: none;
+  }
+  .myBanner .container .banner_contact .row .col-sm-8 {
+    padding-left: 75px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .myBanner .container {
+    max-width: 540px;
+  }
+  .myBanner .container .banner_partner .partner {
+    display: none;
+  }
+  .myBanner .container .banner_contact .row .col-sm-1 {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .myBanner .container .banner_partner .security,
+.myBanner .container .banner_partner .partner {
+    display: none;
+  }
+  .myBanner .container .banner_partner .apps .row {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .myBanner .container .banner_partner .apps .row .col-sm-6 {
+    text-align: center;
+  }
+  .myBanner .container .banner_contact {
+    text-align: center;
+  }
+  .myBanner .container .banner_contact .row .col-sm-1 {
+    padding-left: 0;
+  }
+  .myBanner .container .banner_contact .row .col-sm-8 {
+    padding-left: 15px;
+    padding-top: 10px;
+  }
+  .myBanner .container .banner_contact .row .col-sm-3 {
+    text-align: center;
+  }
+}
 
 .mySeat {
   margin-top: 20px;
   padding-top: 30px;
-  background-color: white; }
-  .mySeat .seat .theater {
-    display: flex; }
-    .mySeat .seat .theater img {
-      height: 50px;
-      width: 50px; }
-    .mySeat .seat .theater .theater_info {
-      padding-top: 5px;
-      padding-left: 20px;
-      text-align: left; }
-      .mySeat .seat .theater .theater_info span {
-        display: block; }
-      .mySeat .seat .theater .theater_info span:first-child {
-        color: #29303b;
-        font-size: 15px;
-        font-weight: 600; }
-      .mySeat .seat .theater .theater_info span:last-child {
-        color: #686f7a;
-        font-size: 15px;
-        font-weight: normal; }
-  .mySeat .seat .time .time_remaining {
-    padding-top: 12px; }
-    .mySeat .seat .time .time_remaining span {
-      display: block; }
-    .mySeat .seat .time .time_remaining span:first-child {
-      color: #686f7a;
-      font-size: 15px;
-      font-weight: normal; }
-    .mySeat .seat .time .time_remaining span:last-child {
-      color: red; }
-  .mySeat .seat .screen img {
-    width: 100%;
-    height: 100px; }
-  .mySeat .seat .seat_customer {
-    padding-top: 35px; }
-    .mySeat .seat .seat_customer i {
-      font-size: 35px;
-      padding: 5px 5px;
-      cursor: pointer;
-      color: #a1a7b3; }
-    .mySeat .seat .seat_customer .vip {
-      color: #f4c150; }
-    .mySeat .seat .seat_customer .seating {
-      color: lightskyblue; }
-    .mySeat .seat .seat_customer .seated {
-      color: #ff4500;
-      cursor: no-drop; }
-  .mySeat .seat .seat_status {
-    padding-top: 50px; }
-    .mySeat .seat .seat_status .row .seating i {
-      color: lightskyblue; }
-    .mySeat .seat .seat_status .row .seated i {
-      color: #ff4500; }
-    .mySeat .seat .seat_status .row .havent_seat i {
-      color: #a1a7b3; }
-    .mySeat .seat .seat_status .row .vip_seat i {
-      color: #f4c150; }
-  .mySeat .display_board .price {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .mySeat .display_board .price span {
-      color: greenyellow;
-      font-size: 35px;
-      font-weight: normal; }
-  .mySeat .display_board hr {
-    background-color: white; }
-  .mySeat .display_board .theater_info {
-    height: 120px;
-    text-align: left; }
-    .mySeat .display_board .theater_info span:first-child {
-      padding: 5px 15px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: normal;
-      background: #ec5252;
-      border: 1px solid white;
-      border-radius: 5px; }
-    .mySeat .display_board .theater_info span:nth-child(2) {
-      margin-left: 15px;
-      color: #a1a7b3;
-      font-size: 13px;
-      font-weight: normal; }
-    .mySeat .display_board .theater_info p:nth-child(3) {
-      margin-top: 10px;
-      color: #a1a7b3;
-      font-size: 13px;
-      font-weight: normal; }
-    .mySeat .display_board .theater_info p:last-child {
-      color: #a1a7b3;
-      font-size: 13px;
-      font-weight: 600; }
-  .mySeat .display_board .seated {
-    height: 120px;
-    text-align: left; }
-    .mySeat .display_board .seated h5 {
-      color: #a1a7b3;
-      font-size: 13px;
-      font-weight: normal; }
-    .mySeat .display_board .seated span {
-      color: greenyellow; }
-  .mySeat .display_board .payments {
-    height: 120px;
-    text-align: left; }
-    .mySeat .display_board .payments h5 {
-      color: #29303b;
-      font-size: 20px;
-      font-weight: normal; }
-    .mySeat .display_board .payments p:nth-child(2) {
-      color: #ff4500;
-      font-size: 13px;
-      font-weight: normal; }
-    .mySeat .display_board .payments p:nth-child(3) {
-      color: #a1a7b3;
-      font-size: 13px;
-      font-weight: normal; }
-      .mySeat .display_board .payments p:nth-child(3) i {
-        padding: 5px 10px;
-        border: 1px solid red;
-        border-radius: 50px;
-        background-color: red; }
-      .mySeat .display_board .payments p:nth-child(3) span {
-        color: #f4c150; }
-  .mySeat .display_board .accept_button {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .mySeat .display_board .accept_button button {
-      width: 100%;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      border-radius: 10px;
-      border-color: greenyellow;
-      background: linear-gradient(to right, #00b500, lime);
-      outline: none; }
+  background-color: white;
+}
+.mySeat .seat .theater {
+  display: flex;
+}
+.mySeat .seat .theater img {
+  height: 50px;
+  width: 50px;
+}
+.mySeat .seat .theater .theater_info {
+  padding-top: 5px;
+  padding-left: 20px;
+  text-align: left;
+}
+.mySeat .seat .theater .theater_info span {
+  display: block;
+}
+.mySeat .seat .theater .theater_info span:first-child {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: 600;
+}
+.mySeat .seat .theater .theater_info span:last-child {
+  color: #686f7a;
+  font-size: 15px;
+  font-weight: normal;
+}
+.mySeat .seat .time .time_remaining {
+  padding-top: 12px;
+}
+.mySeat .seat .time .time_remaining span {
+  display: block;
+}
+.mySeat .seat .time .time_remaining span:first-child {
+  color: #686f7a;
+  font-size: 15px;
+  font-weight: normal;
+}
+.mySeat .seat .time .time_remaining span:last-child {
+  color: red;
+}
+.mySeat .seat .screen img {
+  width: 100%;
+  height: 100px;
+}
+.mySeat .seat .seat_customer {
+  padding-top: 35px;
+}
+.mySeat .seat .seat_customer i {
+  font-size: 35px;
+  padding: 5px 5px;
+  cursor: pointer;
+  color: #a1a7b3;
+}
+.mySeat .seat .seat_customer .vip {
+  color: #f4c150;
+}
+.mySeat .seat .seat_customer .seating {
+  color: lightskyblue;
+}
+.mySeat .seat .seat_customer .seated {
+  color: #ff4500;
+  cursor: no-drop;
+}
+.mySeat .seat .seat_status {
+  padding-top: 50px;
+}
+.mySeat .seat .seat_status .row .seating i {
+  color: lightskyblue;
+}
+.mySeat .seat .seat_status .row .seated i {
+  color: #ff4500;
+}
+.mySeat .seat .seat_status .row .havent_seat i {
+  color: #a1a7b3;
+}
+.mySeat .seat .seat_status .row .vip_seat i {
+  color: #f4c150;
+}
+.mySeat .display_board .price {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySeat .display_board .price span {
+  color: greenyellow;
+  font-size: 35px;
+  font-weight: normal;
+}
+.mySeat .display_board hr {
+  background-color: white;
+}
+.mySeat .display_board .theater_info {
+  height: 120px;
+  text-align: left;
+}
+.mySeat .display_board .theater_info span:first-child {
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  background: #ec5252;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.mySeat .display_board .theater_info span:nth-child(2) {
+  margin-left: 15px;
+  color: #a1a7b3;
+  font-size: 13px;
+  font-weight: normal;
+}
+.mySeat .display_board .theater_info p:nth-child(3) {
+  margin-top: 10px;
+  color: #a1a7b3;
+  font-size: 13px;
+  font-weight: normal;
+}
+.mySeat .display_board .theater_info p:last-child {
+  color: #a1a7b3;
+  font-size: 13px;
+  font-weight: 600;
+}
+.mySeat .display_board .seated {
+  height: 120px;
+  text-align: left;
+}
+.mySeat .display_board .seated h5 {
+  color: #a1a7b3;
+  font-size: 13px;
+  font-weight: normal;
+}
+.mySeat .display_board .seated span {
+  color: greenyellow;
+}
+.mySeat .display_board .payments {
+  height: 120px;
+  text-align: left;
+}
+.mySeat .display_board .payments h5 {
+  color: #29303b;
+  font-size: 20px;
+  font-weight: normal;
+}
+.mySeat .display_board .payments p:nth-child(2) {
+  color: #ff4500;
+  font-size: 13px;
+  font-weight: normal;
+}
+.mySeat .display_board .payments p:nth-child(3) {
+  color: #a1a7b3;
+  font-size: 13px;
+  font-weight: normal;
+}
+.mySeat .display_board .payments p:nth-child(3) i {
+  padding: 5px 10px;
+  border: 1px solid red;
+  border-radius: 50px;
+  background-color: red;
+}
+.mySeat .display_board .payments p:nth-child(3) span {
+  color: #f4c150;
+}
+.mySeat .display_board .accept_button {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySeat .display_board .accept_button button {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border-color: greenyellow;
+  background: linear-gradient(to right, #00b500, lime);
+  outline: none;
+}
 
 .myLoadingScreen #preloader {
   position: fixed;
@@ -1238,150 +1621,191 @@ body {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-repeat: no-repeat; }
-  .myLoadingScreen #preloader .loader {
-    width: 130px;
-    height: 170px;
-    position: relative;
-    left: 47%;
-    top: 30%; }
-  .myLoadingScreen #preloader .loader::before,
-  .myLoadingScreen #preloader .loader::after {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: 30px;
-    left: 15px;
-    z-index: 1;
-    transform: scale(0);
-    transition: all 0.2s ease; }
-  .myLoadingScreen #preloader .loader .txt {
-    width: 120%;
-    text-align: center;
-    position: absolute;
-    bottom: -42px;
-    left: -10%;
-    font-family: "Abel", sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold; }
-  .myLoadingScreen #preloader .loader .code {
-    position: absolute;
-    z-index: 99;
-    bottom: -3px;
-    -webkit-animation-name: spaceboots;
-    -webkit-animation-duration: 0.8s;
-    -webkit-transform-origin: 50% 50%;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear; }
-  .myLoadingScreen #preloader .loader .box {
-    width: 100%;
-    height: 140px;
-    display: block;
-    color: white;
-    position: absolute;
-    top: -65px;
-    left: -3px;
-    z-index: 2;
-    overflow: hidden; }
-  .myLoadingScreen #preloader .loader .box::before,
-  .myLoadingScreen #preloader .loader .box::after {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0; }
-  .myLoadingScreen #preloader .loader .box:nth-child(1)::before {
-    font-size: 20px;
-    content: "\f13b";
-    animation: a 1.1s linear infinite; }
-  .myLoadingScreen #preloader .loader .box:nth-child(1)::after {
-    content: "\f13c";
-    animation: b 1.3s linear infinite; }
-  .myLoadingScreen #preloader .loader .box:nth-child(2)::before {
-    content: "\f121";
-    font-size: 25px;
-    animation: c 0.9s linear infinite; }
-  .myLoadingScreen #preloader .loader .box:nth-child(2)::after {
-    content: "\f19a ";
-    animation: d 0.7s linear infinite; }
-  .myLoadingScreen #preloader .loader.amit::before,
-  .myLoadingScreen #preloader .loader.amit::after {
-    transform: scale(1); }
+  background-repeat: no-repeat;
+}
+.myLoadingScreen #preloader .loader {
+  width: 130px;
+  height: 170px;
+  position: relative;
+  left: 47%;
+  top: 30%;
+}
+.myLoadingScreen #preloader .loader::before,
+.myLoadingScreen #preloader .loader::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 30px;
+  left: 15px;
+  z-index: 1;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+.myLoadingScreen #preloader .loader .txt {
+  width: 120%;
+  text-align: center;
+  position: absolute;
+  bottom: -42px;
+  left: -10%;
+  font-family: "Abel", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+.myLoadingScreen #preloader .loader .code {
+  position: absolute;
+  z-index: 99;
+  bottom: -3px;
+  -webkit-animation-name: spaceboots;
+  -webkit-animation-duration: 0.8s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+.myLoadingScreen #preloader .loader .box {
+  width: 100%;
+  height: 140px;
+  display: block;
+  color: white;
+  position: absolute;
+  top: -65px;
+  left: -3px;
+  z-index: 2;
+  overflow: hidden;
+}
+.myLoadingScreen #preloader .loader .box::before,
+.myLoadingScreen #preloader .loader .box::after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.myLoadingScreen #preloader .loader .box:nth-child(1)::before {
+  font-size: 20px;
+  content: "\f13b";
+  animation: a 1.1s linear infinite;
+}
+.myLoadingScreen #preloader .loader .box:nth-child(1)::after {
+  content: "\f13c";
+  animation: b 1.3s linear infinite;
+}
+.myLoadingScreen #preloader .loader .box:nth-child(2)::before {
+  content: "\f121";
+  font-size: 25px;
+  animation: c 0.9s linear infinite;
+}
+.myLoadingScreen #preloader .loader .box:nth-child(2)::after {
+  content: "\f19a";
+  animation: d 0.7s linear infinite;
+}
+.myLoadingScreen #preloader .loader.amit::before,
+.myLoadingScreen #preloader .loader.amit::after {
+  transform: scale(1);
+}
 @keyframes a {
   0% {
     transform: translate(30px, 0) rotate(30deg);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     transform: translate(30px, 150px) rotate(-50deg);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 @keyframes b {
   0% {
     transform: translate(50px, 0) rotate(-40deg);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     transform: translate(40px, 150px) rotate(80deg);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 @keyframes c {
   0% {
     transform: translate(70px, 0) rotate(10deg);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     transform: translate(60px, 150px) rotate(70deg);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 @keyframes d {
   0% {
     transform: translate(30px, 0) rotate(-50deg);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     transform: translate(45px, 150px) rotate(30deg);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 @-webkit-keyframes spaceboots {
   0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg); }
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+  }
   10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+  }
   20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+  }
   30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    -webkit-transform: translate(0px, 2px) rotate(0deg);
+  }
   40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+  }
   50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+  }
   60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+  }
   70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    -webkit-transform: translate(2px, 1px) rotate(-1deg);
+  }
   80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+  }
   90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    -webkit-transform: translate(2px, 2px) rotate(0deg);
+  }
   100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg); } }
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
 .myMovieManament {
-  position: relative; }
-  .myMovieManament .add_branch {
-    position: absolute;
-    font-size: fs-1;
-    top: -65px;
-    right: 5px; }
-  .myMovieManament .table .btn--edit,
-  .myMovieManament .table .btn--delete {
-    margin-top: 5px;
-    margin-bottom: 5px; }
-  .myMovieManament .table .btn--delete {
-    margin-left: 0;
-    padding-left: 21px;
-    padding-right: 21px; }
+  position: relative;
+}
+.myMovieManament .add_branch {
+  position: absolute;
+  font-size: fs-1;
+  top: -65px;
+  right: 5px;
+}
+.myMovieManament .table .btn--edit,
+.myMovieManament .table .btn--delete {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.myMovieManament .table .btn--delete {
+  margin-left: 0;
+  padding-left: 21px;
+  padding-right: 21px;
+}
 
 .btn--signIn {
   color: #686f7a;
@@ -1392,9 +1816,11 @@ body {
   border-left: none;
   border-bottom: none;
   border-top: none;
-  border-radius: 0; }
-  .btn--signIn:hover {
-    color: #686f7a; }
+  border-radius: 0;
+}
+.btn--signIn:hover {
+  color: #686f7a;
+}
 
 .btn--signUp {
   color: #686f7a;
@@ -1402,9 +1828,11 @@ body {
   font-weight: normal;
   border: 1px solid #a1a7b3;
   font-size: 13px;
-  border: none; }
-  .btn--signUp:hover {
-    color: #686f7a; }
+  border: none;
+}
+.btn--signUp:hover {
+  color: #686f7a;
+}
 
 .btn--movie {
   color: #fff;
@@ -1422,17 +1850,21 @@ body {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 0;
-  border-top-right-radius: 0; }
-  .btn--movie:hover {
-    color: #fff; }
+  border-top-right-radius: 0;
+}
+.btn--movie:hover {
+  color: #fff;
+}
 
 .btn--edit {
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px;
+}
 
 .btn--delete {
   margin-left: 10px;
   padding-left: 20px;
-  padding-right: 20px; }
+  padding-right: 20px;
+}
 
 /*# sourceMappingURL=style.css.map */

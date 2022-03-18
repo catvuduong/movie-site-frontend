@@ -10,19 +10,25 @@ export default class Header extends Component {
             icon: "",
             img: "",
             backHomePage: false,
-            signIn: "Đăng nhập",
-            disButton: false
+            signIn: null,
+            toggle: true,
+            userDropdown: { display: 'none' }
         }
     }
     componentDidMount() {
         const admin = JSON.parse(localStorage.getItem("Admin"));
         const user = JSON.parse(localStorage.getItem("User"));
-        if (admin || user) {
+        if (admin) {
             this.setState({
                 icon: "none",
                 img: "inline-block",
-                signIn: admin.username || user.username,
-                disButton: true
+                signIn: admin.username,
+            })
+        } else if (user) {
+            this.setState({
+                icon: "none",
+                img: "inline-block",
+                signIn: user.username,
             })
         } else {
             this.setState({
@@ -75,6 +81,39 @@ export default class Header extends Component {
         }
     }
 
+    handleDropdown = () => {
+        if (this.state.signIn) {
+            if (this.state.toggle) {
+                this.setState(
+                    {
+                        toggle: !this.state.toggle,
+                        userDropdown: { display: 'block' }
+                    }
+                );
+            } else {
+                this.setState(
+                    {
+                        toggle: !this.state.toggle,
+                        userDropdown: { display: 'none' }
+                    }
+                );
+            }
+
+        }
+    }
+
+    handleSignOut = () => {
+        const admin = JSON.parse(localStorage.getItem("Admin"));
+        const user = JSON.parse(localStorage.getItem("User"));
+        if (admin) {
+            window.localStorage.removeItem("Admin");
+            window.location.reload();
+        } else if (user) {
+            window.localStorage.removeItem("User");
+            window.location.reload();
+        }
+    }
+
     render() {
         return (
             <header className="navbar navbar-expand-md navbar-light myHeader">
@@ -89,7 +128,7 @@ export default class Header extends Component {
                         </button>
                         <div className="collapse navbar-collapse navbar_content" id="myMenu">
 
-                            <img src="/images/cinema-ver1.png" alt=""
+                            <img src="/images/friday-cinema.png" alt=""
                                 onClick={() => { this.checkLocation("#myCarousel") }}
                             />
 
@@ -120,16 +159,42 @@ export default class Header extends Component {
                     <div className="navbar_login">
                         <div className="navbar_signIn">
                             <i style={{ display: this.state.icon }} className="fa fa-user" />
-                            <img style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
-                            <button disabled={this.state.disButton} data-toggle="modal" data-target="#loginModal" className="btn btn--signIn">{this.state.signIn}</button>
+                            <div className="user-dropdown"
+                            >
+                                <div onClick={() => this.handleDropdown()}>
+                                    <img className='user-image' style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt=""
+                                    />
+                                    <button
+                                        className="btn btn--signIn"
+                                        data-toggle={this.state.signIn ? null : 'modal'}
+                                        data-target={this.state.signIn ? null : '#loginModal'}
+                                    >
+                                        {this.state.signIn ? this.state.signIn : "Đăng nhập"}
+                                    </button>
+                                </div>
+                                {
+                                    this.state.signIn ?
+                                        (
+                                            <div
+                                                className="dropdown-content user-content"
+                                                style={this.state.userDropdown}
+                                            >
+                                                <button
+                                                    onClick={() => this.handleSignOut()}
+                                                >Đăng xuất</button>
+                                            </div>
+                                        )
+                                        : null
+                                }
+                            </div>
                         </div>
                         <div className="narbar_signUp">
                             <i className="fa fa-map-marker-alt" />
-                            <NavLink className="btn btn--signUp" to={'register'} >Đăng Ký</NavLink>
+                            <NavLink className="btn btn--signUp" to={'/register'} >Đăng Ký</NavLink>
                         </div>
                     </div>
                 </div>
-            </header>
+            </header >
         )
     }
 }
