@@ -24,10 +24,12 @@
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^5.3.1",
+    "tar": "^6.1.11",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "node-sass --watch public/scss/main.scss --output src/css/",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
