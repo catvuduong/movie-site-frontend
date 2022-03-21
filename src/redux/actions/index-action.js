@@ -91,16 +91,6 @@ export const actGetListTheatersAPI = () => {
     }
 }
 
-export const actWarningBox = () => {
-    return async dispatch => {
-        dispatch({
-            type: ActionType.GET_WARNING_INFO,
-            warningInfo: { status: 'login successfully' }
-        })
-    }
-}
-
-
 export const actGetListUsersAPI = () => {
     return async dispatch => {
         let result = await axios({
@@ -155,19 +145,15 @@ export const actGetListTheatersByBranchIdAPI = () => {
     }
 }
 
-
-
 export const actLogin = (user, condi) => {
-    return async dispatch => {
+    return async () => {
         try {
             const resp = await axios.post('/users/login', user);
             // console.log(condi);
             if (condi === "loginHomePage") {
                 if (resp.data.role === 0) {
                     localStorage.setItem('Admin', JSON.stringify(resp.data));
-                    // dispatch(actWarningBox("Login successfully"));
-                    // return dispatch(actWarningBox());
-                    return dispatch(actWarningBox());
+                    alert("Login success u r admin");
                 } else {
                     localStorage.setItem('User', JSON.stringify(resp.data));
                     alert("Login success u r user");
@@ -434,8 +420,6 @@ export const actTicketManagement = (ticket, type) => {
         }
     }
 }
-
-
 
 
 

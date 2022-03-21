@@ -5,6 +5,7 @@ export default class LoadingScreen extends Component {
         return (
             <section className="myLoadingScreen" >
                 <div id="preloader" style={{ backgroundImage: `url(/images/backapp.jpg)` }}>
+                    {/* <div id="loader"></div> */}
                     <div className="loader">
                         <span className="box"></span>
                         <span className="box"></span>

@@ -9,14 +9,13 @@ import Article from './../../components/home/article';
 import Apps from './../../components/home/apps';
 import Banner from './../../components/home/banner';
 import LoadingScreen from './../home/loading-screen';
-import WarningModal from '../../components/modals/warning-modal';
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            signLoading: false,
+            signLoading: false
         }
         // console.log('From home:', this.props);
     }
@@ -28,9 +27,8 @@ class Home extends Component {
     render() {
         if (this.state.signLoading === true) {
             return (
-                <>
+                <div>
                     <Carousel></Carousel>
-                    {/* <WarningModal></WarningModal> */}
                     <ListMovie></ListMovie>
                     <Cinema listBranches={this.props.listBranches}
                         {...this.props}
@@ -39,7 +37,7 @@ class Home extends Component {
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
-                </>
+                </div>
             )
         }
         return <LoadingScreen></LoadingScreen>

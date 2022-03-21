@@ -71,14 +71,14 @@ export default class Header extends Component {
                 }, "fast");
             }, 500)
         }
-        // if (await this.props.location.pathname !== '/') {
-        //     await this.props.history.push('/');
-        //     await setTimeout(() => {
-        //         $('html, body').animate({
-        //             scrollTop: $(id).offset().top
-        //         }, "fast");
-        //     }, 100)
-        // }
+        if (await this.props.location.pathname !== '/') {
+            await this.props.history.push('/');
+            await setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: $(id).offset().top
+                }, "fast");
+            }, 100)
+        }
     }
 
     handleDropdown = () => {
