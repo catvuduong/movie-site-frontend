@@ -59,7 +59,7 @@ class LoginModal extends Component {
                 // this.test(this.props.showtimeId)
             }
         } else {
-            window.location.reload();
+            // window.location.reload();
         }
     }
 

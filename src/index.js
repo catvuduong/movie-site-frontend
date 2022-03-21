@@ -16,6 +16,8 @@ import "./css/simple-sidebar.css";
 
 // page not found lib
 import './css/page-not-found-lib.css';
+//animation warning modal
+import './css/modal-animation.css'
 
 import './config/interceptors';
 
