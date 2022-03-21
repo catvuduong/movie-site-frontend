@@ -7,6 +7,7 @@ import bookingTicketReducer from './booking-ticket-reducer';
 import showtimeReducer from './showtime-reducer';
 import userReducer from './user-reducer';
 import ticketReducer from './ticket-reducer';
+import warningModalReducer from './warning-modal-reducer';
 
 const rootReducer = combineReducers({
     movieReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     bookingTicketReducer,
     showtimeReducer,
     userReducer,
-    ticketReducer
+    ticketReducer,
+    warningModalReducer
 })
 
 export default rootReducer;

@@ -18,6 +18,8 @@ import "./css/simple-sidebar.css";
 <<<<<<< HEAD
 // page not found lib
 import './css/page-not-found-lib.css';
+//animation warning modal
+import './css/modal-animation.css'
 
 =======
 >>>>>>> parent of 223845f (update page not found and install node-sass.)
