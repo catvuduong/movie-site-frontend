@@ -3867,9 +3867,15 @@
     "cssom" "~0.3.6"
 
 "csstype@^3.0.2":
+<<<<<<< HEAD
   "integrity" "sha512-sa6P2wJ+CAbgyy4KFssIb/JNMLxFvKF1pCYCSXS8ZMuqZnMsrxqI2E5sPyoTpxoPU/gVZMzr2zjOfg8GIZOMsw=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.11.tgz"
   "version" "3.0.11"
+=======
+  "integrity" "sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g=="
+  "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.7.tgz"
+  "version" "3.0.7"
+>>>>>>> parent of 223845f (update page not found and install node-sass.)
 
 "cyclist@^1.0.1":
   "integrity" "sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk="
@@ -7661,6 +7667,7 @@
   "version" "1.1.67"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "node-sass@^4.0.0":
   "integrity" "sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g=="
   "resolved" "https://registry.npmjs.org/node-sass/-/node-sass-4.14.1.tgz"
@@ -7692,6 +7699,9 @@
     "abbrev" "1"
 
 "normalize-package-data@^2.3.2", "normalize-package-data@^2.3.4", "normalize-package-data@^2.5.0":
+=======
+"normalize-package-data@^2.3.2", "normalize-package-data@^2.5.0":
+>>>>>>> parent of 223845f (update page not found and install node-sass.)
 =======
 "normalize-package-data@^2.3.2", "normalize-package-data@^2.5.0":
 >>>>>>> parent of 223845f (update page not found and install node-sass.)
