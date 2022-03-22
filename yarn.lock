@@ -3857,6 +3857,7 @@
 "csstype@^3.0.2":
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "integrity" "sha512-sa6P2wJ+CAbgyy4KFssIb/JNMLxFvKF1pCYCSXS8ZMuqZnMsrxqI2E5sPyoTpxoPU/gVZMzr2zjOfg8GIZOMsw=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.11.tgz"
   "version" "3.0.11"
@@ -3866,6 +3867,8 @@
   "version" "3.0.7"
 >>>>>>> parent of 223845f (update page not found and install node-sass.)
 =======
+=======
+>>>>>>> parent of 92d9e12 (doing warning modal.)
   "integrity" "sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.7.tgz"
   "version" "3.0.7"
@@ -7670,7 +7673,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "node-sass@^4.0.0":
+=======
+"node-sass@^4.0.0", "node-sass@^4.14.1":
+>>>>>>> parent of 92d9e12 (doing warning modal.)
 =======
 "node-sass@^4.0.0", "node-sass@^4.14.1":
 >>>>>>> parent of 92d9e12 (doing warning modal.)
