@@ -14,14 +14,20 @@ import "slick-carousel/slick/slick-theme.css";
 // import './css/dash-board.css';
 import "./css/simple-sidebar.css";
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 // page not found lib
 import './css/page-not-found-lib.css';
 //animation warning modal
 import './css/modal-animation.css'
 
+=======
+>>>>>>> parent of 223845f (update page not found and install node-sass.)
+=======
+>>>>>>> parent of 223845f (update page not found and install node-sass.)
 import './config/interceptors';
 
-import './css/main.css';
+import './css/style.css';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';

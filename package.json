@@ -29,7 +29,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+<<<<<<< HEAD
     "watch": "node-sass --watch public/scss/main.scss --output src/css",
+=======
+>>>>>>> 4914e504a5698a12ceeee3c9cdf5b42b03f1e998
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
