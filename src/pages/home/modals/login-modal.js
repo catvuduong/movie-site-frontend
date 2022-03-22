@@ -67,7 +67,7 @@ class LoginModal extends Component {
         return (
             <Fragment>
                 <div
-                    className="modal fade"
+                    className="modal fade login"
                     id="loginModal"
                     tabIndex={-1}
                     role="dialog"
@@ -75,7 +75,7 @@ class LoginModal extends Component {
                     aria-hidden="true"
                 >
                     <div className="modal-dialog" role="document">
-                        <div className="modal-content text-right">
+                        <div className="modal-content login-content text-right">
                             <div className="modal-header">
                                 <h5 className="modal-title">
                                     {/* {this.props.objectEdit ? "EDIT BRANCH" : "ADD BRANCH"} */}

@@ -44,12 +44,12 @@ class TicketManagement extends Component {
                             <tr key={item.id}>
                                 <th scope="row">{orderNumber++}</th>
                                 <td>
-                                    <h4>theater image</h4>
-                                    <h4>theater name</h4>
+                                    <img src={`https://localhost:5001${item.showtime.theater.image}`} alt="" />
+                                    <h4>{item.showtime.theater.name}</h4>
                                 </td>
                                 <td>
-                                    <h4>movie image</h4>
-                                    <h4>movie name</h4>
+                                    <img src={item.showtime.movie.thumbnail} alt="" />
+                                    <h4>{item.showtime.movie.name}</h4>
                                 </td>
                                 <td>
                                     <h4>  {moment(item.showtime.time).format("HH:mm")}</h4>

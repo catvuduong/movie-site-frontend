@@ -6,7 +6,7 @@ import { routeHome, routeAdmin } from './routes';
 import HomeTemplate from './templates/home-template';
 import AdminTemplate from './templates/admin-template';
 import Admin from './pages/admin/admin';
-import pageNotFound from './pageNotFound';
+import PageNotFound from './page-not-found';
 
 const showMenuHome = routes => {
   if (routes && routes.length > 0) {
@@ -44,7 +44,7 @@ function App() {
           {showMenuHome(routeHome)}
           {showMenuAdmin(routeAdmin)}
           <Route path="/admin" component={Admin} />
-          <Route path="" component={pageNotFound} />
+          <Route path="" component={PageNotFound} />
         </Switch>
       </div>
     </BrowserRouter >

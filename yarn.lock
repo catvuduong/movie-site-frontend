@@ -6955,10 +6955,10 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.0"
 
-"jquery@^3.5.1", "jquery@>=1.8.0":
-  "integrity" "sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg=="
-  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.5.1.tgz"
-  "version" "3.5.1"
+"jquery@^3.6.0", "jquery@>=1.8.0":
+  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
+  "version" "3.6.0"
 
 "js-base64@^2.1.8":
   "integrity" "sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ=="
@@ -7924,7 +7924,7 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-1.1.67.tgz"
   "version" "1.1.67"
 
-"node-sass@^4.0.0":
+"node-sass@^4.0.0", "node-sass@^4.14.1":
   "integrity" "sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g=="
   "resolved" "https://registry.npmjs.org/node-sass/-/node-sass-4.14.1.tgz"
   "version" "4.14.1"
@@ -11400,10 +11400,10 @@
     "fstream" "^1.0.12"
     "inherits" "2"
 
-"tar@^6.0.2", "tar@^6.1.11":
-  "integrity" "sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA=="
-  "resolved" "https://registry.npmjs.org/tar/-/tar-6.1.11.tgz"
-  "version" "6.1.11"
+"tar@^6.0.2":
+  "integrity" "sha512-0b4HOimQHj9nXNEAA7zWwMM91Zhhba3pspja6sQbgTpynOJf+bkjBnfybNYzbpLbnwXnbyB4LOREvlyXLkCHSg=="
+  "resolved" "https://registry.npmjs.org/tar/-/tar-6.0.5.tgz"
+  "version" "6.0.5"
   dependencies:
     "chownr" "^2.0.0"
     "fs-minipass" "^2.0.0"

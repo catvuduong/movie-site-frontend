@@ -59,14 +59,14 @@ class WarningModal extends Component {
     renderWarning = (warning, image) => {
         return (
             <>
-                {/* <Modal.Header closeButton>
+                <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>
                     <img className='warning-image' src={image} alt=""></img>
                     <h5 className='warning-text'>
                         {warning}
                     </h5>
-                </Modal.Body> */}
+                </Modal.Body>
             </>
         )
     }
@@ -76,11 +76,11 @@ class WarningModal extends Component {
             <>
                 {/* <Button variant="primary" onClick={() => this.setState({
                     show: true,
-                    warning: 'Login successfully',
-                    image: './images/123go.png'
+                    warning: 'Đăng nhập thành công',
+                    image: './images/successful-warning.png'
                 })}>
                     Launch static backdrop modal
-                </Button>
+                </Button> */}
                 <Modal
                     className='warning'
                     show={this.state.show}
@@ -88,12 +88,12 @@ class WarningModal extends Component {
                     <div className='warning-content'>
                         {this.renderWarning(this.state.warning, this.state.image)}
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={() => this.handleClose(this.state.status)}>
+                            <Button className='warning-button' variant="secondary" onClick={() => this.handleClose(this.state.status)}>
                                 Close
                             </Button>
                         </Modal.Footer>
                     </div>
-                </Modal > */}
+                </Modal >
             </>
         );
     }
