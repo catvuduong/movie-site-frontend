@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as action from "./../../redux/actions/index-action";
 import moment from 'moment';
+import WarningModal from '../../components/modals/warning-modal';
 
 class BookingTicket extends Component {
     constructor(props) {
@@ -148,7 +149,7 @@ class BookingTicket extends Component {
         // console.log(this.state.seatedArr, this.state.totalPrice);
         const id = this.props.match.params.id;
         await this.props.bookTicket(this.state.seatedArr, id);
-        await window.location.reload()
+        // await window.location.reload()
     }
 
     checkBookedSeats = (indexC, indexR) => {
@@ -228,6 +229,7 @@ class BookingTicket extends Component {
                         </div>
                     </div>
                 </div>
+                <WarningModal />
             </section>
         )
     }

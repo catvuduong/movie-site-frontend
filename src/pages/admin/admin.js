@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import WarningModal from '../../components/modals/warning-modal';
 import * as action from './../../redux/actions/index-action';
 
 class Admin extends Component {
@@ -45,6 +46,7 @@ class Admin extends Component {
                         </button>
                     </form>
                 </div>
+                <WarningModal />
             </div>
         )
     }

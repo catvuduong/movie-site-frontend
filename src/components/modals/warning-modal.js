@@ -23,15 +23,34 @@ class WarningModal extends Component {
     handleShow = status => {
         // console.log(status);
         switch (status) {
-            case "login successfully":
-                let text = 'Đăng nhập thành công'
+            case "Login successfully": {
+                let text = 'Đăng nhập thành công';
                 this.setState({
                     show: true,
                     warning: text,
-                    image: './images/successful-warning.jpeg'
+                    image: '/images/successful-warning.png'
                 })
-
                 break;
+            }
+            case "Book successfully": {
+                let text = 'Đặt vé thành công';
+                this.setState({
+                    show: true,
+                    warning: text,
+                    image: '/images/successful-warning.png'
+                })
+                break;
+            }
+            case "Login failed": {
+                let text = 'Đăng nhập thất bại';
+                this.setState({
+                    show: true,
+                    warning: text,
+                    image: '/images/failed-warning.png'
+                })
+                break;
+            }
+
             default:
                 break;
         }
@@ -39,7 +58,15 @@ class WarningModal extends Component {
 
     handleClose = status => {
         switch (status) {
-            case "login successfully":
+            case "Login successfully":
+                this.setState({
+                    show: false,
+                    status: ''
+                })
+                this.props.clearnWarning();
+                window.location.reload();
+                break;
+            case "Book successfully":
                 this.setState({
                     show: false,
                     status: ''
@@ -59,9 +86,12 @@ class WarningModal extends Component {
     renderWarning = (warning, image) => {
         return (
             <>
-                <Modal.Header closeButton>
+                <Modal.Header className='warning-header'>
+                    <span className='warning-sign'
+                        onClick={() => this.handleClose(this.state.status)}
+                    >x</span>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='warning-body'>
                     <img className='warning-image' src={image} alt=""></img>
                     <h5 className='warning-text'>
                         {warning}
@@ -89,7 +119,7 @@ class WarningModal extends Component {
                         {this.renderWarning(this.state.warning, this.state.image)}
                         <Modal.Footer>
                             <Button className='warning-button' variant="secondary" onClick={() => this.handleClose(this.state.status)}>
-                                Close
+                                OK
                             </Button>
                         </Modal.Footer>
                     </div>

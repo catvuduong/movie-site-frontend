@@ -7,7 +7,7 @@
     "@testing-library/react": "^11.2.1",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^4.5.3",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
@@ -29,10 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
     "watch": "node-sass --watch public/scss/main.scss --output src/css",
-=======
->>>>>>> 4914e504a5698a12ceeee3c9cdf5b42b03f1e998
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -30,7 +30,6 @@ class Home extends Component {
             return (
                 <>
                     <Carousel></Carousel>
-                    <WarningModal></WarningModal>
                     <ListMovie></ListMovie>
                     <Cinema listBranches={this.props.listBranches}
                         {...this.props}
@@ -39,6 +38,7 @@ class Home extends Component {
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
+                    <WarningModal></WarningModal>
                 </>
             )
         }

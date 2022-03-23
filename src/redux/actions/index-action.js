@@ -91,11 +91,11 @@ export const actGetListTheatersAPI = () => {
     }
 }
 
-export const actWarningBox = () => {
+export const actWarningBox = status => {
     return async dispatch => {
         dispatch({
             type: ActionType.GET_WARNING_INFO,
-            warningInfo: { status: 'login successfully' }
+            warningInfo: { status }
         })
     }
 }
@@ -161,28 +161,23 @@ export const actLogin = (user, condi) => {
     return async dispatch => {
         try {
             const resp = await axios.post('/users/login', user);
-            // console.log(condi);
             if (condi === "loginHomePage") {
                 if (resp.data.role === 0) {
                     localStorage.setItem('Admin', JSON.stringify(resp.data));
-                    // dispatch(actWarningBox("Login successfully"));
-                    // return dispatch(actWarningBox());
-                    return dispatch(actWarningBox());
+                    return dispatch(actWarningBox('Login successfully'));
                 } else {
                     localStorage.setItem('User', JSON.stringify(resp.data));
-                    alert("Login success u r user");
+                    return dispatch(actWarningBox('Login successfully'));
                 }
             }
             else if (condi !== "loginHomePage" && resp.data.role === 0) {
                 localStorage.setItem('Admin', JSON.stringify(resp.data));
-                alert("Login success");
-                condi.push('/dash-board');
-            } else {
-                alert("Login failure, you are not admin");
+                await dispatch(actWarningBox('Login successfully'));
             }
         } catch (err) {
             // Handle Error Here
-            alert(err.response.data.message);
+            return dispatch(actWarningBox('Login failed'));
+            // alert(err.response.data.message);
         }
     }
 }
@@ -382,10 +377,10 @@ export const actUserManagement = (user, type) => {
 }
 
 export const actBookTicket = (tickets, showtimeId) => {
-    return async () => {
+    return async dispatch => {
         try {
             await axios.post('/tickets/book-ticket', { tickets, showtimeId });
-            alert("Đặt vé thành công");
+            await dispatch(actWarningBox('Book successfully'));
         } catch (err) {
             alert(err.response.data);
         }

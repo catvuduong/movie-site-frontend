@@ -2,6 +2,23 @@
     .modal-dialog {
         padding-top: 5%;
     }
+    &-header {
+        flex-direction: row-reverse;
+    }
+    &-sign {
+        border: 2px solid #545b5e;
+        color: #545b5e;
+
+        padding: 0 10px;
+        border-radius: 15px;
+        transition: all 0.2s !important;
+        cursor: pointer;
+        &:hover {
+            color: #fff;
+            border-color: #007bff;
+            background-color: #007bff;
+        }
+    }
     &-content {
         text-align: center;
         .modal-header,
@@ -9,6 +26,9 @@
             border: none;
         }
     }
+    // &- {
+    //     text-align: center;
+    // }
     &-image {
         width: 100px;
         height: 100px;
@@ -20,6 +40,11 @@
         margin-bottom: 10px;
     }
     &-button {
-        background-color: #0d6efd;
+        padding: 3px 35px;
+        border: none;
+        background-color: #665e53;
+        &:hover {
+            background-color: #007bff;
+        }
     }
 }
