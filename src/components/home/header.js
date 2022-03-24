@@ -39,7 +39,6 @@ export default class Header extends Component {
     }
 
     backToHomePage = (id) => {
-        // e.preventDefault();
         switch (id) {
             case "#myCarousel":
                 this.checkLocation(id);
@@ -71,14 +70,6 @@ export default class Header extends Component {
                 }, "fast");
             }, 500)
         }
-        // if (await this.props.location.pathname !== '/') {
-        //     await this.props.history.push('/');
-        //     await setTimeout(() => {
-        //         $('html, body').animate({
-        //             scrollTop: $(id).offset().top
-        //         }, "fast");
-        //     }, 100)
-        // }
     }
 
     handleDropdown = () => {
@@ -116,22 +107,18 @@ export default class Header extends Component {
 
     render() {
         return (
-            <header className="navbar navbar-expand-md navbar-light myHeader">
-                <div className="container">
-                    <div className="navbar_contain">
-                        <button
-                            className="navbar-toggler"
-                            data-toggle="collapse"
-                            data-target="#myMenu"
-                        >
-                            <span className="navbar-toggler-icon" />
-                        </button>
-                        <div className="collapse navbar-collapse navbar_content" id="myMenu">
-
-                            <img src="/images/friday-cinema.png" alt=""
+            <header className='myHeader'>
+                <div className='container'>
+                    <nav className="navbar navbar-expand-lg navbar-light navbar_contain">
+                        <div className='header_logo'>
+                            <img className='logo_image' src="/images/friday-cinema.png" alt=""
                                 onClick={() => { this.checkLocation("#myCarousel") }}
                             />
-
+                        </div>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse navbar_content" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a onClick={() => { this.backToHomePage("#listMovie") }} className="nav-link" href="#listMovie">
@@ -153,47 +140,118 @@ export default class Header extends Component {
                                         Ứng Dụng
                                     </a>
                                 </li>
+                                <li className='nav-item'>
+                                    <h4 className='user_title'>Chức năng người dùng</h4>
+                                    <div className='user_function'>
+                                        <div className="navbar_signIn">
+                                            <button
+                                                className='signIn_button'
+                                                data-toggle={this.state.signIn ? null : 'modal'}
+                                                data-target={this.state.signIn ? null : '#loginModal'}
+                                            >
+                                                <i
+                                                    className="fa fa-user"
+                                                    style={{ display: this.state.icon }}
+
+                                                />
+                                            </button>
+                                            <div className="user-dropdown"
+                                            >
+                                                <div onClick={() => this.handleDropdown()}>
+                                                    <img className='user-image' style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt=""
+                                                    />
+                                                    <button
+                                                        className="btn btn--signIn"
+                                                        data-toggle={this.state.signIn ? null : 'modal'}
+                                                        data-target={this.state.signIn ? null : '#loginModal'}
+                                                    >
+                                                        {this.state.signIn ? this.state.signIn : "Đăng nhập"}
+                                                    </button>
+                                                </div>
+                                                {
+                                                    this.state.signIn ?
+                                                        (
+                                                            <div
+                                                                className="dropdown-content user-content"
+                                                                style={this.state.userDropdown}
+                                                            >
+                                                                <button
+                                                                    onClick={() => this.handleSignOut()}
+                                                                >Đăng xuất
+                                                                </button>
+                                                            </div>
+                                                        )
+                                                        : null
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="narbar_signUp">
+                                            <NavLink className="btn btn--signUp" to={'/register'} >
+                                                <i className="fa fa-map-marker-alt" />
+                                            </NavLink>
+                                            <NavLink className='signUp_text' to={'/register'}>
+                                                Đăng Ký
+                                            </NavLink>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
-                    </div>
-                    <div className="navbar_login">
-                        <div className="navbar_signIn">
-                            <i style={{ display: this.state.icon }} className="fa fa-user" />
-                            <div className="user-dropdown"
-                            >
-                                <div onClick={() => this.handleDropdown()}>
-                                    <img className='user-image' style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt=""
+                        <div className="navbar_login">
+                            <div className="navbar_signIn">
+                                <button
+                                    className='signIn_button'
+                                    data-toggle={this.state.signIn ? null : 'modal'}
+                                    data-target={this.state.signIn ? null : '#loginModal'}
+                                >
+                                    <i
+                                        className="fa fa-user"
+                                        style={{ display: this.state.icon }}
+
                                     />
-                                    <button
-                                        className="btn btn--signIn"
-                                        data-toggle={this.state.signIn ? null : 'modal'}
-                                        data-target={this.state.signIn ? null : '#loginModal'}
-                                    >
-                                        {this.state.signIn ? this.state.signIn : "Đăng nhập"}
-                                    </button>
+                                </button>
+                                <div className="user-dropdown">
+                                    <div onClick={() => this.handleDropdown()}>
+                                        <img className='user-image' style={{ display: this.state.img }} src="/images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt=""
+                                        />
+                                        <button
+                                            className="btn btn--signIn"
+                                            data-toggle={this.state.signIn ? null : 'modal'}
+                                            data-target={this.state.signIn ? null : '#loginModal'}
+                                        >
+                                            {this.state.signIn ? this.state.signIn : "Đăng nhập"}
+                                        </button>
+                                    </div>
+                                    {
+                                        this.state.signIn ?
+                                            (
+                                                <div
+                                                    className="dropdown-content user-content"
+                                                    style={this.state.userDropdown}
+                                                >
+                                                    <button
+                                                        onClick={() => this.handleSignOut()}
+                                                    >
+                                                        Đăng xuất
+                                                    </button>
+                                                </div>
+                                            )
+                                            : null
+                                    }
                                 </div>
-                                {
-                                    this.state.signIn ?
-                                        (
-                                            <div
-                                                className="dropdown-content user-content"
-                                                style={this.state.userDropdown}
-                                            >
-                                                <button
-                                                    onClick={() => this.handleSignOut()}
-                                                >Đăng xuất</button>
-                                            </div>
-                                        )
-                                        : null
-                                }
+                            </div>
+                            <div className="narbar_signUp">
+                                <NavLink className="btn btn--signUp" to={'/register'} >
+                                    <i className="fa fa-map-marker-alt" />
+                                </NavLink>
+                                <NavLink className='signUp_text' to={'/register'}>
+                                    Đăng Ký
+                                </NavLink>
                             </div>
                         </div>
-                        <div className="narbar_signUp">
-                            <i className="fa fa-map-marker-alt" />
-                            <NavLink className="btn btn--signUp" to={'/register'} >Đăng Ký</NavLink>
-                        </div>
-                    </div>
+                    </nav>
                 </div>
+
             </header >
         )
     }

@@ -15,16 +15,126 @@ body {
   left: 0;
   width: 100%;
   z-index: 99; }
-  .myHeader .navbar_login {
+  .myHeader .navbar_contain {
+    width: 100%;
     display: flex;
-    position: absolute;
-    right: 3%; }
+    justify-content: space-around; }
+    .myHeader .navbar_contain .header_logo {
+      text-align: left;
+      cursor: pointer; }
+    .myHeader .navbar_contain .navbar_content {
+      text-align: left;
+      justify-content: center; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a {
+        font-size: 15px;
+        color: #000;
+        transition: 0.2s; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a:hover {
+          color: #ff4500; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_title {
+        display: none;
+        margin: 10px 0;
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: #a1a7b3; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function {
+        display: none; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .signIn_button {
+          border: none;
+          background-color: transparent;
+          outline: none; }
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .signIn_button .fa-user {
+            color: gray;
+            transition: all 0.5s; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .btn--signIn {
+          box-shadow: none; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .btn--signIn,
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .fa-user {
+          color: gray;
+          transition: all 0.5s; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn img {
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+          border: 3px solid gray;
+          transition: all 0.5s;
+          display: none; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn:hover .btn--signIn,
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn:hover .fa-user {
+          color: black; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn:hover img {
+          border: 3px solid black; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-dropdown {
+          position: relative;
+          display: inline-block; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-content {
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-dropdown .user-content {
+          text-align: center;
+          padding: 10px 10px;
+          border-radius: 3px; }
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-dropdown .user-content button {
+            font-size: 15px;
+            font-weight: 500;
+            padding: 5px 10px;
+            background-color: #a1a7b3;
+            transition: 0.2s;
+            border: none; }
+            .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-dropdown .user-content button:hover {
+              background-color: #007bff; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp {
+          margin-left: 15px; }
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp .btn--signUp {
+            padding: 0;
+            box-shadow: none;
+            color: gray;
+            transition: all 0.5s; }
+            .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp .btn--signUp .fa-map-marker-alt {
+              font-size: 20px;
+              color: gray;
+              transition: all 0.5s; }
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp .signUp_text {
+            margin-left: 10px;
+            font-size: 13px;
+            text-decoration: none;
+            color: gray;
+            transition: all 0.5s; }
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp:hover .btn--signUp,
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp:hover .fa-map-marker-alt,
+          .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .narbar_signUp:hover .signUp_text {
+            color: black; }
+  .myHeader .navbar_login {
+    display: flex; }
+    .myHeader .navbar_login .navbar_signIn .signIn_button {
+      border: none;
+      background-color: transparent;
+      outline: none; }
+      .myHeader .navbar_login .navbar_signIn .signIn_button .fa-user {
+        color: gray;
+        transition: all 0.5s; }
     .myHeader .navbar_login .navbar_signIn .btn--signIn {
       box-shadow: none; }
     .myHeader .navbar_login .navbar_signIn .btn--signIn,
     .myHeader .navbar_login .navbar_signIn .fa-user {
       color: gray;
       transition: all 0.5s; }
+    .myHeader .navbar_login .navbar_signIn .user-dropdown .user-content {
+      padding: 10px 10px;
+      border-radius: 3px; }
+      .myHeader .navbar_login .navbar_signIn .user-dropdown .user-content button {
+        font-size: 15px;
+        font-weight: 500;
+        padding: 5px 10px;
+        background-color: #a1a7b3;
+        transition: 0.2s;
+        border: none; }
+        .myHeader .navbar_login .navbar_signIn .user-dropdown .user-content button:hover {
+          background-color: #007bff; }
     .myHeader .navbar_login .navbar_signIn img {
       width: 30px;
       height: 30px;
@@ -46,56 +156,42 @@ body {
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1; }
-    .myHeader .navbar_login .narbar_signUp .btn--signUp {
-      box-shadow: none; }
-    .myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
-      margin-left: 12px; }
-    .myHeader .navbar_login .narbar_signUp .btn--signUp,
-    .myHeader .navbar_login .narbar_signUp .fa-map-marker-alt {
-      color: gray;
-      transition: all 0.5s; }
-    .myHeader .navbar_login .narbar_signUp:hover .btn--signUp,
-    .myHeader .navbar_login .narbar_signUp:hover .fa-map-marker-alt {
-      color: black; }
-  @media screen and (max-width: 992px) {
-    .myHeader .navbar_login {
-      right: 1%; } }
-  .myHeader .navbar_contain {
-    width: 100%; }
-    .myHeader .navbar_contain .navbar_content {
-      margin: auto;
-      width: 60%;
-      justify-content: space-around; }
-      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a {
-        color: #29303b;
+    .myHeader .navbar_login .narbar_signUp {
+      margin-left: 15px; }
+      .myHeader .navbar_login .narbar_signUp .btn--signUp {
+        padding: 0;
+        box-shadow: none;
+        color: gray;
+        transition: all 0.5s; }
+        .myHeader .navbar_login .narbar_signUp .btn--signUp .fa-map-marker-alt {
+          font-size: 20px;
+          color: gray;
+          transition: all 0.5s; }
+      .myHeader .navbar_login .narbar_signUp .signUp_text {
+        margin-left: 10px;
         font-size: 13px;
-        font-weight: bold;
-        transition: all 0.5s;
-        padding: 10px 15px; }
-        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item a:hover {
-          color: #ec5252; }
-  @media screen and (max-width: 767px) {
-    .myHeader .container {
-      max-width: 100%;
-      display: flex;
-      align-items: baseline; }
-      .myHeader .container .navbar_contain {
-        text-align: left;
-        width: 20%; }
-        .myHeader .container .navbar_contain .navbar_content {
-          margin: 0; }
-          .myHeader .container .navbar_contain .navbar_content .navbar-nav {
-            text-align: left; }
-            .myHeader .container .navbar_contain .navbar_content .navbar-nav .nav-item .nav-link {
-              padding: 10px 0;
-              padding-bottom: 5px; }
-      .myHeader .container .navbar_login {
-        position: unset; } }
+        text-decoration: none;
+        color: gray;
+        transition: all 0.5s; }
+      .myHeader .navbar_login .narbar_signUp:hover .btn--signUp,
+      .myHeader .navbar_login .narbar_signUp:hover .fa-map-marker-alt,
+      .myHeader .navbar_login .narbar_signUp:hover .signUp_text {
+        color: black; }
+  @media screen and (max-width: 992px) {
+    .myHeader .navbar_contain {
+      justify-content: space-between; }
+      .myHeader .navbar_contain .navbar_login {
+        display: none; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .nav-link {
+        padding: 2px 15px; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_title {
+        display: block;
+        padding-left: 15px; }
+      .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function {
+        display: flex;
+        padding-left: 15px; } }
   @media screen and (max-width: 576px) {
-    .myHeader .container .navbar_contain {
-      width: 35%; } }
-  @media screen and (max-width: 368px) {
-    .myHeader .container .navbar_contain {
+    .myHeader .navbar_contain .header_logo .logo_image {
       width: 50%; } }
 
 .myCarousel .carousel_item {
