@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
 import MovieModal from './../home/movie-modal';
+import { Element } from 'react-scroll';
 
 class Carousel extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Carousel extends Component {
             }
         }
         return (
-            <section id="myCarousel" className="myCarousel">
+            <Element id="myCarousel" name='srollToHome' className="myCarousel">
                 <Swiper {...params}>
                     <div className="carousel_item">
                         <img src="./images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
@@ -63,7 +64,7 @@ class Carousel extends Component {
                     </div>
                 </Swiper>
                 <MovieModal link={this.state.link}></MovieModal>
-            </section >
+            </Element >
         )
     }
 }

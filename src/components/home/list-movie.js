@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import * as action from "./../../redux/actions/index-action";
 import Movie from "./movie";
 import Slider from "react-slick";
+import { Element } from 'react-scroll';
+
 
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -120,7 +122,7 @@ class ListMovie extends Component {
         let filmingClass = this.state.filmingClicked ? "active" : "";
         let goingFilmClass = this.state.goingFilmClicked ? "active" : "";
         return (
-            <section className="myListMovie" id="listMovie">
+            <Element className="myListMovie" name="srollToListMovie">
                 <div className="list_content">
                     <div className="container-fluid">
                         <div className="list_tittle">
@@ -136,7 +138,7 @@ class ListMovie extends Component {
                         </Slider>
                     </div>
                 </div>
-            </section>
+            </Element>
         )
     }
 }

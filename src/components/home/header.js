@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
+import { scroller } from 'react-scroll'
 
 export default class Header extends Component {
     constructor(props) {
@@ -15,6 +15,7 @@ export default class Header extends Component {
             userDropdown: { display: 'none' }
         }
     }
+
     componentDidMount() {
         const admin = JSON.parse(localStorage.getItem("Admin"));
         const user = JSON.parse(localStorage.getItem("User"));
@@ -38,38 +39,28 @@ export default class Header extends Component {
         }
     }
 
-    backToHomePage = (id) => {
-        switch (id) {
-            case "#myCarousel":
-                this.checkLocation(id);
-                break;
-            case "#listMovie":
-                this.checkLocation(id);
-                break;
-            case "#cinema":
-                this.checkLocation(id);
-                break;
-            case "#article":
-                this.checkLocation(id);
-                break;
-            case "#apps":
-                this.checkLocation(id);
-                break;
-            default:
-                break;
-        }
+    componentDidUpdate() {
+        // console.log(this.props.completeRender);
     }
 
 
-    checkLocation = async id => {
-        if (id === "#myCarousel") {
-            await this.props.history.push('/');
-            await setTimeout(() => {
-                $('html, body').animate({
-                    scrollTop: $(id).offset().top
-                }, "fast");
-            }, 500)
-        }
+    scrollTo = name => {
+        scroller.scrollTo(name, {
+            duration: 1,
+            delay: 0,
+            smooth: 'easeInOutQuart'
+        })
+    }
+
+
+    backToHomePage = async id => {
+        await this.props.history.push('/');
+        // if (await this.props.completeRender === 'complete_render') {
+        //     await this.scrollTo(id);
+        // }
+        await setTimeout(() => {
+            this.scrollTo(id);
+        }, 500);
     }
 
     handleDropdown = () => {
@@ -112,7 +103,7 @@ export default class Header extends Component {
                     <nav className="navbar navbar-expand-lg navbar-light navbar_contain">
                         <div className='header_logo'>
                             <img className='logo_image' src="/images/friday-cinema.png" alt=""
-                                onClick={() => { this.checkLocation("#myCarousel") }}
+                                onClick={() => { this.backToHomePage('srollToHome') }}
                             />
                         </div>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,22 +112,22 @@ export default class Header extends Component {
                         <div className="collapse navbar-collapse navbar_content" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a onClick={() => { this.backToHomePage("#listMovie") }} className="nav-link" href="#listMovie">
+                                    <a onClick={() => { this.backToHomePage('srollToListMovie') }} className="nav-link" href="#listMovie">
                                         Lịch Chiếu
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={() => { this.backToHomePage("#cinema") }} className="nav-link" href="#cinema">
+                                    <a onClick={() => { this.backToHomePage('srollToCinema') }} className="nav-link" href="#cinema">
                                         Cụm Rạp
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={() => { this.backToHomePage("#article") }} className="nav-link" href="#article">
+                                    <a onClick={() => { this.backToHomePage('srollToArticle') }} className="nav-link" href="#article">
                                         Tin Tức
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={() => { this.backToHomePage("#apps",) }} className="nav-link" href="#apps">
+                                    <a onClick={() => { this.backToHomePage('srollToApp') }} className="nav-link" href="#apps">
                                         Ứng Dụng
                                     </a>
                                 </li>

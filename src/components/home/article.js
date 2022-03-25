@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
 import News from './news-expansion';
 import * as Actiontype from './../../redux/constants/action-type';
+import { Element } from 'react-scroll';
+
 
 class Article extends Component {
     constructor(props) {
@@ -59,7 +61,7 @@ class Article extends Component {
         let review = this.state.reviewOn ? "active" : "";
         let promo = this.state.PromotionOn ? "active" : "";
         return (
-            < section className="myArticle container" id="article">
+            < Element name='srollToArticle' className="myArticle container" >
                 <div className="wig"></div>
                 <div className="article_title container-fluid">
                     <button className={`article_film ${film}`} onClick={() => this.handleFilm()}>Điện Ảnh 24h</button>
@@ -79,7 +81,7 @@ class Article extends Component {
                         onClick={() => this.expandNews()}
                     >XEM THÊM</button>
                 </div>
-            </section >
+            </Element >
         )
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from './../components/home/header';
+import { connect } from 'react-redux';
 
 const HomeLayout = props => {
     return (
@@ -8,13 +9,14 @@ const HomeLayout = props => {
     )
 }
 
-export default function HomeTemplate({ Component, ...props }) {
+function HomeTemplate({ Component, completeInfo, ...props }) {
     return (
         <Route  {...props} render={propsComponent => {
-            // console.log('From template:', propsComponent);
             return (
                 <HomeLayout >
-                    <Header {...propsComponent} />
+                    <Header {...propsComponent}
+                        completeRender={completeInfo}
+                    />
                     <Component {...propsComponent} />
                 </HomeLayout>
             )
@@ -22,3 +24,12 @@ export default function HomeTemplate({ Component, ...props }) {
         } />
     )
 }
+
+
+const mapStateToProps = state => {
+    return {
+        completeInfo: state.warningModalReducer.completeInfo
+    };
+};
+
+export default connect(mapStateToProps, null)(HomeTemplate);

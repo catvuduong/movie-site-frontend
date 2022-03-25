@@ -3,7 +3,8 @@ import * as Actiontype from './../constants/action-type';
 let initialState = {
     warningInfo: {
         status: null
-    }
+    },
+    completeInfo: ''
 }
 
 const warningModalReducer = (state = initialState, action) => {
@@ -14,6 +15,9 @@ const warningModalReducer = (state = initialState, action) => {
         }
         case Actiontype.CLEAR_WARNING_INFO: {
             return { ...state, warningInfo: { status: null } }
+        }
+        case Actiontype.SEND_COMPLETE_INFO: {
+            return { ...state, completeInfo: action.info }
         }
         default:
             return { ...state }

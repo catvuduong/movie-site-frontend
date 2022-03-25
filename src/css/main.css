@@ -74,6 +74,8 @@ body {
           min-width: 160px;
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           z-index: 1; }
+        .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-image {
+          cursor: pointer; }
         .myHeader .navbar_contain .navbar_content .navbar-nav .nav-item .user_function .navbar_signIn .user-dropdown .user-content {
           text-align: center;
           padding: 10px 10px;
@@ -156,6 +158,8 @@ body {
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1; }
+    .myHeader .navbar_login .navbar_signIn .user-image {
+      cursor: pointer; }
     .myHeader .navbar_login .narbar_signUp {
       margin-left: 15px; }
       .myHeader .navbar_login .narbar_signUp .btn--signUp {

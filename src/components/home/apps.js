@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
+import { Element } from 'react-scroll';
 
 export default class Apps extends Component {
     render() {
@@ -13,7 +14,7 @@ export default class Apps extends Component {
             },
         }
         return (
-            <section className="myApps" id="apps" style={{ backgroundImage: `url(./images/backapp.jpg)` }}>
+            <Element name='srollToApp' className="myApps" style={{ backgroundImage: `url(./images/backapp.jpg)` }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-6 app_intro">
@@ -45,7 +46,7 @@ export default class Apps extends Component {
                         </div>
                     </div>
                 </div>
-            </section>
+            </Element>
         )
     }
 }

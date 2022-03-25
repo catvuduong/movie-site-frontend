@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import * as ActionType from './../../redux/constants/action-type';
-import LoginModal from '../../pages/home/modals/login-modal'
+import LoginModal from '../../pages/home/modals/login-modal';
 import $ from 'jquery';
+import { Element } from 'react-scroll';
+
 
 class Cinema extends Component {
     constructor(props) {
@@ -36,7 +38,7 @@ class Cinema extends Component {
             btnsTheater[0].className += " btnsTheater_active";
         }
     }
-    
+
     orderedMovies = array => {
         let orderedMovies = [];
         if (array) { // Check if first theater is existed
@@ -114,7 +116,7 @@ class Cinema extends Component {
 
     render() {
         return (
-            <section className="myCinema container" id="cinema">
+            <Element name='srollToCinema' className="myCinema container" >
                 <div className="wig"></div>
                 <div className="row">
                     <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 cinema_logo cinema_line">
@@ -180,7 +182,7 @@ class Cinema extends Component {
                     </div>
                 </div>
                 <LoginModal showtimeId={this.state.showtimeId} {...this.props}></LoginModal>
-            </section >
+            </Element >
         )
     }
 }
