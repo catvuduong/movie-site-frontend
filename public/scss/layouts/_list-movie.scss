@@ -48,8 +48,18 @@
                     font-size: $fs-0;
                 }
             }
+            @include respond-to("medium") {
+                width: 50%;
+                .filming,
+                .goingto_film {
+                    font-size: $fs-0;
+                }
+            }
             @include respond-to("small") {
                 width: 80%;
+            }
+            @include respond-to("450") {
+                width: 90%;
             }
             @include respond-to("extra-small") {
                 width: 100%;

@@ -289,9 +289,18 @@ body {
         .myListMovie .list_content .list_tittle .filming,
         .myListMovie .list_content .list_tittle .goingto_film {
           font-size: 15px; } }
+    @media screen and (max-width: 767px) {
+      .myListMovie .list_content .list_tittle {
+        width: 50%; }
+        .myListMovie .list_content .list_tittle .filming,
+        .myListMovie .list_content .list_tittle .goingto_film {
+          font-size: 15px; } }
     @media screen and (max-width: 576px) {
       .myListMovie .list_content .list_tittle {
         width: 80%; } }
+    @media screen and (max-width: 450px) {
+      .myListMovie .list_content .list_tittle {
+        width: 90%; } }
     @media screen and (max-width: 368px) {
       .myListMovie .list_content .list_tittle {
         width: 100%; }
