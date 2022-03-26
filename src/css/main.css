@@ -5,8 +5,9 @@
 
 body {
   font-family: "Public Sans", sans-serif;
-  font-size: 20px;
-  background-color: white; }
+  font-size: 18px;
+  background-color: white;
+  overflow-x: hidden; }
 
 .myHeader {
   background-color: white;
@@ -198,44 +199,52 @@ body {
     .myHeader .navbar_contain .header_logo .logo_image {
       width: 50%; } }
 
-.myCarousel .carousel_item {
-  position: relative;
-  cursor: pointer; }
-  .myCarousel .carousel_item:hover span {
-    display: block; }
-  .myCarousel .carousel_item img {
-    width: 100%; }
-  .myCarousel .carousel_item span {
-    position: absolute;
-    top: 50%;
-    left: 48%;
-    color: #a1a7b3;
-    border: 3px solid #a1a7b3;
-    padding: 30px;
-    font-size: 24px;
-    border-radius: 50px;
-    display: none;
-    transition: all 0.5s;
+.myCarousel {
+  padding-top: 65px; }
+  .myCarousel .carousel_item {
+    position: relative;
     cursor: pointer; }
-    .myCarousel .carousel_item span:hover {
-      color: #fff;
-      border: 3px solid #fff; }
-
-.myCarousel .swiper-container .swiper-button-next {
-  right: 15px;
-  color: gray; }
-
-.myCarousel .swiper-container .swiper-button-prev {
-  left: 15px;
-  color: gray; }
-
-.myCarousel .swiper-container .swiper-pagination {
-  bottom: 40px; }
-  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: red; }
-  .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet {
-    height: 13px;
-    width: 13px; }
+    .myCarousel .carousel_item:hover span {
+      display: block; }
+    .myCarousel .carousel_item img {
+      width: 100%; }
+    .myCarousel .carousel_item span {
+      position: absolute;
+      top: 35%;
+      left: 48%;
+      color: #a1a7b3;
+      border: 3px solid #a1a7b3;
+      padding: 30px;
+      font-size: 24px;
+      border-radius: 50px;
+      display: none;
+      transition: all 0.5s;
+      cursor: pointer; }
+      .myCarousel .carousel_item span:hover {
+        color: #fff;
+        border: 3px solid #fff; }
+  .myCarousel .swiper-container .swiper-button-next {
+    right: 15px;
+    color: gray; }
+  .myCarousel .swiper-container .swiper-button-prev {
+    left: 15px;
+    color: gray; }
+  .myCarousel .swiper-container .swiper-pagination {
+    bottom: 40px; }
+    .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+      background-color: red; }
+    .myCarousel .swiper-container .swiper-pagination .swiper-pagination-bullet {
+      height: 13px;
+      width: 13px; }
+  @media screen and (max-width: 992px) {
+    .myCarousel .carousel_item span {
+      top: 35%;
+      left: 45%; } }
+  @media screen and (max-width: 450px) {
+    .myCarousel .carousel_item span {
+      font-size: 15px;
+      padding: 15px;
+      border-radius: 30px; } }
 
 .myListMovie {
   margin: 0 auto;
@@ -302,6 +311,8 @@ body {
         .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_play,
         .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_layout {
           opacity: 1; }
+        .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .movie_name {
+          display: none; }
         .myListMovie .list_content .list_movie .card_movie .card:hover .card-body .btn--movie {
           opacity: 1; }
         .myListMovie .list_content .list_movie .card_movie .card .movie_image {
@@ -311,7 +322,7 @@ body {
           padding: 0;
           width: 100%;
           height: 100%;
-          transition: all 0.5s; }
+          \transition: all 0.5s; }
           .myListMovie .list_content .list_movie .card_movie .card .card-body .movie_name {
             color: #29303b;
             font-size: 15px;
@@ -355,6 +366,18 @@ body {
       font-family: "swiper-icons";
       font-size: 45px;
       color: gray; }
+    @media screen and (max-width: 280px) {
+      .myListMovie .list_content .list_movie .slick-slider .slick-next {
+        right: -40px; }
+      .myListMovie .list_content .list_movie .slick-slider .slick-prev {
+        left: -40px; }
+      .myListMovie .list_content .list_movie .card_movie .card .movie_image {
+        height: 280px; }
+      .myListMovie .list_content .list_movie .card_movie .card-body .btn--movie {
+        top: 281px; } }
+  @media screen and (max-width: 368px) {
+    .myListMovie {
+      width: 55%; } }
 
 .myMovieModal .modal-dialog {
   max-width: 1000px;
@@ -497,10 +520,12 @@ body {
   @media screen and (max-width: 992px) {
     .myCinema .theater_logo .item_line .theater_line {
       padding-bottom: 10px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name .theater_detail {
-        display: none; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name {
+        padding-top: 15px; }
+        .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
+          display: none; }
     .myCinema .movie_logo .item_line .movie_line .movie_name {
-      line-height: 1.5; }
+      line-height: 1.5 !important; }
       .myCinema .movie_logo .item_line .movie_line .movie_name p {
         padding-left: 30px; }
       .myCinema .movie_logo .item_line .movie_line .movie_name span {
@@ -522,15 +547,17 @@ body {
         font-size: 12px; } }
   @media screen and (max-width: 576px) {
     .myCinema .cinema_logo .item_line img {
-      width: 30px;
-      height: 30px; }
+      width: 40px !important;
+      height: 40px !important; }
     .myCinema .theater_logo .item_line {
       margin-top: 10px; }
       .myCinema .theater_logo .item_line .theater_line .theater_image img {
         width: 30px;
         height: 30px; }
-      .myCinema .theater_logo .item_line .theater_line .theater_name span {
-        font-size: 10px; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name {
+        padding-left: 30px !important; }
+        .myCinema .theater_logo .item_line .theater_line .theater_name span {
+          font-size: 10px; }
     .myCinema .movie_logo .item_line {
       margin-top: 10px; }
       .myCinema .movie_logo .item_line .movie_line {
@@ -538,22 +565,43 @@ body {
         .myCinema .movie_logo .item_line .movie_line .movie_image img {
           width: 30px;
           height: 30px; }
-        .myCinema .movie_logo .item_line .movie_line .movie_name p {
-          font-size: 8px; } }
-  @media screen and (max-width: 576px) {
+        .myCinema .movie_logo .item_line .movie_line .movie_name {
+          padding-top: 0 !important;
+          padding-left: 40px; }
+          .myCinema .movie_logo .item_line .movie_line .movie_name p {
+            font-size: 8px; } }
+  @media screen and (max-width: 450px) {
+    .myCinema .theater_logo .item_line .theater_line .theater_name {
+      line-height: 0.5 !important;
+      padding-top: 15px !important; }
+      .myCinema .theater_logo .item_line .theater_line .theater_name span {
+        font-size: 10px !important; } }
+  @media screen and (max-width: 368px) {
     .myCinema .cinema_logo .item_line img {
-      width: 15px;
-      height: 15px; }
-    .myCinema .theater_logo .item_line .theater_line {
-      height: 65px; }
+      width: 20px !important;
+      height: 20px !important; }
+    .myCinema .theater_logo .item_line {
+      margin-top: 0 !important; }
       .myCinema .theater_logo .item_line .theater_line .theater_image img {
-        display: none; }
+        width: 20px !important;
+        height: 20px !important; }
       .myCinema .theater_logo .item_line .theater_line .theater_name {
-        padding-left: 5px; }
-        .myCinema .theater_logo .item_line .theater_line .theater_name .theater_address {
-          display: none; }
-    .myCinema .movie_logo .item_line .movie_line .movie_name p {
-      padding-left: 13px; } }
+        padding-left: 15px !important; }
+    .myCinema .movie_logo .item_line .movie_line .movie_image {
+      line-height: 1 !important; }
+      .myCinema .movie_logo .item_line .movie_line .movie_image img {
+        width: 20px !important;
+        height: 20px !important; }
+    .myCinema .movie_logo .item_line .movie_line .movie_name {
+      padding-left: 0 !important; }
+      .myCinema .movie_logo .item_line .movie_line .movie_name a p {
+        font-size: 10px !important; } }
+  @media screen and (max-width: 280px) {
+    .myCinema .theater_logo .item_line .theater_line .theater_image img {
+      width: 30px !important;
+      height: 30px !important; }
+    .myCinema .theater_logo .item_line .theater_line .theater_name {
+      padding-left: 30px !important; } }
 
 .myDashboard .dashboard_title {
   text-align: center;

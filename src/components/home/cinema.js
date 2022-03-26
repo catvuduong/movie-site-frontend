@@ -138,9 +138,9 @@ class Cinema extends Component {
                                             <img src={"https://localhost:5001" + item.image} alt="" />
                                         </div>
                                         <div className="col-10 theater_name">
-                                            <div><span>{item.branch.name} - </span><span>{item.name}</span></div>
+                                            <span>{item.branch.name} - </span><span>{item.name}</span>
                                             <div className="theater_address">{item.address}</div>
-                                            <span className="theater_detail">[chi tiết]</span>
+                                            {/* <span className="theater_detail">[chi tiết]</span> */}
                                         </div>
                                     </div>
                                 </div>
