@@ -1,5 +1,5 @@
 .myApps {
-    margin-top: 30px;
+    margin-top: 70px;
     height: 585px;
     padding: 80px 0 35px 0;
     background-size: 1190px 550px;
@@ -45,9 +45,9 @@
                 height: 400px;
                 width: 45%;
                 .swiper-container {
-                    border-radius: 20px;
-                    border-left: 5px solid #3e3200;
-                    border-right: 5px solid #3e3200;
+                    border-radius: 35px;
+                    // border-left: 5px solid #3e3200;
+                    // border-right: 5px solid #3e3200;
                     .phone_item {
                         cursor: pointer;
                         img {
@@ -78,6 +78,20 @@
 @include respond-to("large") {
     .myApps {
         max-width: 720px;
+        .container {
+            .app_phone {
+                padding-top: 30px;
+                .phone_content {
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 340px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 @include respond-to("medium") {

@@ -377,8 +377,10 @@ body {
       color: gray; }
     @media screen and (max-width: 280px) {
       .myListMovie .list_content .list_movie .slick-slider .slick-next {
+        top: 40%;
         right: -40px; }
       .myListMovie .list_content .list_movie .slick-slider .slick-prev {
+        top: 40%;
         left: -40px; }
       .myListMovie .list_content .list_movie .card_movie .card .movie_image {
         height: 280px; }
@@ -1048,9 +1050,31 @@ body {
         border-color: #b41b03;
         color: white;
         background-color: #b41b03; }
+  @media screen and (max-width: 992px) {
+    .myArticle .article_title {
+      width: 80%; }
+      .myArticle .article_title button {
+        font-size: 13px; }
+    .myArticle .article_content .thirdList {
+      display: none; } }
+  @media screen and (max-width: 450px) {
+    .myArticle .article_title {
+      width: 100%; }
+      .myArticle .article_title button {
+        font-size: 10px; }
+    .myArticle .article_content .first_list .article_item h5,
+    .myArticle .article_content .second_list .article_item h5,
+    .myArticle .article_content .thirdList .article_item h5 {
+      text-align: left !important;
+      line-height: 10px !important;
+      font-size: 8px !important; }
+    .myArticle .article_content .first_list .article_item p,
+    .myArticle .article_content .second_list .article_item p,
+    .myArticle .article_content .thirdList .article_item p {
+      display: none; } }
 
 .myApps {
-  margin-top: 30px;
+  margin-top: 70px;
   height: 585px;
   padding: 80px 0 35px 0;
   background-size: 1190px 550px;
@@ -1098,9 +1122,7 @@ body {
         height: 400px;
         width: 45%; }
         .myApps .container .app_phone .phone_content .swiper-container {
-          border-radius: 20px;
-          border-left: 5px solid #3e3200;
-          border-right: 5px solid #3e3200; }
+          border-radius: 35px; }
           .myApps .container .app_phone .phone_content .swiper-container .phone_item {
             cursor: pointer; }
             .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
@@ -1117,7 +1139,11 @@ body {
 
 @media screen and (max-width: 992px) {
   .myApps {
-    max-width: 720px; } }
+    max-width: 720px; }
+    .myApps .container .app_phone {
+      padding-top: 30px; }
+      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+        height: 340px; } }
 
 @media screen and (max-width: 767px) {
   .myApps {
@@ -1408,6 +1434,78 @@ body {
       border-color: greenyellow;
       background: linear-gradient(to right, #00b500, lime);
       outline: none; }
+  @media screen and (max-width: 992px) {
+    .mySeat .display_board .theater_info {
+      line-height: 1.2; }
+      .mySeat .display_board .theater_info p {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important; }
+    .mySeat .seat_customer i {
+      font-size: 20px !important; } }
+  @media screen and (max-width: 576px) {
+    .mySeat .seat_customer {
+      line-height: 0; }
+      .mySeat .seat_customer i {
+        padding: 1px 2px !important; }
+    .mySeat .seat_status .seating,
+    .mySeat .seat_status .seated,
+    .mySeat .seat_status .havent_seat,
+    .mySeat .seat_status .vip_seat {
+      font-size: 13px; }
+    .mySeat .display_board .price {
+      height: 50px; }
+      .mySeat .display_board .price span {
+        font-size: 13px; }
+    .mySeat .display_board .theater_info span:first-child {
+      display: none; }
+    .mySeat .display_board .theater_info span:nth-child(2) {
+      margin-left: 0; }
+    .mySeat .display_board .seated {
+      height: 60px; }
+      .mySeat .display_board .seated span {
+        font-size: 13px; }
+    .mySeat .display_board .payments h5 {
+      display: none; }
+    .mySeat .display_board .payments p {
+      margin-bottom: 0; }
+    .mySeat .display_board .accept_button {
+      font-size: 10px; } }
+  @media screen and (max-width: 450px) {
+    .mySeat .seat_customer i {
+      font-size: 10px !important; }
+    .mySeat .display_board hr {
+      display: none; }
+    .mySeat .display_board .theater_info {
+      height: 70px; }
+      .mySeat .display_board .theater_info p {
+        display: none; }
+    .mySeat .display_board .seated {
+      margin-top: 30px;
+      line-height: 1; }
+    .mySeat .display_board .payments {
+      display: none; }
+    .mySeat .display_board .accept_button {
+      margin-top: 30px;
+      padding-top: 50px; } }
+  @media screen and (max-width: 280px) {
+    .mySeat .seat_customer i {
+      margin-top: 0 !important;
+      font-size: 8px !important;
+      padding: 1px 1px !important; }
+    .mySeat .seat .container {
+      padding: 0; }
+    .mySeat .seat .screen img {
+      height: 40px; }
+    .mySeat .theater .theater_info span {
+      font-size: 13px !important; }
+    .mySeat .time_remaining span {
+      font-size: 13px !important; }
+    .mySeat .display_board {
+      padding-left: 5px; }
+      .mySeat .display_board .seated {
+        margin-top: 50px !important; }
+      .mySeat .display_board .accept_button button {
+        padding: 5px 10px; } }
 
 .myLoadingScreen #preloader {
   position: fixed;

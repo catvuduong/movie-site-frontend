@@ -165,9 +165,11 @@
             @include respond-to("280") {
                 .slick-slider {
                     .slick-next {
+                        top: 40%;
                         right: -40px;
                     }
                     .slick-prev {
+                        top: 40%;
                         left: -40px;
                     }
                 }

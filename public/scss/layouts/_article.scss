@@ -150,4 +150,41 @@
             }
         }
     }
+    @include respond-to("large") {
+        .article_title {
+            width: 80%;
+            button {
+                font-size: 13px;
+            }
+        }
+        .article_content {
+            .thirdList {
+                display: none;
+            }
+        }
+    }
+    @include respond-to("450") {
+        .article_title {
+            width: 100%;
+            button {
+                font-size: 10px;
+            }
+        }
+        .article_content {
+            .first_list,
+            .second_list,
+            .thirdList {
+                .article_item {
+                    h5 {
+                        text-align: left !important;
+                        line-height: 10px !important;
+                        font-size: 8px !important;
+                    }
+                    p {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }

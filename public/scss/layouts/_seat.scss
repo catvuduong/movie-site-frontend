@@ -172,4 +172,144 @@
             }
         }
     }
+
+    @include respond-to("large") {
+        .display_board {
+            .theater_info {
+                line-height: 1.2;
+                p {
+                    margin-top: 5px !important;
+                    margin-bottom: 5px !important;
+                }
+            }
+        }
+        .seat_customer {
+            i {
+                font-size: 20px !important;
+            }
+        }
+    }
+    @include respond-to("small") {
+        .seat_customer {
+            line-height: 0;
+            i {
+                padding: 1px 2px !important;
+            }
+        }
+        .seat_status {
+            .seating,
+            .seated,
+            .havent_seat,
+            .vip_seat {
+                font-size: 13px;
+            }
+        }
+        .display_board {
+            .price {
+                height: 50px;
+                span {
+                    font-size: 13px;
+                }
+            }
+            .theater_info {
+                span:first-child {
+                    display: none;
+                }
+                span:nth-child(2) {
+                    margin-left: 0;
+                }
+            }
+            .seated {
+                height: 60px;
+                span {
+                    font-size: 13px;
+                }
+            }
+            .payments {
+                h5 {
+                    display: none;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+            .accept_button {
+                font-size: 10px;
+            }
+        }
+    }
+    @include respond-to("450") {
+        .seat_customer {
+            i {
+                font-size: 10px !important;
+            }
+        }
+        .display_board {
+            hr {
+                display: none;
+            }
+            .theater_info {
+                height: 70px;
+                p {
+                    display: none;
+                }
+            }
+            .seated {
+                margin-top: 30px;
+                line-height: 1;
+            }
+            .payments {
+                display: none;
+            }
+            .accept_button {
+                margin-top: 30px;
+                padding-top: 50px;
+            }
+        }
+    }
+    @include respond-to("280") {
+        .seat_customer {
+            i {
+                margin-top: 0 !important;
+                font-size: 8px !important;
+                padding: 1px 1px !important;
+            }
+        }
+        .seat {
+            .container {
+                padding: 0;
+            }
+            .screen {
+                img {
+                    height: 40px;
+                }
+            }
+        }
+        .theater {
+            .theater_info {
+                span {
+                    font-size: 13px !important;
+                }
+            }
+        }
+        // .seated {
+        //     margin-top: 50px !important;
+        // }
+        .time_remaining {
+            span {
+                font-size: 13px !important;
+            }
+        }
+        .display_board {
+            padding-left: 5px;
+            .seated {
+                margin-top: 50px !important;
+            }
+            .accept_button {
+                button {
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
 }
