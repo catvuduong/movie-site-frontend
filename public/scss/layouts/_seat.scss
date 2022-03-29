@@ -218,6 +218,9 @@
                 span:nth-child(2) {
                     margin-left: 0;
                 }
+                p:last-child {
+                    display: none;
+                }
             }
             .seated {
                 height: 60px;
@@ -250,12 +253,16 @@
             }
             .theater_info {
                 height: 70px;
+                span {
+                    font-size: 10px !important;
+                    line-height: 0.5 !important;
+                }
                 p {
                     display: none;
                 }
             }
             .seated {
-                margin-top: 30px;
+                margin-top: 100px;
                 line-height: 1;
             }
             .payments {
@@ -279,32 +286,28 @@
             .container {
                 padding: 0;
             }
+            .theater {
+                .theater_info {
+                    span {
+                        font-size: 13px !important;
+                    }
+                }
+            }
+            .time_remaining {
+                padding-top: 5px !important;
+                span {
+                    font-size: 13px !important;
+                }
+            }
             .screen {
                 img {
                     height: 40px;
                 }
             }
         }
-        .theater {
-            .theater_info {
-                span {
-                    font-size: 13px !important;
-                }
-            }
-        }
-        // .seated {
-        //     margin-top: 50px !important;
-        // }
-        .time_remaining {
-            span {
-                font-size: 13px !important;
-            }
-        }
+
         .display_board {
             padding-left: 5px;
-            .seated {
-                margin-top: 50px !important;
-            }
             .accept_button {
                 button {
                     padding: 5px 10px;

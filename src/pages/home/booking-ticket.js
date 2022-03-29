@@ -27,15 +27,6 @@ class BookingTicket extends Component {
         this.setState({ seatArr })
     }
 
-    // componentDidUpdate() {
-    //     console.log(123);
-    //     if (!Array.isArray(this.state.seatedArr) || !this.state.seatedArr.length) {
-    //         // array does not exist, is not an array, or is empty
-    //         // ⇒ do not attempt to process array
-    //         this.state.acceptButton = false;
-    //     }
-    // }
-
     sendSeatData = async (data, indexC, indexR) => {
         if (!data.bookedStatus) {
             let a = [...this.state.seatedArr];

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as action from '../../redux/actions/index-action';
 import { connect } from 'react-redux';
-import ModalBranch from './modal-branch';
+import ModalBranch from './admin-modals/modal-branch';
 
 class BranchManagement extends Component {
 
