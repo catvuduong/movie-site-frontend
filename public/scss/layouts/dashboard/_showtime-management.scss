@@ -1,0 +1,8 @@
+.showtimeM {
+    @include respond-to("450") {
+        &-thTime,
+        &-time {
+            display: none;
+        }
+    }
+}

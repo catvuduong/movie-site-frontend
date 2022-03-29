@@ -1,0 +1,5 @@
+@include respond-to("450") {
+    .orderM {
+        display: none;
+    }
+}

@@ -9,18 +9,23 @@
 @import "layouts/movie-modal";
 @import "layouts/cinema";
 @import "layouts/dashboard";
-@import "layouts/branch-managerment";
 @import "layouts/details-movie";
 @import "layouts/article";
 @import "layouts/apps";
 @import "layouts/banner";
 @import "layouts/seat";
 @import "layouts/loadingscreen";
-@import "layouts/movie-manament";
 
-@import "layouts/booking-ticket/booking-ticket";
+@import "layouts/dashboard/branch-managerment";
+@import "layouts/dashboard/theater-management";
+@import "layouts/dashboard/movie-management";
+@import "layouts/dashboard//showtime-management";
+@import "layouts/dashboard/article-management";
+@import "layouts/dashboard/ticket-management";
+@import "layouts/dashboard/user-management";
 
 @import "layouts/warning-modal";
 @import "modals/login-modal";
 
 @import "components/button";
+@import "components/general";

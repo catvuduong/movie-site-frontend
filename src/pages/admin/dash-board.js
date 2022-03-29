@@ -3,7 +3,7 @@ import MovieManagement from '../../components/admin/movie-management';
 import UserManagement from '../../components/admin/user-management';
 import BranchManagement from '../../components/admin/branch-management';
 import TheaterManagement from '../../components/admin/theater-management';
-import ShowtimeManagement from '../../components/admin/showtime-manament';
+import ShowtimeManagement from '../../components/admin/showtime-management';
 import ArticleManament from '../../components/admin/article-manament';
 import TicketManagement from '../../components/admin/ticket-management';
 import WellComeAdmin from '../../components/admin/wellcome-admin';
@@ -15,7 +15,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false, activeTicket: false,
-            component: WellComeAdmin,
+            component: MovieManagement,
         }
     }
 
@@ -154,9 +154,9 @@ export default class DashBoard extends Component {
                     <div id="page-content-wrapper">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                             <button className="btn btn-primary" id="menu-toggle" onClick={() => { this.handleToggle() }}><i className="fa fa-bars"></i></button>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon" />
-                            </button>
+                            </button> */}
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             </div>
                         </nav>

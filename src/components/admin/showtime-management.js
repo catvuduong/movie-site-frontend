@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as action from './../../redux/actions/index-action';
+import * as action from '../../redux/actions/index-action';
 import ShowtimeModal from './admin-modals/showtime-modal';
 
 class ShowtimeManagement extends Component {
@@ -24,7 +24,7 @@ class ShowtimeManagement extends Component {
         let orderNumber = 1;
         let { listShowtimes } = this.props
         return (
-            <div className="myBranchManament text-center">
+            <div className="myBranchManament showtimeM text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#showtimeInfoModal"
                     onClick={() => {
@@ -35,22 +35,22 @@ class ShowtimeManagement extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Theater</th>
                             <th scope="col">Movie</th>
-                            <th scope="col">Time</th>
+                            <th className='showtimeM-thTime' scope="col">Time</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='showtimeM-body'>
                         {listShowtimes.map((item, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{orderNumber++}</th>
+                                    <th className='orderM' scope="row">{orderNumber++}</th>
                                     <td>{item.theater.name}</td>
                                     <td>{item.movie.name}</td>
-                                    <td>{item.time}</td>
-                                    <td>
+                                    <td className='showtimeM-time'>{item.time}</td>
+                                    <td className='showtimeM-td'>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#showtimeInfoModal" onClick={() => {
                                                 this.setState({ objectEdit: item, type: "edit" })

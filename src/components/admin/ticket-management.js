@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import * as action from './../../redux/actions/index-action';
+import * as action from '../../redux/actions/index-action';
 import TicketModal from './admin-modals/ticket-modal'
 
 class TicketManagement extends Component {
@@ -30,30 +30,30 @@ class TicketManagement extends Component {
                 >Add Users</button> */}
                 <h3 className="my-3">LIST OF TICKETS</h3>
                 <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Order</th>
+                    <thead className='ticketM-head'>
+                        <tr className='ticketM-title'>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Theater</th>
                             <th scope="col">Movie</th>
                             <th scope="col">Showtime</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='ticketM-body'>
                         {listTickets.map(item => (
                             <tr key={item.id}>
-                                <th scope="row">{orderNumber++}</th>
+                                <th className='orderM' scope="row">{orderNumber++}</th>
                                 <td>
-                                    <img src={`https://localhost:5001${item.showtime.theater.image}`} alt="" />
-                                    <h4>{item.showtime.theater.name}</h4>
+                                    <img className='ticketM-image' src={`https://localhost:5001${item.showtime.theater.image}`} alt="" />
+                                    <h4 className='ticketM-name'>{item.showtime.theater.name}</h4>
                                 </td>
                                 <td>
-                                    <img src={item.showtime.movie.thumbnail} alt="" />
-                                    <h4>{item.showtime.movie.name}</h4>
+                                    <img className='ticketM-image' src={item.showtime.movie.thumbnail} alt="" />
+                                    <h4 className='ticketM-name'>{item.showtime.movie.name}</h4>
                                 </td>
                                 <td>
-                                    <h4>  {moment(item.showtime.time).format("HH:mm")}</h4>
-                                    <h4>Position: {item.verticalPos} : {item.horizontalPos}</h4>
+                                    <h4 className='ticketM-time'>  {moment(item.showtime.time).format("HH:mm")}</h4>
+                                    <h4 className='ticketM-position'>Position: <span>{item.verticalPos} : {item.horizontalPos}</span></h4>
                                 </td>
                                 <td>
                                     <button

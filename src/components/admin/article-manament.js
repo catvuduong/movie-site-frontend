@@ -35,20 +35,20 @@ class ArticleManament extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Content</th>
-                            <th scope="col">Image</th>
+                            <th className='articleM-thContent' scope="col">Content</th>
+                            <th className='articleM-thImage' scope="col">Image</th>
                         </tr>
                     </thead>
                     <tbody>
                         {listArticles.map((item, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{orderNumber++}</th>
+                                    <th className='orderM' scope="row">{orderNumber++}</th>
                                     <td>{item.title}</td>
-                                    <td>{item.content}</td>
-                                    <td>{item.thumbnail}</td>
+                                    <td className='articleM-content'>{item.content}</td>
+                                    <td className='articleM-image'>{item.thumbnail}</td>
 
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"

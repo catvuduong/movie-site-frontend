@@ -7,3 +7,11 @@
         right: 5px;
     }
 }
+.branchM {
+    @include respond-to("extra-small") {
+        &-thImage,
+        &-image {
+            display: none;
+        }
+    }
+}

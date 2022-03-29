@@ -642,14 +642,6 @@ body {
   background-color: greenyellow;
   color: white; }
 
-.myBranchManament {
-  position: relative; }
-  .myBranchManament .add_branch {
-    position: absolute;
-    font-size: fs-1;
-    top: -65px;
-    right: 5px; }
-
 .myDetailsMovie {
   width: 100%;
   height: 550px;
@@ -1649,6 +1641,22 @@ body {
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-1deg); } }
 
+.myBranchManament {
+  position: relative; }
+  .myBranchManament .add_branch {
+    position: absolute;
+    font-size: fs-1;
+    top: -65px;
+    right: 5px; }
+
+@media screen and (max-width: 368px) {
+  .branchM-thImage, .branchM-image {
+    display: none; } }
+
+@media screen and (max-width: 368px) {
+  .theaterM-thImage, .theaterM-image {
+    display: none; } }
+
 .myMovieManament {
   position: relative; }
   .myMovieManament .add_branch {
@@ -1664,6 +1672,60 @@ body {
     margin-left: 0;
     padding-left: 21px;
     padding-right: 21px; }
+
+@media screen and (max-width: 992px) {
+  .movieM-thThumbnail {
+    display: none; }
+  .movieM-thumbnail {
+    display: none; } }
+
+@media screen and (max-width: 450px) {
+  .showtimeM-thTime, .showtimeM-time {
+    display: none; } }
+
+@media screen and (max-width: 992px) {
+  .articleM-thImage, .articleM-image {
+    display: none; } }
+
+@media screen and (max-width: 368px) {
+  .articleM-thContent, .articleM-content {
+    display: none; } }
+
+.ticketM-image {
+  width: 30px;
+  height: 30px; }
+
+.ticketM-name {
+  margin-top: 10px;
+  font-size: 15px; }
+
+.ticketM-time {
+  font-size: 15px; }
+
+.ticketM-position {
+  font-size: 15px; }
+  .ticketM-position span {
+    font-size: 15px; }
+
+@media screen and (max-width: 992px) {
+  .ticketM-position span {
+    display: block; } }
+
+@media screen and (max-width: 368px) {
+  .ticketM-head::after {
+    content: "Not available under 360 responsive";
+    visibility: visible;
+    display: block;
+    position: absolute;
+    background-color: red;
+    padding: 5px;
+    top: 120px; }
+  .ticketM-body {
+    display: none; } }
+
+@media screen and (max-width: 450px) {
+  .userM-thEmail, .userM-email {
+    display: none; } }
 
 .warning .modal-dialog {
   padding-top: 5%; }
@@ -1750,10 +1812,16 @@ body {
     color: #fff; }
 
 .btn--edit {
+  display: block;
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px;
+  margin: 5px 0; }
 
 .btn--delete {
-  margin-left: 10px;
+  margin: 5px 0;
   padding-left: 20px;
-  padding-right: 20px; }
+  padding-right: 21px; }
+
+@media screen and (max-width: 450px) {
+  .orderM {
+    display: none; } }

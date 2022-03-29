@@ -27,11 +27,13 @@
     border-top-right-radius: 0;
 }
 .btn--edit {
+    display: block;
     padding-left: 30px;
     padding-right: 30px;
+    margin: 5px 0;
 }
 .btn--delete {
-    margin-left: 10px;
+    margin: 5px 0;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 21px;
 }

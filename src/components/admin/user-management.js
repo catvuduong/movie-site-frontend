@@ -37,9 +37,9 @@ class UserManament extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
+                            <th className='userM-thEmail' scope="col">Email</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -47,9 +47,9 @@ class UserManament extends Component {
                         {listUsers.map((item, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{orderNumber++}</th>
-                                    <td>{item.username}</td>
-                                    <td>{item.email}</td>
+                                    <th className='orderM' scope="row">{orderNumber++}</th>
+                                    <td >{item.username}</td>
+                                    <td className='userM-email'>{item.email}</td>
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#userInfoModal" onClick={() => {

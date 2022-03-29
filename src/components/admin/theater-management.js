@@ -28,9 +28,9 @@ class TheaterManagement extends Component {
         return list.map((item, index) => {
             return (
                 <tr key={index}>
-                    <th scope="row">{orderNumber++}</th>
+                    <th className='orderM' scope="row">{orderNumber++}</th>
                     <td>{item.name}</td>
-                    <td>{item.image}</td>
+                    <td className='theaterM-image'>{item.image}</td>
                     <td>
                         <button className="btn btn-success btn--edit" data-toggle="modal"
                             data-target="#theaterInfoModal" onClick={() => {
@@ -58,9 +58,9 @@ class TheaterManagement extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Thumbnail</th>
+                            <th className='theaterM-thImage' scope="col">Thumbnail</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>

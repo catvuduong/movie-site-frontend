@@ -1,0 +1,14 @@
+.articleM {
+    @include respond-to("large") {
+        &-thImage,
+        &-image {
+            display: none;
+        }
+    }
+    @include respond-to("extra-small") {
+        &-thContent,
+        &-content {
+            display: none;
+        }
+    }
+}

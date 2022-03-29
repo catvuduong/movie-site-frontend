@@ -36,19 +36,19 @@ class MovieManagement extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order</th>
+                            <th className='orderM' scope="col">Order</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Thumbnail</th>
+                            <th className='movieM-thThumbnail' scope="col">Thumbnail</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='movieM-body'>
                         {listMovies.map((item, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{orderNumber++}</th>
+                                    <th className='orderM' scope="row">{orderNumber++}</th>
                                     <td>{item.name}</td>
-                                    <td>{item.thumbnail}</td>
+                                    <td className='movieM-thumbnail'>{item.thumbnail}</td>
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#movieInfoModal" onClick={() => {
