@@ -140,7 +140,6 @@ class Cinema extends Component {
                                         <div className="col-10 theater_name">
                                             <span>{item.branch.name} - </span><span>{item.name}</span>
                                             <div className="theater_address">{item.address}</div>
-                                            {/* <span className="theater_detail">[chi tiết]</span> */}
                                         </div>
                                     </div>
                                 </div>

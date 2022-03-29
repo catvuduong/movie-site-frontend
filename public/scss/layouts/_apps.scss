@@ -1,5 +1,5 @@
 .myApps {
-    margin-top: 70px;
+    margin-top: 70px !important;
     height: 585px;
     padding: 80px 0 35px 0;
     background-size: 1190px 550px;
@@ -62,23 +62,20 @@
     @include respond-to("over-frame") {
         .container {
             width: 100%;
-            .app_intro {
-            }
-            .app_phone {
-            }
         }
     }
 }
 @include respond-to("extra-large") {
     .myApps {
-        max-width: 960px;
-        margin: 0 auto;
+        .container {
+            max-width: 850px;
+        }
     }
 }
 @include respond-to("large") {
     .myApps {
-        max-width: 720px;
         .container {
+            max-width: 650px;
             .app_phone {
                 padding-top: 30px;
                 .phone_content {
@@ -122,7 +119,6 @@
         height: 850px;
         text-align: center;
         margin-top: 10px;
-        margin-bottom: 20px;
         padding-top: 0;
         background-size: contain;
         background-repeat: repeat-y;

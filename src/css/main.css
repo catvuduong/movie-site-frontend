@@ -583,8 +583,8 @@ body {
             font-size: 8px; } }
   @media screen and (max-width: 450px) {
     .myCinema .theater_logo .item_line .theater_line .theater_name {
-      line-height: 0.5 !important;
-      padding-top: 15px !important; }
+      line-height: 1 !important;
+      padding-top: 5px !important; }
       .myCinema .theater_logo .item_line .theater_line .theater_name span {
         font-size: 10px !important; } }
   @media screen and (max-width: 368px) {
@@ -612,7 +612,9 @@ body {
       width: 30px !important;
       height: 30px !important; }
     .myCinema .theater_logo .item_line .theater_line .theater_name {
-      padding-left: 30px !important; } }
+      padding-top: 10px !important;
+      line-height: 0.5 !important;
+      padding-left: 20px !important; } }
 
 .myDashboard .dashboard_title {
   text-align: center;
@@ -725,7 +727,8 @@ body {
     .myDetailsMovie .container .movie_name button {
       font-size: 15px; }
     .myDetailsMovie .container .movie_name p {
-      width: 120%; } }
+      padding-right: 0 !important;
+      width: 150px; } }
   @media screen and (max-width: 400px) {
     .myDetailsMovie .container .movie_name {
       padding-left: 90px; }
@@ -740,7 +743,7 @@ body {
       .myDetailsMovie .container .movie_name button {
         font-size: 12px; }
       .myDetailsMovie .container .movie_name p {
-        padding-right: 25px; } }
+        width: 50px; } }
 
 .myDetailsMovieModal .modal-dialog {
   max-width: 1000px;
@@ -769,7 +772,7 @@ body {
     height: 100%; }
 
 .myShowtimes {
-  padding-bottom: 50px; }
+  padding: 50px 0; }
   .myShowtimes .showtimes_title {
     margin: auto;
     width: 13%;
@@ -884,28 +887,27 @@ body {
               padding-top: 6px; }
       .myShowtimes .showtimes_content .showtimes_detail .theater_logo .btnsTheater_active {
         opacity: 1; }
-    @media screen and (max-width: 992px) {
-      .myShowtimes .showtimes_content .container {
-        padding-right: 0;
-        padding-left: 0;
-        max-width: none; }
-        .myShowtimes .showtimes_content .container .row {
-          width: 100%; } }
     @media screen and (max-width: 576px) {
-      .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span {
-        font-size: 10px; }
-        .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span img {
-          width: 30px;
-          height: 30px; }
-      .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_image img {
-        width: 30px;
-        height: 30px; }
-      .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
+      .myShowtimes .showtimes_content .container {
+        padding-left: 0;
         padding-right: 0; }
-        .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name div span {
-          font-size: 10px; }
-        .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
-          font-size: 8px; } }
+        .myShowtimes .showtimes_content .container .row {
+          margin-left: 0;
+          margin-right: 0; }
+          .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span {
+            font-size: 10px; }
+            .myShowtimes .showtimes_content .container .row .cinema_logo .item_line span img {
+              width: 30px;
+              height: 30px; }
+          .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_image img {
+            width: 30px;
+            height: 30px; }
+          .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name {
+            padding-right: 0; }
+            .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name div span {
+              font-size: 10px; }
+            .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
+              font-size: 8px; } }
     @media screen and (max-width: 280px) {
       .myShowtimes .showtimes_content .container .row .theater_logo .item_line {
         margin-top: 10px;
@@ -917,6 +919,9 @@ body {
             padding-top: 15px; }
             .myShowtimes .showtimes_content .container .row .theater_logo .item_line .theater_line .theater_name .theater_address {
               display: none; } }
+  @media screen and (max-width: 576px) {
+    .myShowtimes {
+      padding-bottom: 0; } }
 
 .myArticle {
   width: 60%;
@@ -1066,7 +1071,7 @@ body {
       display: none; } }
 
 .myApps {
-  margin-top: 70px;
+  margin-top: 70px !important;
   height: 585px;
   padding: 80px 0 35px 0;
   background-size: 1190px 550px;
@@ -1125,13 +1130,12 @@ body {
       width: 100%; } }
 
 @media screen and (max-width: 1190px) {
-  .myApps {
-    max-width: 960px;
-    margin: 0 auto; } }
+  .myApps .container {
+    max-width: 850px; } }
 
 @media screen and (max-width: 992px) {
-  .myApps {
-    max-width: 720px; }
+  .myApps .container {
+    max-width: 650px; }
     .myApps .container .app_phone {
       padding-top: 30px; }
       .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
@@ -1155,7 +1159,6 @@ body {
     height: 850px;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 20px;
     padding-top: 0;
     background-size: contain;
     background-repeat: repeat-y; }
@@ -1640,6 +1643,14 @@ body {
     -webkit-transform: translate(2px, 2px) rotate(0deg); }
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-1deg); } }
+
+@media screen and (max-width: 992px) {
+  .showtimesDM-name {
+    padding-top: 0 !important; } }
+
+@media screen and (max-width: 576px) {
+  .showtimesDM-name, .showtimesDM-image {
+    display: none; } }
 
 .myBranchManament {
   position: relative; }

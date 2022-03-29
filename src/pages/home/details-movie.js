@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import * as  action from './../../redux/actions/index-action';
 import { connect } from 'react-redux';
 import Description from './../../components/details-movie/description';
@@ -44,6 +44,7 @@ class DetailsMovie extends Component {
             component: Description
         })
     }
+
     renderDisplay = Component => (<Component id={this.state.id} movie={this.props.movie} listBranches={this.props.listBranches} {...this.props}></ Component>);
 
     render() {
@@ -52,7 +53,7 @@ class DetailsMovie extends Component {
             let showtimes = this.state.clickedShowtimes ? "active" : "";
             let descript = this.state.clickedDescription ? "active" : "";
             return (
-                <Fragment>
+                <>
                     <div className="myDetailsMovie">
                         <div className="backgroud_cover" style={{
                             backgroundImage: `url(${movie.thumbnail})`
@@ -84,7 +85,7 @@ class DetailsMovie extends Component {
                     </div >
                     <Banner></Banner>
                     <LoginModal></LoginModal>
-                </Fragment>
+                </>
             )
         }
         return (<LoadingScreen></LoadingScreen>);

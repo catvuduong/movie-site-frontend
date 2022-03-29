@@ -104,7 +104,8 @@
                     font-size: $fs-0;
                 }
                 p {
-                    width: 120%;
+                    padding-right: 0 !important;
+                    width: 150px;
                 }
             }
         }
@@ -133,7 +134,7 @@
                     font-size: 12px;
                 }
                 p {
-                    padding-right: 25px;
+                    width: 50px;
                 }
             }
         }
@@ -172,7 +173,7 @@
 }
 
 .myShowtimes {
-    padding-bottom: 50px;
+    padding: 50px 0;
     .showtimes_title {
         margin: auto;
         width: 13%;
@@ -315,17 +316,20 @@
         }
         @include respond-to("large") {
             .container {
-                padding-right: 0;
-                padding-left: 0;
-                max-width: none;
+                // padding-right: 0;
+                // padding-left: 0;
+                // max-width: none;
                 .row {
-                    width: 100%;
                 }
             }
         }
         @include respond-to("small") {
             .container {
+                padding-left: 0;
+                padding-right: 0;
                 .row {
+                    margin-left: 0;
+                    margin-right: 0;
                     .cinema_logo {
                         .item_line {
                             span {
@@ -389,5 +393,9 @@
                 }
             }
         }
+    }
+
+    @include respond-to("small") {
+        padding-bottom: 0;
     }
 }
