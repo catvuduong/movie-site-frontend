@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as action from '../../redux/actions/index-action';
+import * as action from '../../../redux/actions/index-action';
 import $ from 'jquery';
 
 class ModalTheater extends Component {

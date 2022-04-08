@@ -80,7 +80,7 @@ export default class Banner extends Component {
                                 <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</p>
                                 <p> Giấy chứng nhận đăng ký kinh doanh số: 0101659783, đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.</p>
                                 <p>Số Điện Thoại (Hotline): 1900 545 436</p>
-                                <p>Email: <span>support@tix.vn</span></p>
+                                <p>Email: <span>fridaycinema@.com</span></p>
                             </div>
                             <div className="col-sm-3">
                                 <img src="/images/d1e6bd560daa9e20131ea8a0f62e87f8.png" alt="" />

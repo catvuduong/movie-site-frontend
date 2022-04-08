@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import * as ActionType from './../../redux/constants/action-type';
-import LoginModal from '../../pages/home/modals/login-modal';
+import * as ActionType from '../../redux/constants/action-type';
 import $ from 'jquery';
 import { Element } from 'react-scroll';
+import LoginModal from '../../pages/home/modals/login-modal';
 
 
 class Cinema extends Component {
@@ -180,7 +180,7 @@ class Cinema extends Component {
                         }
                     </div>
                 </div>
-                <LoginModal showtimeId={this.state.showtimeId} {...this.props}></LoginModal>
+                <LoginModal showtimeId={this.state.showtimeId} {...this.props} />
             </Element >
         )
     }

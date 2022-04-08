@@ -15,7 +15,6 @@ class WarningModal extends Component {
     }
 
     async UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         await this.setState({ status: nextProps.warningInfo.status })
         await this.handleShow(this.state.status);
     }
@@ -78,7 +77,8 @@ class WarningModal extends Component {
                 this.setState({
                     show: false,
                     status: ''
-                })
+                });
+                window.location.reload();
                 break;
         }
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as action from '../../redux/actions/index-action';
 import { connect } from 'react-redux';
-import ModalTheater from './modal-theater';
+import ModalTheater from './admin-modals/modal-theater';
 
 class TheaterManagement extends Component {
     constructor(props) {

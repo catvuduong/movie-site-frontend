@@ -11,8 +11,6 @@ export default class Movie extends Component {
                     <img src={movie.thumbnail} alt="" className="movie_image" />
                     <div className="card-body">
                         <div className="movie_name">{movie.name}</div>
-                        {/* <NavLink to={`detail-movie/${movie.id}`} className="movie_layout"></NavLink> */}
-                        <button className="fa fa-play movie_play"></button>
                         <button className="btn btn--movie">MUA VÉ</button>
                     </div>
                 </NavLink>

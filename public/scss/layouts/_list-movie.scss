@@ -86,8 +86,8 @@
                                 opacity: 1;
                             }
                             .movie_name {
-                                // opacity: 0;
-                                display: none;
+                                opacity: 0;
+                                // display: none;
                             }
                             .btn--movie {
                                 opacity: 1;
@@ -107,7 +107,7 @@
                         }
                         width: 100%;
                         height: 100%;
-                        \transition: all 0.5s;
+                        transition: all 0.5s;
                         .movie_layout {
                             position: absolute;
                             top: 0;

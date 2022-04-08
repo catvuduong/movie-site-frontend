@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as action from '../../redux/actions/index-action';
+import * as action from '../../../redux/actions/index-action';
 import $ from 'jquery';
 
 class ModalBranch extends Component {
@@ -106,7 +106,7 @@ class ModalBranch extends Component {
                                 <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
-                                </button>
+                            </button>
                             </div>
                             <div className="modal-body">
                                 Are you sure to delete?
