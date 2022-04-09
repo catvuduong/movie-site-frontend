@@ -1131,32 +1131,34 @@ body {
 
 @media screen and (max-width: 1190px) {
   .myApps .container {
-    max-width: 850px; } }
+    max-width: 850px; }
+    .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+      height: 340px; } }
 
 @media screen and (max-width: 992px) {
   .myApps .container {
     max-width: 650px; }
     .myApps .container .app_phone {
-      padding-top: 30px; }
+      padding-top: 60px; }
       .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-        height: 340px; } }
+        height: 300px; } }
 
 @media screen and (max-width: 767px) {
-  .myApps {
-    max-width: 540px; }
+  .myApps .container {
+    width: 85%; }
     .myApps .container .app_phone {
-      padding-top: 30px; }
+      padding-top: 70px; }
       .myApps .container .app_phone .phone_content {
         height: 400px;
-        width: 60%; }
+        width: 55%; }
         .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-          height: 350px; } }
+          height: 280px; } }
 
 @media screen and (max-width: 576px) {
   .myApps {
     width: 100%;
     margin: 0 auto;
-    height: 850px;
+    height: 780px;
     text-align: center;
     margin-top: 10px;
     padding-top: 0;
@@ -1167,17 +1169,27 @@ body {
     .myApps .container .app_phone {
       padding-left: 0; }
       .myApps .container .app_phone .phone_content {
-        width: 45%; }
+        width: 35%; }
         .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-          height: 440px; } }
+          height: 320px; } }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .myApps {
-    height: 880px; }
+    height: 750px; }
     .myApps .container .app_phone .phone_content {
-      width: 70%; }
+      width: 45%; }
       .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-        height: 340px; } }
+        height: 270px; } }
+
+@media screen and (max-width: 450px) {
+  .myApps {
+    height: 820px; } }
+
+@media screen and (max-width: 280px) {
+  .myApps {
+    height: 800px; }
+    .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+      height: 220px; } }
 
 .myBanner {
   padding-top: 20px;
@@ -1262,12 +1274,10 @@ body {
       .myBanner .container .banner_contact .row .col-sm-8 {
         padding-left: 75px; } }
   @media screen and (max-width: 767px) {
-    .myBanner .container {
-      max-width: 540px; }
-      .myBanner .container .banner_partner .partner {
-        display: none; }
-      .myBanner .container .banner_contact .row .col-sm-1 {
-        padding-left: 0; } }
+    .myBanner .container .banner_partner .partner {
+      display: none; }
+    .myBanner .container .banner_contact .row .col-sm-1 {
+      padding-left: 0; } }
   @media screen and (max-width: 576px) {
     .myBanner .container .banner_partner .security,
     .myBanner .container .banner_partner .partner {

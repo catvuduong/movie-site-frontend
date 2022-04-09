@@ -11,7 +11,6 @@ import Apps from './../../components/home/apps';
 import Banner from './../../components/home/banner';
 import LoadingScreen from './../home/loading-screen';
 import WarningModal from '../../components/modals/warning-modal';
-import TestForm from '../../components/home/test-form';
 
 class Home extends Component {
     constructor(props) {

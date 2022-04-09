@@ -69,15 +69,7 @@
     .myApps {
         .container {
             max-width: 850px;
-        }
-    }
-}
-@include respond-to("large") {
-    .myApps {
-        .container {
-            max-width: 650px;
             .app_phone {
-                padding-top: 30px;
                 .phone_content {
                     .swiper-container {
                         .phone_item {
@@ -91,19 +83,38 @@
         }
     }
 }
-@include respond-to("medium") {
+@include respond-to("large") {
     .myApps {
-        max-width: 540px;
         .container {
+            max-width: 650px;
             .app_phone {
-                padding-top: 30px;
+                padding-top: 60px;
                 .phone_content {
-                    height: 400px;
-                    width: 60%;
                     .swiper-container {
                         .phone_item {
                             img {
-                                height: 350px;
+                                height: 300px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond-to("medium") {
+    .myApps {
+        .container {
+            width: 85%;
+            .app_phone {
+                padding-top: 70px;
+                .phone_content {
+                    height: 400px;
+                    width: 55%;
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 280px;
                             }
                         }
                     }
@@ -116,7 +127,7 @@
     .myApps {
         width: 100%;
         margin: 0 auto;
-        height: 850px;
+        height: 780px;
         text-align: center;
         margin-top: 10px;
         padding-top: 0;
@@ -129,11 +140,11 @@
             .app_phone {
                 padding-left: 0;
                 .phone_content {
-                    width: 45%;
+                    width: 35%;
                     .swiper-container {
                         .phone_item {
                             img {
-                                height: 440px;
+                                height: 320px;
                             }
                         }
                     }
@@ -142,17 +153,42 @@
         }
     }
 }
-@include respond-to("400") {
+
+@include respond-to("450") {
     .myApps {
-        height: 880px;
+        height: 750px;
         .container {
             .app_phone {
                 .phone_content {
-                    width: 70%;
+                    width: 45%;
                     .swiper-container {
                         .phone_item {
                             img {
-                                height: 340px;
+                                height: 270px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include respond-to("450") {
+    .myApps {
+        height: 820px;
+    }
+}
+
+@include respond-to("280") {
+    .myApps {
+        height: 800px;
+        .container {
+            .app_phone {
+                .phone_content {
+                    .swiper-container {
+                        .phone_item {
+                            img {
+                                height: 220px;
                             }
                         }
                     }

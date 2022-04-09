@@ -9,7 +9,7 @@ function LoginModal({ login, showtimeId, ...props }) {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({ mode: "onBlur" });
+    } = useForm({ mode: "onChange" });
 
     const [object, setObject] = useState({ username: '', password: '' });
 

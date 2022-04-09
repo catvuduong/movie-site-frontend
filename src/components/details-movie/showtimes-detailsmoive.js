@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import moment from 'moment';
-import LoginModal from '../../pages/home/modals/login-modal'
+import LoginModal from '../../pages/home/modals/login-modal';
+import { Element } from 'react-scroll';
 import $ from 'jquery';
 
 class Cinema extends Component {
@@ -145,7 +146,7 @@ class Cinema extends Component {
 
     render() {
         return (
-            <section className="myCinema" id="cinema">
+            <Element name='srollToCinema' className="myCinema" id="cinema">
                 <div className='container'>
                     <div className="wig"></div>
                     <div className="row">
@@ -183,7 +184,7 @@ class Cinema extends Component {
                 </div>
 
                 <LoginModal showtimeId={this.state.showtimeId} {...this.props}></LoginModal>
-            </section >
+            </Element >
         )
     }
 }

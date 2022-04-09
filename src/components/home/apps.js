@@ -26,20 +26,14 @@ export default class Apps extends Component {
                         <div className="col-sm-6 app_phone">
                             <div className="phone_content">
                                 <Swiper {...params} >
-                                    <div>
-                                        <div className="phone_item">
-                                            <img src="./images/slide2.jpg" alt="" />
-                                        </div>
+                                    <div className="phone_item">
+                                        <img src="./images/slide2.jpg" alt="" />
                                     </div>
-                                    <div>
-                                        <div className="phone_item">
-                                            <img src="./images/slide3.jpg" alt="" />
-                                        </div>
+                                    <div className="phone_item">
+                                        <img src="./images/slide3.jpg" alt="" />
                                     </div>
-                                    <div>
-                                        <div className="phone_item">
-                                            <img src="./images/slide4.jpg" alt="" />
-                                        </div>
+                                    <div className="phone_item">
+                                        <img src="./images/slide4.jpg" alt="" />
                                     </div>
                                 </Swiper>
                             </div>

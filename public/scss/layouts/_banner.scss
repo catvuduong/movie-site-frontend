@@ -132,7 +132,7 @@
     }
     @include respond-to("medium") {
         .container {
-            max-width: 540px;
+            // max-width: 540px;
             .banner_partner {
                 .partner {
                     display: none;

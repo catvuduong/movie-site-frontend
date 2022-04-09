@@ -7,7 +7,7 @@ import DetailsMovieModal from './../../components/details-movie/details-movie-mo
 import LoadingScreen from './loading-screen';
 import Banner from './../../components/home/banner';
 import LoginModal from '../../pages/home/modals/login-modal';
-
+import { scroller } from 'react-scroll'
 
 class DetailsMovie extends Component {
     _isMounted = false;
@@ -47,6 +47,14 @@ class DetailsMovie extends Component {
 
     renderDisplay = Component => (<Component id={this.state.id} movie={this.props.movie} listBranches={this.props.listBranches} {...this.props}></ Component>);
 
+    scrollTo = name => {
+        scroller.scrollTo(name, {
+            duration: 1,
+            delay: 0,
+            smooth: 'easeInOutQuart'
+        })
+    }
+
     render() {
         if (this.state.checkingLoading === true) {
             let { movie } = this.state
@@ -67,7 +75,9 @@ class DetailsMovie extends Component {
                                 </div>
                                 <div className="col-lg-3 col-sm-6 col-7 movie_name">
                                     <p>{movie.name}</p>
-                                    <button className="btn btn-danger">Mua vé</button>
+                                    <button className="btn btn-danger"
+                                        onClick={() => this.scrollTo("srollToCinema")}
+                                    >Mua vé</button>
                                 </div>
                                 <div className="col-lg-6 col-sm-3 movie_rate">
                                     <span>{movie.rate}</span>
