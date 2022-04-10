@@ -1794,6 +1794,47 @@ body {
   .warning-button:hover {
     background-color: #007bff; }
 
+.notfound {
+  position: relative;
+  height: 100vh; }
+  .notfound-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 540px;
+    width: 100%; }
+  .notfound-warning {
+    position: relative; }
+  .notfound-heading {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    background-image: url("https://colorlib.com/etc/404/colorlib-error-404-10/img/bg.jpg");
+    background-clip: text;
+    color: transparent;
+    background-size: cover;
+    background-position: center;
+    font-size: 230px;
+    font-weight: 900; }
+  .notfound-content {
+    margin-top: 20px; }
+  .notfound-title {
+    font-size: 25px;
+    font-weight: 700; }
+  .notfound-goback {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #0046d5;
+    border: none;
+    border-radius: 30px;
+    outline: none; }
+  @media screen and (max-width: 992px) {
+    .notfound-heading {
+      font-size: 112px; } }
+
 .btn--signIn {
   color: #686f7a;
   background-color: transparent;
