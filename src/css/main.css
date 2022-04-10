@@ -1831,7 +1831,7 @@ body {
     border: none;
     border-radius: 30px;
     outline: none; }
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 767px) {
     .notfound-heading {
       font-size: 112px; } }
 
