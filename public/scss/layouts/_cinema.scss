@@ -66,7 +66,7 @@
                             color: #8bc541;
                         }
                         .theater_address {
-                            @include text($color-gray-4, $fs-1, $fw-bold-0);
+                            @include text($color-black-0, $fs-1, $fw-bold-0);
                             padding-top: 6px;
                         }
                         .theater_detail {
@@ -118,7 +118,7 @@
                         margin-right: 10px;
                         text-align: left;
                         border: none;
-                        @include text(lightgreen, $fs-0, $fw-normal);
+                        @include text($color-green-0, $fs-0, $fw-bold);
                         padding-left: 0;
                         &:hover {
                             color: $color-orange-0;

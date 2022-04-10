@@ -181,7 +181,7 @@
         display: flex;
         .showtime_btns {
             background-color: transparent;
-            color: $color-white-0;
+            color: $color-black-0;
             border: none;
             transition: all 0.5s;
             outline: none;
@@ -218,19 +218,19 @@
                 width: 60%;
                 .infomation {
                     p:first-child {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
+                        @include text($color-black-0, $fs-0, $fw-bold-0);
                     }
                     p:last-child {
-                        @include text($color-white-0, $fs-1, $fw-normal);
+                        @include text($color-black-0, $fs-1, $fw-normal);
                         text-align: justify;
                     }
                 }
                 .description {
                     p:first-child {
-                        @include text($color-white-0, $fs-0, $fw-bold-0);
+                        @include text($color-black-0, $fs-0, $fw-bold-0);
                     }
                     p:last-child {
-                        @include text($color-white-0, $fs-1, $fw-normal);
+                        @include text($color-black-0, $fs-1, $fw-normal);
                         text-align: justify;
                     }
                 }
