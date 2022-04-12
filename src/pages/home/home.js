@@ -21,7 +21,9 @@ class Home extends Component {
     }
     async componentDidMount() {
         await this.props.getListBranches();
-        this.setState({ signLoading: true });
+        await setTimeout(() => {
+            this.setState({ signLoading: true });
+        }, 1000);
     }
 
     componentDidUpdate() {
@@ -33,7 +35,7 @@ class Home extends Component {
             return (
                 <>
                     <Carousel></Carousel>
-                    <ListMovie></ListMovie>
+                    <ListMovie {...this.props}></ListMovie>
                     <Cinema listBranches={this.props.listBranches}
                         {...this.props}
                     ></Cinema>
@@ -41,7 +43,7 @@ class Home extends Component {
                     <Apps></Apps>
                     <MovieModal></MovieModal>
                     <Banner></Banner>
-                    <WarningModal></WarningModal>
+                    <WarningModal {...this.props}></WarningModal>
                 </>
             )
         }

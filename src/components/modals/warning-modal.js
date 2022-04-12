@@ -10,17 +10,21 @@ class WarningModal extends Component {
             status: '',
             show: false,
             warning: '',
-            image: ''
+            image: '',
+            showtimeId: ''
         }
     }
 
     async UNSAFE_componentWillReceiveProps(nextProps) {
-        await this.setState({ status: nextProps.warningInfo.status })
+        //not first render so we dont use componentDidMount.
+        await this.setState({
+            status: nextProps.warningInfo.status,
+            showtimeId: nextProps.showtimeId
+        })
         await this.handleShow(this.state.status);
     }
 
     handleShow = status => {
-        // console.log(status);
         switch (status) {
             case "Login successfully": {
                 let text = 'Đăng nhập thành công';
@@ -33,6 +37,15 @@ class WarningModal extends Component {
             }
             case "Book successfully": {
                 let text = 'Đặt vé thành công';
+                this.setState({
+                    show: true,
+                    warning: text,
+                    image: '/images/successful-warning.png'
+                })
+                break;
+            }
+            case "Login successfully at cinema": {
+                let text = 'Đăng nhập thành công';
                 this.setState({
                     show: true,
                     warning: text,
@@ -72,6 +85,14 @@ class WarningModal extends Component {
                 })
                 this.props.clearnWarning();
                 window.location.reload();
+                break;
+            case "Login successfully at cinema":
+                this.setState({
+                    show: false,
+                    status: ''
+                })
+                this.props.clearnWarning();
+                this.props.history.push(`/booking-ticket/${this.state.showtimeId}`);
                 break;
             default:
                 this.setState({
@@ -132,6 +153,7 @@ class WarningModal extends Component {
 const mapStateToProps = state => {
     return {
         warningInfo: state.warningModalReducer.warningInfo,
+        showtimeId: state.bookingTicketReducer.showtimeId
     }
 }
 

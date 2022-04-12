@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action'
 import $ from 'jquery';
 
-function LoginModal({ login, showtimeId, ...props }) {
+function LoginModal({ login, showtimeId, sendShowtimeId }) {
     const {
         register,
         handleSubmit,
@@ -20,21 +20,21 @@ function LoginModal({ login, showtimeId, ...props }) {
     }
 
     const onSubmit = async () => {
-        await login(object, "loginHomePage")
-        $('#loginModal').modal('hide');
+        if (showtimeId) {
+            await sendShowtimeId(showtimeId);
+            await login(object, "loginAtCinema");
+            $('#loginModal').modal('hide');
+        } else {
+            await login(object, "loginHomePage");
+            $('#loginModal').modal('hide');
+        }
         await setObject(
             {
                 username: "",
                 password: ""
             }
         )
-        if (showtimeId) {
-            const user = localStorage.getItem('User');
-            const admin = localStorage.getItem('Admin');
-            if (user || admin) {
-                await props.history.push(`/booking-ticket/${showtimeId}`);
-            }
-        }
+        showtimeId = '';
     };
 
     return (
@@ -96,6 +96,9 @@ const mapDispatchToProps = dispatch => {
     return {
         login: async (object, history) => {
             await dispatch(action.actLogin(object, history));
+        },
+        sendShowtimeId: async (showtime) => {
+            await dispatch(action.actSendingShowTimeID(showtime))
         }
     }
 }

@@ -1529,7 +1529,9 @@ body {
   .loading-image {
     animation: tilt-shaking 0.5s linear infinite; }
   .loading-text {
-    margin-top: 20px; }
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500; }
 
 @keyframes tilt-shaking {
   0% {

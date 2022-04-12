@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as action from "./../../redux/actions/index-action";
 import moment from 'moment';
 import WarningModal from '../../components/modals/warning-modal';
+import LoadingScreen from './loading-screen';
 
 class BookingTicket extends Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class BookingTicket extends Component {
             seatArr: [],
             seatedArr: [],
             totalPrice: 0,
-            acceptButton: false
+            acceptButton: false,
+            checkingLoading: false
         }
     }
 
@@ -25,6 +27,10 @@ class BookingTicket extends Component {
         this.setState({ showtime: this.props.showtime })
         let seatArr = this.createSeatArr();
         this.setState({ seatArr })
+
+        setTimeout(() => {
+            this.setState({ checkingLoading: true })
+        }, 500);
     }
 
     sendSeatData = async (data, indexC, indexR) => {
@@ -153,76 +159,76 @@ class BookingTicket extends Component {
     }
 
     render() {
-
         let theater = { ...this.state.showtime.theater };
         let movie = { ...this.state.showtime.movie };
-        // console.log(this.state.seatArr);
-
-        return (
-            <section className="mySeat">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-9 seat">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-6 theater">
-                                        <img src={"https://localhost:5001" + theater.image} alt="" />
-                                        <div className="theater_info">
-                                            <span>Rạp: {theater.name}</span>
-                                            <span>{moment(this.state.showtime.time).format("HH:mm")}</span>
-                                        </div>
-                                    </div>
-                                    <div className="col-6 time">
-                                        <div className="time_remaining">
-                                            <span>Thời gian chờ</span>
-                                            <span id="time"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="screen">
-                                    <img src="/images/screen.png" alt="" />
-                                </div>
-                                <div className="seat_customer">{this.renderSeat()}</div>
-                                <div className="seat_status">
+        let render = this.state.checkingLoading ?
+            (
+                <section className="mySeat">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-9 seat">
+                                <div className="container">
                                     <div className="row">
-                                        <div className="col-3 seating"><i className="fa fa-minus-square"></i> Ghế đang chọn</div>
-                                        <div className="col-3 seated"><i className="fa fa-minus-square"></i> Ghế đã chọn</div>
-                                        <div className="col-3 havent_seat"><i className="fa fa-minus-square"></i> Ghế chưa chọn</div>
-                                        <div className="col-3 vip_seat"><i className="fa fa-minus-square"></i> Ghế VIP</div>
+                                        <div className="col-6 theater">
+                                            <img src={"https://localhost:5001" + theater.image} alt="" />
+                                            <div className="theater_info">
+                                                <span>Rạp: {theater.name}</span>
+                                                <span>{moment(this.state.showtime.time).format("HH:mm")}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-6 time">
+                                            <div className="time_remaining">
+                                                <span>Thời gian chờ</span>
+                                                <span id="time"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="screen">
+                                        <img src="/images/screen.png" alt="" />
+                                    </div>
+                                    <div className="seat_customer">{this.renderSeat()}</div>
+                                    <div className="seat_status">
+                                        <div className="row">
+                                            <div className="col-3 seating"><i className="fa fa-minus-square"></i> Ghế đang chọn</div>
+                                            <div className="col-3 seated"><i className="fa fa-minus-square"></i> Ghế đã chọn</div>
+                                            <div className="col-3 havent_seat"><i className="fa fa-minus-square"></i> Ghế chưa chọn</div>
+                                            <div className="col-3 vip_seat"><i className="fa fa-minus-square"></i> Ghế VIP</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-3 display_board">
-                            <div className="price"><span>{this.state.totalPrice}.000 đ</span></div>
-                            <hr />
-                            <div className="theater_info">
-                                <span>{theater.name}</span><span>{movie.name}</span>
-                                <p>Thời gian chiếu: {moment(this.state.showtime.time).format("HH:mm")}</p>
-                                <p>Địa chỉ rạp: {theater.address}</p>
+                            <div className="col-3 display_board">
+                                <div className="price"><span>{this.state.totalPrice}.000 đ</span></div>
+                                <hr />
+                                <div className="theater_info">
+                                    <span>{theater.name}</span><span>{movie.name}</span>
+                                    <p>Thời gian chiếu: {moment(this.state.showtime.time).format("HH:mm")}</p>
+                                    <p>Địa chỉ rạp: {theater.address}</p>
+                                </div>
+                                <hr />
+                                <div className="seated">
+                                    <h5>Ghế đã chọn:</h5>
+                                    {this.state.seatedArr.map((item, index) => <span key={index}>Ghế số: {item.name}, </span>)}
+                                </div>
+                                <hr />
+                                <div className="payments">
+                                    <h5>Hình thức thanh toán</h5>
+                                    <p>Vui lòng chọn ghế để hiển thị hình thức thanh toán.</p>
+                                    <p><i className="fa fa-info"></i> Vé đã mua không thể đổi hoặc hoàn tiền Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã nhập.</p>
+                                </div>
+                                <hr />
+                                <div className="accept_button">
+                                    <button disabled={!this.state.acceptButton} onClick={() => this.payTicket()} > Thanh toán</button>
+                                </div>
+                                <hr />
                             </div>
-                            <hr />
-                            <div className="seated">
-                                <h5>Ghế đã chọn:</h5>
-                                {this.state.seatedArr.map((item, index) => <span key={index}>Ghế số: {item.name}, </span>)}
-                            </div>
-                            <hr />
-                            <div className="payments">
-                                <h5>Hình thức thanh toán</h5>
-                                <p>Vui lòng chọn ghế để hiển thị hình thức thanh toán.</p>
-                                <p><i className="fa fa-info"></i> Vé đã mua không thể đổi hoặc hoàn tiền Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã nhập.</p>
-                            </div>
-                            <hr />
-                            <div className="accept_button">
-                                <button disabled={!this.state.acceptButton} onClick={() => this.payTicket()} > Thanh toán</button>
-                            </div>
-                            <hr />
                         </div>
                     </div>
-                </div>
-                <WarningModal />
-            </section>
-        )
+                    <WarningModal />
+                </section>
+            ) :
+            <LoadingScreen />;
+        return render
     }
 }
 

@@ -102,12 +102,11 @@ class Cinema extends Component {
         }
     }
 
-    checkLogin = id => {
+    checkLogin = async id => {
         const user = localStorage.getItem('User');
         const admin = localStorage.getItem('Admin');
         if (user || admin) {
-            // console.log(this.props.history);
-            this.props.history.push(`booking-ticket/${id}`);
+            await this.props.history.push(`booking-ticket/${id}`);
         } else {
             $('#loginModal').modal('show');
             this.setState({ showtimeId: id });
@@ -180,7 +179,7 @@ class Cinema extends Component {
                         }
                     </div>
                 </div>
-                <LoginModal showtimeId={this.state.showtimeId} {...this.props} />
+                <LoginModal showtimeId={this.state.showtimeId} />
             </Element >
         )
     }

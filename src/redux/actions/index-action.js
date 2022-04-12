@@ -95,7 +95,16 @@ export const actWarningBox = status => {
     return async dispatch => {
         dispatch({
             type: ActionType.GET_WARNING_INFO,
-            warningInfo: { status }
+            warningInfo: { status },
+        })
+    }
+}
+
+export const actSendingShowTimeID = showtimeId => {
+    return async dispatch => {
+        dispatch({
+            type: ActionType.MOVE_TO_BOOKING_BYSHOWTIMEID,
+            showtimeId
         })
     }
 }
@@ -151,7 +160,6 @@ export const actGetListTheatersByBranchIdAPI = () => {
             type: ActionType.GET_LIST_THEATERS,
             listTheaters: result.data
         })
-        // console.log("theater");
     }
 }
 
@@ -168,6 +176,14 @@ export const actLogin = (user, condi) => {
                 } else {
                     localStorage.setItem('User', JSON.stringify(resp.data));
                     return dispatch(actWarningBox('Login successfully'));
+                }
+            } else if (condi === 'loginAtCinema') {
+                if (resp.data.role === 0) {
+                    localStorage.setItem('Admin', JSON.stringify(resp.data));
+                    return dispatch(actWarningBox('Login successfully at cinema'));
+                } else {
+                    localStorage.setItem('User', JSON.stringify(resp.data));
+                    return dispatch(actWarningBox('Login successfully at cinema'));
                 }
             }
             else if (condi !== "loginHomePage" && resp.data.role === 0) {

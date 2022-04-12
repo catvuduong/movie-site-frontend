@@ -109,6 +109,7 @@ class Cinema extends Component {
         } else {
             $('#loginModal').modal('show');
             this.setState({ showtimeId: id });
+            await console.log(this.state);
         }
     }
 
@@ -183,7 +184,7 @@ class Cinema extends Component {
                     </div>
                 </div>
 
-                <LoginModal showtimeId={this.state.showtimeId} {...this.props}></LoginModal>
+                <LoginModal showtimeId={this.state.showtimeId}></LoginModal>
             </Element >
         )
     }

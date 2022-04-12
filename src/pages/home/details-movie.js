@@ -6,8 +6,8 @@ import ShowtimesDetail from './../../components/details-movie/showtimes-detailsm
 import DetailsMovieModal from './../../components/details-movie/details-movie-modal';
 import LoadingScreen from './loading-screen';
 import Banner from './../../components/home/banner';
-import LoginModal from '../../pages/home/modals/login-modal';
 import { scroller } from 'react-scroll'
+import WarningModal from '../../components/modals/warning-modal';
 
 class DetailsMovie extends Component {
     _isMounted = false;
@@ -27,7 +27,10 @@ class DetailsMovie extends Component {
         const id = this.props.match.params.id;
         await this.props.getDetailsMovie(id);
         await this.props.getListBranches();
-        this.setState({ movie: this.props.movie, checkingLoading: true, id });
+        this.setState({ movie: this.props.movie, id });
+        setTimeout(() => {
+            this.setState({ checkingLoading: true })
+        }, 500);
     }
 
     handleShowtimes = () => {
@@ -94,7 +97,7 @@ class DetailsMovie extends Component {
                         <div className="showtimes_content">{this.renderDisplay(this.state.component)}</div>
                     </div >
                     <Banner></Banner>
-                    <LoginModal></LoginModal>
+                    <WarningModal {...this.props} />
                 </>
             )
         }
