@@ -170,7 +170,7 @@ class BookingTicket extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-6 theater">
-                                            <img src={"https://localhost:5001" + theater.image} alt="" />
+                                            <img src={theater.image} alt="" />
                                             <div className="theater_info">
                                                 <span>Rạp: {theater.name}</span>
                                                 <span>{moment(this.state.showtime.time).format("HH:mm")}</span>

@@ -44,7 +44,7 @@ class TicketManagement extends Component {
                             <tr key={item.id}>
                                 <th className='orderM' scope="row">{orderNumber++}</th>
                                 <td>
-                                    <img className='ticketM-image' src={`https://localhost:5001${item.showtime.theater.image}`} alt="" />
+                                    <img className='ticketM-image' src={item.showtime.theater.image} alt="" />
                                     <h4 className='ticketM-name'>{item.showtime.theater.name}</h4>
                                 </td>
                                 <td>
