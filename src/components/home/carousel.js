@@ -33,6 +33,42 @@ class Carousel extends Component {
             <Element id="myCarousel" name='srollToHome' className="myCarousel">
                 <Swiper {...params}>
                     <div className="carousel_item">
+                        <img src="./images/bo-gia.png" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/jluSu8Rw6YE' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
+                        <img src="./images/bi-mat-cua-gio.jpg" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/1RZ25BmiYwc' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
+                        <img src="./images/wonder-woman.jpg" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/sfM7_JLk-84' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
+                        <img src="/images/thanh-guom-diet-quy.jpg" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/o5EXVFaNrqw' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
+                        <img src="./images/nghe-sieu-kho.jpg" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/pTlqIQUkYQI' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
+                        <img src="./images/one-piece.jpg" alt="" />
+                        <span className="fa fa-play"
+                            onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/S8_YwFLCh4U' }) }}
+                            data-toggle="modal" data-target="#exampleModalCenter"></span>
+                    </div>
+                    <div className="carousel_item">
                         <img src="./images/tiec-trang-mau-blood-moon-party-16021267739246.png" alt="" />
                         <span className="fa fa-play"
                             onClick={() => { this.setState({ link: 'https://www.youtube.com/embed/nh0BklwPN9Q' }) }}
