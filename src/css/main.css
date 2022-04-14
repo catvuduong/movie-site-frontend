@@ -6,8 +6,12 @@
 body {
   font-family: "Public Sans", sans-serif;
   font-size: 18px;
-  background-color: white;
+  background-color: #fff;
   overflow-x: hidden; }
+
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 13px; } }
 
 .myHeader {
   background-color: white;
@@ -716,7 +720,7 @@ body {
         border: 5px solid greenyellow; }
   @media screen and (max-width: 992px) {
     .myDetailsMovie .container .movie_name {
-      padding-left: 65px; }
+      padding-left: 100px; }
       .myDetailsMovie .container .movie_name p {
         padding-right: 60px; } }
   @media screen and (max-width: 767px) {
@@ -1117,14 +1121,14 @@ body {
       .myApps .container .app_phone .phone_content {
         margin: 0 auto;
         height: 400px;
-        width: 45%; }
+        width: 35%; }
         .myApps .container .app_phone .phone_content .swiper-container {
           border-radius: 35px; }
           .myApps .container .app_phone .phone_content .swiper-container .phone_item {
             cursor: pointer; }
             .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
               width: 100%;
-              height: 420px; }
+              height: 350px; }
   @media screen and (max-width: 1600px) {
     .myApps .container {
       width: 100%; } }
@@ -1561,11 +1565,11 @@ body {
     top: -65px;
     right: 5px; }
 
-@media screen and (max-width: 368px) {
+@media screen and (max-width: 992px) {
   .branchM-thImage, .branchM-image {
     display: none; } }
 
-@media screen and (max-width: 368px) {
+@media screen and (max-width: 992px) {
   .theaterM-thImage, .theaterM-image {
     display: none; } }
 
@@ -1591,7 +1595,7 @@ body {
   .movieM-thumbnail {
     display: none; } }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 992px) {
   .showtimeM-thTime, .showtimeM-time {
     display: none; } }
 

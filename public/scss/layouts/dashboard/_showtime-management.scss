@@ -1,8 +1,11 @@
 .showtimeM {
-    @include respond-to("450") {
+    @include respond-to("large") {
         &-thTime,
         &-time {
             display: none;
         }
     }
+    @include respond-to("extra-small"){
+        
+    };
 }

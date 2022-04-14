@@ -8,7 +8,7 @@
     }
 }
 .branchM {
-    @include respond-to("extra-small") {
+    @include respond-to("large") {
         &-thImage,
         &-image {
             display: none;

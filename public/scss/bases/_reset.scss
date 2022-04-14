@@ -7,7 +7,12 @@
 body {
     font-family: "Public Sans", sans-serif;
     font-size: 18px;
-    background-color: white;
-    // position: relative;
+    background-color: $color-white-0;
     overflow-x: hidden;
+}
+
+@include respond-to("small") {
+    body {
+        font-size: 13px;
+    }
 }
