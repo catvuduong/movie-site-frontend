@@ -9,7 +9,7 @@ function LoginModal({ login, showtimeId, sendShowtimeId }) {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({ mode: "onChange" });
+    } = useForm({ mode: "onBlur" });
 
     const [object, setObject] = useState({ username: '', password: '' });
 
@@ -68,7 +68,8 @@ function LoginModal({ login, showtimeId, sendShowtimeId }) {
                                     <label>Tên đăng nhập</label>
                                     <input type="text" className="form-control" name="username"
                                         {...register("username", { required: true })}
-                                        onChange={handleOnChange} value={object.username}
+                                        onChange={handleOnChange}
+                                        value={object.username}
                                     />
                                     {errors.username ? <div className='text-danger'>Bạn tên cần nhập tài khoản</div> : undefined}
                                 </div>

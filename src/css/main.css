@@ -13,6 +13,27 @@ body {
   body {
     font-size: 13px; } }
 
+.admin {
+  position: relative;
+  height: 100vh; }
+  .admin-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .admin-title {
+    font-size: 30px;
+    font-weight: 700; }
+  .admin-form {
+    margin-top: 10px; }
+  .admin-username {
+    width: 300px; }
+  .admin-password {
+    width: 300px; }
+  .admin-signin {
+    margin-top: 10px;
+    padding: 5px 50px; }
+
 .myHeader {
   background-color: white;
   position: fixed;

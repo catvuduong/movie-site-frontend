@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 const AdminLayout = props => {
     return (
-        <Fragment>
+        <>
             {props.children}
-        </Fragment>
+        </>
     )
 }
 export default function AdminTemplate({ Component, ...props }) {

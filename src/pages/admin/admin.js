@@ -1,55 +1,69 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import WarningModal from '../../components/modals/warning-modal';
 import * as action from './../../redux/actions/index-action';
 
-class Admin extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-        }
-    }
-    componentDidMount() {
+function Admin({ login, ...props }) {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({ mode: "onBlur" });
+
+    const [object, setObject] = useState({ username: '', password: '' });
+
+    useEffect(() => {
         const admin = localStorage.getItem("Admin");
         if (admin) {
-            this.props.history.push('dash-board');
+            props.history.push('dash-board');
         }
+    });
+
+    const handleOnchange = e => {
+        let { name, value } = e.target;
+        setObject({ ...object, [name]: value });
+        name === 'username' ? errors.username = undefined : errors.password = undefined;
     }
 
-    handleOnchange = e => {
-        let { name, value } = e.target;
-        this.setState({
-            [name]: value
-        })
+    const onSubmit = async () => {
+        await login(object, "loginAtAdmin");
+        await setObject({ username: "", password: "" });
     }
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.login(this.state, this.props.history)
-    }
-    render() {
-        return (
-            <div className="container">
-                <div className="col-sm-6 mx-auto">
-                    <form onSubmit={this.handleSubmit}>
+
+    return (
+        <div className='admin'>
+            <div className='admin-main'>
+                <div className='container'>
+                    <h3 className='admin-title'>ADMIN SIGN IN</h3>
+                    <form className='admin-form' onSubmit={(handleSubmit(onSubmit))}>
                         <div className="form-group">
-                            <label htmlFor="">Username</label>
-                            <input type="text" className="form-control" name="username" onChange={this.handleOnchange} />
+                            <label>Username</label>
+                            <input type="text" className="form-control admin-username" name="username"
+                                {...register("username", { required: true })}
+                                onChange={handleOnchange}
+                                value={object.username}
+                            />
+                            {errors.username ? <div className='text-danger'>Bạn tên cần nhập tài khoản</div> : undefined}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="">Password</label>
-                            <input type="password" className="form-control" name="password" onChange={this.handleOnchange} />
+                            <label>Password</label>
+                            <input type="password" className="form-control admin-password" name="password"
+                                {...register("password", { required: true })}
+                                onChange={handleOnchange}
+                                value={object.password}
+                            />
+                            {errors.password ? <div className='text-danger'>Bạn cần nhập mật khẩu</div> : undefined}
                         </div>
-                        <button type="submit" className="btn btn-success">
-                            Login
+                        <button type="submit" className="btn btn-success admin-signin">
+                            Sign in
                         </button>
                     </form>
                 </div>
                 <WarningModal />
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 const mapDispatchToProps = dispatch => {
