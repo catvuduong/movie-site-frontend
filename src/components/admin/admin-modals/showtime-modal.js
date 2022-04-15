@@ -22,7 +22,6 @@ class ShowtimeModal extends Component {
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps && nextProps.objectEdit) {
-            console.log(nextProps.objectEdit);
             this.setState({
                 object: {
                     id: nextProps.objectEdit.id,

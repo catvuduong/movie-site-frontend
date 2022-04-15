@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action';
-import $ from 'jquery';
+import { Modal, Button } from 'react-bootstrap';
 
 class UserModal extends Component {
     constructor(props) {
@@ -12,7 +12,17 @@ class UserModal extends Component {
                 email: "",
                 password: ""
             },
+            userInfoModal: false
         }
+    }
+
+    componentDidMount() {
+        const { userRef } = this.props;
+        userRef(this);
+    }
+    componentWillUnmount() {
+        const { userRef } = this.props;
+        userRef(undefined);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -46,88 +56,64 @@ class UserModal extends Component {
         });
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.actionUser(this.state.object, this.props.type);
-        this.props.refesh();
-        $('#userInfoModal').modal('hide');
+    handleShow = () => {
+        this.setState({ userInfoModal: true })
     }
 
-    handleDelete = () => {
-        this.props.actionUser(this.state.object, this.props.type)
-        this.props.refesh();
-        $('#submitDeleteUserModal').modal('hide');
+    handleClose = () => {
+        this.setState({ userInfoModal: false })
     }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        await this.props.actionUser(this.state.object, this.props.type);
+        await this.handleClose();
+        await this.props.refesh();
+    }
+
     render() {
         return (
-            <div>
-                <div
-                    className="modal fade"
-                    id="userInfoModal"
-                    tabIndex={-1}
-                    role="dialog"
-                    aria-labelledby="modelTitleId"
-                    aria-hidden="true"
+            <>
+                <Modal
+                    className="modal fade userModal"
+                    show={this.state.userInfoModal}
+                    onHide={() => this.handleClose()}
                 >
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content text-right">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{this.props.objectEdit ? "EDIT USER" : "ADD USER"}</h5>
-                                <button
-                                    type="button"
-                                    className="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                                >
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="text-left">
-                                        <div className="form-group">
-                                            <label>Name</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="username" value={this.state.object.username} />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Email</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="email" value={this.state.object.email} />
-                                        </div>
-                                        {this.props.objectEdit ? null :
-                                            <div className="form-group">
-                                                <label>Password</label>
-                                                <input type="password" className="form-control" onChange={this.handleOnChange} name="password" value={this.state.object.password} />
-                                            </div>
-                                        }
+                    <Modal.Header className='warning-header userModal-header'>
+                        <span className='warning-sign userModal-sign'
+                            onClick={() => this.handleClose()}
+                        > x</span>
+                        <h5 className="modal-title">{this.props.objectEdit ? "EDIT USER" : "ADD USER"}</h5>
+                    </Modal.Header>
+                    <Modal.Body className='warning-body'>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="text-left">
+                                <div className="form-group">
+                                    <label>Name</label>
+                                    <input type="text" className="form-control" onChange={this.handleOnChange} name="username" value={this.state.object.username} />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email</label>
+                                    <input type="text" className="form-control" onChange={this.handleOnChange} name="email" value={this.state.object.email} />
+                                </div>
+                                {this.props.objectEdit ? null :
+                                    <div className="form-group">
+                                        <label>Password</label>
+                                        <input type="password" className="form-control" onChange={this.handleOnChange} name="password" value={this.state.object.password} />
                                     </div>
-                                    <button type="submit" className="btn btn-success">
-                                        {this.props.objectEdit ? "Update" : "Submit"}
-                                    </button>
-                                </form>
+                                }
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="submitDeleteUserModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
+                            <div className='text-right'>
+                                <Button type="submit" className="btn btn-success text-right"
+                                    onClick={() => this.handleSubmit}
+                                >
+                                    {this.props.objectEdit ? "Update" : "Submit"}
+                                </Button>
                             </div>
-                            <div className="modal-body">
-                                Are you sure to delete?
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={() => this.handleDelete()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </form>
+                    </Modal.Body>
+                </Modal>
+            </ >
         );
     }
 }

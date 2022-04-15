@@ -1671,6 +1671,9 @@ body {
   .userM-thEmail, .userM-email {
     display: none; } }
 
+.userModal-content {
+  display: unset; }
+
 .warning .modal-dialog {
   padding-top: 5%; }
 

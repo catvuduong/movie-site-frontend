@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
+import DeleteModal from './admin-modals/delete-modal';
 import UserModal from './admin-modals/user-modal'
 
 class UserManament extends Component {
@@ -9,17 +10,16 @@ class UserManament extends Component {
         this.state = {
             listUsers: []
         }
+        this.userChild = React.createRef();
+        this.deleteChild = React.createRef();
     }
 
     async componentDidMount() {
         await this.props.getListUsers();
-        // console.log(this.state);
     }
 
     handleRefesh = () => {
-        setTimeout(() => {
-            this.props.getListUsers();
-        }, 500);
+        this.props.getListUsers();
     }
 
     render() {
@@ -27,9 +27,9 @@ class UserManament extends Component {
         let { listUsers } = this.props;
         return (
             <div className="myBranchManament text-center">
-                <button className="btn btn-primary add_branch" data-toggle="modal"
-                    data-target="#userInfoModal"
+                <button className="btn btn-primary add_branch"
                     onClick={() => {
+                        this.userChild.handleShow();
                         this.setState({ objectEdit: null, type: null });
                     }}
                 >Add Users</button>
@@ -52,11 +52,14 @@ class UserManament extends Component {
                                     <td className='userM-email'>{item.email}</td>
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
-                                            data-target="#userInfoModal" onClick={() => {
+                                            data-target="#userInfoModal"
+                                            onClick={() => {
+                                                this.userChild.handleShow();
                                                 this.setState({ objectEdit: item, type: "edit" })
                                             }}>Edit</button>
                                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                                             data-target="#submitDeleteUserModal" onClick={() => {
+                                                this.deleteChild.handleShow();
                                                 this.setState({ objectEdit: item, type: "delete" })
                                             }}>Delete</button>
                                     </td>
@@ -65,8 +68,19 @@ class UserManament extends Component {
                         })}
                     </tbody>
                 </table>
-                <UserModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></UserModal>
-            </div>
+                <UserModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    userRef={ref => (this.userChild = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.deleteChild = ref)}
+                />
+            </div >
         )
     }
 }
@@ -84,7 +98,6 @@ const mapStateToProps = state => {
         listUsers: state.userReducer.listUsers,
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserManament);
 

@@ -125,13 +125,6 @@ class WarningModal extends Component {
     render() {
         return (
             <>
-                {/* <Button variant="primary" onClick={() => this.setState({
-                    show: true,
-                    warning: 'Đăng nhập thành công',
-                    image: './images/successful-warning.png'
-                })}>
-                    Launch static backdrop modal
-                </Button> */}
                 <Modal
                     className='warning'
                     show={this.state.show}
