@@ -1,4 +1,9 @@
 .showtimesDM {
+    &-name {
+        p {
+            cursor: context-menu !important;
+        }
+    }
     @include respond-to("large") {
         &-name {
             padding-top: 0 !important;

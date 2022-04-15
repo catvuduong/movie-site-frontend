@@ -519,9 +519,11 @@ body {
           padding: 0;
           line-height: 3; }
           .myCinema .row .movie_logo .item_line .movie_line .movie_image img {
+            z-index: 10;
             width: 50px;
             height: 50px; }
         .myCinema .row .movie_logo .item_line .movie_line .movie_name {
+          z-index: 1;
           padding-top: 12px;
           line-height: 0;
           color: #686f7a; }
@@ -1158,15 +1160,17 @@ body {
   .myApps .container {
     max-width: 850px; }
     .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-      height: 340px; } }
+      height: 280px; } }
 
 @media screen and (max-width: 992px) {
   .myApps .container {
     max-width: 650px; }
     .myApps .container .app_phone {
       padding-top: 60px; }
-      .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
-        height: 300px; } }
+      .myApps .container .app_phone .phone_content {
+        width: 45%; }
+        .myApps .container .app_phone .phone_content .swiper-container .phone_item img {
+          height: 280px; } }
 
 @media screen and (max-width: 767px) {
   .myApps .container {
@@ -1569,6 +1573,9 @@ body {
     transform: rotate(-20deg); }
   100% {
     transform: rotate(0deg); } }
+
+.showtimesDM-name p {
+  cursor: context-menu !important; }
 
 @media screen and (max-width: 992px) {
   .showtimesDM-name {
