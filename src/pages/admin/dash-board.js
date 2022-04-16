@@ -7,6 +7,8 @@ import ShowtimeManagement from '../../components/admin/showtime-management';
 import ArticleManament from '../../components/admin/article-manament';
 import TicketManagement from '../../components/admin/ticket-management';
 import WellComeAdmin from '../../components/admin/wellcome-admin';
+import { ToastContainer } from 'react-toastify';
+
 
 export default class DashBoard extends Component {
     constructor(props) {
@@ -154,9 +156,7 @@ export default class DashBoard extends Component {
                     <div id="page-content-wrapper">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                             <button className="btn btn-primary" id="menu-toggle" onClick={() => { this.handleToggle() }}><i className="fa fa-bars"></i></button>
-                            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon" />
-                            </button> */}
+
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             </div>
                         </nav>
@@ -165,6 +165,7 @@ export default class DashBoard extends Component {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div >
         )
     }

@@ -8,6 +8,7 @@ import AdminTemplate from './templates/admin-template';
 import Admin from './pages/admin/admin';
 import PageNotFound from './page-not-found';
 import WarningModal from './components/modals/warning-modal';
+import 'react-toastify/dist/ReactToastify.css';
 
 const showMenuHome = routes => {
   if (routes && routes.length > 0) {

@@ -1,5 +1,6 @@
 import * as ActionType from './../constants/action-type';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const actGetListMoviesAPI = data => {
     // OBJECT - ACTION
@@ -371,7 +372,9 @@ export const actUserManagement = (user, type) => {
                 switch (type) {
                     case "edit": {
                         await axios.put(`/users/update/${user.id}`, user);
-                        alert("Update success");
+                        toast.success("Update successfully", {
+                            theme: "colored"
+                        })
                         break;
                     }
                     case "delete": {

@@ -14,6 +14,8 @@ import "slick-carousel/slick/slick-theme.css";
 // import './css/dash-board.css';
 import "./css/simple-sidebar.css";
 
+import 'react-toastify/dist/ReactToastify.css';
+
 // page not found lib
 import './css/page-not-found-lib.css';
 //animation warning modal

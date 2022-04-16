@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const AdminLayout = props => {
     return (
@@ -18,6 +19,7 @@ export default function AdminTemplate({ Component, ...props }) {
                         <AdminLayout>
                             <Component {...propsComponent}>
                             </Component>
+                            <ToastContainer />
                         </AdminLayout>
                     )
                 } else {

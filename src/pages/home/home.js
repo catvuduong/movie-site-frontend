@@ -12,6 +12,7 @@ import Banner from './../../components/home/banner';
 import LoadingScreen from './../home/loading-screen';
 import WarningModal from '../../components/modals/warning-modal';
 
+
 class Home extends Component {
     constructor(props) {
         super(props);
