@@ -10,8 +10,8 @@ class UserManament extends Component {
         this.state = {
             listUsers: []
         }
-        this.userChild = React.createRef();
-        this.deleteChild = React.createRef();
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
 
     async componentDidMount() {
@@ -29,7 +29,7 @@ class UserManament extends Component {
             <div className="myBranchManament text-center">
                 <button className="btn btn-primary add_branch"
                     onClick={() => {
-                        this.userChild.handleShow();
+                        this.controlActionModal.handleShow();
                         this.setState({ objectEdit: null, type: null });
                     }}
                 >Add Users</button>
@@ -54,13 +54,13 @@ class UserManament extends Component {
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#userInfoModal"
                                             onClick={() => {
-                                                this.userChild.handleShow();
+                                                this.controlActionModal.handleShow();
                                                 this.setState({ objectEdit: item, type: "edit" })
                                             }}>Edit</button>
                                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                                             data-target="#submitDeleteUserModal" onClick={() => {
-                                                this.deleteChild.handleShow();
-                                                this.setState({ objectEdit: item, type: "delete" })
+                                                this.controlDeleteModal.handleShow();
+                                                this.setState({ objectEdit: item, type: "user_delete" })
                                             }}>Delete</button>
                                     </td>
                                 </tr >
@@ -72,13 +72,13 @@ class UserManament extends Component {
                     objectEdit={this.state.objectEdit}
                     type={this.state.type}
                     refesh={this.handleRefesh}
-                    userRef={ref => (this.userChild = ref)}
+                    actionRef={ref => (this.controlActionModal = ref)}
                 />
                 <DeleteModal
                     objectEdit={this.state.objectEdit}
                     type={this.state.type}
                     refesh={this.handleRefesh}
-                    deleteRef={ref => (this.deleteChild = ref)}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
                 />
             </div >
         )

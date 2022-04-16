@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as action from '../../redux/actions/index-action';
 import { connect } from 'react-redux';
-import ModalBranch from './admin-modals/modal-branch';
+import BranchModal from './admin-modals/branch-modal';
+import DeleteModal from './admin-modals/delete-modal';
 
 class BranchManagement extends Component {
 
@@ -11,6 +12,8 @@ class BranchManagement extends Component {
             objectEdit: null,
             type: "",
         }
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
     async componentDidMount() {
         await this.props.getListBranches();
@@ -33,11 +36,14 @@ class BranchManagement extends Component {
                     <td>
                         <button className="btn btn-success btn--edit" data-toggle="modal"
                             data-target="#branchInfoModal" onClick={() => {
+                                this.controlActionModal.handleShow();
+
                                 this.setState({ objectEdit: item, type: "edit" })
                             }}>Edit</button>
-                        <button className="btn btn-danger btn--delete" data-toggle="modal"
-                            data-target="#submitDeleteModal" onClick={() => {
-                                this.setState({ objectEdit: item, type: "delete" })
+                        <button className="btn btn-danger btn--delete"
+                            onClick={() => {
+                                this.controlDeleteModal.handleShow();
+                                this.setState({ objectEdit: item, type: "branch_delete" })
                             }}>Delete</button>
                     </td>
                 </tr >
@@ -50,6 +56,7 @@ class BranchManagement extends Component {
             <div className="myBranchManament text-center">
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#branchInfoModal" onClick={() => {
+                        this.controlActionModal.handleShow();
                         this.setState({ objectEdit: null })
                     }} >Add Branch</button>
                 <h3 className="my-3">LIST OF BRANCHES</h3>
@@ -66,7 +73,18 @@ class BranchManagement extends Component {
                         {this.renderListBranches(listBranches)}
                     </tbody>
                 </table>
-                <ModalBranch objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ModalBranch>
+                <BranchModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

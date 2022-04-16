@@ -7,7 +7,6 @@ import ShowtimeManagement from '../../components/admin/showtime-management';
 import ArticleManament from '../../components/admin/article-manament';
 import TicketManagement from '../../components/admin/ticket-management';
 import WellComeAdmin from '../../components/admin/wellcome-admin';
-import { ToastContainer } from 'react-toastify';
 
 
 export default class DashBoard extends Component {
@@ -165,7 +164,6 @@ export default class DashBoard extends Component {
                         </div>
                     </div>
                 </div>
-                <ToastContainer />
             </div >
         )
     }

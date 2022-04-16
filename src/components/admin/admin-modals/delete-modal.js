@@ -55,7 +55,16 @@ class DeleteModal extends Component {
     }
 
     handleSubmit = async () => {
-        await this.props.actionUser(this.state.object, this.props.type);
+        switch (this.props.type) {
+            case "branch_delete":
+                await this.props.actionBranch(this.state.object, this.props.type);
+                break;
+            case "user_delete":
+                await this.props.actionUser(this.state.object, this.props.type);
+                break;
+            default:
+                break;
+        }
         await this.handleClose();
         await this.props.refesh();
         this.setState({
@@ -99,6 +108,9 @@ const mapDispatchToProps = dispatch => {
     return {
         actionUser: async (object, type) => {
             await dispatch(action.actUserManagement(object, type));
+        },
+        actionBranch: async (object, type) => {
+            await dispatch(action.actBranchManagement(object, type));
         }
     }
 }

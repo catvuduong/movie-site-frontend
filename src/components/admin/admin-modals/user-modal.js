@@ -12,17 +12,17 @@ class UserModal extends Component {
                 email: "",
                 password: ""
             },
-            userInfoModal: false
+            actionModal: false
         }
     }
 
     componentDidMount() {
-        const { userRef } = this.props;
-        userRef(this);
+        const { actionRef } = this.props;
+        actionRef(this);
     }
     componentWillUnmount() {
-        const { userRef } = this.props;
-        userRef(undefined);
+        const { actionRef } = this.props;
+        actionRef(undefined);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -57,11 +57,11 @@ class UserModal extends Component {
     }
 
     handleShow = () => {
-        this.setState({ userInfoModal: true })
+        this.setState({ actionModal: true })
     }
 
     handleClose = () => {
-        this.setState({ userInfoModal: false })
+        this.setState({ actionModal: false })
     }
 
     handleSubmit = async e => {
@@ -76,7 +76,7 @@ class UserModal extends Component {
             <>
                 <Modal
                     className="modal fade userModal"
-                    show={this.state.userInfoModal}
+                    show={this.state.actionModal}
                     onHide={() => this.handleClose()}
                 >
                     <Modal.Header className='warning-header userModal-header'>
