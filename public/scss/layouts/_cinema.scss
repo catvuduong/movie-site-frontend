@@ -66,8 +66,9 @@
                             color: #8bc541;
                         }
                         .theater_address {
-                            @include text($color-black-0, $fs-1, $fw-bold-0);
-                            padding-top: 6px;
+                            @include text($color-gray-2, 11px, $fw-normal);
+                            line-height: 1.2;
+                            padding-top: 2px;
                         }
                         .theater_detail {
                             @include text($color-red-0, $fs-1, $fw-normal);

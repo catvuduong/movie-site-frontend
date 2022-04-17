@@ -159,7 +159,7 @@ class Cinema extends Component {
                                             <div className="col-11 movie_name">
                                                 <Link to={`detail-movie/${item.id}`}>
                                                     <p>{item.data[0].movie.name}</p></Link>
-                                                <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
+                                                <span>Điểm: {item.data[0].movie.rate} </span>
                                             </div>
                                         </div>
                                         <div className="movie_showtimes">

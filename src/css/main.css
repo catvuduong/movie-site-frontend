@@ -494,10 +494,11 @@ body {
           .myCinema .row .theater_logo .item_line .theater_line .theater_name span:first-child {
             color: #8bc541; }
           .myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_address {
-            color: #000000;
-            font-size: 13px;
-            font-weight: 600;
-            padding-top: 6px; }
+            color: #a1a7b3;
+            font-size: 11px;
+            font-weight: normal;
+            line-height: 1.2;
+            padding-top: 2px; }
           .myCinema .row .theater_logo .item_line .theater_line .theater_name .theater_detail {
             color: #ec5252;
             font-size: 13px;

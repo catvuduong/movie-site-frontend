@@ -125,7 +125,7 @@ class Cinema extends Component {
                     </div>
                     <div className="col-11 movie_name showtimesDM-name">
                         <p>{item.data[0].movie.name}</p>
-                        <span>100 phút - Điểm: {item.data[0].movie.rate} </span>
+                        <span>Điểm: {item.data[0].movie.rate} </span>
                     </div>
                 </div>
                 <div className="movie_showtimes">
