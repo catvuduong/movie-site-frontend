@@ -104,46 +104,6 @@ class BranchModal extends Component {
                     </form>
                 </Modal.Body>
             </Modal>
-            // <div>
-            //     <div
-            //         className="modal fade"
-            //         show={this.state.actionModal}
-            //         onHide={() => this.handleClose()}
-            //     >
-            //         <div className="modal-dialog" role="document">
-            //             <div className="modal-content text-right">
-            //                 <div className="modal-header">
-            //                     <h5 className="modal-title">{this.props.objectEdit ? "EDIT BRANCH" : "ADD BRANCH"}</h5>
-            //                     <button
-            //                         type="button"
-            //                         className="close"
-            //                         data-dismiss="modal"
-            //                         aria-label="Close"
-            //                     >
-            //                         <span aria-hidden="true">×</span>
-            //                     </button>
-            //                 </div>
-            //                 <div className="modal-body">
-            //                     <form onSubmit={this.handleSubmit}>
-            //                         <div className="text-left">
-            //                             <div className="form-group">
-            //                                 <label>Name</label>
-            //                                 <input type="text" className="form-control" onChange={this.handleOnChange} name="name" value={this.state.object.name} />
-            //                             </div>
-            //                             <div className="form-group">
-            //                                 <label>Image</label>
-            //                                 <input type="text" className="form-control" onChange={this.handleOnChange} name="image" value={this.state.object.image} />
-            //                             </div>
-            //                         </div>
-            //                         <button type="submit" className="btn btn-success">
-            //                             {this.props.objectEdit ? "Update" : "Submit"}
-            //                         </button>
-            //                     </form>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
         );
     }
 }

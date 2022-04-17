@@ -323,7 +323,7 @@ export const actShowtimeManagement = (showtime, type) => {
                         });
                         break;
                     }
-                    case "delete": {
+                    case "showtime_delete": {
                         await axios.delete(`/showtimes/delete/${showtime.id}`);
                         toast.success("Delete successfully", {
                             theme: "colored"

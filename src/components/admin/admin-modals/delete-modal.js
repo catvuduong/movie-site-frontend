@@ -62,6 +62,9 @@ class DeleteModal extends Component {
             case "user_delete":
                 await this.props.actionUser(this.state.object, this.props.type);
                 break;
+            case "showtime_delete":
+                await this.props.actionShowtime(this.state.object, this.props.type);
+                break;
             default:
                 break;
         }
@@ -111,7 +114,10 @@ const mapDispatchToProps = dispatch => {
         },
         actionBranch: async (object, type) => {
             await dispatch(action.actBranchManagement(object, type));
-        }
+        },
+        actionShowtime: async (ojbect, type) => {
+            await dispatch(action.actShowtimeManagement(ojbect, type));
+        },
     }
 }
 

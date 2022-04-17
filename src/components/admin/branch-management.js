@@ -36,14 +36,13 @@ class BranchManagement extends Component {
                     <td>
                         <button className="btn btn-success btn--edit" data-toggle="modal"
                             data-target="#branchInfoModal" onClick={() => {
-                                this.controlActionModal.handleShow();
-
                                 this.setState({ objectEdit: item, type: "edit" })
+                                this.controlActionModal.handleShow();
                             }}>Edit</button>
                         <button className="btn btn-danger btn--delete"
                             onClick={() => {
-                                this.controlDeleteModal.handleShow();
                                 this.setState({ objectEdit: item, type: "branch_delete" })
+                                this.controlDeleteModal.handleShow();
                             }}>Delete</button>
                     </td>
                 </tr >

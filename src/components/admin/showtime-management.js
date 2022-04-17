@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../redux/actions/index-action';
+import DeleteModal from './admin-modals/delete-modal';
 import ShowtimeModal from './admin-modals/showtime-modal';
 
 class ShowtimeManagement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            objectEdit: null,
+            type: "",
         }
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
     async componentDidMount() {
         await this.props.getListShowtime();
     }
 
     handleRefesh = () => {
-        setTimeout(() => {
-            this.props.getListShowtime();
-        }, 500);
+        this.props.getListShowtime();
     }
 
     render() {
@@ -29,6 +31,7 @@ class ShowtimeManagement extends Component {
                     data-target="#showtimeInfoModal"
                     onClick={() => {
                         this.setState({ objectEdit: null, type: null });
+                        this.controlActionModal.handleShow();
                     }}
                 >Add Showtime</button>
                 <h3 className="my-3">LIST OF SHOWTIMES</h3>
@@ -51,13 +54,15 @@ class ShowtimeManagement extends Component {
                                     <td>{item.movie.name}</td>
                                     <td className='showtimeM-time'>{item.time}</td>
                                     <td className='showtimeM-td'>
-                                        <button className="btn btn-success btn--edit" data-toggle="modal"
-                                            data-target="#showtimeInfoModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "edit" })
+                                        <button className="btn btn-success btn--edit"
+                                            onClick={() => {
+                                                this.setState({ objectEdit: item, type: "edit" });
+                                                this.controlActionModal.handleShow();
                                             }}>Edit</button>
-                                        <button className="btn btn-danger btn--delete" data-toggle="modal"
-                                            data-target="#submitDeleteShowtimeModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "delete" })
+                                        <button className="btn btn-danger btn--delete"
+                                            onClick={() => {
+                                                this.setState({ objectEdit: item, type: "showtime_delete" });
+                                                this.controlDeleteModal.handleShow();
                                             }}>Delete</button>
                                     </td>
                                 </tr >
@@ -65,7 +70,18 @@ class ShowtimeManagement extends Component {
                         })}
                     </tbody>
                 </table>
-                <ShowtimeModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ShowtimeModal>
+                <ShowtimeModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

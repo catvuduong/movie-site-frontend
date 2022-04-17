@@ -16,7 +16,7 @@ export default class DashBoard extends Component {
             toggleClicked: false,
             activeBranch: false, activeTheaeter: false, activeMovie: false, activeUser: false,
             activeShowtime: false, activeArticle: false, activeTicket: false,
-            component: UserManagement,
+            component: ShowtimeManagement,
         }
     }
 
