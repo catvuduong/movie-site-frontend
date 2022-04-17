@@ -8,9 +8,7 @@ class DeleteModal extends Component {
         super(props);
         this.state = {
             object: {
-                username: "",
-                email: "",
-                password: ""
+                id: ''
             },
             deleteModal: false
         }
@@ -30,17 +28,13 @@ class DeleteModal extends Component {
             this.setState({
                 object: {
                     id: nextProps.objectEdit.id,
-                    username: nextProps.objectEdit.username,
-                    email: nextProps.objectEdit.email,
                 }
             });
         }
         else {
             this.setState({
                 object: {
-                    username: "",
-                    email: "",
-                    password: ""
+                    id: ''
                 }
             })
         }
@@ -57,13 +51,25 @@ class DeleteModal extends Component {
     handleSubmit = async () => {
         switch (this.props.type) {
             case "branch_delete":
-                await this.props.actionBranch(this.state.object, this.props.type);
+                await this.props.deleteBranch(this.state.object, this.props.type);
                 break;
-            case "user_delete":
-                await this.props.actionUser(this.state.object, this.props.type);
+            case "theater_delete":
+                await this.props.deleteTheater(this.state.object, this.props.type);
                 break;
             case "showtime_delete":
-                await this.props.actionShowtime(this.state.object, this.props.type);
+                await this.props.deleteShowtime(this.state.object, this.props.type);
+                break;
+            case "movie_delete":
+                await this.props.deleteMovie(this.state.object, this.props.type);
+                break;
+            case "article_delete":
+                await this.props.deleteArticle(this.state.object, this.props.type);
+                break;
+            case "user_delete":
+                await this.props.deleteUser(this.state.object, this.props.type);
+                break;
+            case "ticket_delete":
+                await this.props.deleteTicket(this.state.object, this.props.type);
                 break;
             default:
                 break;
@@ -72,9 +78,7 @@ class DeleteModal extends Component {
         await this.props.refesh();
         this.setState({
             object: {
-                username: "",
-                email: "",
-                password: ""
+                id: ''
             }
         });
     }
@@ -109,15 +113,27 @@ class DeleteModal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        actionUser: async (object, type) => {
-            await dispatch(action.actUserManagement(object, type));
-        },
-        actionBranch: async (object, type) => {
+        deleteBranch: async (object, type) => {
             await dispatch(action.actBranchManagement(object, type));
         },
-        actionShowtime: async (ojbect, type) => {
+        deleteShowtime: async (ojbect, type) => {
             await dispatch(action.actShowtimeManagement(ojbect, type));
         },
+        deleteTheater: async (ojbect, type) => {
+            await dispatch(action.actTheaterManagement(ojbect, type));
+        },
+        deleteMovie: async (ojbect, type) => {
+            await dispatch(action.actMovieManagement(ojbect, type));
+        },
+        deleteArticle: async (ojbect, type) => {
+            await dispatch(action.actArticleManagement(ojbect, type));
+        },
+        deleteUser: async (object, type) => {
+            await dispatch(action.actUserManagement(object, type));
+        },
+        deleteTicket: async (ojbect, type) => {
+            await dispatch(action.actTicketManagement(ojbect, type));
+        }
     }
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
-import MovieModal from './admin-modals/movie-modal'
+import MovieModal from './admin-modals/movie-modal';
+import DeleteModal from './admin-modals/delete-modal';
 
 class MovieManagement extends Component {
     constructor(props) {
@@ -9,6 +10,8 @@ class MovieManagement extends Component {
         this.state = {
             listMovies: []
         }
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
 
     async componentDidMount() {
@@ -30,8 +33,9 @@ class MovieManagement extends Component {
                     data-target="#movieInfoModal"
                     onClick={() => {
                         this.setState({ objectEdit: null, type: null });
+                        this.controlActionModal.handleShow();
                     }}
-                >Add Theater</button>
+                >Add Movie</button>
                 <h3 className="my-3">LIST OF MOVIES</h3>
                 <table className="table">
                     <thead>
@@ -52,11 +56,13 @@ class MovieManagement extends Component {
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#movieInfoModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "edit" })
+                                                this.setState({ objectEdit: item, type: "edit" });
+                                                this.controlActionModal.handleShow();
                                             }}>Edit</button>
                                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                                             data-target="#submitDeleteMovieModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "delete" })
+                                                this.setState({ objectEdit: item, type: "movie_delete" });
+                                                this.controlDeleteModal.handleShow();
                                             }}>Delete</button>
                                     </td>
                                 </tr >
@@ -64,7 +70,18 @@ class MovieManagement extends Component {
                         })}
                     </tbody>
                 </table>
-                <MovieModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></MovieModal>
+                <MovieModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

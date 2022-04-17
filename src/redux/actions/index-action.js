@@ -238,7 +238,6 @@ export const actBranchManagement = (branch, type) => {
 }
 
 export const actTheaterManagement = (theater, type) => {
-    console.log(theater, type);
     return async () => {
         try {
             if (theater.id) {
@@ -250,7 +249,7 @@ export const actTheaterManagement = (theater, type) => {
                         });
                         break;
                     }
-                    case "delete": {
+                    case "theater_delete": {
                         await axios.delete(`/theaters/delete/${theater.id}`);
                         toast.success("Delete successfully", {
                             theme: "colored"
@@ -275,7 +274,6 @@ export const actTheaterManagement = (theater, type) => {
 }
 
 export const actMovieManagement = (movie, type) => {
-    console.log(movie, type);
     return async () => {
         try {
             if (movie.id) {
@@ -287,7 +285,7 @@ export const actMovieManagement = (movie, type) => {
                         });
                         break;
                     }
-                    case "delete": {
+                    case "movie_delete": {
                         await axios.delete(`/movies/delete/${movie.id}`);
                         toast.success("Delete successfully", {
                             theme: "colored"
@@ -359,7 +357,7 @@ export const actArticleManagement = (article, type) => {
                         });
                         break;
                     }
-                    case "delete": {
+                    case "article_delete": {
                         await axios.delete(`/articles/delete/${article.id}`);
                         toast.success("Delete successfully", {
                             theme: "colored"
@@ -454,7 +452,7 @@ export const actTicketManagement = (ticket, type) => {
                     //     alert("Update success");
                     //     break;
                     // } 
-                    case "delete": {
+                    case "ticket_delete": {
                         await axios.delete(`/tickets/delete/${ticket.id}`);
                         toast.success("Delete successfully", {
                             theme: "colored"

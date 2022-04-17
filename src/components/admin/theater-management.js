@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import * as action from '../../redux/actions/index-action';
 import { connect } from 'react-redux';
-import ModalTheater from './admin-modals/modal-theater';
+import TheaterModal from './admin-modals/theater-modal';
+import DeleteModal from './admin-modals/delete-modal';
+
 
 class TheaterManagement extends Component {
     constructor(props) {
@@ -10,6 +12,8 @@ class TheaterManagement extends Component {
             objectEdit: null,
             type: "",
         }
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
 
     async componentDidMount() {
@@ -34,11 +38,13 @@ class TheaterManagement extends Component {
                     <td>
                         <button className="btn btn-success btn--edit" data-toggle="modal"
                             data-target="#theaterInfoModal" onClick={() => {
-                                this.setState({ objectEdit: item, type: "edit" })
+                                this.setState({ objectEdit: item, type: "edit" });
+                                this.controlActionModal.handleShow();
                             }}>Edit</button>
                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                             data-target="#submitDeleteTheaterModal" onClick={() => {
-                                this.setState({ objectEdit: item, type: "delete" })
+                                this.setState({ objectEdit: item, type: "theater_delete" });
+                                this.controlDeleteModal.handleShow();
                             }}>Delete</button>
                     </td>
                 </tr >
@@ -53,6 +59,7 @@ class TheaterManagement extends Component {
                 <button className="btn btn-primary add_branch" data-toggle="modal"
                     data-target="#theaterInfoModal" onClick={() => {
                         this.setState({ objectEdit: null, type: null });
+                        this.controlActionModal.handleShow();
                     }} >Add Theater</button>
                 <h3 className="my-3">LIST OF THEATERS</h3>
                 <table className="table">
@@ -68,7 +75,18 @@ class TheaterManagement extends Component {
                         {this.renderListBranches(listTheaters)}
                     </tbody>
                 </table>
-                <ModalTheater objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ModalTheater>
+                <TheaterModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

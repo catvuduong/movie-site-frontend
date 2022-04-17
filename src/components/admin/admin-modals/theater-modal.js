@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action';
 import { Modal, Button } from 'react-bootstrap';
 
-class BranchModal extends Component {
+class TheaterModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
             object: {
                 name: "",
-                image: ""
+                image: "",
+                branchId: "",
             },
-            actionModal: false
+            classModal: false,
         }
     }
 
@@ -32,6 +33,7 @@ class BranchModal extends Component {
                     id: nextProps.objectEdit.id,
                     name: nextProps.objectEdit.name,
                     image: nextProps.objectEdit.image,
+                    branchId: nextProps.objectEdit.branchId,
                 }
             });
         }
@@ -40,6 +42,7 @@ class BranchModal extends Component {
                 object: {
                     name: "",
                     image: "",
+                    branchId: "",
                 }
             })
         }
@@ -52,7 +55,6 @@ class BranchModal extends Component {
                 ...this.state.object, [name]: value
             }
         });
-
     }
 
     handleShow = () => {
@@ -65,12 +67,24 @@ class BranchModal extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        await this.props.actionBranch(this.state.object, this.props.type);
+        await this.props.actionSubmit(this.state.object, this.props.type);
         await this.handleClose();
         await this.props.refesh();
     }
 
+    handleBranchID = list => {
+        // Id of list branches is branchId
+        return list.map((item, index) => {
+            return (
+                <option key={index} value={item.id} >
+                    {item.name}
+                </option>
+            );
+        })
+    }
+
     render() {
+        let { listBranches } = this.props;
         return (
             <Modal
                 className="modal fade"
@@ -94,14 +108,21 @@ class BranchModal extends Component {
                                 <label>Image</label>
                                 <input type="text" className="form-control" onChange={this.handleOnChange} name="image" value={this.state.object.image} />
                             </div>
+                            {this.props.objectEdit ? null :
+                                <div className="form-group">
+                                    <label>Branch</label>
+                                    <select className="form-control" onChange={this.handleOnChange} name="branchId" value={this.state.object.branchId} >
+                                        <option value="" disabled hidden>Chose branch</option>
+                                        {this.handleBranchID(listBranches)}
+                                    </select>
+                                </div>
+                            }
                         </div>
-                        <div className='text-right'>
-                            <Button type="submit" className="btn btn-success text-right"
-                                onClick={() => this.handleSubmit}
-                            >
-                                {this.props.objectEdit ? "Update" : "Submit"}
-                            </Button>
-                        </div>
+                        <Button type="submit" className="btn btn-success text-right"
+                            onClick={() => this.handleSubmit}
+                        >
+                            {this.props.objectEdit ? "Update" : "Submit"}
+                        </Button>
                     </form>
                 </Modal.Body>
             </Modal>
@@ -109,12 +130,23 @@ class BranchModal extends Component {
     }
 }
 
+
+
 const mapDispatchToProps = dispatch => {
     return {
-        actionBranch: (ojbect, type) => {
-            dispatch(action.actBranchManagement(ojbect, type));
-        }
+        actionSubmit: async (object, type) => {
+            await dispatch(action.actTheaterManagement(object, type));
+        },
+        getListTheaters: async () => {
+            await dispatch(action.actGetListTheatersAPI())
+        },
     }
 }
 
-export default connect(null, mapDispatchToProps)(BranchModal);
+const mapStateToProps = state => {
+    return {
+        listBranches: state.branchReducer.listBranches,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TheaterModal);

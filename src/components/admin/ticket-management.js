@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import * as action from '../../redux/actions/index-action';
-import TicketModal from './admin-modals/ticket-modal'
+import DeleteModal from './admin-modals/delete-modal';
 
 class TicketManagement extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
     async componentDidMount() {
         await this.props.getListTickets();
@@ -22,12 +24,6 @@ class TicketManagement extends Component {
         let { listTickets } = this.props;
         return (
             <div className="myBranchManament text-center">
-                {/* <button className="btn btn-primary add_branch" data-toggle="modal"
-                    data-target="#userInfoModal"
-                    onClick={() => {
-                        this.setState({ objectEdit: null, type: null });
-                    }}
-                >Add Users</button> */}
                 <h3 className="my-3">LIST OF TICKETS</h3>
                 <table className="table">
                     <thead className='ticketM-head'>
@@ -61,7 +57,8 @@ class TicketManagement extends Component {
                                         data-toggle="modal"
                                         data-target="#submitDeleteTicketModal"
                                         onClick={() => {
-                                            this.setState({ objectEdit: item, type: "delete" })
+                                            this.setState({ objectEdit: item, type: "ticket_delete" });
+                                            this.controlDeleteModal.handleShow();
                                         }}
                                     >
                                         Delete</button>
@@ -70,8 +67,18 @@ class TicketManagement extends Component {
                         ))}
                     </tbody>
                 </table>
-
-                <TicketModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></TicketModal>
+                {/* <TicketModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                /> */}
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

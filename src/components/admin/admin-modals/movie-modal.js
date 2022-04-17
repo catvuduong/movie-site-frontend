@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action';
-import $ from 'jquery';
+import { Modal, Button } from 'react-bootstrap';
 
 class MovieModal extends Component {
     constructor(props) {
@@ -11,7 +11,18 @@ class MovieModal extends Component {
                 name: "",
                 thumbnail: ""
             },
+            actionModal: false
         }
+    }
+
+    componentDidMount() {
+        const { actionRef } = this.props;
+        actionRef(this);
+    }
+
+    componentWillUnmount() {
+        const { actionRef } = this.props;
+        actionRef(undefined);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -43,82 +54,56 @@ class MovieModal extends Component {
             }
         });
     }
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.actionMovie(this.state.object, this.props.type);
-        this.props.refesh();
-        $('#movieInfoModal').modal('hide');
+
+    handleShow = () => {
+        this.setState({ actionModal: true })
     }
 
-    handleDelete = () => {
-        this.props.actionMovie(this.state.object, this.props.type)
-        this.props.refesh();
-        $('#submitDeleteMovieModal').modal('hide');
+    handleClose = () => {
+        this.setState({ actionModal: false })
     }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        await this.props.actionMovie(this.state.object, this.props.type);
+        await this.handleClose();
+        await this.props.refesh();
+    }
+
     render() {
         return (
-            <div>
-                <div
-                    className="modal fade"
-                    id="movieInfoModal"
-                    tabIndex={-1}
-                    role="dialog"
-                    aria-labelledby="modelTitleId"
-                    aria-hidden="true"
-                >
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content text-right">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{this.props.objectEdit ? "EDIT MOVIE" : "ADD MOVIE"}</h5>
-                                <button
-                                    type="button"
-                                    className="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                                >
-                                    <span aria-hidden="true">×</span>
-                                </button>
+            <Modal
+                className="modal fade"
+                show={this.state.actionModal}
+                onHide={() => this.handleClose()}
+            >
+                <Modal.Header className='warning-header userModal-header'>
+                    <span className='warning-sign userModal-sign'
+                        onClick={() => this.handleClose()}
+                    > x</span>
+                    <h5 className="modal-title">{this.props.objectEdit ? "EDIT MOVIE" : "ADD MOVIE"}</h5>
+                </Modal.Header>
+                <Modal.Body className='warning-body'>
+
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="text-left">
+                            <div className="form-group">
+                                <label>Name</label>
+                                <input type="text" className="form-control" onChange={this.handleOnChange} name="name" value={this.state.object.name} />
                             </div>
-                            <div className="modal-body">
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="text-left">
-                                        <div className="form-group">
-                                            <label>Name</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="name" value={this.state.object.name} />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Image</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="thumbnail" value={this.state.object.thumbnail} />
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn btn-success">
-                                        {this.props.objectEdit ? "Update" : "Submit"}
-                                    </button>
-                                </form>
+                            <div className="form-group">
+                                <label>Image</label>
+                                <input type="text" className="form-control" onChange={this.handleOnChange} name="thumbnail" value={this.state.object.thumbnail} />
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="submitDeleteMovieModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                Are you sure to delete?
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={() => this.handleDelete()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <Button type="submit" className="btn btn-success text-right"
+                            onClick={() => this.handleSubmit}
+                        >
+                            {this.props.objectEdit ? "Update" : "Submit"}
+                        </Button>
+                    </form>
+                </Modal.Body>
+            </Modal>
         );
     }
 }

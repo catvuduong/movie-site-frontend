@@ -16,7 +16,6 @@ class MovieModal extends Component {
         }
     }
 
-
     stopVideo = () => {
         var videos = document.querySelectorAll('iframe');
         Array.prototype.forEach.call(videos, function (video) {
@@ -28,6 +27,7 @@ class MovieModal extends Component {
             }
         });
     }
+
     render() {
         return (
             <div className="modal fade myMovieModal" id="exampleModalCenter" tabIndex={-1} role="dialog"

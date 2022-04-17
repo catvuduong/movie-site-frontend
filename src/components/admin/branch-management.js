@@ -15,14 +15,13 @@ class BranchManagement extends Component {
         this.controlActionModal = React.createRef();
         this.controlDeleteModal = React.createRef();
     }
+    
     async componentDidMount() {
         await this.props.getListBranches();
     }
 
     handleRefesh = () => {
-        setTimeout(() => {
-            this.props.getListBranches();
-        }, 500);
+        this.props.getListBranches();
     }
 
     renderListBranches = list => {

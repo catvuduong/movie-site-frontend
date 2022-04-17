@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from './../../redux/actions/index-action';
 import ArticleModal from './admin-modals/article-modal';
+import DeleteModal from './admin-modals/delete-modal';
 
 class ArticleManament extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
-        }
+            objectEdit: null,
+            type: "",
+        };
+        this.controlActionModal = React.createRef();
+        this.controlDeleteModal = React.createRef();
     }
+
     async componentDidMount() {
         await this.props.getListArticles();
     }
@@ -29,6 +34,7 @@ class ArticleManament extends Component {
                     data-target="#articleInfoModal"
                     onClick={() => {
                         this.setState({ objectEdit: null, type: null });
+                        this.controlActionModal.handleShow();
                     }}
                 >Add Article</button>
                 <h3 className="my-3">LIST OF ARTICLES</h3>
@@ -53,11 +59,13 @@ class ArticleManament extends Component {
                                     <td>
                                         <button className="btn btn-success btn--edit" data-toggle="modal"
                                             data-target="#articleInfoModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "edit" })
+                                                this.setState({ objectEdit: item, type: "edit" });
+                                                this.controlActionModal.handleShow();
                                             }}>Edit</button>
                                         <button className="btn btn-danger btn--delete" data-toggle="modal"
                                             data-target="#submitDeleteArticleModal" onClick={() => {
-                                                this.setState({ objectEdit: item, type: "delete" })
+                                                this.setState({ objectEdit: item, type: "article_delete" });
+                                                this.controlDeleteModal.handleShow();
                                             }}>Delete</button>
                                     </td>
                                 </tr >
@@ -65,7 +73,18 @@ class ArticleManament extends Component {
                         })}
                     </tbody>
                 </table>
-                <ArticleModal objectEdit={this.state.objectEdit} type={this.state.type} refesh={this.handleRefesh}></ArticleModal>
+                <ArticleModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    actionRef={ref => (this.controlActionModal = ref)}
+                />
+                <DeleteModal
+                    objectEdit={this.state.objectEdit}
+                    type={this.state.type}
+                    refesh={this.handleRefesh}
+                    deleteRef={ref => (this.controlDeleteModal = ref)}
+                />
             </div>
         )
     }

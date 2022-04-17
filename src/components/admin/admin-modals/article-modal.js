@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action';
-import $ from 'jquery';
+import { Modal, Button } from 'react-bootstrap';
 
 class ArticleModal extends Component {
     constructor(props) {
@@ -12,7 +12,18 @@ class ArticleModal extends Component {
                 thumbnail: "",
                 content: ""
             },
+            actionModal: false
         }
+    }
+
+    componentDidMount() {
+        const { actionRef } = this.props;
+        actionRef(this);
+    }
+
+    componentWillUnmount() {
+        const { actionRef } = this.props;
+        actionRef(undefined);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -46,17 +57,20 @@ class ArticleModal extends Component {
             }
         });
     }
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.actionArticle(this.state.object, this.props.type);
-        this.props.refesh();
-        $('#articleInfoModal').modal('hide');
+
+    handleShow = () => {
+        this.setState({ actionModal: true })
     }
 
-    handleDelete = () => {
-        this.props.actionArticle(this.state.object, this.props.type)
-        this.props.refesh();
-        $('#submitDeleteArticleModal').modal('hide');
+    handleClose = () => {
+        this.setState({ actionModal: false })
+    }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        await this.props.actionArticle(this.state.object, this.props.type);
+        await this.handleClose();
+        await this.props.refesh();
     }
 
     handleOjectID = list => {
@@ -71,72 +85,41 @@ class ArticleModal extends Component {
 
     render() {
         return (
-            <div>
-                <div
-                    className="modal fade"
-                    id="articleInfoModal"
-                    tabIndex={-1}
-                    role="dialog"
-                    aria-labelledby="modelTitleId"
-                    aria-hidden="true"
-                >
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content text-right">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{this.props.objectEdit ? "EDIT ARTICLE" : "ADD ARTICLE"}</h5>
-                                <button
-                                    type="button"
-                                    className="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                                >
-                                    <span aria-hidden="true">×</span>
-                                </button>
+            <Modal
+                className="modal fade"
+                show={this.state.actionModal}
+                onHide={() => this.handleClose()}
+            >
+                <Modal.Header className='warning-header userModal-header'>
+                    <span className='warning-sign userModal-sign'
+                        onClick={() => this.handleClose()}
+                    > x</span>
+                    <h5 className="modal-title">{this.props.objectEdit ? "EDIT BRANCH" : "ADD BRANCH"}</h5>
+                </Modal.Header>
+                <Modal.Body className='warning-body'>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="text-left">
+                            <div className="form-group">
+                                <label>Title</label>
+                                <input type="text" className="form-control" onChange={this.handleOnChange} name="title" value={this.state.object.title} />
                             </div>
-                            <div className="modal-body">
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="text-left">
-                                        <div className="form-group">
-                                            <label>Title</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="title" value={this.state.object.title} />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Thumbnail</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="thumbnail" value={this.state.object.thumbnail} />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Content</label>
-                                            <input type="text" className="form-control" onChange={this.handleOnChange} name="content" value={this.state.object.content} />
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn btn-success">
-                                        {this.props.objectEdit ? "Update" : "Submit"}
-                                    </button>
-                                </form>
+                            <div className="form-group">
+                                <label>Thumbnail</label>
+                                <input type="text" className="form-control" onChange={this.handleOnChange} name="thumbnail" value={this.state.object.thumbnail} />
+                            </div>
+                            <div className="form-group">
+                                <label>Content</label>
+                                <input type="text" className="form-control" onChange={this.handleOnChange} name="content" value={this.state.object.content} />
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="submitDeleteArticleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                Are you sure to delete?
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={() => this.handleDelete()}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <Button type="submit" className="btn btn-success text-right"
+                            onClick={() => this.handleSubmit}
+                        >
+                            {this.props.objectEdit ? "Update" : "Submit"}
+                        </Button>
+                    </form>
+                </Modal.Body>
+            </Modal>
         );
     }
 }

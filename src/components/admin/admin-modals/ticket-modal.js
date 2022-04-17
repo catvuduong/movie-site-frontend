@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../../redux/actions/index-action';
-import $ from 'jquery';
+import { Modal, Button } from 'react-bootstrap';
 
 class TicketModal extends Component {
 
