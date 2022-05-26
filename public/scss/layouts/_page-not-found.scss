@@ -1,0 +1,49 @@
+.notfound {
+    position: relative;
+    height: 100vh;
+    &-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        max-width: 540px;
+        width: 100%;
+    }
+    &-warning {
+        position: relative;
+    }
+    &-heading {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background-image: url("https://colorlib.com/etc/404/colorlib-error-404-10/img/bg.jpg");
+        background-clip: text;
+        color: transparent;
+        background-size: cover;
+        background-position: center;
+        font-size: 230px;
+        font-weight: 900;
+    }
+    &-content {
+        margin-top: 20px;
+    }
+    &-title {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    &-goback {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: 700;
+        background-color: $color-blue-1;
+        border: none;
+        border-radius: 30px;
+        outline: none;
+    }
+    @include respond-to("medium") {
+        &-heading {
+            font-size: 112px;
+        }
+    }
+}

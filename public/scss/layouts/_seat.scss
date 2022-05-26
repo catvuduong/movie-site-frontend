@@ -1,0 +1,318 @@
+.mySeat {
+    margin-top: 35px;
+    padding-top: 30px;
+    background-color: white;
+    .seat {
+        .theater {
+            display: flex;
+            img {
+                height: 50px;
+                width: 50px;
+            }
+            .theater_info {
+                padding-top: 5px;
+                padding-left: 20px;
+                text-align: left;
+                span {
+                    display: block;
+                }
+                span:first-child {
+                    @include text($color-black-0, $fs-0, $fw-bold-0);
+                }
+                span:last-child {
+                    @include text($color-gray-4, $fs-0, $fw-normal);
+                }
+            }
+        }
+        .time {
+            .time_remaining {
+                padding-top: 12px;
+                span {
+                    display: block;
+                }
+                span:first-child {
+                    @include text($color-gray-4, $fs-0, $fw-normal);
+                }
+                span:last-child {
+                    color: red;
+                }
+            }
+        }
+        .screen {
+            img {
+                width: 100%;
+                height: 100px;
+            }
+        }
+        .seat_customer {
+            padding-top: 35px;
+            i {
+                font-size: 35px;
+                padding: 5px 5px;
+                cursor: pointer;
+                color: $color-gray-2;
+            }
+            .vip {
+                color: $color-yellow;
+            }
+            .seating {
+                color: lightskyblue;
+            }
+            .seated {
+                color: $color-orange-0;
+                cursor: no-drop;
+            }
+        }
+        .seat_status {
+            padding-top: 50px;
+            .row {
+                .seating {
+                    i {
+                        color: lightskyblue;
+                    }
+                }
+                .seated {
+                    i {
+                        color: $color-orange-0;
+                    }
+                }
+                .havent_seat {
+                    i {
+                        color: $color-gray-2;
+                    }
+                }
+                .vip_seat {
+                    i {
+                        color: $color-yellow;
+                    }
+                }
+            }
+        }
+    }
+    .display_board {
+        .price {
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                @include text(greenyellow, 35px, $fw-normal);
+            }
+        }
+        hr {
+            background-color: white;
+        }
+        .theater_info {
+            height: 120px;
+            text-align: left;
+            span:first-child {
+                padding: 5px 15px;
+                @include text($color-white-0, $fs-1, $fw-normal);
+                background: $color-red-0;
+                border: 1px solid white;
+                border-radius: 5px;
+            }
+            span:nth-child(2) {
+                margin-left: 15px;
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            p:nth-child(3) {
+                margin-top: 10px;
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            p:last-child {
+                @include text($color-gray-2, $fs-1, $fw-bold-0);
+            }
+        }
+        .seated {
+            height: 120px;
+            text-align: left;
+            h5 {
+                @include text($color-gray-2, $fs-1, $fw-normal);
+            }
+            span {
+                color: greenyellow;
+            }
+        }
+        .payments {
+            height: 120px;
+            text-align: left;
+            h5 {
+                @include text($color-black-0, $fs-2, $fw-normal);
+            }
+            p:nth-child(2) {
+                @include text($color-orange-0, $fs-1, $fw-normal);
+            }
+            p:nth-child(3) {
+                @include text($color-gray-2, $fs-1, $fw-normal);
+                i {
+                    padding: 5px 10px;
+                    border: 1px solid red;
+                    border-radius: 50px;
+                    background-color: red;
+                }
+                span {
+                    color: $color-yellow;
+                }
+            }
+        }
+        .accept_button {
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-radius: 10px;
+                border-color: greenyellow;
+                background: linear-gradient(to right, rgba(0, 181, 0, 1), rgba(0, 255, 0, 1));
+                outline: none;
+            }
+        }
+    }
+
+    @include respond-to("large") {
+        .display_board {
+            .theater_info {
+                line-height: 1.2;
+                p {
+                    margin-top: 5px !important;
+                    margin-bottom: 5px !important;
+                }
+            }
+        }
+        .seat_customer {
+            i {
+                font-size: 20px !important;
+            }
+        }
+    }
+    @include respond-to("small") {
+        .seat_customer {
+            line-height: 0;
+            i {
+                padding: 1px 2px !important;
+            }
+        }
+        .seat_status {
+            .seating,
+            .seated,
+            .havent_seat,
+            .vip_seat {
+                font-size: 13px;
+            }
+        }
+        .display_board {
+            .price {
+                height: 50px;
+                span {
+                    font-size: 13px;
+                }
+            }
+            .theater_info {
+                span:first-child {
+                    display: none;
+                }
+                span:nth-child(2) {
+                    margin-left: 0;
+                }
+                p:last-child {
+                    display: none;
+                }
+            }
+            .seated {
+                height: 60px;
+                span {
+                    font-size: 13px;
+                }
+            }
+            .payments {
+                h5 {
+                    display: none;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+            .accept_button {
+                font-size: 10px;
+            }
+        }
+    }
+    @include respond-to("450") {
+        .seat_customer {
+            i {
+                font-size: 10px !important;
+            }
+        }
+        .display_board {
+            hr {
+                display: none;
+            }
+            .theater_info {
+                height: 70px;
+                span {
+                    font-size: 10px !important;
+                    line-height: 0.5 !important;
+                }
+                p {
+                    display: none;
+                }
+            }
+            .seated {
+                margin-top: 100px;
+                line-height: 1;
+            }
+            .payments {
+                display: none;
+            }
+            .accept_button {
+                margin-top: 30px;
+                padding-top: 50px;
+            }
+        }
+    }
+    @include respond-to("280") {
+        .seat_customer {
+            i {
+                margin-top: 0 !important;
+                font-size: 8px !important;
+                padding: 1px 1px !important;
+            }
+        }
+        .seat {
+            .container {
+                padding: 0;
+            }
+            .theater {
+                .theater_info {
+                    span {
+                        font-size: 13px !important;
+                    }
+                }
+            }
+            .time_remaining {
+                padding-top: 5px !important;
+                span {
+                    font-size: 13px !important;
+                }
+            }
+            .screen {
+                img {
+                    height: 40px;
+                }
+            }
+        }
+
+        .display_board {
+            padding-left: 5px;
+            .accept_button {
+                button {
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}

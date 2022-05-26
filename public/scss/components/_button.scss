@@ -1,0 +1,39 @@
+.btn--signIn {
+    @include button($color-gray-4, $color-gray-2, transparent, $fw-normal);
+    font-size: $fs-1;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+    border-radius: 0;
+}
+.btn--signUp {
+    @include button($color-gray-4, $color-gray-2, transparent, $fw-normal);
+    font-size: $fs-1;
+    border: none;
+}
+.btn--movie {
+    @include button($color-white-0, none, #ab1a03, $fw-normal);
+    position: absolute;
+    width: 100%;
+    top: 340px;
+    left: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    opacity: 0;
+    transition: all 0.5s;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.btn--edit {
+    display: block;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 5px 0;
+}
+.btn--delete {
+    margin: 5px 0;
+    padding-left: 20px;
+    padding-right: 21px;
+}

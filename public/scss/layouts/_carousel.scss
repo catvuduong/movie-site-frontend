@@ -1,0 +1,69 @@
+.myCarousel {
+    padding-top: 65px;
+    .carousel_item {
+        position: relative;
+        cursor: pointer;
+        &:hover {
+            span {
+                display: block;
+            }
+        }
+        img {
+            width: 100%;
+        }
+        span {
+            position: absolute;
+            top: 35%;
+            left: 48%;
+            color: $color-gray-2;
+            border: 3px solid $color-gray-2;
+            padding: $pd-3;
+            font-size: $fs-3;
+            border-radius: 50px;
+            display: none;
+            transition: all 0.5s;
+            cursor: pointer;
+            &:hover {
+                color: $color-white-0;
+                border: 3px solid $color-white-0;
+            }
+        }
+    }
+    .swiper-container {
+        .swiper-button-next {
+            right: 15px;
+            color: gray;
+        }
+        .swiper-button-prev {
+            left: 15px;
+            color: gray;
+        }
+        .swiper-pagination {
+            bottom: 40px;
+            .swiper-pagination-bullet-active {
+                background-color: red;
+            }
+            .swiper-pagination-bullet {
+                height: 13px;
+                width: 13px;
+            }
+        }
+    }
+    @include respond-to("large") {
+        .carousel_item {
+            span {
+                top: 35%;
+                left: 45%;
+            }
+        }
+    }
+    @include respond-to("450") {
+        .carousel_item {
+            span {
+                font-size: 15px;
+                padding: 15px;
+                border-radius: 30px;
+            }
+        }
+    }
+}

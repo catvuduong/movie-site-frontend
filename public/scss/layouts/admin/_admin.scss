@@ -1,0 +1,27 @@
+.admin {
+    position: relative;
+    height: 100vh;
+    &-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &-title {
+        font-size: 30px;
+        font-weight: 700;
+    }
+    &-form {
+        margin-top: 10px;
+    }
+    &-username {
+        width: 300px;
+    }
+    &-password {
+        width: 300px;
+    }
+    &-signin {
+        margin-top: 10px;
+        padding: 5px 50px;
+    }
+}

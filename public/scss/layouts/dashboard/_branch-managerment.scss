@@ -1,0 +1,17 @@
+.myBranchManament {
+    position: relative;
+    .add_branch {
+        position: absolute;
+        font-size: fs-1;
+        top: -65px;
+        right: 5px;
+    }
+}
+.branchM {
+    @include respond-to("large") {
+        &-thImage,
+        &-image {
+            display: none;
+        }
+    }
+}

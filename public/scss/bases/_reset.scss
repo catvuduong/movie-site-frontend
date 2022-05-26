@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-size: 18px;
+    background-color: $color-white-0;
+    overflow-x: hidden;
+}
+
+@include respond-to("small") {
+    body {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,8 @@
+.userM {
+    @include respond-to("450") {
+        &-thEmail,
+        &-email {
+            display: none;
+        }
+    }
+}

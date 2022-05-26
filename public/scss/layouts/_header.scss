@@ -1,0 +1,279 @@
+.myHeader {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    .navbar_contain {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        .header_logo {
+            text-align: left;
+            cursor: pointer;
+        }
+        .navbar_content {
+            text-align: left;
+            justify-content: center;
+            .navbar-nav {
+                .nav-item {
+                    a {
+                        font-size: 15px;
+                        color: #000;
+                        transition: 0.2s;
+                        &:hover {
+                            color: $color-orange-0;
+                        }
+                    }
+                    .user_title {
+                        display: none;
+                        margin: 10px 0;
+                        padding: 10px 0;
+                        font-size: 13px;
+                        font-weight: 500;
+                        background-color: $color-gray-2;
+                    }
+                    .user_function {
+                        display: none;
+                        .navbar_signIn {
+                            .signIn_button {
+                                border: none;
+                                background-color: transparent;
+                                outline: none;
+                                .fa-user {
+                                    color: gray;
+                                    transition: all 0.5s;
+                                }
+                            }
+                            .btn--signIn {
+                                box-shadow: none;
+                            }
+                            .btn--signIn,
+                            .fa-user {
+                                color: gray;
+                                transition: all 0.5s;
+                            }
+                            img {
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 15px;
+                                border: 3px solid gray;
+                                transition: all 0.5s;
+                                display: none;
+                            }
+                            &:hover {
+                                .btn--signIn,
+                                .fa-user {
+                                    color: black;
+                                }
+                                img {
+                                    border: 3px solid black;
+                                }
+                            }
+                            .user {
+                                &-dropdown {
+                                    position: relative;
+                                    display: inline-block;
+                                }
+                                &-content {
+                                    position: absolute;
+                                    background-color: #f9f9f9;
+                                    min-width: 160px;
+                                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                                    z-index: 1;
+                                }
+                                &-image {
+                                    cursor: pointer;
+                                }
+                            }
+                            .user-dropdown {
+                                .user-content {
+                                    text-align: center;
+                                    padding: 10px 10px;
+                                    border-radius: 3px;
+                                    button {
+                                        font-size: 15px;
+                                        font-weight: 500;
+                                        padding: 5px 10px;
+                                        background-color: $color-gray-2;
+                                        transition: 0.2s;
+                                        border: none;
+                                        &:hover {
+                                            background-color: #007bff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .narbar_signUp {
+                            margin-left: 15px;
+                            .btn--signUp {
+                                padding: 0;
+                                box-shadow: none;
+                                color: gray;
+                                transition: all 0.5s;
+                                .fa-map-marker-alt {
+                                    font-size: 20px;
+                                    color: gray;
+                                    transition: all 0.5s;
+                                }
+                            }
+                            .signUp_text {
+                                margin-left: 10px;
+                                font-size: 13px;
+                                text-decoration: none;
+                                color: gray;
+                                transition: all 0.5s;
+                            }
+                            &:hover {
+                                .btn--signUp,
+                                .fa-map-marker-alt,
+                                .signUp_text {
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .navbar_login {
+        display: flex;
+        .navbar_signIn {
+            .signIn_button {
+                border: none;
+                background-color: transparent;
+                outline: none;
+                .fa-user {
+                    color: gray;
+                    transition: all 0.5s;
+                }
+            }
+            .btn--signIn {
+                box-shadow: none;
+            }
+            .btn--signIn,
+            .fa-user {
+                color: gray;
+                transition: all 0.5s;
+            }
+            .user-dropdown {
+                .user-content {
+                    padding: 10px 10px;
+                    border-radius: 3px;
+                    button {
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 5px 10px;
+                        background-color: $color-gray-2;
+                        transition: 0.2s;
+                        border: none;
+                        &:hover {
+                            background-color: #007bff;
+                        }
+                    }
+                }
+            }
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+                border: 3px solid gray;
+                transition: all 0.5s;
+                display: none;
+            }
+            &:hover {
+                .btn--signIn,
+                .fa-user {
+                    color: black;
+                }
+                img {
+                    border: 3px solid black;
+                }
+            }
+            .user {
+                &-dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
+                &-content {
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    z-index: 1;
+                }
+                &-image {
+                    cursor: pointer;
+                }
+            }
+        }
+        .narbar_signUp {
+            margin-left: 15px;
+            .btn--signUp {
+                padding: 0;
+                box-shadow: none;
+                color: gray;
+                transition: all 0.5s;
+                .fa-map-marker-alt {
+                    font-size: 20px;
+                    color: gray;
+                    transition: all 0.5s;
+                }
+            }
+            .signUp_text {
+                margin-left: 10px;
+                font-size: 13px;
+                text-decoration: none;
+                color: gray;
+                transition: all 0.5s;
+            }
+            &:hover {
+                .btn--signUp,
+                .fa-map-marker-alt,
+                .signUp_text {
+                    color: black;
+                }
+            }
+        }
+    }
+    @include respond-to("large") {
+        .navbar_contain {
+            justify-content: space-between;
+            .navbar_login {
+                display: none;
+            }
+            .navbar_content {
+                .navbar-nav {
+                    .nav-item {
+                        .nav-link {
+                            padding: 2px 15px;
+                        }
+                        .user_title {
+                            display: block;
+                            padding-left: 15px;
+                        }
+                        .user_function {
+                            display: flex;
+                            padding-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond-to("medium") {
+    }
+    @include respond-to("small") {
+        .navbar_contain {
+            .header_logo {
+                .logo_image {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

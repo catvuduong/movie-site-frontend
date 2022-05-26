@@ -1,0 +1,38 @@
+@import "helpers/variable";
+
+@import "helpers/mixin";
+@import "bases/reset";
+
+@import "layouts/admin/admin";
+
+@import "layouts/header";
+@import "layouts/carousel";
+@import "layouts/list-movie";
+@import "layouts/movie-modal";
+@import "layouts/cinema";
+@import "layouts/dashboard";
+@import "layouts/details-movie";
+@import "layouts/article";
+@import "layouts/apps";
+@import "layouts/banner";
+@import "layouts/seat";
+@import "layouts/loadingscreen";
+@import "layouts/showtimes-detailmovie";
+
+@import "layouts/dashboard/branch-managerment";
+@import "layouts/dashboard/theater-management";
+@import "layouts/dashboard/movie-management";
+@import "layouts/dashboard//showtime-management";
+@import "layouts/dashboard/article-management";
+@import "layouts/dashboard/ticket-management";
+@import "layouts/dashboard/user-management";
+
+@import "layouts/dashboard//modals/user-modal.scss";
+
+@import "layouts/warning-modal";
+@import "modals/login-modal";
+
+@import "layouts/page-not-found";
+
+@import "components/button";
+@import "components/general";

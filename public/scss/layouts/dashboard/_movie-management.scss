@@ -1,0 +1,32 @@
+.myMovieManament {
+    position: relative;
+    .add_branch {
+        position: absolute;
+        font-size: fs-1;
+        top: -65px;
+        right: 5px;
+    }
+    .table {
+        .btn--edit,
+        .btn--delete {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .btn--delete {
+            margin-left: 0;
+            padding-left: 21px;
+            padding-right: 21px;
+        }
+    }
+}
+
+@include respond-to("large") {
+    .movieM {
+        &-thThumbnail {
+            display: none;
+        }
+        &-thumbnail {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.ticketM {
+    &-image {
+        width: 30px;
+        height: 30px;
+    }
+    &-name {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    &-time {
+        font-size: 15px;
+    }
+    &-position {
+        font-size: 15px;
+        span {
+            font-size: 15px;
+        }
+    }
+    @include respond-to("large") {
+        &-position {
+            span {
+                display: block;
+            }
+        }
+    }
+    @include respond-to("extra-small") {
+        &-head {
+            &::after {
+                content: "Not available under 360 responsive";
+                visibility: visible;
+                display: block;
+                position: absolute;
+                background-color: red;
+                padding: 5px;
+                top: 120px;
+            }
+        }
+        &-body {
+            display: none;
+        }
+    }
+}

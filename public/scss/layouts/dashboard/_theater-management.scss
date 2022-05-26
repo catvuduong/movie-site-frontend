@@ -1,0 +1,8 @@
+.theaterM {
+    @include respond-to("large") {
+        &-thImage,
+        &-image {
+            display: none;
+        }
+    }
+}
